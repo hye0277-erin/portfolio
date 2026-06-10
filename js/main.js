@@ -1,254 +1,299 @@
 /* =========================================================
   HYE02 PORTFOLIO SCRIPT
-  - GSAP / Draggable / Lenis 사용
-  - 직접 수정해야 할 부분은 TODO 주석을 확인하세요.
+  - GSAP / ScrollTrigger / Draggable / Lenis
+  - 인트로: 3D 로툰다 (3초 간격 자동 회전, 스크롤 가로채지 않음)
+  - 그 외: 커스텀 커서 · 마그네틱 · 인덱스 호버 프리뷰 · 스크롤 진행바
 ========================================================= */
 
 window.addEventListener("DOMContentLoaded", () => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   gsap.registerPlugin(ScrollTrigger, Draggable);
+  const pad = (n) => String(n).padStart(2, "0");
 
   /* =======================================================
-    SMOOTH SCROLL
-    - Lenis가 불러와지지 않으면 기본 스크롤로 동작합니다.
+    SMOOTH SCROLL (Lenis) + 앵커 이동
   ======================================================= */
-  if (window.Lenis) {
-    const lenis = new Lenis({
-      duration: 1.18,
-      smoothWheel: true,
-      wheelMultiplier: 0.86,
-      touchMultiplier: 1.4
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
+  let lenis = null;
+  if (window.Lenis && !reduceMotion) {
+    lenis = new Lenis({ duration: 1.15, smoothWheel: true, wheelMultiplier: 0.9, touchMultiplier: 1.5 });
     lenis.on("scroll", ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
+    gsap.ticker.add((t) => lenis.raf(t * 1000));
     gsap.ticker.lagSmoothing(0);
   }
 
-  /* =======================================================
-    INTRO TEXT ANIMATION
-  ======================================================= */
-  gsap.set(".js-title-line", { yPercent: 115, rotate: 2, opacity: 0 });
-  gsap.set(".js-reveal-text", { y: 24, opacity: 0 });
-  gsap.set(".intro-panel, .intro-control", { y: 24, opacity: 0 });
-
-  const introTl = gsap.timeline({ defaults: { ease: "power4.out" } });
-  introTl
-    .to(".js-title-line", {
-      yPercent: 0,
-      rotate: 0,
-      opacity: 1,
-      duration: 1.15,
-      stagger: 0.08
-    })
-    .to(".js-reveal-text", {
-      y: 0,
-      opacity: 1,
-      duration: 0.75,
-      stagger: 0.08
-    }, "-=0.65")
-    .to(".intro-panel, .intro-control", {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      stagger: 0.08
-    }, "-=0.35");
-
-  /* =======================================================
-    3D ROTUNDA
-    - 카드 추가/삭제 시 HTML의 .rotunda-card만 수정하면 됩니다.
-    - radius 값은 원형 깊이감입니다. 숫자가 클수록 카드 간격이 넓어집니다.
-  ======================================================= */
-  const stage = document.querySelector("[data-rotunda-stage]");
-  const cards = gsap.utils.toArray(".rotunda-card");
-  const total = cards.length;
-  const angle = 360 / total;
-  const currentEl = document.querySelector("[data-current]");
-  const totalEl = document.querySelector("[data-total]");
-  const activeTitle = document.querySelector("[data-active-title]");
-  const activeType = document.querySelector("[data-active-type]");
-  const activeLink = document.querySelector("[data-active-link]");
-  const prevBtn = document.querySelector("[data-prev]");
-  const nextBtn = document.querySelector("[data-next]");
-
-  let current = 0;
-  let wheelLocked = false;
-  let radius = getRadius();
-
-  if (totalEl) totalEl.textContent = String(total).padStart(2, "0");
-
-  function getRadius() {
-    if (window.innerWidth <= 560) return 430;
-    if (window.innerWidth <= 860) return 520;
-    if (window.innerWidth <= 1200) return 620;
-    return 760;
+  function scrollToTarget(target) {
+    if (lenis) lenis.scrollTo(target, { offset: -10 });
+    else target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
   }
 
-  function layoutCards() {
-    radius = getRadius();
-
-    cards.forEach((card, i) => {
-      gsap.set(card, {
-        xPercent: -50,
-        yPercent: -50,
-        rotationY: i * angle,
-        z: radius,
-        transformOrigin: `50% 50% -${radius}px`,
-        opacity: 1
-      });
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const id = link.getAttribute("href");
+      if (id === "#" || id.length < 2) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      scrollToTarget(target);
     });
-
-    gsap.set(stage, { rotationY: -current * angle });
-    updateActiveState(false);
-  }
-
-  function normalizeIndex(index) {
-    return (index + total) % total;
-  }
-
-  function shortestDistance(i, active) {
-    let diff = i - active;
-    if (diff > total / 2) diff -= total;
-    if (diff < -total / 2) diff += total;
-    return diff;
-  }
-
-  function updateActiveState(animate = true) {
-    const activeCard = cards[current];
-
-    if (currentEl) currentEl.textContent = String(current + 1).padStart(2, "0");
-    if (activeCard) {
-      activeTitle.textContent = activeCard.dataset.title || "Project";
-      activeType.textContent = activeCard.dataset.type || "Portfolio Work";
-      activeLink.setAttribute("href", activeCard.dataset.link || "#works");
-    }
-
-    cards.forEach((card, i) => {
-      const diff = Math.abs(shortestDistance(i, current));
-      const opacity = diff === 0 ? 1 : diff === 1 ? 0.58 : 0.24;
-      const blur = diff === 0 ? 0 : diff === 1 ? 0.6 : 1.8;
-      const scale = diff === 0 ? 1 : diff === 1 ? 0.92 : 0.84;
-
-      gsap.to(card, {
-        opacity,
-        scale,
-        filter: `blur(${blur}px)`,
-        duration: animate ? 0.55 : 0,
-        ease: "power3.out"
-      });
-    });
-  }
-
-  function goTo(index) {
-    current = normalizeIndex(index);
-
-    gsap.to(stage, {
-      rotationY: -current * angle,
-      duration: 1.05,
-      ease: "power4.inOut",
-      overwrite: true
-    });
-
-    updateActiveState(true);
-  }
-
-  layoutCards();
-
-  prevBtn?.addEventListener("click", () => goTo(current - 1));
-  nextBtn?.addEventListener("click", () => goTo(current + 1));
-
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") goTo(current - 1);
-    if (e.key === "ArrowRight") goTo(current + 1);
   });
 
-  /*
-    휠 조작
-    - 인트로 영역 위에서만 카드가 회전합니다.
-    - 너무 민감하지 않도록 wheelLocked를 사용합니다.
-  */
-  const intro = document.querySelector("#intro");
-  intro?.addEventListener("wheel", (e) => {
-    const isIntroVisible = window.scrollY < intro.offsetHeight * 0.72;
-    if (!isIntroVisible) return;
-
-    if (Math.abs(e.deltaY) < 18 || wheelLocked) return;
-
-    wheelLocked = true;
-    if (e.deltaY > 0) goTo(current + 1);
-    else goTo(current - 1);
-
-    setTimeout(() => {
-      wheelLocked = false;
-    }, 850);
-  }, { passive: true });
-
-  /*
-    드래그 조작
-    - 숨겨진 proxy를 드래그해서 방향만 감지합니다.
-    - 모바일 터치에서도 작동합니다.
-  */
-  const dragProxy = document.createElement("div");
-  let dragStartX = 0;
-
-  Draggable.create(dragProxy, {
-    type: "x",
-    trigger: ".rotunda-wrap",
-    inertia: false,
-    onPress() {
-      dragStartX = this.x;
-    },
-    onRelease() {
-      const diff = this.x - dragStartX;
-      if (Math.abs(diff) > 26) {
-        if (diff < 0) goTo(current + 1);
-        else goTo(current - 1);
-      }
-      gsap.set(this.target, { x: 0 });
-    }
-  });
-
-  window.addEventListener("resize", gsap.utils.debounce(() => {
-    layoutCards();
-    ScrollTrigger.refresh();
-  }, 180));
-
   /* =======================================================
-    SECTION REVEAL ANIMATION
+    SCROLL PROGRESS BAR
   ======================================================= */
-  gsap.utils.toArray(".reveal-up").forEach((el) => {
-    gsap.fromTo(el,
-      { y: 54, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.95,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 82%"
-        }
-      }
-    );
-  });
+  const progressEl = document.querySelector("[data-progress]");
+  if (progressEl) {
+    ScrollTrigger.create({
+      start: 0, end: "max",
+      onUpdate: (self) => { progressEl.style.transform = `scaleX(${self.progress})`; }
+    });
+  }
 
   /* =======================================================
     HEADER SCROLL STATE
   ======================================================= */
   const header = document.querySelector("[data-header]");
   ScrollTrigger.create({
-    start: 20,
-    end: 99999,
-    onUpdate: (self) => {
-      header?.classList.toggle("is-scrolled", self.scroll() > 40);
-    }
+    start: 30, end: "max",
+    onUpdate: (self) => header?.classList.toggle("is-scrolled", self.scroll() > 50)
   });
+
+  /* =======================================================
+    INTRO 텍스트 애니메이션
+  ======================================================= */
+  if (!reduceMotion) {
+    gsap.set(".js-title-line", { yPercent: 115, rotate: 2, opacity: 0 });
+    gsap.set(".js-reveal-text", { y: 24, opacity: 0 });
+    gsap.set(".intro-panel, .intro-control", { y: 24, opacity: 0 });
+
+    gsap.timeline({ defaults: { ease: "power4.out" } })
+      .to(".js-title-line", { yPercent: 0, rotate: 0, opacity: 1, duration: 1.15, stagger: 0.08 })
+      .to(".js-reveal-text", { y: 0, opacity: 1, duration: 0.75, stagger: 0.08 }, "-=0.65")
+      .to(".intro-panel, .intro-control", { y: 0, opacity: 1, duration: 0.7 }, "-=0.4");
+  }
+
+  /* =======================================================
+    3D ROTUNDA (자동 회전)
+    - 3초마다 다음 카드로 자동 회전합니다.
+    - 휠로 스크롤을 가로채지 않으므로 페이지는 정상 스크롤됩니다.
+    - 드래그 / 좌우 화살표 / 버튼으로 직접 조작할 수 있습니다.
+  ======================================================= */
+  (function rotunda() {
+    const stage = document.querySelector("[data-rotunda-stage]");
+    if (!stage) return;
+    const cards = gsap.utils.toArray(".rotunda-card");
+    const total = cards.length;
+    if (!total) return;
+
+    const angle = 360 / total;
+    const currentEl = document.querySelector("[data-current]");
+    const totalEl = document.querySelector("[data-total]");
+    const activeTitle = document.querySelector("[data-active-title]");
+    const activeType = document.querySelector("[data-active-type]");
+    const activeLink = document.querySelector("[data-active-link]");
+    const prevBtn = document.querySelector("[data-prev]");
+    const nextBtn = document.querySelector("[data-next]");
+
+    let current = 0;
+    let radius = getRadius();
+    if (totalEl) totalEl.textContent = pad(total);
+
+    function getRadius() {
+      if (window.innerWidth <= 560) return 430;
+      if (window.innerWidth <= 860) return 520;
+      if (window.innerWidth <= 1200) return 620;
+      return 760;
+    }
+
+    function layoutCards() {
+      radius = getRadius();
+      cards.forEach((card, i) => {
+        gsap.set(card, {
+          xPercent: -50, yPercent: -50,
+          rotationY: i * angle, z: radius,
+          transformOrigin: `50% 50% -${radius}px`
+        });
+      });
+      gsap.set(stage, { rotationY: -current * angle });
+      updateActive(false);
+    }
+
+    const norm = (i) => (i + total) % total;
+    function dist(i, active) {
+      let d = i - active;
+      if (d > total / 2) d -= total;
+      if (d < -total / 2) d += total;
+      return d;
+    }
+
+    function updateActive(animate = true) {
+      const activeCard = cards[current];
+      if (currentEl) currentEl.textContent = pad(current + 1);
+      if (activeCard && activeTitle) {
+        activeTitle.textContent = activeCard.dataset.title || "Project";
+        activeType.textContent = activeCard.dataset.type || "Portfolio Work";
+        activeLink.setAttribute("href", activeCard.dataset.link || "#works");
+      }
+      cards.forEach((card, i) => {
+        const d = Math.abs(dist(i, current));
+        const opacity = d === 0 ? 1 : d === 1 ? 0.58 : 0.24;
+        const blur = d === 0 ? 0 : d === 1 ? 0.6 : 1.8;
+        const scale = d === 0 ? 1 : d === 1 ? 0.92 : 0.84;
+        gsap.to(card, { opacity, scale, filter: `blur(${blur}px)`, duration: animate ? 0.55 : 0, ease: "power3.out" });
+      });
+    }
+
+    function goTo(index) {
+      current = norm(index);
+      gsap.to(stage, { rotationY: -current * angle, duration: 1.05, ease: "power4.inOut", overwrite: true });
+      updateActive(true);
+    }
+
+    layoutCards();
+
+    /* ---- 자동 회전 (3초 간격) ---- */
+    let auto = null;
+    function startAuto() {
+      if (reduceMotion) return;
+      stopAuto();
+      auto = gsap.delayedCall(2, () => { goTo(current + 1); startAuto(); });
+    }
+    function stopAuto() { if (auto) { auto.kill(); auto = null; } }
+
+    // 직접 조작 시: 이동 후 자동 회전 타이머 리셋
+    function manual(index) { goTo(index); startAuto(); }
+
+    prevBtn?.addEventListener("click", () => manual(current - 1));
+    nextBtn?.addEventListener("click", () => manual(current + 1));
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") manual(current - 1);
+      if (e.key === "ArrowRight") manual(current + 1);
+    });
+
+    // 드래그 (proxy로 방향만 감지)
+    const proxy = document.createElement("div");
+    let startX = 0;
+    Draggable.create(proxy, {
+      type: "x", trigger: ".rotunda-wrap", inertia: false,
+      onPress() { startX = this.x; stopAuto(); },
+      onRelease() {
+        const diff = this.x - startX;
+        if (Math.abs(diff) > 26) { diff < 0 ? goTo(current + 1) : goTo(current - 1); }
+        gsap.set(this.target, { x: 0 });
+        startAuto();
+      }
+    });
+
+    // 화면에 보일 때만 자동 회전 (성능)
+    ScrollTrigger.create({
+      trigger: "#intro", start: "top bottom", end: "bottom top",
+      onToggle: (self) => (self.isActive ? startAuto() : stopAuto())
+    });
+    document.addEventListener("visibilitychange", () => (document.hidden ? stopAuto() : startAuto()));
+
+    startAuto();
+    window.addEventListener("resize", gsap.utils.debounce(layoutCards, 180));
+  })();
+
+  /* =======================================================
+    SECTION REVEAL
+  ======================================================= */
+  if (reduceMotion) {
+    gsap.set(".reveal-up", { opacity: 1 });
+  } else {
+    gsap.utils.toArray(".reveal-up").forEach((el) => {
+      gsap.fromTo(el,
+        { y: 52, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.95, ease: "power3.out",
+          scrollTrigger: { trigger: el, start: "top 86%" } });
+    });
+  }
+
+  /* =======================================================
+    PROJECT INDEX — 호버 시 커서를 따라오는 미리보기
+  ======================================================= */
+  const indexWrap = document.querySelector("[data-index]");
+  const preview = document.querySelector("[data-index-preview]");
+  const previewImg = document.querySelector("[data-index-preview-img]");
+
+  if (indexWrap && preview && previewImg && finePointer) {
+    const rows = gsap.utils.toArray(".index-row", indexWrap);
+    let activeRow = null;
+    const setX = gsap.quickTo(preview, "x", { duration: 0.5, ease: "power3" });
+    const setY = gsap.quickTo(preview, "y", { duration: 0.5, ease: "power3" });
+
+    indexWrap.addEventListener("pointermove", (e) => {
+      const r = indexWrap.getBoundingClientRect();
+      setX(e.clientX - r.left);
+      setY(e.clientY - r.top);
+    });
+
+    rows.forEach((row) => {
+      row.addEventListener("pointerenter", () => {
+        activeRow = row;
+        const src = row.dataset.img;
+        if (src) { previewImg.src = src; preview.classList.remove("is-empty"); }
+        else { previewImg.removeAttribute("src"); preview.classList.add("is-empty"); }
+        preview.classList.add("is-visible");
+        indexWrap.classList.add("is-hovering");
+        rows.forEach((r) => r.classList.toggle("is-dimmed", r !== row));
+      });
+      row.addEventListener("pointerleave", () => {
+        if (activeRow === row) {
+          preview.classList.remove("is-visible");
+          indexWrap.classList.remove("is-hovering");
+          rows.forEach((r) => r.classList.remove("is-dimmed"));
+          activeRow = null;
+        }
+      });
+    });
+  }
+
+  /* =======================================================
+    CUSTOM CURSOR (데스크톱 정밀 포인터에서만)
+  ======================================================= */
+  if (finePointer && !reduceMotion) {
+    document.body.classList.add("has-custom-cursor");
+    const dot = document.querySelector("[data-cursor-dot]");
+    const ring = document.querySelector("[data-cursor-ring]");
+    const dotX = gsap.quickTo(dot, "x", { duration: 0.12, ease: "power3" });
+    const dotY = gsap.quickTo(dot, "y", { duration: 0.12, ease: "power3" });
+    const ringX = gsap.quickTo(ring, "x", { duration: 0.35, ease: "power3" });
+    const ringY = gsap.quickTo(ring, "y", { duration: 0.35, ease: "power3" });
+
+    window.addEventListener("pointermove", (e) => {
+      dotX(e.clientX); dotY(e.clientY);
+      ringX(e.clientX); ringY(e.clientY);
+    });
+
+    const hoverTargets = 'a, button, [data-magnetic], .index-row, .rotunda-card, input, textarea';
+    document.querySelectorAll(hoverTargets).forEach((el) => {
+      el.addEventListener("pointerenter", () => ring.classList.add("is-active"));
+      el.addEventListener("pointerleave", () => ring.classList.remove("is-active"));
+    });
+    window.addEventListener("pointerdown", () => ring.classList.add("is-down"));
+    window.addEventListener("pointerup", () => ring.classList.remove("is-down"));
+  }
+
+  /* =======================================================
+    MAGNETIC BUTTONS
+  ======================================================= */
+  if (finePointer && !reduceMotion) {
+    document.querySelectorAll("[data-magnetic]").forEach((el) => {
+      const strength = 0.32;
+      const moveX = gsap.quickTo(el, "x", { duration: 0.5, ease: "power3" });
+      const moveY = gsap.quickTo(el, "y", { duration: 0.5, ease: "power3" });
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
+        moveX((e.clientX - (r.left + r.width / 2)) * strength);
+        moveY((e.clientY - (r.top + r.height / 2)) * strength);
+      });
+      el.addEventListener("pointerleave", () => { moveX(0); moveY(0); });
+    });
+  }
+
+  /* =======================================================
+    RESIZE
+  ======================================================= */
+  window.addEventListener("resize", gsap.utils.debounce(() => ScrollTrigger.refresh(), 200));
 });

@@ -4,14 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="HYE02 UIUX Designer Portfolio" />
-  <title>HYE02 Portfolio</title>
+  <title>HYE02 — UIUX Designer Portfolio</title>
 
-  <!-- Google Material Symbols: 필요한 경우 아이콘명만 변경해서 사용하세요. -->
+  <!-- Google Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet" />
+  <!-- Display serif for editorial accent -->
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 
-  <!-- Pretendard CDN: 로컬 폰트 사용 시 이 줄을 제거하고 CSS에서 font-face로 교체하세요. -->
+  <!-- Pretendard CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
 
   <link rel="stylesheet" href="./css/style.css" />
@@ -19,35 +21,34 @@
 <body>
   <a class="skip-link" href="#main">본문 바로가기</a>
 
+  <!-- Scroll progress + custom cursor -->
+  <div class="scroll-progress" data-progress aria-hidden="true"></div>
+  <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
+  <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
+
   <!-- =========================================================
     HEADER
-    - 로고/메뉴명/이메일은 본인 정보에 맞게 수정하세요.
-    - 메뉴 href는 아래 section id와 연결됩니다.
   ========================================================== -->
   <header class="site-header" data-header>
-    <a href="#intro" class="brand" aria-label="HYE02 Portfolio Home">
+    <a href="#intro" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
       <span class="brand-mark">HYE02</span>
       <span class="brand-sub">UIUX PORTFOLIO</span>
     </a>
 
     <nav class="gnb" aria-label="주요 메뉴">
-      <a href="#about">About</a>
-      <a href="#works">Works</a>
-      <a href="#archive">Experience</a>
-      <a href="#process">Process</a>
-      <a href="#contact">Contact</a>
+      <a href="#works" data-nav>Works</a>
+      <a href="#about" data-nav>About</a>
+      <a href="#archive" data-nav>Experience</a>
+      <a href="#process" data-nav>Process</a>
+      <a href="#contact" data-nav>Contact</a>
     </nav>
+
+    <a href="#contact" class="header-cta" data-magnetic>Let's Talk</a>
   </header>
 
   <main id="main">
     <!-- =========================================================
-      INTRO / 3D ROTUNDA
-      - 대표 프로젝트 5개 기준입니다.
-      - 이미지 넣는 곳은 .project-image 안의 주석 부분입니다.
-      - 이미지 삽입 예시:
-        <img src="./images/quietsSkin-main.webp" alt="QuietSkin 메인 화면" />
-      - 이미지 비율은 가로형 16:10 또는 4:3을 추천합니다.
-      - 카드 수를 늘리면 JS에서 자동으로 각도가 계산됩니다.
+      INTRO / 3D ROTUNDA (자동 회전 · 3초 간격)
     ========================================================== -->
     <section id="intro" class="intro-section" aria-label="포트폴리오 인트로">
       <div class="intro-bg" aria-hidden="true">
@@ -69,78 +70,37 @@
         </p>
       </div>
 
-      <div class="rotunda-wrap" aria-label="대표 프로젝트 3D 갤러리">
+      <div class="rotunda-wrap" data-rotunda aria-label="대표 프로젝트 3D 갤러리">
         <div class="rotunda-stage" data-rotunda-stage>
-          <!-- CARD 01 -------------------------------------------------
-            TODO: 이미지 삽입 위치
-            <img src="./images/이미지파일명.webp" alt="QuietSkin 프로젝트 화면" />
-          ---------------------------------------------------------- -->
           <article class="rotunda-card" data-title="QuietSkin" data-type="Cosmetic Shopping UI" data-link="#work-quietsSkin">
             <div class="card-inner">
-              <div class="project-image empty-image">
-                <!-- TODO: QuietSkin 대표 이미지 삽입 -->
-              </div>
-              <div class="project-meta">
-                <span>01</span>
-                <strong>QuietSkin</strong>
-                <p>Cosmetic Brand Shopping UI</p>
+              <div class="project-image">
+                <img src="images/quietsSkin-main.webp" alt="QuietSkin 대표 이미지" />
               </div>
             </div>
           </article>
 
-          <!-- CARD 02 -->
           <article class="rotunda-card" data-title="PetCare+" data-type="Health Care Web App" data-link="#work-petcare">
             <div class="card-inner">
-              <div class="project-image empty-image">
-                <!-- TODO: PetCare+ 대표 이미지 삽입 -->
-              </div>
-              <div class="project-meta">
-                <span>02</span>
-                <strong>PetCare+</strong>
-                <p>Pet Health Care Web App</p>
-              </div>
+              <div class="project-image empty-image"></div>
             </div>
           </article>
 
-          <!-- CARD 03 -->
           <article class="rotunda-card" data-title="YENE" data-type="Corporate Renewal" data-link="#work-yene">
             <div class="card-inner">
-              <div class="project-image empty-image">
-                <!-- TODO: YENE 대표 이미지 삽입 -->
-              </div>
-              <div class="project-meta">
-                <span>03</span>
-                <strong>YENE</strong>
-                <p>Corporate Website Renewal</p>
-              </div>
+              <div class="project-image empty-image"></div>
             </div>
           </article>
 
-          <!-- CARD 04 -->
           <article class="rotunda-card" data-title="WoodPlace" data-type="Furniture Commerce" data-link="#work-woodplace">
             <div class="card-inner">
-              <div class="project-image empty-image">
-                <!-- TODO: WoodPlace 대표 이미지 삽입 -->
-              </div>
-              <div class="project-meta">
-                <span>04</span>
-                <strong>WoodPlace</strong>
-                <p>Furniture Shopping Mall</p>
-              </div>
+              <div class="project-image empty-image"></div>
             </div>
           </article>
 
-          <!-- CARD 05 -->
           <article class="rotunda-card" data-title="Game Site" data-type="Promotion Website" data-link="#work-game">
             <div class="card-inner">
-              <div class="project-image empty-image">
-                <!-- TODO: Game Site 대표 이미지 삽입 -->
-              </div>
-              <div class="project-meta">
-                <span>05</span>
-                <strong>Game Site</strong>
-                <p>Promotion Website Design</p>
-              </div>
+              <div class="project-image empty-image"></div>
             </div>
           </article>
         </div>
@@ -155,7 +115,7 @@
         <p class="panel-kicker">SELECTED PROJECT</p>
         <h2 data-active-title>QuietSkin</h2>
         <p data-active-type>Cosmetic Shopping UI</p>
-        <a href="#work-quietsSkin" class="btn btn-primary" data-active-link>
+        <a href="#work-quietsSkin" class="btn btn-primary" data-active-link data-magnetic>
           View Project
           <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
         </a>
@@ -165,7 +125,7 @@
         <button type="button" class="control-btn" data-prev aria-label="이전 프로젝트">
           <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
         </button>
-        <p>Drag · Wheel · Arrow</p>
+        <p>Auto · Drag · Arrow</p>
         <button type="button" class="control-btn" data-next aria-label="다음 프로젝트">
           <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
         </button>
@@ -173,8 +133,117 @@
     </section>
 
     <!-- =========================================================
+      WORKS — INTERACTIVE PROJECT INDEX + CASE STUDIES
+    ========================================================== -->
+    <section id="works" class="section works-section">
+      <div class="section-head reveal-up">
+        <p class="eyebrow">SELECTED WORKS</p>
+        <h2>대표 프로젝트</h2>
+        <p class="section-desc">이름 위에 마우스를 올리면 프로젝트 미리보기가 나타납니다.</p>
+      </div>
+
+      <!-- Interactive index list -->
+      <div class="index-list" data-index aria-label="대표 프로젝트 목록">
+        <a class="index-row reveal-up" href="https://hye0277-erin.github.io/QuietSkin/index.html" target="_blank" rel="noopener"
+           data-img="images/quietsSkin-main.webp">
+          <span class="index-num">01</span>
+          <span class="index-name">QuietSkin</span>
+          <span class="index-type">Cosmetic Brand Shopping</span>
+          <span class="index-arrow material-symbols-rounded" aria-hidden="true">arrow_outward</span>
+        </a>
+
+        <a class="index-row reveal-up" href="#work-petcare" data-img="">
+          <span class="index-num">02</span>
+          <span class="index-name">PetCare+</span>
+          <span class="index-type">Pet Health Care Web App</span>
+          <span class="index-arrow material-symbols-rounded" aria-hidden="true">arrow_outward</span>
+        </a>
+
+        <a class="index-row reveal-up" href="https://stella0526.github.io/yene/" target="_blank" rel="noopener" data-img="">
+          <span class="index-num">03</span>
+          <span class="index-name">YENE</span>
+          <span class="index-type">Corporate Website Renewal</span>
+          <span class="index-arrow material-symbols-rounded" aria-hidden="true">arrow_outward</span>
+        </a>
+
+        <a class="index-row reveal-up" href="https://hye0277-erin.github.io/woodplace/" target="_blank" rel="noopener" data-img="">
+          <span class="index-num">04</span>
+          <span class="index-name">WoodPlace</span>
+          <span class="index-type">Furniture Shopping Mall</span>
+          <span class="index-arrow material-symbols-rounded" aria-hidden="true">arrow_outward</span>
+        </a>
+
+        <a class="index-row reveal-up" href="#work-game" data-img="">
+          <span class="index-num">05</span>
+          <span class="index-name">Game Site</span>
+          <span class="index-type">Promotion Website</span>
+          <span class="index-arrow material-symbols-rounded" aria-hidden="true">arrow_outward</span>
+        </a>
+
+        <!-- Floating preview that follows the cursor -->
+        <div class="index-preview" data-index-preview aria-hidden="true">
+          <img alt="" data-index-preview-img />
+        </div>
+      </div>
+
+      <!-- Detailed case studies -->
+      <div class="works-list">
+        <article id="work-quietsSkin" class="work-row reveal-up">
+          <div class="work-visual">
+            <img src="images/quietsSkin-main.webp" alt="QuietSkin 상세 이미지" />
+          </div>
+          <div class="work-info">
+            <span>01 / Cosmetic Shopping UI</span>
+            <h3>QuietSkin</h3>
+            <p>절제된 톤앤매너로 브랜드 무드를 살리고, 상품 탐색부터 결제까지 막힘 없이 이어지는 쇼핑 경험을 설계했습니다.</p>
+            <a href="https://hye0277-erin.github.io/QuietSkin/index.html" class="text-link" data-magnetic target="_blank" rel="noopener">View Case Study</a>
+          </div>
+        </article>
+
+        <article id="work-petcare" class="work-row reveal-up reverse">
+          <div class="work-visual empty-image"></div>
+          <div class="work-info">
+            <span>02 / Health Care Web App</span>
+            <h3>PetCare+</h3>
+            <p>노령·질환 반려동물 보호자를 위한 건강 기록, 복약 알림, 병원 일정 관리 웹앱입니다. 흩어진 케어 정보를 한 화면에서 직관적으로 관리하도록 구성했습니다.</p>
+            <a href="#" class="text-link" data-magnetic>View Case Study</a>
+          </div>
+        </article>
+
+        <article id="work-yene" class="work-row reveal-up">
+          <div class="work-visual empty-image"></div>
+          <div class="work-info">
+            <span>03 / Corporate Renewal</span>
+            <h3>YENE</h3>
+            <p>제품 신뢰도와 기업 정보를 명확히 전달하도록 정보 구조를 재정비한 기업형 웹사이트 리뉴얼 프로젝트입니다.</p>
+            <a href="https://stella0526.github.io/yene/" class="text-link" data-magnetic target="_blank" rel="noopener">View Case Study</a>
+          </div>
+        </article>
+
+        <article id="work-woodplace" class="work-row reveal-up reverse">
+          <div class="work-visual empty-image"></div>
+          <div class="work-info">
+            <span>04 / Furniture Commerce</span>
+            <h3>WoodPlace</h3>
+            <p>가구의 질감과 공간감을 살린 비주얼에 직관적인 카테고리 탐색을 더해, 구매까지 자연스럽게 이어지는 커머스 UI를 구성했습니다.</p>
+            <a href="https://hye0277-erin.github.io/woodplace/" class="text-link" data-magnetic target="_blank" rel="noopener">View Case Study</a>
+          </div>
+        </article>
+
+        <article id="work-game" class="work-row reveal-up">
+          <div class="work-visual empty-image"></div>
+          <div class="work-info">
+            <span>05 / Promotion Website</span>
+            <h3>Game Site</h3>
+            <p>강렬한 키 비주얼과 스크롤 인터랙션으로 몰입감을 높인 게임 프로모션 사이트입니다. 이벤트 참여 동선을 중심으로 화면을 구성했습니다.</p>
+            <a href="#" class="text-link" data-magnetic>View Case Study</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================================================
       ABOUT
-      - 본인 소개 문구/경력/스킬은 직접 수정하세요.
     ========================================================== -->
     <section id="about" class="section about-section">
       <div class="section-head reveal-up">
@@ -185,7 +254,6 @@
       <div class="about-grid">
         <article class="glass-card about-main reveal-up">
           <p>
-            <!-- TODO: 본인 소개 문구 수정 -->
             복잡한 정보를 구조화하고 사용자의 시선과 행동 흐름을 설계하는 UI·UX 디자이너입니다.
             기획부터 디자인, 퍼블리싱까지 전 과정을 직접 다루며, 브랜드의 목적과 사용자의 편의가 맞닿는 지점을 찾아 화면에 담습니다.
           </p>
@@ -215,87 +283,7 @@
     </section>
 
     <!-- =========================================================
-      WORKS
-      - 실제 프로젝트 이미지/링크는 각 카드 주석 위치를 수정하세요.
-      - id는 인트로 카드 data-link와 연결됩니다.
-    ========================================================== -->
-    <section id="works" class="section works-section">
-      <div class="section-head reveal-up">
-        <p class="eyebrow">SELECTED WORKS</p>
-        <h2>대표 프로젝트</h2>
-      </div>
-
-      <div class="works-list">
-        <article id="work-quietsSkin" class="work-row reveal-up">
-          <div class="work-visual empty-image">
-            <!-- TODO: QuietSkin 상세 이미지 삽입 -->
-          </div>
-          <div class="work-info">
-            <span>01 / Cosmetic Shopping UI</span>
-            <h3>QuietSkin</h3>
-            <p>절제된 톤앤매너로 브랜드 무드를 살리고, 상품 탐색부터 결제까지 막힘 없이 이어지는 쇼핑 경험을 설계했습니다.</p>
-            <a href="https://hye0277-erin.github.io/QuietSkin/index.html" class="text-link" target="_blank" rel="noopener">View Case Study</a>
-          </div>
-        </article>
-
-        <article id="work-petcare" class="work-row reveal-up reverse">
-          <div class="work-visual empty-image">
-            <!-- TODO: PetCare+ 상세 이미지 삽입 -->
-          </div>
-          <div class="work-info">
-            <span>02 / Health Care Web App</span>
-            <h3>PetCare+</h3>
-            <p>노령·질환 반려동물 보호자를 위한 건강 기록, 복약 알림, 병원 일정 관리 웹앱입니다. 흩어진 케어 정보를 한 화면에서 직관적으로 관리하도록 구성했습니다.</p>
-            <a href="#" class="text-link">View Case Study</a>
-          </div>
-        </article>
-
-        <article id="work-yene" class="work-row reveal-up">
-          <div class="work-visual empty-image">
-            <!-- TODO: YENE 상세 이미지 삽입 -->
-          </div>
-          <div class="work-info">
-            <span>03 / Corporate Renewal</span>
-            <h3>YENE</h3>
-            <p>제품 신뢰도와 기업 정보를 명확히 전달하도록 정보 구조를 재정비한 기업형 웹사이트 리뉴얼 프로젝트입니다.</p>
-            <a href="#" class="text-link">View Case Study</a>
-          </div>
-        </article>
-
-        <article id="work-woodplace" class="work-row reveal-up reverse">
-          <div class="work-visual empty-image">
-            <!-- TODO: WoodPlace 상세 이미지 삽입 -->
-          </div>
-          <div class="work-info">
-            <span>04 / Furniture Commerce</span>
-            <h3>WoodPlace</h3>
-            <p>가구의 질감과 공간감을 살린 비주얼에 직관적인 카테고리 탐색을 더해, 구매까지 자연스럽게 이어지는 커머스 UI를 구성했습니다.</p>
-            <a href="https://hye0277-erin.github.io/woodplace/" class="text-link" target="_blank" rel="noopener">View Case Study</a>
-          </div>
-        </article>
-
-        <article id="work-game" class="work-row reveal-up">
-          <div class="work-visual empty-image">
-            <!-- TODO: Game Site 상세 이미지 삽입 -->
-          </div>
-          <div class="work-info">
-            <span>05 / Promotion Website</span>
-            <h3>Game Site</h3>
-            <p>강렬한 키 비주얼과 스크롤 인터랙션으로 몰입감을 높인 게임 프로모션 사이트입니다. 이벤트 참여 동선을 중심으로 화면을 구성했습니다.</p>
-            <a href="#" class="text-link">View Case Study</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-
-
-    <!-- =========================================================
       EXPERIENCE / COMPANY WORKS
-      - 이전 회사에서 작업한 상세페이지, 배너, 웹/모바일 화면을 보여주는 영역입니다.
-      - 왼쪽에는 설명, 오른쪽에는 작업 썸네일이 흐르는 형태입니다.
-      - 자세히 보기 버튼은 archive.html 리스트 페이지로 연결됩니다.
-      - 이미지 삽입 위치는 .company-thumb 안의 TODO 주석을 확인하세요.
     ========================================================== -->
     <section id="archive" class="section company-flow-section">
       <div class="company-flow-layout">
@@ -306,7 +294,7 @@
             대표 프로젝트 외에도 현업에서 진행한 상세페이지, 쇼핑몰 배너, 모바일·웹 페이지, POP·프로모션 작업을
             별도 아카이브로 정리했습니다. 오른쪽 썸네일로 주요 작업을 미리 보고, 자세히 보기에서 전체 목록을 확인할 수 있습니다.
           </p>
-          <a href="./archive.html" class="btn btn-primary">
+          <a href="./archive.html" class="btn btn-primary" data-magnetic>
             자세히 보기
             <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
           </a>
@@ -315,25 +303,19 @@
         <div class="company-flow-track reveal-up" aria-label="이전 회사 작업물 미리보기">
           <div class="flow-column flow-column-a">
             <article class="company-work-card">
-              <div class="company-thumb empty-image">
-                <!-- TODO: 참바당영어조합법인 식품 상세페이지 이미지 삽입 -->
-              </div>
+              <div class="company-thumb empty-image"></div>
               <span>Detail Page</span>
               <h3>Food Product Detail</h3>
               <p>식품 상세페이지 · 사진촬영 · 홈쇼핑용 구성</p>
             </article>
             <article class="company-work-card">
-              <div class="company-thumb empty-image">
-                <!-- TODO: 로바나코리아 웹/모바일 화면 이미지 삽입 -->
-              </div>
+              <div class="company-thumb empty-image"></div>
               <span>Web / Mobile</span>
               <h3>Lovana Korea UI</h3>
               <p>모바일 화면 · 웹 페이지 · 배너 구성</p>
             </article>
             <article class="company-work-card">
-              <div class="company-thumb empty-image">
-                <!-- TODO: 쇼핑몰 기획전 또는 프로모션 배너 이미지 삽입 -->
-              </div>
+              <div class="company-thumb empty-image"></div>
               <span>Promotion</span>
               <h3>Campaign Banner</h3>
               <p>이벤트 배너 · 기획전 · SNS 이미지</p>
@@ -342,25 +324,19 @@
 
           <div class="flow-column flow-column-b">
             <article class="company-work-card large">
-              <div class="company-thumb empty-image">
-                <!-- TODO: 방송 POP 또는 인쇄물 이미지 삽입 -->
-              </div>
+              <div class="company-thumb empty-image"></div>
               <span>POP / Print</span>
               <h3>Home Shopping POP</h3>
               <p>방송 POP · 오프라인 홍보물 · 안내 그래픽</p>
             </article>
             <article class="company-work-card">
-              <div class="company-thumb empty-image">
-                <!-- TODO: 제품 리스트/카테고리 페이지 이미지 삽입 -->
-              </div>
+              <div class="company-thumb empty-image"></div>
               <span>E-Commerce</span>
               <h3>Product List UI</h3>
               <p>상품 리스트 · 카테고리 · 구매 흐름</p>
             </article>
             <article class="company-work-card large">
-              <div class="company-thumb empty-image">
-                <!-- TODO: 추가 실무 작업 이미지 삽입 -->
-              </div>
+              <div class="company-thumb empty-image"></div>
               <span>Graphic</span>
               <h3>Visual Contents</h3>
               <p>상세 컷 · 썸네일 · 브랜드 그래픽</p>
@@ -372,7 +348,6 @@
 
     <!-- =========================================================
       PROCESS
-      - 포트폴리오에서 본인의 작업 방식 설명 영역입니다.
     ========================================================== -->
     <section id="process" class="section process-section">
       <div class="section-head reveal-up">
@@ -406,17 +381,13 @@
 
     <!-- =========================================================
       CONTACT
-      - 이메일/연락처/노션/깃허브 링크 등을 수정하세요.
     ========================================================== -->
     <section id="contact" class="section contact-section">
       <div class="contact-card reveal-up">
         <p class="eyebrow">CONTACT</p>
         <h2>함께 만들고 싶은 화면이 있다면 언제든 연락 주세요.</h2>
-        <p>
-          <!-- TODO: 이메일 또는 연락 가능한 주소로 수정 -->
-          새로운 프로젝트와 협업, 채용 제안 모두 환영합니다.
-        </p>
-        <a href="mailto:hye0277@gmail.com" class="btn btn-primary">
+        <p>새로운 프로젝트와 협업, 채용 제안 모두 환영합니다.</p>
+        <a href="mailto:hye0277@gmail.com" class="btn btn-primary" data-magnetic>
           Contact Me
           <span class="material-symbols-rounded" aria-hidden="true">mail</span>
         </a>
