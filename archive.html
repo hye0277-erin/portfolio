@@ -15,17 +15,21 @@
 <body class="archive-page">
   <a class="skip-link" href="#archiveMain">본문 바로가기</a>
 
-  <header class="site-header">
-    <a href="./index.html#intro" class="brand" aria-label="HYE02 Portfolio Home">
+  <header class="site-header" data-header>
+    <a href="./index.html#intro" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
       <span class="brand-mark">HYE02</span>
-      <span class="brand-sub">PROJECT ARCHIVE</span>
+      <span class="brand-sub">UIUX PORTFOLIO</span>
     </a>
 
-    <nav class="gnb" aria-label="아카이브 메뉴">
+    <nav class="gnb" aria-label="주요 메뉴">
       <a href="./index.html#works">Works</a>
+      <a href="./index.html#about">About</a>
       <a href="./index.html#archive">Experience</a>
+      <a href="./index.html#process">Process</a>
       <a href="./index.html#contact">Contact</a>
     </nav>
+
+    <a href="./index.html#contact" class="header-cta" data-magnetic>Let's Talk</a>
   </header>
 
   <main id="archiveMain" class="archive-page-main">
@@ -36,9 +40,8 @@
         <h1>WORK<br />LIBRARY</h1>
       </div>
       <p>
-        <!-- TODO: 본인 실무 경력 설명으로 수정하세요. -->
-        이전 회사와 학습 과정에서 진행한 상세페이지, 쇼핑몰, 모바일/웹 페이지, 배너, POP 작업을 한곳에 모았습니다.
-        썸네일 이미지를 추가하고 링크를 연결하면 실제 작업물 리스트 페이지로 사용할 수 있습니다.
+        실무와 학습 과정에서 진행한 자사몰 시안, 상세페이지, 식품·제품 패키지 디자인 작업을 한곳에 모았습니다.
+        카드를 누르면 해당 작업 페이지로 이동합니다.
       </p>
     </section>
 
@@ -46,155 +49,128 @@
       <button type="button" class="is-active" data-filter="all">All</button>
       <button type="button" data-filter="company">Company</button>
       <button type="button" data-filter="portfolio">Portfolio</button>
-      <button type="button" data-filter="detail">Detail</button>
       <button type="button" data-filter="web">Web</button>
-      <button type="button" data-filter="graphic">Graphic</button>
+      <button type="button" data-filter="detail">Detail</button>
+      <button type="button" data-filter="package">Package</button>
     </div>
 
-    <section id="companyWorks" class="archive-detail-grid" aria-label="이전 회사 작업물 목록">
-      <a class="archive-detail-card" data-cat="company detail" href="#" target="_blank" rel="noopener">
-        <div class="archive-detail-thumb empty-image">
-          <!-- TODO: 참바당영어조합법인 식품 상세페이지 썸네일 이미지 삽입 -->
-          <!-- 예시: <img src="./images/chambadang-detail.jpg" alt="식품 상세페이지 작업 화면" /> -->
+    <section id="companyWorks" class="archive-detail-grid" aria-label="작업물 목록">
+      <!-- ============================================================
+        이미지 파일을 ./images/ 폴더에 아래 파일명으로 저장하면 바로 보입니다.
+        - 디자인 작업물 카드: 클릭하면 이미지 원본이 새 탭으로 열립니다.
+        - 포트폴리오 카드: 클릭하면 실제 사이트로 이동합니다.
+        - 이미지가 아직 없으면 깨진 아이콘 대신 그라데이션이 표시됩니다.
+        - 확장자가 다르면(.png 등) src 두 곳의 파일명을 같이 바꿔주세요.
+      ============================================================= -->
+
+      <a class="archive-detail-card" data-cat="company web" href="./images/jasamol-mockup.jpg" target="_blank" rel="noopener">
+        <div class="archive-detail-thumb">
+          <img src="./images/jasamol-mockup.jpg" alt="자사몰 시안" onerror="this.style.display='none'" />
+        </div>
+        <div class="archive-card-meta">
+          <span class="archive-card-category">Web Mockup</span>
+          <span class="archive-card-year">Design</span>
+        </div>
+        <h2>자사몰 시안</h2>
+      </a>
+
+      <a class="archive-detail-card" data-cat="company detail" href="./images/detail-page-01.jpg" target="_blank" rel="noopener">
+        <div class="archive-detail-thumb">
+          <img src="./images/detail-page-01.jpg" alt="상세페이지 01" onerror="this.style.display='none'" />
         </div>
         <div class="archive-card-meta">
           <span class="archive-card-category">Detail Page</span>
-          <span class="archive-card-year">Company</span>
+          <span class="archive-card-year">Design</span>
         </div>
-        <h2>식품 상세페이지</h2>
-        <p class="archive-card-caption">상품 특징, 조리/섭취 정보, 구매 설득 흐름을 구성한 식품 상세페이지 작업입니다.</p>
+        <h2>상세페이지 01</h2>
       </a>
 
-      <a class="archive-detail-card" data-cat="company graphic" href="#" target="_blank" rel="noopener">
-        <div class="archive-detail-thumb empty-image">
-          <!-- TODO: 사진촬영/제품컷 작업 이미지 삽입 -->
-        </div>
-        <div class="archive-card-meta">
-          <span class="archive-card-category">Photo Direction</span>
-          <span class="archive-card-year">Company</span>
-        </div>
-        <h2>제품 사진촬영 구성</h2>
-        <p class="archive-card-caption">상품의 사용 장면과 구매 포인트가 보이도록 촬영 컷과 상세 구성 흐름을 정리했습니다.</p>
-      </a>
-
-      <a class="archive-detail-card" data-cat="company detail" href="#" target="_blank" rel="noopener">
-        <div class="archive-detail-thumb empty-image">
-          <!-- TODO: 홈쇼핑 상세페이지 또는 방송용 이미지 삽입 -->
-        </div>
-        <div class="archive-card-meta">
-          <span class="archive-card-category">Home Shopping</span>
-          <span class="archive-card-year">Company</span>
-        </div>
-        <h2>홈쇼핑 상세 구성</h2>
-        <p class="archive-card-caption">방송 판매용 정보 전달과 시각적 강조가 필요한 상세페이지/홍보 그래픽 작업입니다.</p>
-      </a>
-
-      <a class="archive-detail-card" data-cat="company graphic" href="#" target="_blank" rel="noopener">
-        <div class="archive-detail-thumb empty-image">
-          <!-- TODO: 방송 POP 이미지 삽입 -->
-        </div>
-        <div class="archive-card-meta">
-          <span class="archive-card-category">POP / Print</span>
-          <span class="archive-card-year">Company</span>
-        </div>
-        <h2>방송 POP</h2>
-        <p class="archive-card-caption">방송/오프라인 노출에 필요한 핵심 문구, 가격 정보, 안내 그래픽을 정리한 작업입니다.</p>
-      </a>
-
-      <a class="archive-detail-card" data-cat="company web" href="#" target="_blank" rel="noopener">
-        <div class="archive-detail-thumb empty-image">
-          <!-- TODO: 로바나코리아 모바일 화면 이미지 삽입 -->
-        </div>
-        <div class="archive-card-meta">
-          <span class="archive-card-category">Mobile UI</span>
-          <span class="archive-card-year">Company</span>
-        </div>
-        <h2>모바일 페이지 UI</h2>
-        <p class="archive-card-caption">모바일 환경에서 정보 확인과 이동이 쉽도록 구성한 페이지 디자인 작업입니다.</p>
-      </a>
-
-      <a class="archive-detail-card" data-cat="company web" href="#" target="_blank" rel="noopener">
-        <div class="archive-detail-thumb empty-image">
-          <!-- TODO: 로바나코리아 웹페이지 이미지 삽입 -->
-        </div>
-        <div class="archive-card-meta">
-          <span class="archive-card-category">Web Page</span>
-          <span class="archive-card-year">Company</span>
-        </div>
-        <h2>웹 페이지 디자인</h2>
-        <p class="archive-card-caption">브랜드 정보와 상품/서비스 내용을 웹 화면에 맞게 정리한 실무 페이지 작업입니다.</p>
-      </a>
-
-      <a class="archive-detail-card" data-cat="company graphic" href="#" target="_blank" rel="noopener">
-        <div class="archive-detail-thumb empty-image">
-          <!-- TODO: 배너/프로모션 이미지 삽입 -->
-        </div>
-        <div class="archive-card-meta">
-          <span class="archive-card-category">Banner</span>
-          <span class="archive-card-year">Company</span>
-        </div>
-        <h2>프로모션 배너</h2>
-        <p class="archive-card-caption">이벤트, 기획전, 상품 노출에 필요한 쇼핑몰 배너와 비주얼 콘텐츠 작업입니다.</p>
-      </a>
-
-      <a class="archive-detail-card" data-cat="company detail" href="#" target="_blank" rel="noopener">
-        <div class="archive-detail-thumb empty-image">
-          <!-- TODO: 추가 상세페이지 썸네일 삽입 -->
+      <a class="archive-detail-card" data-cat="company detail" href="./images/detail-page-02.jpg" target="_blank" rel="noopener">
+        <div class="archive-detail-thumb">
+          <img src="./images/detail-page-02.jpg" alt="상세페이지 02" onerror="this.style.display='none'" />
         </div>
         <div class="archive-card-meta">
           <span class="archive-card-category">Detail Page</span>
-          <span class="archive-card-year">Company</span>
+          <span class="archive-card-year">Design</span>
         </div>
-        <h2>추가 상세페이지</h2>
-        <p class="archive-card-caption">카테고리별 상품 특성에 맞춰 정보 구조와 구매 설득 흐름을 구성한 작업입니다.</p>
+        <h2>상세페이지 02</h2>
+      </a>
+
+      <a class="archive-detail-card" data-cat="company package" href="./images/packaging-band.jpg" target="_blank" rel="noopener">
+        <div class="archive-detail-thumb">
+          <img src="./images/packaging-band.jpg" alt="포장 띠지" onerror="this.style.display='none'" />
+        </div>
+        <div class="archive-card-meta">
+          <span class="archive-card-category">Package</span>
+          <span class="archive-card-year">Design</span>
+        </div>
+        <h2>포장 띠지</h2>
+      </a>
+
+      <a class="archive-detail-card" data-cat="company package" href="./images/food-package.jpg" target="_blank" rel="noopener">
+        <div class="archive-detail-thumb">
+          <img src="./images/food-package.jpg" alt="식품 패키지" onerror="this.style.display='none'" />
+        </div>
+        <div class="archive-card-meta">
+          <span class="archive-card-category">Package</span>
+          <span class="archive-card-year">Design</span>
+        </div>
+        <h2>식품 패키지</h2>
+      </a>
+
+      <a class="archive-detail-card" data-cat="company package" href="./images/package.jpg" target="_blank" rel="noopener">
+        <div class="archive-detail-thumb">
+          <img src="./images/package.jpg" alt="패키지" onerror="this.style.display='none'" />
+        </div>
+        <div class="archive-card-meta">
+          <span class="archive-card-category">Package</span>
+          <span class="archive-card-year">Design</span>
+        </div>
+        <h2>패키지</h2>
+      </a>
+
+      <a class="archive-detail-card" data-cat="company package" href="./images/retro-food-package.jpg" target="_blank" rel="noopener">
+        <div class="archive-detail-thumb">
+          <img src="./images/retro-food-package.jpg" alt="레트로 식품 패키지" onerror="this.style.display='none'" />
+        </div>
+        <div class="archive-card-meta">
+          <span class="archive-card-category">Package</span>
+          <span class="archive-card-year">Design</span>
+        </div>
+        <h2>레트로 식품 패키지</h2>
       </a>
 
       <a class="archive-detail-card" data-cat="portfolio web" href="https://hye0277-erin.github.io/QuietSkin/index.html" target="_blank" rel="noopener">
-        <div class="archive-detail-thumb empty-image">
-          <!-- TODO: QuietSkin 썸네일 이미지 삽입 -->
+        <div class="archive-detail-thumb">
+          <img src="./images/quietsSkin-main.webp" alt="QuietSkin 메인 페이지" onerror="this.style.display='none'" />
         </div>
         <div class="archive-card-meta">
           <span class="archive-card-category">E-Commerce</span>
           <span class="archive-card-year">Portfolio</span>
         </div>
-        <h2>QuietSkin Main</h2>
-        <p class="archive-card-caption">화장품 브랜드 쇼핑몰 메인 페이지 작업입니다.</p>
+        <h2>QuietSkin</h2>
       </a>
 
       <a class="archive-detail-card" data-cat="portfolio web" href="https://hye0277-erin.github.io/woodplace/" target="_blank" rel="noopener">
-        <div class="archive-detail-thumb empty-image">
-          <!-- TODO: WoodPlace 썸네일 이미지 삽입 -->
+        <div class="archive-detail-thumb">
+          <img src="./images/woodplace-main.jpg" alt="WoodPlace 메인 페이지" onerror="this.style.display='none'" />
         </div>
         <div class="archive-card-meta">
           <span class="archive-card-category">Furniture</span>
           <span class="archive-card-year">Portfolio</span>
         </div>
-        <h2>WoodPlace Main</h2>
-        <p class="archive-card-caption">가구 쇼핑몰 메인과 구매 흐름을 정리한 작업입니다.</p>
+        <h2>WoodPlace</h2>
       </a>
 
-      <a class="archive-detail-card" data-cat="portfolio web" href="#" target="_blank" rel="noopener">
-        <div class="archive-detail-thumb empty-image">
-          <!-- TODO: YENE 썸네일 이미지 삽입 -->
+      <a class="archive-detail-card" data-cat="portfolio web" href="https://stella0526.github.io/yene/" target="_blank" rel="noopener">
+        <div class="archive-detail-thumb">
+          <img src="./images/yene-main.jpg" alt="YENE 메인 페이지" onerror="this.style.display='none'" />
         </div>
         <div class="archive-card-meta">
           <span class="archive-card-category">Corporate</span>
           <span class="archive-card-year">Portfolio</span>
         </div>
-        <h2>YENE Renewal</h2>
-        <p class="archive-card-caption">기업 소개와 제품 신뢰도를 중심으로 구성한 기업형 사이트 리뉴얼 작업입니다.</p>
-      </a>
-
-      <a class="archive-detail-card" data-cat="portfolio web" href="#" target="_blank" rel="noopener">
-        <div class="archive-detail-thumb empty-image">
-          <!-- TODO: PetCare+ 썸네일 이미지 삽입 -->
-        </div>
-        <div class="archive-card-meta">
-          <span class="archive-card-category">Landing</span>
-          <span class="archive-card-year">Portfolio</span>
-        </div>
-        <h2>PetCare+ Landing</h2>
-        <p class="archive-card-caption">노령·질환 반려동물 보호자를 위한 케어 서비스 랜딩페이지 작업입니다.</p>
+        <h2>YENE</h2>
       </a>
     </section>
   </main>

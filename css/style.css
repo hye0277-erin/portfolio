@@ -777,7 +777,6 @@ body.archive-page::before {
 .archive-page .brand-sub,
 .archive-page .gnb a,
 .archive-page .page-kicker,
-.archive-page .archive-card-caption,
 .archive-page .archive-card-category,
 .archive-page .archive-card-year {
   color: var(--archive-muted);
@@ -864,8 +863,7 @@ body.archive-page::before {
 
 .archive-detail-card {
   display: block;
-  min-height: 310px;
-  padding: 10px;
+  padding: 10px 10px 16px;
   border: 1px solid var(--archive-line);
   border-radius: 16px;
   background: rgba(255,255,255,0.54);
@@ -897,8 +895,8 @@ body.archive-page::before {
 }
 
 .archive-detail-card h2 {
-  margin: 0 0 2px;
-  font-size: 17px;
+  margin: 8px 0 0;
+  font-size: 20px;
   line-height: 1.2;
   letter-spacing: -0.04em;
 }
@@ -912,13 +910,6 @@ body.archive-page::before {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.archive-card-caption {
-  margin: 8px 0 0;
-  font-size: 13px;
-  line-height: 1.45;
-  word-break: keep-all;
 }
 
 .archive-page-footer {
@@ -1136,7 +1127,7 @@ body.archive-page::before {
 
 .rotunda-stage {
   position: absolute;
-  left: 50%; top: 50%;
+  left: 50%; top: 45%;
   width: 1px; height: 1px;
   transform-style: preserve-3d;
   will-change: transform;
@@ -1145,8 +1136,8 @@ body.archive-page::before {
 .rotunda-card {
   position: absolute;
   left: 50%; top: 50%;
-  width: clamp(260px, 22vw, 370px);
-  height: min(clamp(370px, 30vw, 510px), 64vh);
+  width: clamp(210px, 17vw, 290px);
+  height: min(clamp(290px, 22vw, 400px), 50vh);
   will-change: transform, opacity, filter;
 }
 
