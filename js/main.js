@@ -5,6 +5,86 @@
   - 그 외: 커스텀 커서 · 마그네틱 · 인덱스 호버 프리뷰 · 스크롤 진행바
 ========================================================= */
 
+/* =========================================================
+  PROCESS 타임라인 활성화 (GSAP과 독립 실행)
+  - GSAP/CDN 로드 실패와 무관하게 항상 동작하도록 별도 리스너로 분리
+  - 화면에 들어오면 anim-ready로 잠시 숨겼다가 is-active로 순차 등장
+========================================================= */
+window.addEventListener("DOMContentLoaded", () => {
+  const timeline = document.querySelector("[data-process]");
+  if (!timeline) return;
+  const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (prefersReduce || !("IntersectionObserver" in window)) {
+    timeline.classList.add("is-active"); // 모션 최소화: 바로 표시
+    return;
+  }
+
+  // 등장 애니메이션을 위해 잠시 숨김
+  timeline.classList.add("anim-ready");
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        timeline.classList.add("is-active");
+        obs.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+  io.observe(timeline);
+});
+
+/* =========================================================
+  PROJECT INDEX 미리보기 (GSAP과 독립 실행)
+  - 이름 위에 마우스를 올리면 커서를 따라오는 미리보기가 나타남
+  - GSAP/CDN 로드 실패와 무관하게 항상 동작하도록 순수 JS로 분리
+========================================================= */
+window.addEventListener("DOMContentLoaded", () => {
+  const indexWrap = document.querySelector("[data-index]");
+  const preview = document.querySelector("[data-index-preview]");
+  const previewImg = document.querySelector("[data-index-preview-img]");
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (!indexWrap || !preview || !previewImg || !finePointer) return;
+
+  const rows = indexWrap.querySelectorAll(".index-row");
+  let rafId = null;
+  let tx = 0, ty = 0, cx = 0, cy = 0; // target / current 좌표
+
+  const follow = () => {
+    cx += (tx - cx) * 0.18;
+    cy += (ty - cy) * 0.18;
+    preview.style.transform = `translate(${cx}px, ${cy}px)`;
+    if (Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) {
+      rafId = requestAnimationFrame(follow);
+    } else {
+      rafId = null;
+    }
+  };
+
+  indexWrap.addEventListener("pointermove", (e) => {
+    const r = indexWrap.getBoundingClientRect();
+    tx = e.clientX - r.left;
+    ty = e.clientY - r.top;
+    if (rafId === null) { cx = tx; cy = ty; follow(); }
+  });
+
+  rows.forEach((row) => {
+    row.addEventListener("pointerenter", () => {
+      const src = row.dataset.img;
+      if (src) { previewImg.src = src; preview.classList.remove("is-empty"); }
+      else { previewImg.removeAttribute("src"); preview.classList.add("is-empty"); }
+      preview.classList.add("is-visible");
+      indexWrap.classList.add("is-hovering");
+      rows.forEach((r) => r.classList.toggle("is-dimmed", r !== row));
+    });
+    row.addEventListener("pointerleave", () => {
+      preview.classList.remove("is-visible");
+      indexWrap.classList.remove("is-hovering");
+      rows.forEach((r) => r.classList.remove("is-dimmed"));
+    });
+  });
+});
+
 window.addEventListener("DOMContentLoaded", () => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -209,45 +289,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* =======================================================
-    PROJECT INDEX — 호버 시 커서를 따라오는 미리보기
-  ======================================================= */
-  const indexWrap = document.querySelector("[data-index]");
-  const preview = document.querySelector("[data-index-preview]");
-  const previewImg = document.querySelector("[data-index-preview-img]");
-
-  if (indexWrap && preview && previewImg && finePointer) {
-    const rows = gsap.utils.toArray(".index-row", indexWrap);
-    let activeRow = null;
-    const setX = gsap.quickTo(preview, "x", { duration: 0.5, ease: "power3" });
-    const setY = gsap.quickTo(preview, "y", { duration: 0.5, ease: "power3" });
-
-    indexWrap.addEventListener("pointermove", (e) => {
-      const r = indexWrap.getBoundingClientRect();
-      setX(e.clientX - r.left);
-      setY(e.clientY - r.top);
-    });
-
-    rows.forEach((row) => {
-      row.addEventListener("pointerenter", () => {
-        activeRow = row;
-        const src = row.dataset.img;
-        if (src) { previewImg.src = src; preview.classList.remove("is-empty"); }
-        else { previewImg.removeAttribute("src"); preview.classList.add("is-empty"); }
-        preview.classList.add("is-visible");
-        indexWrap.classList.add("is-hovering");
-        rows.forEach((r) => r.classList.toggle("is-dimmed", r !== row));
-      });
-      row.addEventListener("pointerleave", () => {
-        if (activeRow === row) {
-          preview.classList.remove("is-visible");
-          indexWrap.classList.remove("is-hovering");
-          rows.forEach((r) => r.classList.remove("is-dimmed"));
-          activeRow = null;
-        }
-      });
-    });
-  }
 
   /* =======================================================
     CUSTOM CURSOR (데스크톱 정밀 포인터에서만)

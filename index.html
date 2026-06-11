@@ -75,7 +75,7 @@
           <article class="rotunda-card" data-title="QuietSkin" data-type="Cosmetic Shopping UI" data-link="#work-quietsSkin">
             <div class="card-inner">
               <div class="project-image">
-                <img src="images/quietsSkin-main.webp" alt="QuietSkin 대표 이미지" />
+                <img src="images/quietSkin_intro_01.webp" alt="QuietSkin 대표 이미지" />
               </div>
             </div>
           </article>
@@ -138,14 +138,14 @@
     <section id="works" class="section works-section">
       <div class="section-head reveal-up">
         <p class="eyebrow">SELECTED WORKS</p>
-        <h2>대표 프로젝트</h2>
+        <h2>Featured Projects</h2>
         <p class="section-desc">이름 위에 마우스를 올리면 프로젝트 미리보기가 나타납니다.</p>
       </div>
 
       <!-- Interactive index list -->
       <div class="index-list" data-index aria-label="대표 프로젝트 목록">
         <a class="index-row reveal-up" href="https://hye0277-erin.github.io/QuietSkin/index.html" target="_blank" rel="noopener"
-           data-img="images/quietsSkin-main.webp">
+           data-img="images/quietSkin_pc.jpg">
           <span class="index-num">01</span>
           <span class="index-name">QuietSkin</span>
           <span class="index-type">Cosmetic Brand Shopping</span>
@@ -190,12 +190,38 @@
       <div class="works-list">
         <article id="work-quietsSkin" class="work-row reveal-up">
           <div class="work-visual">
-            <img src="images/quietsSkin-main.webp" alt="QuietSkin 상세 이미지" />
+            <img src="images/quietSkin_pc.jpg" alt="QuietSkin 상세 이미지" />
           </div>
           <div class="work-info">
             <span>01 / Cosmetic Shopping UI</span>
             <h3>QuietSkin</h3>
             <p>절제된 톤앤매너로 브랜드 무드를 살리고, 상품 탐색부터 결제까지 막힘 없이 이어지는 쇼핑 경험을 설계했습니다.</p>
+
+            <ul class="work-meta">
+              <li>
+                <span class="work-meta-label">Contribution</span>
+                <span class="work-meta-value">기획 · 디자인 · 퍼블리싱 — 개인 100%</span>
+              </li>
+              <li class="work-meta-logo-row">
+                <span class="work-meta-label">Tool</span>
+                <span class="work-meta-logos">
+                  <img src="images/icon_Photoshop.png" alt="Photoshop" />
+                  <img src="images/icon_Illustrator.png" alt="Illustrator" />
+                  <!-- 임시(가짜) 로고 — 실제 로고로 교체하세요 -->
+                  <img src="images/icon_Figma.svg" alt="Figma" />
+                </span>
+              </li>
+              <li class="work-meta-logo-row">
+                <span class="work-meta-label">AI</span>
+                <span class="work-meta-logos">
+                  <!-- 임시(가짜) 로고 — 실제 로고로 교체하세요 -->
+                  <img src="images/icon_ChatGPT.svg" alt="ChatGPT" />
+                  <img src="images/icon_Claude.svg" alt="Claude" />
+                  <img src="images/icon_Midjourney.svg" alt="Midjourney" />
+                </span>
+              </li>
+            </ul>
+
             <a href="https://hye0277-erin.github.io/QuietSkin/index.html" class="text-link" data-magnetic target="_blank" rel="noopener">View Case Study</a>
           </div>
         </article>
@@ -289,10 +315,9 @@
       <div class="company-flow-layout">
         <aside class="company-flow-copy reveal-up">
           <p class="eyebrow">EXPERIENCE ARCHIVE</p>
-          <h2>실무에서 쌓아온 작업물도 함께 담았습니다.</h2>
+          <h2>실무에서 증명해 온 폭넓은 작업의 기록입니다.</h2>
           <p>
-            대표 프로젝트 외에도 현업에서 진행한 상세페이지, 쇼핑몰 배너, 모바일·웹 페이지, POP·프로모션 작업을
-            별도 아카이브로 정리했습니다. 오른쪽 썸네일로 주요 작업을 미리 보고, 자세히 보기에서 전체 목록을 확인할 수 있습니다.
+           메인 프로젝트 외에도 현업에서 진행한 상세페이지, 프로모션 배너, 모바일·웹 인터페이스, POP 디자인 등 다채로운 실무 작업물을 아카이브로 구축했습니다. 우측 썸네일을 통해 주요 작업을 한눈에 확인하실 수 있으며, ‘자세히 보기’를 클릭하시면 전체 프로젝트 목록으로 연결됩니다.
           </p>
           <a href="./archive.html" class="btn btn-primary" data-magnetic>
             자세히 보기
@@ -301,46 +326,59 @@
         </aside>
 
         <div class="company-flow-track reveal-up" aria-label="이전 회사 작업물 미리보기">
+          <!-- 썸네일 이미지는 ./images/works/work-NN.jpg, 클릭하면 ./works/work-NN.html 상세 페이지로 이동합니다. -->
           <div class="flow-column flow-column-a">
-            <article class="company-work-card">
-              <div class="company-thumb empty-image"></div>
+            <a class="company-work-card" href="./works/work-01.html">
+              <div class="company-thumb"><img src="./images/works/work-01.jpg" alt="자사몰 시안" loading="lazy" /></div>
+              <span>Web Mockup</span>
+              <h3>자사몰 시안</h3>
+              <p>자사몰 메인 시안 · Photoshop · Adobe XD</p>
+            </a>
+            <a class="company-work-card" href="./works/work-12.html">
+              <div class="company-thumb"><img src="./images/works/work-12.jpg" alt="피자 상세페이지" loading="lazy" /></div>
               <span>Detail Page</span>
-              <h3>Food Product Detail</h3>
-              <p>식품 상세페이지 · 사진촬영 · 홈쇼핑용 구성</p>
-            </article>
-            <article class="company-work-card">
-              <div class="company-thumb empty-image"></div>
-              <span>Web / Mobile</span>
-              <h3>Lovana Korea UI</h3>
-              <p>모바일 화면 · 웹 페이지 · 배너 구성</p>
-            </article>
-            <article class="company-work-card">
-              <div class="company-thumb empty-image"></div>
-              <span>Promotion</span>
-              <h3>Campaign Banner</h3>
-              <p>이벤트 배너 · 기획전 · SNS 이미지</p>
-            </article>
+              <h3>피자 상세페이지</h3>
+              <p>식품 상세페이지 · 구성 · 홈쇼핑용 레이아웃</p>
+            </a>
+            <a class="company-work-card" href="./works/work-13.html">
+              <div class="company-thumb"><img src="./images/works/work-13.jpg" alt="이벤트 페이지" loading="lazy" /></div>
+              <span>Event Page</span>
+              <h3>이벤트 페이지</h3>
+              <p>기획전 · 프로모션 배너 · 이벤트 비주얼</p>
+            </a>
+            <a class="company-work-card large" href="./works/work-05.html">
+              <div class="company-thumb"><img src="./images/works/work-05.jpg" alt="식품 패키지" loading="lazy" /></div>
+              <span>Package</span>
+              <h3>식품 패키지</h3>
+              <p>패키지 기획 · 디자인 · Illustrator · Photoshop</p>
+            </a>
           </div>
 
           <div class="flow-column flow-column-b">
-            <article class="company-work-card large">
-              <div class="company-thumb empty-image"></div>
-              <span>POP / Print</span>
-              <h3>Home Shopping POP</h3>
-              <p>방송 POP · 오프라인 홍보물 · 안내 그래픽</p>
-            </article>
-            <article class="company-work-card">
-              <div class="company-thumb empty-image"></div>
-              <span>E-Commerce</span>
-              <h3>Product List UI</h3>
-              <p>상품 리스트 · 카테고리 · 구매 흐름</p>
-            </article>
-            <article class="company-work-card large">
-              <div class="company-thumb empty-image"></div>
-              <span>Graphic</span>
-              <h3>Visual Contents</h3>
-              <p>상세 컷 · 썸네일 · 브랜드 그래픽</p>
-            </article>
+            <a class="company-work-card large" href="./works/work-08.html">
+              <div class="company-thumb"><img src="./images/works/work-08.jpg" alt="레트로 식품 패키지" loading="lazy" /></div>
+              <span>Package</span>
+              <h3>레트로 식품 패키지</h3>
+              <p>레트로 콘셉트 · 인쇄물 · 브랜드 그래픽</p>
+            </a>
+            <a class="company-work-card" href="./works/work-11.html">
+              <div class="company-thumb"><img src="./images/works/work-11.jpg" alt="블랙타이거 새우 상세페이지" loading="lazy" /></div>
+              <span>Detail Page</span>
+              <h3>블랙타이거 새우</h3>
+              <p>수산물 상세페이지 · 조리 컷 · 구성</p>
+            </a>
+            <a class="company-work-card large" href="./works/work-07.html">
+              <div class="company-thumb"><img src="./images/works/work-07.jpg" alt="참다른 라벨 디자인" loading="lazy" /></div>
+              <span>Label / Print</span>
+              <h3>제품 스티커</h3>
+              <p>제품 스티커 · 패키지 라벨 · 인쇄 그래픽</p>
+            </a>
+            <a class="company-work-card" href="./works/work-22.html">
+              <div class="company-thumb"><img src="./images/works/work-22.jpg" alt="웨딩업체 UI" loading="lazy" /></div>
+              <span>UI / UX</span>
+              <h3>웨딩업체 UI</h3>
+              <p>웹·모바일 화면 · Adobe XD · Photoshop</p>
+            </a>
           </div>
         </div>
       </div>
@@ -352,31 +390,39 @@
     <section id="process" class="section process-section">
       <div class="section-head reveal-up">
         <p class="eyebrow">PROCESS</p>
-        <h2>문제 정의부터 화면 구현까지</h2>
+        <h2>구조적 설계에서 코드 구현까지</h2>
       </div>
 
-      <div class="process-grid">
-        <article class="process-card reveal-up">
-          <span>01</span>
+      <ol class="process-timeline reveal-up" data-process aria-label="작업 프로세스">
+        <li class="process-step">
+          <span class="process-dot" aria-hidden="true"></span>
+          <span class="process-num">01</span>
           <h3>Research</h3>
-          <p>서비스 목표와 사용자, 경쟁 서비스를 분석해 풀어야 할 문제를 명확히 정의합니다.</p>
-        </article>
-        <article class="process-card reveal-up">
-          <span>02</span>
+          <p class="process-lead">목표 정의 및 시장 분석</p>
+          <p>서비스의 핵심 목표와 타깃 사용자를 명정하고, 경쟁 서비스 분석을 통해 시장 내 차별화 기회와 해결해야 할 실질적인 페인 포인트를 도출합니다. </p>
+        </li>
+        <li class="process-step">
+          <span class="process-dot" aria-hidden="true"></span>
+          <span class="process-num">02</span>
           <h3>Structure</h3>
-          <p>IA와 콘텐츠 우선순위를 정리해 화면의 뼈대와 주요 동선을 설계합니다.</p>
-        </article>
-        <article class="process-card reveal-up">
-          <span>03</span>
-          <h3>Interface</h3>
-          <p>타이포·여백·컴포넌트의 위계를 기준으로 일관된 UI를 디자인합니다.</p>
-        </article>
-        <article class="process-card reveal-up">
-          <span>04</span>
+          <p class="process-lead">정보 구조 및 유저 플로우 설계</p>
+          <p>도출된 인사이트를 기반으로 IA와 콘텐츠 우선순위를 정의합니다. 데이터의 위계를 정립하여 사용자가 직관적으로 도달할 수 있는 동선을 설계합니다.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-dot" aria-hidden="true"></span>
+          <span class="process-num">03</span>
+          <h3>Wireframe &amp; UI Design</h3>
+          <p class="process-lead">비주얼 가이드 및 고도화</p>
+          <p>와이어프레임으로 화면의 뼈대를 견고히 다진 후, 브랜드 아이덴티티가 반영된 고해상도 UI를 디자인합니다. 컴포넌트 중심 설계로 일관성 있는 비주얼을 구축합니다.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-dot" aria-hidden="true"></span>
+          <span class="process-num">04</span>
           <h3>Publishing</h3>
-          <p>웹표준과 반응형, 인터랙션을 고려해 HTML·CSS·JS로 직접 구현합니다.</p>
-        </article>
-      </div>
+          <p class="process-lead">웹 표준 기반의 반응형 퍼블리싱</p>
+          <p>웹 표준을 준수하며 HTML, CSS, JS로 유연한 반응형 웹을 직접 구현합니다. 디자이너의 의도가 온전히 담긴 레이아웃과 자연스러운 인터랙션을 완성합니다.</p>
+        </li>
+      </ol>
     </section>
 
     <!-- =========================================================
