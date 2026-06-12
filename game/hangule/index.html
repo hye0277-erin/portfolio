@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한글 초성 퀴즈 게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- 1. 시작 화면 -->
+        <div id="start-screen" class="screen active">
+            <h1 class="game-title">한글 초성 퀴즈</h1>
+            <p class="game-desc">제시된 초성을 보고 올바른 단어를 입력하세요!</p>
+            <button id="start-btn" class="btn primary-btn">게임 시작</button>
+        </div>
+
+        <!-- 2. 게임 플레이 화면 -->
+        <div id="play-screen" class="screen">
+            <div class="game-header">
+                <div class="status-item">점수: <span id="score-display" class="highlight">0</span></div>
+                <div class="status-item">남은 시간: <span id="timer-display" class="highlight">30</span>초</div>
+            </div>
+
+            <!-- 퀴즈 카드 -->
+            <div class="quiz-card">
+                <div class="category-badge" id="category-display">카테고리</div>
+                <div class="chosung-box" id="chosung-display">ㄱㅇ</div>
+                <div class="hint-box" id="hint-display">힌트가 여기에 표시됩니다.</div>
+            </div>
+
+            <!-- 입력 폼 -->
+            <div class="input-group">
+                <input type="text" id="answer-input" placeholder="정답을 입력하세요" maxlength="10" autocomplete="off">
+                <button id="submit-btn" class="btn submit-btn">제출</button>
+            </div>
+            
+            <div class="feedback-message" id="feedback-display"></div>
+        </div>
+
+        <!-- 3. 게임 오버 화면 -->
+        <div id="end-screen" class="screen">
+            <h1 class="game-title">게임 종료!</h1>
+            <div class="result-card">
+                <p>최종 점수</p>
+                <div class="final-score"><span id="final-score-display">0</span>점</div>
+            </div>
+            <button id="restart-btn" class="btn primary-btn">다시 도전하기</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

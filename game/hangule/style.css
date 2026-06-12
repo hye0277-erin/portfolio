@@ -1,0 +1,186 @@
+/* 기본 스타일 초기화 및 변수 설정 */
+:root {
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --text-main: #1f2937;
+    --text-muted: #4b5563;
+    --accent-red: #ef4444;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* 게임 컨테이너 및 스크린 제어 */
+.game-container {
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 480px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 32px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* 텍스트 요소 */
+.game-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--primary);
+}
+
+.game-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+/* 퀴즈 카드 디자인 */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.highlight {
+    color: var(--primary);
+    font-size: 18px;
+}
+
+.quiz-card {
+    background-color: var(--bg-color);
+    width: 100%;
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 24px;
+    position: relative;
+    border: 1px solid #e5e7eb;
+}
+
+.category-badge {
+    display: inline-block;
+    background-color: #e0e7ff;
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.chosung-display, .chosung-box {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+    color: var(--text-main);
+}
+
+.hint-box {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* 입력 양식 및 버튼 */
+.input-group {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 14px 16px;
+    border: 1.5px solid #d1d5db;
+    border-radius: var(--radius);
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary);
+}
+
+.btn {
+    padding: 14px 24px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.primary-btn {
+    background-color: var(--primary);
+    color: white;
+    width: 100%;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.submit-btn {
+    background-color: var(--text-main);
+    color: white;
+}
+
+/* 결과 및 피드백 */
+.feedback-message {
+    height: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.feedback-message.correct { color: #10b981; }
+.feedback-message.incorrect { color: var(--accent-red); }
+
+.result-card {
+    margin: 24px 0;
+}
+
+.final-score {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-top: 8px;
+}

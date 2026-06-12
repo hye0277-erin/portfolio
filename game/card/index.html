@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 가로형 카드 뒤집기 게임 (커스텀 테마)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="game-title">카드 뒤집기 게임</h1>
+        
+        <!-- 난이도 선택 및 상태 제어 바 -->
+        <div class="control-panel">
+            <div class="select-box">
+                <label for="difficulty-select">난이도 선택: </label>
+                <select id="difficulty-select">
+                    <option value="6">쉬움 (카드 6개 / 3쌍)</option>
+                    <option value="12" selected>보통 (카드 12개 / 6쌍)</option>
+                    <option value="18">어려움 (카드 18개 / 9쌍)</option>
+                    <option value="24">전문가 (카드 24개 / 12쌍)</option>
+                </select>
+            </div>
+            
+            <div class="status-bar">
+                <div class="status-item">시도: <span id="moves" class="highlight">0</span>회</div>
+                <div class="status-item">매칭: <span id="matches" class="highlight">0</span>/<span id="total-matches">6</span></div>
+            </div>
+        </div>
+
+        <!-- 반응형 카드 격자판 -->
+        <div class="card-grid" id="card-grid">
+            <!-- JavaScript가 난이도에 맞춰 동적으로 카드를 주입합니다. -->
+        </div>
+
+        <div class="action-bar">
+            <button id="restart-btn" class="btn">새 게임 시작</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

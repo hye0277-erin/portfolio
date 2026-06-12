@@ -401,10 +401,21 @@ button {
   border: 1px dashed rgba(255, 255, 255, 0.22);
 }
 
+.work-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+
 @media (max-width: 560px) {
   .work-meta li {
     grid-template-columns: 96px 1fr;
     gap: 12px;
+  }
+
+  .work-actions {
+    gap: 10px 18px;
   }
 }
 
@@ -1365,6 +1376,40 @@ body.archive-page::before {
   transform: scaleX(0);
   transform-origin: 0 50%;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+.scroll-top-btn {
+  position: fixed;
+  right: clamp(18px, 3vw, 36px);
+  bottom: clamp(18px, 3vw, 36px);
+  z-index: 190;
+  display: inline-grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: #07080a;
+  background: rgba(184, 255, 101, 0.8);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(14px) scale(0.94);
+  transition: opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease;
+}
+
+.scroll-top-btn.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-top-btn:hover {
+  filter: brightness(1.08);
+}
+
+.scroll-top-btn .material-symbols-rounded {
+  font-size: 24px;
 }
 
 /* ---- Header refinements ---- */

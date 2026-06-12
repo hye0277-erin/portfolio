@@ -110,7 +110,8 @@ window.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (e) => {
       const id = link.getAttribute("href");
-      if (id === "#" || id.length < 2) return;
+      // 외부 URL 등으로 href가 바뀐 경우(예: 회전 갤러리의 Live Site 버튼)는 가로채지 않고 그대로 이동
+      if (!id || !id.startsWith("#") || id.length < 2) return;
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
@@ -137,6 +138,20 @@ window.addEventListener("DOMContentLoaded", () => {
     start: 30, end: "max",
     onUpdate: (self) => header?.classList.toggle("is-scrolled", self.scroll() > 50)
   });
+
+  const scrollTopBtn = document.querySelector("[data-scroll-top]");
+  if (scrollTopBtn) {
+    ScrollTrigger.create({
+      start: 0,
+      end: "max",
+      onUpdate: (self) => scrollTopBtn.classList.toggle("is-visible", self.scroll() > 500)
+    });
+
+    scrollTopBtn.addEventListener("click", () => {
+      if (lenis) lenis.scrollTo(0);
+      else window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  }
 
   /* =======================================================
     INTRO 텍스트 애니메이션
