@@ -107,6 +107,30 @@ window.addEventListener("DOMContentLoaded", () => {
     else target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
   }
 
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const mobileNav = menuToggle ? document.getElementById(menuToggle.getAttribute("aria-controls")) : null;
+  const headerEl = menuToggle?.closest("[data-header]");
+  const menuIcon = menuToggle?.querySelector(".menu-toggle-icon");
+  const closeMenu = () => {
+    headerEl?.classList.remove("is-menu-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    if (menuIcon) menuIcon.textContent = "menu";
+  };
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = headerEl?.classList.toggle("is-menu-open") || false;
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    if (menuIcon) menuIcon.textContent = isOpen ? "close" : "menu";
+  });
+
+  mobileNav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 860) closeMenu();
+  });
+
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (e) => {
       const id = link.getAttribute("href");
@@ -180,7 +204,6 @@ window.addEventListener("DOMContentLoaded", () => {
     const total = cards.length;
     if (!total) return;
 
-    const angle = 360 / total;
     const currentEl = document.querySelector("[data-current]");
     const totalEl = document.querySelector("[data-total]");
     const activeTitle = document.querySelector("[data-active-title]");
@@ -189,15 +212,16 @@ window.addEventListener("DOMContentLoaded", () => {
     const prevBtn = document.querySelector("[data-prev]");
     const nextBtn = document.querySelector("[data-next]");
 
+    const angle = 360 / total;
     let current = 0;
     let radius = getRadius();
     if (totalEl) totalEl.textContent = pad(total);
 
     function getRadius() {
-      if (window.innerWidth <= 560) return 430;
-      if (window.innerWidth <= 860) return 520;
-      if (window.innerWidth <= 1200) return 620;
-      return 760;
+      if (window.innerWidth <= 560) return 340;
+      if (window.innerWidth <= 860) return 420;
+      if (window.innerWidth <= 1200) return 520;
+      return 640;
     }
 
     function layoutCards() {
@@ -205,7 +229,10 @@ window.addEventListener("DOMContentLoaded", () => {
       cards.forEach((card, i) => {
         gsap.set(card, {
           xPercent: -50, yPercent: -50,
-          rotationY: i * angle, z: radius,
+          x: 0, y: 0,
+          rotation: 0,
+          rotationY: i * angle,
+          z: radius,
           transformOrigin: `50% 50% -${radius}px`
         });
       });
@@ -233,8 +260,9 @@ window.addEventListener("DOMContentLoaded", () => {
         const d = Math.abs(dist(i, current));
         const opacity = d === 0 ? 1 : d === 1 ? 0.58 : 0.24;
         const blur = d === 0 ? 0 : d === 1 ? 0.6 : 1.8;
-        const scale = d === 0 ? 1 : d === 1 ? 0.92 : 0.84;
-        gsap.to(card, { opacity, scale, filter: `blur(${blur}px)`, duration: animate ? 0.55 : 0, ease: "power3.out" });
+        const scale = d === 0 ? 1 : d === 1 ? 0.9 : 0.8;
+        const filter = d === 0 ? "none" : `blur(${blur}px)`;
+        gsap.to(card, { opacity, scale, filter, duration: animate ? 0.55 : 0, ease: "power3.out" });
       });
     }
 

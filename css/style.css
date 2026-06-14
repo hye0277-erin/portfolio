@@ -142,6 +142,29 @@ button {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  padding: 0;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+}
+
+.menu-toggle-icon {
+  font-size: 24px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.site-header.is-menu-open .menu-toggle-icon {
+  transform: rotate(90deg);
+}
+
 /* =========================================================
   SHARED ELEMENTS (eyebrow · buttons · placeholders)
 ========================================================= */
@@ -689,18 +712,48 @@ button {
 @media (max-width: 860px) {
   .site-header {
     top: 12px;
-    height: auto;
-    padding: 12px 14px;
-    border-radius: 24px;
+    height: 64px;
+    padding: 0 14px;
+    border-radius: 999px;
   }
 
   .brand-sub {
     display: none;
   }
 
+  .menu-toggle {
+    display: grid;
+    margin-left: auto;
+  }
+
+  .menu-toggle + .gnb {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 10px);
+    display: grid;
+    gap: 4px;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: rgba(7, 8, 12, 0.92);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+  }
+
+  .site-header.is-menu-open .menu-toggle + .gnb {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
   .gnb a {
-    padding: 8px 9px;
-    font-size: 12px;
+    padding: 11px 12px;
+    font-size: 13px;
   }
 
   .about-grid,
@@ -1503,8 +1556,8 @@ body.archive-page::before {
 .rotunda-wrap {
   position: relative;
   z-index: 2;
-  height: min(74vh, 640px);
-  min-height: 420px;
+  height: min(58vh, 500px);
+  min-height: 350px;
   transform-style: preserve-3d;
   cursor: grab;
 }
@@ -1522,20 +1575,21 @@ body.archive-page::before {
 .rotunda-card {
   position: absolute;
   left: 50%; top: 50%;
-  width: clamp(210px, 17vw, 290px);
-  height: min(clamp(290px, 22vw, 400px), 50vh);
-  will-change: transform, opacity, filter;
+  width: clamp(220px, 18vw, 320px);
+  height: min(clamp(308px, 25.2vw, 448px), 48vh);
+  will-change: opacity;
+  transform-style: preserve-3d;
 }
 
 .card-inner {
   width: 100%; height: 100%;
-  padding: 16px;
-  border: 1px solid var(--line);
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-lg);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.045));
-  backdrop-filter: blur(20px);
+  background: linear-gradient(145deg, rgba(25, 28, 36, 0.9), rgba(15, 17, 22, 0.95));
   box-shadow: 0 38px 90px rgba(0, 0, 0, 0.45);
   overflow: hidden;
+  transform-style: preserve-3d;
 }
 
 .project-image {
@@ -1545,11 +1599,17 @@ body.archive-page::before {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04)),
-    radial-gradient(circle at 30% 20%, rgba(184, 255, 101, 0.26), transparent 34%),
-    radial-gradient(circle at 80% 75%, rgba(140, 199, 255, 0.22), transparent 36%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
+    radial-gradient(circle at 30% 20%, rgba(184, 255, 101, 0.18), transparent 34%),
+    radial-gradient(circle at 80% 75%, rgba(140, 199, 255, 0.16), transparent 36%);
 }
-.project-image img { width: 100%; height: 100%; object-fit: cover; }
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transform: translate3d(0, 0, 0);
+}
 
 /* ---- Selected panel ---- */
 .intro-panel {
@@ -1709,6 +1769,7 @@ body.archive-page::before {
 @media (max-width: 860px) {
   .header-cta { display: none; }
   .gnb { gap: 2px; }
+  .site-header .menu-toggle + .gnb { gap: 4px; }
 
   .intro-section {
     min-height: auto;
@@ -1718,8 +1779,8 @@ body.archive-page::before {
   .intro-copy { max-width: 100%; }
   /* 모바일에서는 DOM 순서대로 쌓이도록 정렬 초기화 (텍스트 → 갤러리 → 패널) */
   .intro-copy, .rotunda-wrap, .intro-panel { order: 0; }
-  .rotunda-wrap { height: 500px; min-height: 500px; }
-  .rotunda-card { width: min(74vw, 320px); height: 430px; }
+  .rotunda-wrap { height: 420px; min-height: 420px; }
+  .rotunda-card { width: 260px; height: 364px; }
   .intro-panel { position: relative; right: auto; bottom: auto; width: 100%; }
   .intro-control {
     position: relative;
@@ -1740,7 +1801,7 @@ body.archive-page::before {
 @media (max-width: 560px) {
   .intro-title { font-size: clamp(40px, 13vw, 64px); }
   .intro-desc { font-size: 14px; }
-  .rotunda-wrap { height: 430px; min-height: 430px; }
-  .rotunda-card { width: 250px; height: 360px; }
+  .rotunda-wrap { height: 340px; min-height: 340px; }
+  .rotunda-card { width: 200px; height: 280px; }
   .intro-control p { display: none; }
 }

@@ -29,20 +29,24 @@
     HEADER
   ========================================================== -->
   <header class="site-header" data-header>
-    <a href="#intro" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
+    <a href="./index.html#intro" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
       <span class="brand-mark">HYE02</span>
       <span class="brand-sub">UIUX PORTFOLIO</span>
     </a>
 
-    <nav class="gnb" aria-label="주요 메뉴">
-      <a href="../index.html#works" data-nav>Works</a>
-      <a href="../index.html#about" data-nav>About</a>
-      <a href="../index.html#archive" data-nav>Experience</a>
-      <a href="../index.html#process" data-nav>Process</a>
-      <a href="../index.html#contact" data-nav>Contact</a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="material-symbols-rounded menu-toggle-icon" aria-hidden="true">menu</span>
+    </button>
+
+    <nav class="gnb" id="primary-navigation" aria-label="주요 메뉴">
+      <a href="./index.html#works" data-nav>Works</a>
+      <a href="./index.html#about" data-nav>About</a>
+      <a href="./index.html#archive" data-nav>Experience</a>
+      <a href="./index.html#process" data-nav>Process</a>
+      <a href="./index.html#contact" data-nav>Contact</a>
     </nav>
 
-    <a href="#contact" class="header-cta" data-magnetic>Let's Talk</a>
+    <a href="./index.html#contact" class="header-cta" data-magnetic>Let's Talk</a>
   </header>
 
 
@@ -56,13 +60,13 @@
 
  <main class="petcase-page" id="petcare-case">
     <nav class="pcp-fixed-index" aria-label="PetCare+ 페이지 섹션 이동">
-      <a href="#pcp-overview" aria-label="Overview"></a>
-      <a href="#pcp-background" aria-label="Background"></a>
-      <a href="#pcp-goal" aria-label="Goal"></a>
-      <a href="#pcp-insight" aria-label="Insight"></a>
-      <a href="#pcp-system" aria-label="System"></a>
-      <a href="#pcp-result" aria-label="Result"></a>
-      <a href="#pcp-review" aria-label="Review"></a>
+      <a href="#pcp-overview" aria-label="Overview"><em></em><span>Overview</span></a>
+      <a href="#pcp-background" aria-label="Background"><em></em><span>Background</span></a>
+      <a href="#pcp-goal" aria-label="Goal"><em></em><span>Goal</span></a>
+      <a href="#pcp-insight" aria-label="Insight"><em></em><span>Insight</span></a>
+      <a href="#pcp-system" aria-label="System"><em></em><span>System</span></a>
+      <a href="#pcp-result" aria-label="Result"><em></em><span>Result</span></a>
+      <a href="#pcp-review" aria-label="Review"><em></em><span>Review</span></a>
     </nav>
 
     <!-- 01. Overview -->
@@ -75,7 +79,7 @@
             <span class="pcp-chip">Vibe Coding</span>
           </div>
           <p class="pcp-eyebrow">Case Study</p>
-          <h1 class="pcp-title">아픈 반려견의 하루를<br />기록하는 펫케어 웹앱</h1>
+          <h1 class="pcp-title">아픈 반려견의 <em>하루</em>를<br />기록하는 펫케어 웹앱</h1>
           <p class="pcp-hero-lead">
             노령견이나 질환이 있는 반려견은 약, 식사, 물, 증상, 진료 일정처럼 챙길 게 많습니다. PetCare+는 이 기록들을 한 화면에 모아, 매일 반복하는 케어를 빠뜨리지 않고 병원 가기 전에 한눈에 정리할 수 있게 만든 웹앱입니다.
           </p>
@@ -374,7 +378,7 @@
       <div class="pcp-container">
         <div class="pcp-review pcp-reveal">
           <p class="pcp-eyebrow">Review</p>
-          <h2>좋은 케어 서비스는 기능 수가 아니라, 매일 반복할 수 있는 구조에서 시작된다는 걸 배웠습니다.</h2>
+          <h2>좋은 케어 서비스는 기능 수가 아니라, <em>매일 반복할 수 있는 구조</em>에서 시작된다는 걸 배웠습니다.</h2>
           <p>
             UI 디자인이 화면을 예쁘게 만드는 데서 끝나지 않고, 사용자의 감정과 반복 행동까지 함께 설계하는 일이라는 걸 다시 느꼈습니다. 특히 반려동물 건강처럼 예민한 주제에서는 경고와 정보의 강도를 조절하는 게 중요했습니다. AI 코딩 도구를 쓰면서도, 기획자가 화면 구조와 데이터 흐름을 명확히 잡아야 결과가 안정적으로 나온다는 점을 확실히 알게 됐습니다.
           </p>
@@ -388,55 +392,13 @@
       </div>
     </section>
   </main>
-
-  <!-- 기존 포트폴리오 footer가 있다면 이 영역 아래/위로 붙여 사용하세요. -->
-
-  <script>
-    /* =============================
-       PetCare+ Case Page Interaction
-       - 스크롤 등장 효과
-       - 우측 섹션 인덱스 활성화
-    ============================= */
-    (() => {
-      const page = document.querySelector('.petcase-page');
-      if (!page) return;
-
-      const revealItems = page.querySelectorAll('.pcp-reveal');
-      const sections = page.querySelectorAll('[data-section]');
-      const navLinks = page.querySelectorAll('.pcp-fixed-index a');
-
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.18 });
-
-      revealItems.forEach((item, index) => {
-        item.style.transitionDelay = `${Math.min(index % 4, 3) * 0.08}s`;
-        revealObserver.observe(item);
-      });
-
-      const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const activeIndex = Array.from(sections).indexOf(entry.target);
-          navLinks.forEach((link, index) => {
-            link.classList.toggle('is-active', index === activeIndex);
-          });
-        });
-      }, { rootMargin: '-42% 0px -48% 0px', threshold: 0.01 });
-
-      sections.forEach((section) => sectionObserver.observe(section));
-    })();
-  </script>
-
-
-<footer class="site-footer">
+  <footer class="site-footer">
     <p>© 2026 HYE02 Portfolio. All Rights Reserved.</p>
   </footer>
+
+  <button type="button" class="scroll-top-btn" data-scroll-top aria-label="맨 위로 이동">
+    <span class="material-symbols-rounded" aria-hidden="true">arrow_upward</span>
+  </button>
 
   <!-- GSAP / Draggable / Lenis CDN -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -444,5 +406,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/petcare.js"></script>
 </body>
 </html>
