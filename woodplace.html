@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="WoodPlace, 공간을 제안하는 라이프스타일 가구 쇼핑몰 구축 프로젝트" />
+  <title>WoodPlace Case Study | HYE02</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/woodplace.css" />
+</head>
+<body class="woodplace-case">
+  <div class="scroll-progress" data-progress aria-hidden="true"></div>
+  <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
+  <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <a href="./main.html" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
+      <span class="brand-mark">HYE02</span>
+      <span class="brand-sub">UIUX PORTFOLIO</span>
+    </a>
+    <nav class="gnb" aria-label="주요 메뉴">
+      <a href="./main.html#works">Works</a>
+      <a href="./main.html#about">About</a>
+      <a href="./main.html#archive">Experience</a>
+      <a href="./main.html#process">Process</a>
+      <a href="./main.html#contact">Contact</a>
+    </nav>
+    <a href="./main.html#works" class="header-cta" data-magnetic>Back to Works</a>
+  </header>
+
+  <main class="wp-main" id="woodplace-case">
+    <nav class="wp-index" aria-label="WoodPlace 섹션 이동">
+      <a href="#overview"><em></em><span>Overview</span></a>
+      <a href="#background"><em></em><span>Background</span></a>
+      <a href="#goal"><em></em><span>Goal</span></a>
+      <a href="#solution"><em></em><span>Solution</span></a>
+      <a href="#system"><em></em><span>System</span></a>
+      <a href="#result"><em></em><span>Result</span></a>
+      <a href="#review"><em></em><span>Review</span></a>
+    </nav>
+
+    <section class="wp-hero" id="overview" aria-label="WoodPlace 메인 비주얼">
+      <div class="wp-wrap wp-hero-inner">
+        <div class="wp-hero-copy">
+          <p class="wp-eyebrow wp-reveal">Lifestyle Furniture Commerce</p>
+          <h1 class="wp-hero-title wp-reveal">WoodPlace</h1>
+          <p class="wp-hero-tag wp-reveal">공간을 제안하는 라이프스타일 가구 쇼핑몰</p>
+          <p class="wp-hero-lead wp-reveal">
+            좋은 가구는 제품 하나를 보여주는 데서 끝나지 않습니다. WoodPlace는 원목 가구와 라이프스타일 소품을 통해
+            사용자가 자신의 공간을 자연스럽게 상상하며 둘러볼 수 있도록 만든 쇼핑몰 프로젝트입니다.
+          </p>
+          <dl class="wp-meta wp-reveal">
+            <div><dt>Project</dt><dd>개인 프로젝트</dd></div>
+            <div><dt>Role</dt><dd>기획, UIUX 디자인, 퍼블리싱, Cafe24 연동</dd></div>
+            <div><dt>Period</dt><dd>2026.03 - 2026.04</dd></div>
+            <div><dt>Tools</dt><dd>Figma, Photoshop, HTML, CSS, JavaScript, Cafe24</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp-section" id="background">
+      <div class="wp-wrap wp-two-col">
+        <div class="wp-sticky-title">
+          <span class="wp-mark wp-reveal">Background &amp; Problem</span>
+          <h2 class="wp-display wp-reveal">가구를 고르는 순간에<br />공간의 분위기까지 떠올릴 수 있을까?</h2>
+        </div>
+        <div class="wp-text wp-reveal">
+          <p>
+            많은 가구 쇼핑몰은 할인 정보와 상품 목록을 빠르게 보여주는 데 집중합니다. 정보는 충분하지만,
+            사용자가 그 가구를 자신의 집에 들였을 때 어떤 분위기가 만들어질지는 쉽게 그려지지 않았습니다.
+          </p>
+          <p>
+            가구는 단순한 소비재가 아니라 생활의 밀도와 공간의 인상을 바꾸는 요소입니다. 그래서 WoodPlace는
+            상품을 나열하기보다, 사용자가 먼저 공간을 느끼고 그 안에서 제품을 발견하도록 경험의 순서를 다시 설계했습니다.
+          </p>
+          <div class="wp-problem-grid">
+            <article><b>01</b><span>가격과 상품 정보 중심의 탐색 피로</span></article>
+            <article><b>02</b><span>실제 생활 속 활용 장면 부족</span></article>
+            <article><b>03</b><span>브랜드 감성보다 판매 정보가 먼저 보이는 구조</span></article>
+            <article><b>04</b><span>실제 쇼핑몰 운영 프로세스를 반영하기 어려운 제작 방식</span></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp-section wp-soft" id="goal">
+      <div class="wp-wrap">
+        <span class="wp-mark wp-reveal">Project Goal</span>
+        <h2 class="wp-display wp-reveal">제품보다 먼저, 공간 경험이 전달되는 쇼핑 환경</h2>
+        <ol class="wp-goal-list">
+          <li class="wp-reveal"><strong>공간 중심의 첫인상</strong><span>메인 비주얼에서 제품보다 라이프스타일 분위기가 먼저 느껴지도록 구성했습니다.</span></li>
+          <li class="wp-reveal"><strong>직관적인 탐색 구조</strong><span>컬렉션, 카테고리, 서비스 정보를 자연스럽게 이어 사용자의 탐색 부담을 낮췄습니다.</span></li>
+          <li class="wp-reveal"><strong>따뜻한 원목 브랜드 감성</strong><span>우드 톤 컬러와 여백, 안정적인 타이포그래피로 편안한 인상을 만들었습니다.</span></li>
+          <li class="wp-reveal"><strong>운영 가능한 쇼핑몰 경험</strong><span>Cafe24 연동을 통해 디자인 이후의 상품 등록, 배너, 게시판, 주문 흐름까지 확인했습니다.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="wp-section" id="solution">
+      <div class="wp-wrap">
+        <header class="wp-section-head">
+          <span class="wp-mark wp-reveal">Problem Solving Insight</span>
+          <h2 class="wp-display wp-reveal">상품 목록을 큐레이션 경험으로 바꾸기</h2>
+          <p class="wp-reveal">
+            WoodPlace의 핵심은 무엇을 파는가보다 어떤 공간을 제안하는가에 있었습니다.
+            메인 화면, 컬렉션, 서비스 안내, 운영 구조를 하나의 흐름으로 연결했습니다.
+          </p>
+        </header>
+
+        <figure class="wp-wide-figure wp-reveal">
+          <img src="./images/woodplace/hero_bg.jpg" alt="WoodPlace 라이프스타일 메인 화면 시안" loading="lazy" />
+          <figcaption>라이프스타일 중심 메인 비주얼</figcaption>
+        </figure>
+
+        <div class="wp-solution-grid">
+          <article class="wp-reveal">
+            <span class="material-symbols-rounded" aria-hidden="true">living</span>
+            <h3>라이프스타일 히어로</h3>
+            <p>실제 거실처럼 보이는 이미지를 첫 화면에 배치해 사용자가 제품보다 공간의 온도를 먼저 느끼게 했습니다.</p>
+          </article>
+          <article class="wp-reveal">
+            <span class="material-symbols-rounded" aria-hidden="true">category</span>
+            <h3>인기 컬렉션 제안</h3>
+            <p>소파, 라운지 체어, 사이드 테이블, 조명처럼 생활 장면을 기준으로 제품을 묶어 탐색 흐름을 만들었습니다.</p>
+          </article>
+          <article class="wp-reveal">
+            <span class="material-symbols-rounded" aria-hidden="true">lightbulb</span>
+            <h3>공간 제안 콘텐츠</h3>
+            <p>중간 영역에는 하나의 가구가 아닌, 공간을 완성하는 분위기가 느껴지도록 연출 이미지를 강화했습니다.</p>
+          </article>
+          <article class="wp-reveal">
+            <span class="material-symbols-rounded" aria-hidden="true">verified_user</span>
+            <h3>구매 신뢰 요소</h3>
+            <p>무료 배송, 전문 상담, 안전 결제, 고객 지원을 별도 서비스 영역으로 정리해 구매 전 불안 요소를 줄였습니다.</p>
+          </article>
+        </div>
+
+        <div class="wp-cafe-band wp-reveal">
+          <div>
+            <span class="wp-cafe-label">Cafe24 Integration</span>
+            <h3>Cafe24 연동까지 직접 진행하며 운영 관점을 확인했습니다.</h3>
+          </div>
+          <ul>
+            <li>상품 등록</li>
+            <li>카테고리 구성</li>
+            <li>배너 관리</li>
+            <li>게시판 관리</li>
+            <li>주문 프로세스</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp-section wp-soft" id="system">
+      <div class="wp-wrap">
+        <span class="wp-mark wp-reveal">Design System &amp; Development</span>
+        <h2 class="wp-display wp-reveal">따뜻하고 넓게, 오래 머무는 인상으로</h2>
+        <div class="wp-system-grid">
+          <article class="wp-system-card wp-reveal">
+            <h3>Design Principle</h3>
+            <ul class="wp-chip-list">
+              <li>Warm</li>
+              <li>Natural</li>
+              <li>Spacious</li>
+              <li>Refined</li>
+            </ul>
+          </article>
+          <article class="wp-system-card wp-reveal">
+            <h3>Color</h3>
+            <div class="wp-palette">
+              <span style="--swatch:#d8b98f">Oak Beige</span>
+              <span style="--swatch:#7a5134">Walnut Brown</span>
+              <span style="--swatch:#fbf7ef">Warm Ivory</span>
+              <span style="--swatch:#d8d2c9">Soft Gray</span>
+            </div>
+          </article>
+          <article class="wp-system-card wp-reveal">
+            <h3>Typography</h3>
+            <p class="wp-type-sample">Pretendard<br /><small>읽기 편한 본문과 차분한 커머스 UI에 적합한 서체</small></p>
+          </article>
+          <article class="wp-system-card wp-reveal">
+            <h3>Component</h3>
+            <ul class="wp-component-list">
+              <li>Hero Banner</li>
+              <li>Product Card</li>
+              <li>Category Navigation</li>
+              <li>Lifestyle Banner</li>
+              <li>Service Guide</li>
+              <li>Store Information</li>
+              <li>Notice Board</li>
+              <li>Promotion Card</li>
+              <li>CTA Button</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="wp-dev-grid">
+          <article class="wp-dev-card wp-reveal">
+            <h3>Publishing</h3>
+            <ul>
+              <li>HTML/CSS 기반 반응형 쇼핑몰 구현</li>
+              <li>JavaScript 인터랙션 적용</li>
+              <li>상품 리스트 및 상세 페이지 제작</li>
+            </ul>
+          </article>
+          <article class="wp-dev-card wp-reveal">
+            <h3>Cafe24 Build</h3>
+            <ul>
+              <li>디자인 커스터마이징 적용</li>
+              <li>카테고리 및 상품 관리 구조 이해</li>
+              <li>게시판 운영과 실제 주문 흐름 경험</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp-section" id="result">
+      <div class="wp-wrap wp-result-grid">
+        <figure class="wp-result-figure wp-reveal">
+          <img src="./images/woodplace/hero_bg.jpg" alt="WoodPlace 반응형 쇼핑몰 결과 화면" loading="lazy" />
+        </figure>
+        <div class="wp-result-copy">
+          <span class="wp-mark wp-reveal">Project Result</span>
+          <h2 class="wp-display wp-reveal">판매 화면을 넘어, 브랜드가 제안하는 생활 장면을 만들었습니다.</h2>
+          <p class="wp-reveal">
+            WoodPlace를 통해 단순한 상품 판매가 아니라 라이프스타일을 제안하는 쇼핑 경험을 구현했습니다.
+            Cafe24 연동까지 진행하며 디자인, 퍼블리싱, 운영 구조가 함께 맞물려야 한다는 점도 확인했습니다.
+          </p>
+          <ul class="wp-check-list">
+            <li class="wp-reveal">라이프스타일 중심 쇼핑 경험 구축</li>
+            <li class="wp-reveal">반응형 쇼핑몰 구현</li>
+            <li class="wp-reveal">Cafe24 연동 및 운영 경험 확보</li>
+            <li class="wp-reveal">상품 관리 프로세스 이해</li>
+            <li class="wp-reveal">브랜드 감성을 반영한 UI 설계</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp-section wp-review-section" id="review">
+      <div class="wp-wrap">
+        <div class="wp-review wp-reveal">
+          <span class="wp-mark">Review &amp; Learning</span>
+          <p>
+            이번 프로젝트를 통해 쇼핑몰은 상품을 판매하는 공간이면서 동시에 브랜드가 제안하는 생활 방식을 경험하는 접점이라는 점을 배웠습니다.
+            특히 Cafe24 연동과 운영 구조를 함께 다루며, 실무에서는 화면의 완성도뿐 아니라 관리 효율과 사용 흐름까지 고려해야 한다는 점을 체감했습니다.
+          </p>
+          <blockquote>
+            사용자는 가구를 구매하는 것이 아니라, 그 가구가 완성할 자신의 공간을 상상하며 선택한다.
+          </blockquote>
+          <a href="./main.html#works" class="wp-back">
+            <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+            목록으로 돌아가기
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button type="button" class="wp-top-btn" data-top-btn aria-label="맨 위로 이동">
+    <span class="material-symbols-rounded" aria-hidden="true">keyboard_arrow_up</span>
+  </button>
+
+  <footer class="site-footer">
+    <p>© 2026 HYE02 Portfolio. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/woodplace.js"></script>
+</body>
+</html>
