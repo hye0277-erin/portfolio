@@ -305,6 +305,34 @@ button {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.tool-icon-list {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 20px;
+}
+
+.tool-icon-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.tool-icon-list img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.tool-icon-list span {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
 /* WORKS */
 .works-list {
   display: grid;
@@ -710,6 +738,50 @@ button {
 }
 
 @media (max-width: 860px) {
+  .process-timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .process-timeline::before,
+  .process-timeline::after {
+    display: none;
+  }
+
+  .process-step {
+    display: block;
+    min-height: 0;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.045);
+  }
+
+  .process-step .process-dot {
+    width: 10px;
+    height: 10px;
+    margin-bottom: 16px;
+  }
+
+  .process-dot::after {
+    display: none;
+  }
+
+  .process-step h3 {
+    margin-bottom: 8px;
+    font-size: 18px;
+  }
+
+  .process-lead {
+    margin-bottom: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.45;
+  }
+
+  .process-step p:not(.process-lead) {
+    display: none;
+  }
+
   .site-header {
     top: 12px;
     height: 64px;
@@ -776,6 +848,19 @@ button {
   .section-head h2,
   .contact-card h2 {
     letter-spacing: -0.055em;
+  }
+
+  .process-timeline {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .process-step {
+    padding: 16px;
+  }
+
+  .process-step .process-dot {
+    margin-bottom: 12px;
   }
 
   .work-visual {
@@ -932,6 +1017,18 @@ button {
   word-break: keep-all;
 }
 
+.company-flow-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  max-width: 480px;
+}
+
+.company-flow-actions .btn {
+  flex-shrink: 1;
+}
+
 .company-flow-track {
   position: relative;
   display: grid;
@@ -982,6 +1079,10 @@ button {
   animation-play-state: paused;
 }
 
+.company-flow-controls {
+  display: none;
+}
+
 .company-work-card {
   display: block;
   min-height: 330px;
@@ -993,10 +1094,12 @@ button {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-a.company-work-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(184,255,101,0.5);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+@media (hover: hover) and (pointer: fine) {
+  a.company-work-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(184,255,101,0.5);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+  }
 }
 
 .company-work-card.large {
@@ -1023,6 +1126,8 @@ a.company-work-card:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
+  transform-origin: top center;
 }
 
 .company-work-card span {
@@ -1158,32 +1263,31 @@ body.archive-page::before {
   border-color: #07080a;
 }
 
-.archive-detail-card.is-hidden {
-  display: none;
-}
-
 .archive-detail-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 18px;
 }
 
 .archive-detail-card {
+  position: relative;
   display: block;
   padding: 10px 10px 16px;
   border: 1px solid var(--archive-line);
   border-radius: 16px;
   background: rgba(255,255,255,0.54);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
 .archive-detail-card:hover,
 .archive-detail-card:focus-visible {
-  transform: translateY(-5px);
-  box-shadow: 0 18px 44px rgba(0,0,0,0.11);
+  transform: none;
+  border-color: rgba(7,8,10,0.22);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.13);
 }
 
 .archive-detail-thumb {
+  position: relative;
   height: 210px;
   margin-bottom: 13px;
   border-radius: 11px;
@@ -1199,6 +1303,52 @@ body.archive-page::before {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
+  transform-origin: top center;
+  transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+}
+
+.archive-detail-card:hover .archive-detail-thumb img {
+  transform: none;
+}
+
+/* 호버 시 우상단 화살표 */
+.archive-detail-thumb::after {
+  content: "arrow_outward";
+  font-family: "Material Symbols Rounded";
+  position: absolute;
+  top: 10px; right: 10px;
+  display: grid; place-items: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  font-size: 18px;
+  color: #07080a;
+  background: rgba(245,245,241,0.92);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+  opacity: 0;
+  transform: translateY(-4px) scale(0.9);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.archive-detail-card:hover .archive-detail-thumb::after,
+.archive-detail-card:focus-visible .archive-detail-thumb::after {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* 외부 링크(Live) 카드 표시 */
+.archive-detail-card[target="_blank"] .archive-detail-thumb::before {
+  content: "LIVE";
+  position: absolute;
+  top: 10px; left: 10px;
+  z-index: 2;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #f5f5f1;
+  background: #07080a;
 }
 
 .archive-detail-card h2 {
@@ -1226,6 +1376,59 @@ body.archive-page::before {
   color: var(--archive-muted);
 }
 
+/* 필터 개수 배지 */
+.archive-filter-row button .filter-count {
+  margin-left: 7px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 800;
+  background: rgba(7,8,10,0.1);
+  color: var(--archive-muted);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.archive-filter-row button.is-active .filter-count {
+  background: rgba(245,245,241,0.22);
+  color: #f5f5f1;
+}
+
+/* 카드 스크롤 등장 */
+.archive-detail-card {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.archive-detail-card.is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.archive-detail-card.is-hidden { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .archive-detail-card { opacity: 1; transform: none; }
+}
+
+/* 맨 위로 버튼 */
+.archive-top-btn {
+  position: fixed;
+  right: clamp(18px, 3vw, 36px);
+  bottom: clamp(18px, 3vw, 36px);
+  z-index: 60;
+  display: inline-grid; place-items: center;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  color: #f5f5f1;
+  background: #07080a;
+  border: none;
+  box-shadow: 0 14px 32px rgba(0,0,0,0.22);
+  cursor: pointer;
+  opacity: 0; pointer-events: none;
+  transform: translateY(14px) scale(0.94);
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.archive-top-btn.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); }
+.archive-top-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 20px 44px rgba(0,0,0,0.3); }
+.archive-top-btn .material-symbols-rounded { font-size: 24px; }
+
 /* =========================================================
   WORK DETAIL PAGE (works/work-NN.html)
   - 카드를 클릭하면 열리는 작업물 상세 페이지입니다.
@@ -1238,16 +1441,24 @@ body.archive-page::before {
 }
 
 .work-back {
-  display: inline-block;
-  margin-bottom: 26px;
+  display: block;
+  width: fit-content;
+  margin: 0 0 26px auto;
+  padding: 10px 16px;
+  border: 1px solid var(--archive-line);
+  border-radius: 999px;
   font-size: 13px;
   font-weight: 800;
   letter-spacing: -0.01em;
   color: var(--archive-muted);
+  background: rgba(255,255,255,0.58);
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
 .work-back:hover {
   color: var(--archive-text);
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(7,8,10,0.22);
 }
 
 .work-detail-head {
@@ -1271,18 +1482,24 @@ body.archive-page::before {
 }
 
 .work-detail-figure {
-  margin: 0 0 44px;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 1px solid var(--archive-line);
-  background: #fff;
-  box-shadow: 0 24px 70px rgba(0,0,0,0.10);
+  width: 100%;
+  margin: 0 auto 44px;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
 }
 
 .work-detail-figure img {
   display: block;
   width: 100%;
   height: auto;
+  margin: 0 auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .work-detail-body {
@@ -1341,9 +1558,19 @@ body.archive-page::before {
 
 @media (max-width: 860px) {
   .company-flow-track {
-    grid-template-columns: 1fr;
+    display: flex;
+    grid-template-columns: none;
+    gap: 0;
     min-height: auto;
-    overflow: visible;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+    -webkit-overflow-scrolling: touch;
   }
 
   .company-flow-track::before,
@@ -1353,8 +1580,39 @@ body.archive-page::before {
 
   .flow-column,
   .flow-column-b {
+    display: contents;
     transform: none;
     animation: none;
+  }
+
+  .company-flow-track .company-work-card {
+    flex: 0 0 100%;
+    min-height: auto;
+    scroll-snap-align: start;
+  }
+
+  .company-flow-track .company-work-card:hover {
+    transform: none;
+  }
+
+  .company-flow-track .company-work-card + .company-work-card {
+    margin-left: 0;
+  }
+
+  .company-flow-track .company-thumb,
+  .company-flow-track .company-work-card.large .company-thumb {
+    height: clamp(260px, 78vw, 430px);
+  }
+
+  .company-flow-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .company-flow-controls {
+    display: flex;
+    flex-shrink: 0;
+    gap: 10px;
+    margin-left: auto;
   }
 
   .archive-detail-grid {
@@ -1565,8 +1823,7 @@ body.archive-page::before {
 
 .rotunda-stage {
   position: absolute;
-  /* 가운데 칸 안에서 살짝 오른쪽으로 이동 → 우측 패널과 살짝 겹침 */
-  left: 62%; top: 45%;
+  left: 50%; top: 45%;
   width: 1px; height: 1px;
   transform-style: preserve-3d;
   will-change: transform;
@@ -1654,6 +1911,17 @@ body.archive-page::before {
 }
 .control-btn:hover, .control-btn:focus-visible { background: var(--glass-strong); }
 
+@media (min-width: 861px) {
+  .intro-copy,
+  .rotunda-wrap {
+    transform: translateX(-32px);
+  }
+
+  .intro-control {
+    transform: translateX(calc(-50% - 32px));
+  }
+}
+
 /* =========================================================
   PROJECT INDEX — interactive hover list
 ========================================================= */
@@ -1668,74 +1936,95 @@ body.archive-page::before {
   gap: 18px;
   padding: clamp(20px, 2.6vw, 34px) 8px;
   border-top: 1px solid var(--line);
-  transition: opacity 0.35s ease, padding-left 0.4s ease;
+  overflow: hidden;
+  transition: opacity 0.35s ease, padding-left 0.4s ease, border-color 0.3s ease;
 }
 .index-list .index-row:last-of-type { border-bottom: 1px solid var(--line); }
 
+.index-row::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.25s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .index-num {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid transparent;
+  border-radius: 50%;
   font-size: 14px;
   font-weight: 700;
   color: var(--dim);
   font-variant-numeric: tabular-nums;
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
 .index-name {
   font-size: clamp(30px, 5.2vw, 76px);
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.05em;
+  transform-origin: left center;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
 }
 .index-type {
   font-size: clamp(12px, 1.2vw, 15px);
   color: var(--muted);
   text-align: right;
+  transition: color 0.3s ease;
 }
 .index-arrow {
   justify-self: end;
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   font-size: 26px;
   color: var(--dim);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
+  background: rgba(255, 255, 255, 0.035);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease, background 0.3s ease;
 }
 
-/* hover behaviour (pointer devices) */
-.index-row:hover .index-name { transform: translateX(22px); color: var(--accent); }
-.index-row:hover .index-arrow { transform: translate(6px, -6px); color: var(--accent); }
-.index-list.is-hovering .index-row.is-dimmed { opacity: 0.32; }
+@media (hover: hover) and (pointer: fine) {
+  .index-row:hover {
+    padding-left: 22px;
+    border-color: rgba(184, 255, 101, 0.35);
+  }
 
-/* floating preview — sits BEHIND the row text so the project name
-   overlaps on top of the image (layered look) */
-.index-preview {
-  position: absolute;
-  top: 0; left: 0;
-  z-index: 0;
-  width: clamp(220px, 22vw, 320px);
-  aspect-ratio: 4 / 3;
-  margin: calc(clamp(220px, 22vw, 320px) * -0.375) 0 0 calc(clamp(220px, 22vw, 320px) * -0.5);
-  border-radius: 16px;
-  overflow: hidden;
-  pointer-events: none;
-  opacity: 0;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-  background:
-    linear-gradient(135deg, rgba(184, 255, 101, 0.3), transparent 60%),
-    radial-gradient(circle at 75% 80%, rgba(140, 199, 255, 0.3), transparent 55%),
-    #14171d;
-  transition: opacity 0.35s ease;
-}
-.index-preview.is-visible { opacity: 1; }
-.index-preview img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transform: scale(1.12);
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.index-preview.is-visible img { transform: scale(1); }
-.index-preview.is-empty img { opacity: 0; }
+  .index-row:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-/* hide preview entirely on touch/coarse pointers */
-@media (hover: none), (pointer: coarse) {
-  .index-preview { display: none; }
-  .index-row:hover .index-name { transform: none; }
+  .index-row:hover .index-type {
+    color: rgba(244, 245, 248, 0.82);
+  }
+
+  .index-row:hover .index-num {
+    color: var(--accent);
+    background: transparent;
+    transform: none;
+  }
+
+  .index-row:hover .index-name {
+    transform: translateX(16px) scale(1.045);
+    color: var(--accent);
+  }
+
+  .index-row:hover .index-arrow {
+    transform: translate(8px, -8px) rotate(12deg);
+    color: #071008;
+    background: var(--accent);
+  }
 }
 
 /* WORKS visual image fill */

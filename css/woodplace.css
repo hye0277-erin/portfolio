@@ -55,9 +55,20 @@
   color: var(--wp-cream);
 }
 .woodplace-case .site-footer {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
   background: #271d12;
   color: rgba(255, 253, 248, 0.72);
 }
+
+.woodplace-case .site-footer p {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: 26px clamp(22px, 5vw, 40px) 42px;
+}
+
 
 .woodplace-case .scroll-progress { background: rgba(80, 64, 44, 0.1); }
 .woodplace-case .cursor-dot { background: var(--wp-wood-deep); }

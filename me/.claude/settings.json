@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(start \"e:\\\\2026-컴퓨터교육\\\\김혜영\\\\me\\\\portfolio-about-page\\\\index.html\")"
+    ]
+  }
+}

@@ -4,32 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="HYE02 UIUX Designer Portfolio" />
-  <title>HYE02 — UIUX Designer Portfolio</title>
+  <title>PetCare+ Case Study | HYE02 Portfolio</title>
 
-  <!-- Google Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet" />
-  <!-- Display serif for editorial accent -->
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-
-  <!-- Pretendard CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
 
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/petcare.css" />
 </head>
 <body>
-  <!-- Scroll progress + custom cursor -->
   <div class="scroll-progress" data-progress aria-hidden="true"></div>
   <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
   <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
 
-  <!-- =========================================================
-    HEADER
-  ========================================================== -->
   <header class="site-header" data-header>
-    <a href="./index.html#intro" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
+    <a href="./main.html" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
       <span class="brand-mark">HYE02</span>
       <span class="brand-sub">UIUX PORTFOLIO</span>
     </a>
@@ -49,16 +41,7 @@
     <a href="./index.html#contact" class="header-cta" data-magnetic>Let's Talk</a>
   </header>
 
-
-
-  <!--
-    PetCare+ Portfolio Sub Page
-    - 기존 포트폴리오 header / footer는 그대로 사용한다는 전제로 제작
-    - 이 파일의 CSS는 .petcase-page 내부에만 적용되도록 구성
-    - 이미지 영역은 .pcp-image-slot 안의 안내 문구를 보고 교체하면 됩니다.
-  -->
-
- <main class="petcase-page" id="petcare-case">
+  <main class="petcase-page" id="petcare-case">
     <nav class="pcp-fixed-index" aria-label="PetCare+ 페이지 섹션 이동">
       <a href="#pcp-overview" aria-label="Overview"><em></em><span>Overview</span></a>
       <a href="#pcp-background" aria-label="Background"><em></em><span>Background</span></a>
@@ -69,8 +52,15 @@
       <a href="#pcp-review" aria-label="Review"><em></em><span>Review</span></a>
     </nav>
 
-    <!-- 01. Overview -->
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
     <section class="pcp-hero pcp-section" id="pcp-overview" data-section>
+      <div class="pcp-hero-bg" aria-hidden="true">
+        <img src="./images/petcare/hero-dog-run.jpg" alt="" class="pcp-hero-bg-img" />
+        <div class="pcp-hero-bg-overlay"></div>
+      </div>
+
       <div class="pcp-container pcp-hero-grid">
         <div class="pcp-hero-copy pcp-reveal">
           <div class="pcp-hero-kicker">
@@ -95,7 +85,7 @@
             </div>
             <div class="pcp-meta-card">
               <b>제작 기간</b>
-              <span>2026.03 – 2026.04 (약 6주)</span>
+              <span>2026.03 - 2026.04 (약 6주)</span>
             </div>
             <div class="pcp-meta-card">
               <b>사용 툴</b>
@@ -105,39 +95,41 @@
         </div>
 
         <div class="pcp-phone-stage pcp-reveal" aria-label="앱 화면 미리보기">
+          <div class="pcp-phone-halo" aria-hidden="true"></div>
           <div class="pcp-phone">
-            <div class="pcp-phone-screen">
-              <div class="pcp-app-top">
-                <strong>PetCare+</strong>
-                <div class="pcp-avatar" aria-hidden="true"></div>
-              </div>
-              <div class="pcp-app-card is-main">
-                <span class="pcp-app-label">오늘의 케어</span>
-                <h3>저녁약과 물 섭취가<br />아직 남아 있어요</h3>
-                <div class="pcp-progress"><i></i></div>
-              </div>
-              <div class="pcp-app-card">
-                <div class="pcp-mini-row"><span>저녁 심장약</span><i class="pcp-dot"></i></div>
-                <div class="pcp-mini-row"><span>물 섭취 기록</span><i class="pcp-dot"></i></div>
-                <div class="pcp-mini-row"><span>다음 진료 D-3</span><i class="pcp-dot"></i></div>
-              </div>
-              <div class="pcp-app-card">
-                <div class="pcp-mini-row"><span>오늘 증상 메모</span><span>2건</span></div>
-                <div class="pcp-mini-row"><span>최근 체중</span><span>4.8kg</span></div>
-              </div>
+            <div class="pcp-phone-screen pcp-slideshow" data-slideshow>
+              <img class="is-active" src="./images/petcare/app_main.jpg" alt="PetCare+ 홈 화면" />
+              <img src="./images/petcare/app_schejul.jpg" alt="PetCare+ 일정 화면" />
+              <img src="./images/petcare/app_record.jpg" alt="PetCare+ 기록 화면" />
+              <img src="./images/petcare/app_report.jpg" alt="PetCare+ 리포트 화면" />
             </div>
+          </div>
+          <div class="pcp-phone-float pcp-phone-float--a" aria-hidden="true">
+            <span class="material-symbols-rounded">vaccines</span>
+            <span class="pcp-float-label">약 복용 완료</span>
+          </div>
+          <div class="pcp-phone-float pcp-phone-float--b" aria-hidden="true">
+            <span class="material-symbols-rounded">monitor_weight</span>
+            <span class="pcp-float-label">체중 3.8 kg</span>
           </div>
         </div>
       </div>
+
+      <div class="pcp-hero-scroll-hint pcp-reveal" aria-hidden="true">
+        <span class="pcp-scroll-line"></span>
+        <span class="pcp-scroll-text">Scroll</span>
+      </div>
     </section>
 
-    <!-- 02. Background & Problem -->
+    <!-- ============================================================
+         BACKGROUND
+    ============================================================ -->
     <section class="pcp-section" id="pcp-background" data-section>
       <div class="pcp-container">
         <div class="pcp-section-head pcp-reveal">
           <div>
             <p class="pcp-eyebrow">Background</p>
-            <h2 class="pcp-section-title">돌봄은 감정의 영역이지만, 동시에 매일의 기록 관리이기도 합니다.</h2>
+            <h2 class="pcp-section-title">돌봄은 감정의 영역이지만,<br />동시에 <em>매일의 기록 관리</em>이기도 합니다.</h2>
           </div>
           <p class="pcp-desc">
             아픈 반려견을 돌보는 보호자는 약 먹은 시간, 증상 변화, 병원 일정, 검사 결과를 계속 챙겨야 합니다. 그런데 이 기록들은 보통 메신저, 메모장, 사진첩, 병원 안내지에 흩어져 있어 뭔가 하나는 꼭 빠지게 됩니다.
@@ -175,23 +167,27 @@
             </div>
           </article>
 
-          <div class="pcp-image-slot pcp-reveal">
-            <div class="pcp-image-guide">
-              <b>생활 사진</b>
-              <span>약, 물그릇, 진료 수첩을 함께 챙기는 보호자의 일상 장면</span>
-            </div>
+          <div class="pcp-bg-photo-stack pcp-reveal">
+            <figure class="pcp-photo pcp-photo--main">
+              <img src="./images/petcare/docter.jpeg" alt="반려견 케어를 준비하는 생활 이미지" />
+            </figure>
+            <figure class="pcp-photo pcp-photo--sub">
+              <img src="./images/petcare/dog-senior.jpg" alt="노령견 케어 이미지" />
+            </figure>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 03. Project Goal -->
+    <!-- ============================================================
+         GOAL
+    ============================================================ -->
     <section class="pcp-section" id="pcp-goal" data-section>
       <div class="pcp-container">
         <div class="pcp-section-head pcp-reveal">
           <div>
             <p class="pcp-eyebrow">Goal</p>
-            <h2 class="pcp-section-title">오늘 할 일을 놓치지 않고, 기록은 부담 없이 남기게.</h2>
+            <h2 class="pcp-section-title">오늘 할 일을 놓치지 않고,<br />기록은 <em>부담 없이</em> 남기게.</h2>
           </div>
           <p class="pcp-desc">
             기능을 많이 넣기보다 케어 루틴의 핵심 동작을 빠르게 확인하고 기록하는 흐름을 만드는 데 집중했습니다. MVP에서는 반려견 한 마리 기준으로 홈, 일정, 기록, 리포트 구조를 먼저 잡았습니다.
@@ -200,21 +196,33 @@
 
         <div class="pcp-goal-grid">
           <article class="pcp-goal-card pcp-reveal">
+            <div class="pcp-goal-icon">
+              <span class="material-symbols-rounded">home</span>
+            </div>
             <small>01</small>
             <h3>오늘의 케어를 먼저</h3>
             <p>약, 식사, 물, 증상, 체중처럼 매일 챙길 항목을 홈에서 바로 체크합니다.</p>
           </article>
           <article class="pcp-goal-card pcp-reveal">
+            <div class="pcp-goal-icon">
+              <span class="material-symbols-rounded">local_hospital</span>
+            </div>
             <small>02</small>
             <h3>진료 전 한눈에</h3>
             <p>병원 가기 전 최근 증상과 검사 결과를 빠르게 확인하도록 기록 중심으로 구성했습니다.</p>
           </article>
           <article class="pcp-goal-card pcp-reveal">
+            <div class="pcp-goal-icon">
+              <span class="material-symbols-rounded">spa</span>
+            </div>
             <small>03</small>
             <h3>무겁지 않게</h3>
             <p>질환 관리 앱 특유의 무거움을 덜기 위해 차분한 색, 큰 카드, 짧은 문장을 썼습니다.</p>
           </article>
           <article class="pcp-goal-card pcp-reveal">
+            <div class="pcp-goal-icon">
+              <span class="material-symbols-rounded">expand</span>
+            </div>
             <small>04</small>
             <h3>키워갈 수 있게</h3>
             <p>지금은 한 마리에 집중하고, 이후 다견 관리·보호자 공유·AI 요약으로 넓힐 수 있게 설계했습니다.</p>
@@ -223,13 +231,15 @@
       </div>
     </section>
 
-    <!-- 04. Insight -->
+    <!-- ============================================================
+         INSIGHT
+    ============================================================ -->
     <section class="pcp-section" id="pcp-insight" data-section>
       <div class="pcp-container">
         <div class="pcp-section-head pcp-reveal">
           <div>
             <p class="pcp-eyebrow">Insight</p>
-            <h2 class="pcp-section-title">문제는 기록의 양이 아니라, 필요할 때 다시 찾기 어려운 구조였습니다.</h2>
+            <h2 class="pcp-section-title">문제는 기록의 양이 아니라,<br /><em>필요할 때 다시 찾기 어려운</em> 구조였습니다.</h2>
           </div>
           <p class="pcp-desc">
             기능을 늘리는 대신 보호자가 실제로 반복하는 동작을 기준으로 화면을 다시 짰습니다. 입력이 쉬워야 기록이 이어지고, 이어진 기록이 결국 진료와 회고에 쓰입니다.
@@ -238,7 +248,10 @@
 
         <div class="pcp-insight-wrap">
           <div class="pcp-insight-row pcp-reveal">
-            <div class="pcp-insight-label">문제</div>
+            <div class="pcp-insight-label">
+              <span class="material-symbols-rounded pcp-insight-icon">crisis_alert</span>
+              <span>문제</span>
+            </div>
             <div class="pcp-insight-box">
               <b>케어 항목이 흩어져 있다</b>
               <p>약, 식사, 증상, 병원 일정이 따로 놀아서 매번 기억에 의존해야 했습니다.</p>
@@ -250,7 +263,10 @@
           </div>
 
           <div class="pcp-insight-row pcp-reveal">
-            <div class="pcp-insight-label">해결</div>
+            <div class="pcp-insight-label pcp-insight-label--solve">
+              <span class="material-symbols-rounded pcp-insight-icon">check_circle</span>
+              <span>해결</span>
+            </div>
             <div class="pcp-insight-box">
               <b>홈에서 바로 체크</b>
               <p>오늘 할 케어를 홈에서 먼저 보여주고, 끝난 항목은 흐름에서 조용히 정리되게 했습니다.</p>
@@ -262,7 +278,10 @@
           </div>
 
           <div class="pcp-insight-row pcp-reveal">
-            <div class="pcp-insight-label">배운 점</div>
+            <div class="pcp-insight-label pcp-insight-label--learn">
+              <span class="material-symbols-rounded pcp-insight-icon">lightbulb</span>
+              <span>배운 점</span>
+            </div>
             <div class="pcp-insight-box">
               <b>오래 머무는 앱이 아니다</b>
               <p>케어 앱은 필요할 때 빠르게 열어 기록하고 닫는 쪽이 더 맞다고 봤습니다.</p>
@@ -276,13 +295,15 @@
       </div>
     </section>
 
-    <!-- 05. Design System & Development -->
+    <!-- ============================================================
+         DESIGN SYSTEM
+    ============================================================ -->
     <section class="pcp-section" id="pcp-system" data-section>
       <div class="pcp-container">
         <div class="pcp-section-head pcp-reveal">
           <div>
             <p class="pcp-eyebrow">Design System</p>
-            <h2 class="pcp-section-title">차분한 톤은 지키되, 실제로 만들 수 있는 구조로 정리했습니다.</h2>
+            <h2 class="pcp-section-title">차분한 톤은 지키되,<br /><em>실제로 만들 수 있는</em> 구조로 정리했습니다.</h2>
           </div>
           <p class="pcp-desc">
             불안을 자극하지 않는 색과 여유 있는 카드 레이아웃을 기준으로 시스템을 잡았습니다. 개발은 HTML/CSS/JS로 시작해, 이후 Supabase로 데이터를 연결할 수 있게 흐름을 미리 고려했습니다.
@@ -291,16 +312,47 @@
 
         <div class="pcp-system-grid">
           <article class="pcp-card pcp-reveal">
-            <h3>비주얼</h3>
-            <p>
-              메인은 세이지 그린 계열로 안정감을 줬습니다. 카드 UI로 정보 묶음을 구분하고, 모바일에서 빠르게 훑을 수 있게 여백과 대비를 넉넉히 잡았습니다.
-            </p>
+            <h3>Color</h3>
+            <p>세이지 그린 계열로 안정감을 줬습니다. 불안을 자극하지 않는 자연 계열 색조로 전체 톤을 구성했습니다.</p>
             <div class="pcp-palette" aria-label="PetCare+ color palette">
-              <div class="pcp-color">Sage<br />#5F7F6F</div>
-              <div class="pcp-color">Deep<br />#38503F</div>
-              <div class="pcp-color">Mint<br />#E7EFE8</div>
-              <div class="pcp-color">Gray<br />#DCE7EA</div>
-              <div class="pcp-color">Cream<br />#F6F1E7</div>
+              <div class="pcp-color">
+                <span class="pcp-color-name">Sage</span>
+                <span class="pcp-color-hex">#5F7F6F</span>
+              </div>
+              <div class="pcp-color">
+                <span class="pcp-color-name">Deep</span>
+                <span class="pcp-color-hex">#38503F</span>
+              </div>
+              <div class="pcp-color">
+                <span class="pcp-color-name">Mint</span>
+                <span class="pcp-color-hex">#E7EFE8</span>
+              </div>
+              <div class="pcp-color">
+                <span class="pcp-color-name">Gray</span>
+                <span class="pcp-color-hex">#DCE7EA</span>
+              </div>
+              <div class="pcp-color">
+                <span class="pcp-color-name">Cream</span>
+                <span class="pcp-color-hex">#F6F1E7</span>
+              </div>
+            </div>
+
+            <div class="pcp-typo-row">
+              <div class="pcp-typo-item">
+                <span class="pcp-typo-label">Title</span>
+                <span class="pcp-typo-sample pcp-typo-sample--title">Aa</span>
+                <span class="pcp-typo-meta">Pretendard 800</span>
+              </div>
+              <div class="pcp-typo-item">
+                <span class="pcp-typo-label">Accent</span>
+                <span class="pcp-typo-sample pcp-typo-sample--serif"><em>Aa</em></span>
+                <span class="pcp-typo-meta">Instrument Serif</span>
+              </div>
+              <div class="pcp-typo-item">
+                <span class="pcp-typo-label">Body</span>
+                <span class="pcp-typo-sample pcp-typo-sample--body">Aa</span>
+                <span class="pcp-typo-meta">Pretendard 400</span>
+              </div>
             </div>
           </article>
 
@@ -324,22 +376,32 @@
           </div>
         </div>
 
-        <div class="pcp-image-slot pcp-reveal" style="margin-top: 28px; min-height: 380px;">
-          <div class="pcp-image-guide">
-            <b>디자인 시스템 / 목업</b>
-            <span>Figma 컬러·컴포넌트 정리와 주요 모바일 화면 3~5개 목업</span>
-          </div>
+        <div class="pcp-screen-row pcp-reveal">
+          <figure class="pcp-screen">
+            <img src="./images/petcare/app_main.jpg" alt="PetCare+ 홈 화면" />
+            <figcaption>홈 대시보드</figcaption>
+          </figure>
+          <figure class="pcp-screen">
+            <img src="./images/petcare/app_schejul.jpg" alt="PetCare+ 일정 화면" />
+            <figcaption>케어 일정</figcaption>
+          </figure>
+          <figure class="pcp-screen">
+            <img src="./images/petcare/app_record.jpg" alt="PetCare+ 기록 화면" />
+            <figcaption>건강 기록</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- 06. Result -->
+    <!-- ============================================================
+         RESULT
+    ============================================================ -->
     <section class="pcp-section" id="pcp-result" data-section>
       <div class="pcp-container">
         <div class="pcp-section-head pcp-reveal">
           <div>
             <p class="pcp-eyebrow">Result</p>
-            <h2 class="pcp-section-title">MVP 기준의 핵심 화면과 데이터 흐름을 결과물로 정리했습니다.</h2>
+            <h2 class="pcp-section-title">MVP 기준의 핵심 화면과<br /><em>데이터 흐름</em>을 결과물로 정리했습니다.</h2>
           </div>
           <p class="pcp-desc">
             단순 시안이 아니라 구현과 확장을 염두에 둔 웹앱 구조로 만들었습니다. 문제 정의부터 화면 설계, 디자인 시스템, 개발까지 하나의 흐름으로 이어지게 구성했습니다.
@@ -364,16 +426,48 @@
           </article>
         </div>
 
-        <div class="pcp-image-slot pcp-reveal" style="margin-top: 28px; min-height: 420px;">
-          <div class="pcp-image-guide">
-            <b>최종 화면 목업</b>
-            <span>홈·기록·일정·리포트 화면을 4분할로 배치한 결과물</span>
+        <div class="pcp-screen-showcase pcp-reveal">
+          <div class="pcp-showcase-strip">
+            <figure class="pcp-screen pcp-screen--showcase">
+              <img src="./images/petcare/app_main.jpg" alt="PetCare+ 홈 화면" />
+              <figcaption>홈 대시보드</figcaption>
+            </figure>
+            <figure class="pcp-screen pcp-screen--showcase">
+              <img src="./images/petcare/app_schejul.jpg" alt="PetCare+ 일정 화면" />
+              <figcaption>케어 일정</figcaption>
+            </figure>
+            <figure class="pcp-screen pcp-screen--showcase">
+              <img src="./images/petcare/app_record.jpg" alt="PetCare+ 기록 화면" />
+              <figcaption>건강 기록</figcaption>
+            </figure>
+            <figure class="pcp-screen pcp-screen--showcase">
+              <img src="./images/petcare/app_hospital.jpg" alt="PetCare+ 병원 일정 화면" />
+              <figcaption>병원 일정</figcaption>
+            </figure>
+            <figure class="pcp-screen pcp-screen--showcase">
+              <img src="./images/petcare/app_record_add.jpg" alt="PetCare+ 기록 추가 화면" />
+              <figcaption>기록 추가</figcaption>
+            </figure>
+            <figure class="pcp-screen pcp-screen--showcase">
+              <img src="./images/petcare/app_report.jpg" alt="PetCare+ 리포트 화면" />
+              <figcaption>건강 리포트</figcaption>
+            </figure>
+            <figure class="pcp-screen pcp-screen--showcase">
+              <img src="./images/petcare/app_setting.jpg" alt="PetCare+ 설정 화면" />
+              <figcaption>설정</figcaption>
+            </figure>
+            <figure class="pcp-screen pcp-screen--showcase">
+              <img src="./images/petcare/app_schejul_add.jpg" alt="PetCare+ 일정 추가 화면" />
+              <figcaption>일정 추가</figcaption>
+            </figure>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 07. Review -->
+    <!-- ============================================================
+         REVIEW
+    ============================================================ -->
     <section class="pcp-section" id="pcp-review" data-section>
       <div class="pcp-container">
         <div class="pcp-review pcp-reveal">
@@ -392,6 +486,7 @@
       </div>
     </section>
   </main>
+
   <footer class="site-footer">
     <p>© 2026 HYE02 Portfolio. All Rights Reserved.</p>
   </footer>
@@ -400,7 +495,6 @@
     <span class="material-symbols-rounded" aria-hidden="true">arrow_upward</span>
   </button>
 
-  <!-- GSAP / Draggable / Lenis CDN -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>

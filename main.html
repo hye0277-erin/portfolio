@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="HYE02 UIUX Designer Portfolio" />
+  <title>HYE02 — UIUX Designer Portfolio</title>
+
+  <!-- Google Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet" />
+  <!-- Display serif for editorial accent -->
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <!-- Pretendard CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <!-- Devicon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <!-- Scroll progress + custom cursor -->
+  <div class="scroll-progress" data-progress aria-hidden="true"></div>
+  <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
+  <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
+
+  <!-- =========================================================
+    HEADER
+  ========================================================== -->
+  <header class="site-header" data-header>
+    <a href="./main.html" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
+      <span class="brand-mark">HYE02</span>
+      <span class="brand-sub">UIUX PORTFOLIO</span>
+    </a>
+
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="material-symbols-rounded menu-toggle-icon" aria-hidden="true">menu</span>
+    </button>
+
+    <nav class="gnb" id="primary-navigation" aria-label="주요 메뉴">
+      <a href="#works" data-nav>Works</a>
+      <a href="./me/index.html" target="_blank" data-nav>AboutMe</a>
+      <a href="#archive" data-nav>Experience</a>
+      <a href="#process" data-nav>Process</a>
+      <a href="./archive.html">Archive</a>
+      <a href="#contact" data-nav>Contact</a>
+    </nav>
+
+    <a href="#contact" class="header-cta" data-magnetic>Let's Talk</a>
+  </header>
+
+  <main id="main">
+    <!-- =========================================================
+      INTRO / 3D ROTUNDA (자동 회전 · 3초 간격)
+    ========================================================== -->
+    <section id="intro" class="intro-section" aria-label="포트폴리오 인트로">
+      <div class="intro-bg" aria-hidden="true">
+        <span class="orb orb-a"></span>
+        <span class="orb orb-b"></span>
+        <span class="grid-noise"></span>
+      </div>
+
+      <div class="intro-copy">
+        <p class="eyebrow js-reveal-text">UI · UX · WEB DESIGNER</p>
+        <h1 class="intro-title" aria-label="I design clear and usable web experience">
+          <span class="title-line js-title-line">I DESIGN</span>
+          <span class="title-line js-title-line">CLEAR &amp; USABLE</span>
+          <span class="title-line accent js-title-line">WEB EXPERIENCE</span>
+        </h1>
+        <p class="intro-desc js-reveal-text">
+          단순히 보기 좋은 화면을 넘어, 사용자가 쉽게 이해하고 끝까지 사용하는 웹을 디자인합니다.
+          행동 흐름을 먼저 설계하고, 그 위에 브랜드의 메시지가 자연스럽게 전달되도록 만듭니다.
+        </p>
+      </div>
+
+      <div class="rotunda-wrap" data-rotunda aria-label="대표 프로젝트 3D 갤러리">
+        <div class="rotunda-stage" data-rotunda-stage>
+          <article class="rotunda-card" data-title="QuietSkin" data-type="Cosmetic Shopping UI" data-link="https://hye0277-erin.github.io/QuietSkin/index.html">
+            <div class="card-inner">
+              <div class="project-image">
+                <img src="images/quietskin_intro.webp" alt="QuietSkin 대표 이미지" />
+              </div>
+            </div>
+          </article>
+
+          <article class="rotunda-card" data-title="PetCare+" data-type="Health Care Web App" data-link="#work-petcare">
+            <div class="card-inner">
+              <div class="project-image">
+                 <img src="images/petcare_intro.webp" alt="">
+              </div>
+            </div>
+          </article>
+
+          <article class="rotunda-card" data-title="YENE" data-type="Corporate Renewal" data-link="https://stella0526.github.io/yene/">
+            <div class="card-inner">
+              <div class="project-image">
+                <img src="images/yene_intro.webp" alt="">
+              </div>
+            </div>
+          </article>
+
+          <article class="rotunda-card" data-title="WoodPlace" data-type="Furniture Commerce" data-link="#work-woodplace">
+            <div class="card-inner">
+              <div class="project-image">
+                <img src="images/woodplace_intro.webp" alt="">
+              </div>
+            </div>
+          </article>
+
+          <article class="rotunda-card" data-title="Game Site" data-type="Promotion Website" data-link="#work-game">
+            <div class="card-inner">
+              <div class="project-image">
+                <img src="images/blackdesert_intro.webp" alt="">
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+
+      <aside class="intro-panel" aria-live="polite">
+        <div class="panel-count">
+          <span data-current>01</span>
+          <em>/</em>
+          <span data-total>05</span>
+        </div>
+        <p class="panel-kicker">SELECTED PROJECT</p>
+        <h2 data-active-title>QuietSkin</h2>
+        <p data-active-type>Cosmetic Shopping UI</p>
+        <a href="#work-quietsSkin" class="btn btn-primary" data-active-link data-magnetic>
+          Live Site
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+        </a>
+      </aside>
+
+      <div class="intro-control" aria-label="프로젝트 갤러리 조작">
+        <button type="button" class="control-btn" data-prev aria-label="이전 프로젝트">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+        </button>
+        <p>Auto · Drag · Arrow</p>
+        <button type="button" class="control-btn" data-next aria-label="다음 프로젝트">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      WORKS — INTERACTIVE PROJECT INDEX + CASE STUDIES
+    ========================================================== -->
+    <section id="works" class="section works-section">
+      <div class="section-head reveal-up">
+        <p class="eyebrow">SELECTED WORKS</p>
+        <h2>Work Archive</h2>
+        <p class="section-desc">작업 유형을 선택하면 해당 아카이브 목록으로 이동합니다.</p>
+      </div>
+
+      <!-- Interactive index list -->
+      <div class="index-list" data-index aria-label="대표 프로젝트 목록">
+        <a class="index-row reveal-up" href="./archive.html?filter=uiux">
+          <span class="index-num">01</span>
+          <span class="index-name">UI/UX Design</span>
+          <span class="index-type">Mobile App · Web App · Flow Design</span>
+          <span class="index-arrow material-symbols-rounded" aria-hidden="true">arrow_outward</span>
+        </a>
+
+        <a class="index-row reveal-up" href="./archive.html?filter=web-page">
+          <span class="index-num">02</span>
+          <span class="index-name">Web Site</span>
+          <span class="index-type">Corporate · Brand · Landing</span>
+          <span class="index-arrow material-symbols-rounded" aria-hidden="true">arrow_outward</span>
+        </a>
+
+        <a class="index-row reveal-up" href="./archive.html?filter=detail-page">
+          <span class="index-num">03</span>
+          <span class="index-name">Detail Page</span>
+          <span class="index-type">Commerce · Product · Promotion</span>
+          <span class="index-arrow material-symbols-rounded" aria-hidden="true">arrow_outward</span>
+        </a>
+
+        <a class="index-row reveal-up" href="./archive.html?filter=graphic-print">
+          <span class="index-num">04</span>
+          <span class="index-name">Graphic / Print</span>
+          <span class="index-type">Poster · Banner · Editorial</span>
+          <span class="index-arrow material-symbols-rounded" aria-hidden="true">arrow_outward</span>
+        </a>
+
+        <a class="index-row reveal-up" href="./archive.html?filter=ai-visual">
+          <span class="index-num">05</span>
+          <span class="index-name">AI Visual & Vibe Coding</span>
+          <span class="index-type">AI-generated Image · Vibe Coding · Product Cut</span>
+          <span class="index-arrow material-symbols-rounded" aria-hidden="true">arrow_outward</span>
+        </a>
+
+      </div>
+
+      <!-- Detailed case studies -->
+      <div class="works-list">
+        <article id="work-quietsSkin" class="work-row reveal-up">
+          <div class="work-visual">
+            <img src="images/quietSkin_pc.jpg" alt="QuietSkin 상세 이미지" />
+          </div>
+          <div class="work-info">
+            <span>01 / Cosmetic Shopping UI</span>
+            <h3>QuietSkin</h3>
+            <p>절제된 톤앤매너로 브랜드 무드를 살리고, 상품 탐색부터 결제까지 막힘 없이 이어지는 쇼핑 경험을 설계했습니다.</p>
+
+            <ul class="work-meta">
+              <li>
+                <span class="work-meta-label">Contribution</span>
+                <span class="work-meta-value">기획 · 디자인 · 퍼블리싱 — 개인 100%</span>
+              </li>
+              <li class="work-meta-logo-row">
+                <span class="work-meta-label">Tool</span>
+                <span class="work-meta-logos">
+                  <img src="images/icon_Photoshop.png" alt="Photoshop" />
+                  <img src="images/icon_Illustrator.png" alt="Illustrator" />
+                  <!-- 임시(가짜) 로고 — 실제 로고로 교체하세요 -->
+                  <img src="images/icon_Figma.svg" alt="Figma" />
+                </span>
+              </li>
+              <li class="work-meta-logo-row">
+                <span class="work-meta-label">AI</span>
+                <span class="work-meta-logos">
+                  <!-- 임시(가짜) 로고 — 실제 로고로 교체하세요 -->
+                  <img src="images/icon_ChatGPT.svg" alt="ChatGPT" />
+                  <img src="images/icon_Claude.svg" alt="Claude" />
+                  <img src="images/icon_Midjourney.svg" alt="Midjourney" />
+                </span>
+              </li>
+            </ul>
+
+            <div class="work-actions">
+              <a href="./quietskin.html" class="text-link" data-magnetic>기획 과정 보기</a>
+              <a href="https://hye0277-erin.github.io/QuietSkin" class="text-link" data-magnetic target="_blank" rel="noopener">사이트 보기</a>
+            </div>
+          </div>
+        </article>
+
+        <article id="work-petcare" class="work-row reveal-up reverse">
+          <div class="work-visual empty-image"></div>
+          <div class="work-info">
+            <span>02 / Health Care Web App</span>
+            <h3>PetCare+</h3>
+            <p>노령·질환 반려동물 보호자를 위한 건강 기록, 복약 알림, 병원 일정 관리 웹앱입니다. 흩어진 케어 정보를 한 화면에서 직관적으로 관리하도록 구성했습니다.</p>
+            <a href="#" class="text-link" data-magnetic>View Case Study</a>
+          </div>
+        </article>
+
+        <article id="work-yene" class="work-row reveal-up">
+          <div class="work-visual empty-image"></div>
+          <div class="work-info">
+            <span>03 / Corporate Renewal</span>
+            <h3>YENE</h3>
+            <p>제품 신뢰도와 기업 정보를 명확히 전달하도록 정보 구조를 재정비한 기업형 웹사이트 리뉴얼 프로젝트입니다.</p>
+            <a href="https://stella0526.github.io/yene/" class="text-link" data-magnetic target="_blank" rel="noopener">View Case Study</a>
+          </div>
+        </article>
+
+       <!-- <article id="work-woodplace" class="work-row reveal-up reverse">
+          <div class="work-visual empty-image"></div>
+          <div class="work-info">
+            <span>04 / Furniture Commerce</span>
+            <h3>WoodPlace</h3>
+            <p>가구의 질감과 공간감을 살린 비주얼에 직관적인 카테고리 탐색을 더해, 구매까지 자연스럽게 이어지는 커머스 UI를 구성했습니다.</p>
+            <a href="https://hye0277-erin.github.io/woodplace/" class="text-link" data-magnetic target="_blank" rel="noopener">View Case Study</a>
+          </div>
+        </article>
+
+        <article id="work-game" class="work-row reveal-up">
+          <div class="work-visual empty-image"></div>
+          <div class="work-info">
+            <span>05 / Promotion Website</span>
+            <h3>Game Site</h3>
+            <p>강렬한 키 비주얼과 스크롤 인터랙션으로 몰입감을 높인 게임 프로모션 사이트입니다. 이벤트 참여 동선을 중심으로 화면을 구성했습니다.</p>
+            <a href="#" class="text-link" data-magnetic>View Case Study</a>
+          </div>
+        </article>-->
+      </div>
+    </section>
+
+    <!-- =========================================================
+      ABOUT
+    ========================================================== -->
+    <section id="about" class="section about-section">
+      <div class="section-head reveal-up">
+        <p class="eyebrow">ABOUT</p>
+        <h2>보기 좋은 화면을 넘어, 끝까지 사용하게 되는 경험을 설계합니다.</h2>
+      </div>
+
+      <div class="about-grid">
+        <article class="glass-card about-main reveal-up">
+          <p>
+            복잡한 정보를 보기 쉽게 정리하고, 사용자가 편하게 이용할 수 있는 화면을 설계합니다. 기획, 디자인, 퍼블리싱 과정을 직접 다루며 브랜드의 방향성과 사용자의 편의를 함께 고려하는 UI·UX 디자이너입니다.
+          </p>
+        </article>
+
+        <article class="glass-card reveal-up">
+          <span class="card-label">Focus</span>
+          <ul class="clean-list">
+            <li>UIUX Design</li>
+            <li>Responsive Web</li>
+            <li>Brand Experience</li>
+            <li>HTML / CSS Publishing </li>
+          </ul>
+        </article>
+
+        <article class="glass-card reveal-up">
+          <span class="card-label">Tools</span>
+          <ul class="tool-icon-list">
+            <li><img src="./images/icon_figma.png" alt="Figma" /><span>Figma</span></li>
+            <li><img src="./images/icon_Photoshop.png" alt="Photoshop" /><span>Photoshop</span></li>
+            <li><img src="./images/icon_Illustrator.png" alt="Illustrator" /><span>Illustrator</span></li>
+            <li><img src="./images/icon_xd.png" alt="Adobe XD" /><span>Adobe XD</span></li>
+            <li><img src="./images/icon_vscode.png" alt="VS Code" /><span>VS Code</span></li>
+            <li><img src="./images/icon_gsap.png" alt="GSAP" /><span>GSAP</span></li>
+            <li><img src="./images/icon_chatgpt.png" alt="ChatGPT" /><span>ChatGPT</span></li>
+            <li><img src="./images/icon_gemini.png" alt="Gemini" /><span>Gemini</span></li>
+            <li><img src="./images/icon_claude.png" alt="Claude" /><span>Claude</span></li>
+            <li><img src="./images/icon_midjourney.png" alt="Midjourney" /><span>Midjourney</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      EXPERIENCE / COMPANY WORKS
+    ========================================================== -->
+    <section id="archive" class="section company-flow-section">
+      <div class="company-flow-layout">
+        <aside class="company-flow-copy reveal-up">
+          <p class="eyebrow">EXPERIENCE ARCHIVE</p>
+          <h2>실무에서 증명해 온 폭넓은 작업의 기록입니다.</h2>
+          <p>
+           메인 프로젝트 외에도 현업에서 진행한 상세페이지, 프로모션 배너, 모바일·웹 인터페이스, POP 디자인 등 다채로운 실무 작업물을 아카이브로 구축했습니다. 우측 썸네일을 통해 주요 작업을 한눈에 확인하실 수 있으며, ‘자세히 보기’를 클릭하시면 전체 프로젝트 목록으로 연결됩니다.
+          </p>
+          <div class="company-flow-actions">
+            <a href="./archive.html" class="btn btn-primary" data-magnetic>
+              전체 작업 보기
+              <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+            </a>
+            <div class="company-flow-controls" aria-label="작업물 썸네일 이동">
+              <button type="button" class="control-btn" data-company-prev aria-label="이전 작업물">
+                <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+              </button>
+              <button type="button" class="control-btn" data-company-next aria-label="다음 작업물">
+                <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </aside>
+
+        <div class="company-flow-track reveal-up" aria-label="이전 회사 작업물 미리보기">
+          <!-- 썸네일 이미지는 ./images/works/work-NN.jpg, 클릭하면 ./works/work-NN.html 상세 페이지로 이동합니다. -->
+          <div class="flow-column flow-column-a">
+            <a class="company-work-card" href="./works/work-01.html">
+              <div class="company-thumb"><img src="./images/works/work-01.jpg" alt="자사몰 시안" loading="lazy" /></div>
+              <span>Web Mockup</span>
+              <h3>자사몰 시안</h3>
+              <p>자사몰 메인 시안 · Photoshop · Adobe XD</p>
+            </a>
+            <a class="company-work-card" href="./works/work-12.html">
+              <div class="company-thumb"><img src="./images/works/work-12.jpg" alt="피자 상세페이지" loading="lazy" /></div>
+              <span>Detail Page</span>
+              <h3>피자 상세페이지</h3>
+              <p>식품 상세페이지 · 구성 · 홈쇼핑용 레이아웃</p>
+            </a>
+            <a class="company-work-card" href="./works/work-13.html">
+              <div class="company-thumb"><img src="./images/works/work-13.jpg" alt="이벤트 페이지" loading="lazy" /></div>
+              <span>Event Page</span>
+              <h3>이벤트 페이지</h3>
+              <p>기획전 · 프로모션 배너 · 이벤트 비주얼</p>
+            </a>
+            <a class="company-work-card large" href="./works/work-05.html">
+              <div class="company-thumb"><img src="./images/works/work-05.jpg" alt="식품 패키지" loading="lazy" /></div>
+              <span>Package</span>
+              <h3>식품 패키지</h3>
+              <p>패키지 기획 · 디자인 · Illustrator · Photoshop</p>
+            </a>
+          </div>
+
+          <div class="flow-column flow-column-b">
+            <a class="company-work-card large" href="./works/work-08.html">
+              <div class="company-thumb"><img src="./images/works/work-08.jpg" alt="레트로 식품 패키지" loading="lazy" /></div>
+              <span>Package</span>
+              <h3>레트로 식품 패키지</h3>
+              <p>레트로 콘셉트 · 인쇄물 · 브랜드 그래픽</p>
+            </a>
+            <a class="company-work-card" href="./works/work-11.html">
+              <div class="company-thumb"><img src="./images/works/work-11.jpg" alt="블랙타이거 새우 상세페이지" loading="lazy" /></div>
+              <span>Detail Page</span>
+              <h3>블랙타이거 새우</h3>
+              <p>수산물 상세페이지 · 조리 컷 · 구성</p>
+            </a>
+            <a class="company-work-card large" href="./works/work-07.html">
+              <div class="company-thumb"><img src="./images/works/work-07.jpg" alt="참다른 라벨 디자인" loading="lazy" /></div>
+              <span>Label / Print</span>
+              <h3>제품 스티커</h3>
+              <p>제품 스티커 · 패키지 라벨 · 인쇄 그래픽</p>
+            </a>
+            <a class="company-work-card" href="./works/work-22.html">
+              <div class="company-thumb"><img src="./images/works/work-22.jpg" alt="웨딩업체 UI" loading="lazy" /></div>
+              <span>UI / UX</span>
+              <h3>웨딩업체 UI</h3>
+              <p>웹·모바일 화면 · Adobe XD · Photoshop</p>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+      PROCESS
+    ========================================================== -->
+    <section id="process" class="section process-section">
+      <div class="section-head reveal-up">
+        <p class="eyebrow">PROCESS</p>
+        <h2>구조적 설계에서 코드 구현까지</h2>
+      </div>
+
+      <ol class="process-timeline reveal-up" data-process aria-label="작업 프로세스">
+        <li class="process-step">
+          <span class="process-dot" aria-hidden="true"></span>
+          <span class="process-num">01</span>
+          <h3>Research</h3>
+          <p class="process-lead">목표 정의 및 시장 분석</p>
+          <p>서비스의 핵심 목표와 타깃 사용자를 명정하고, 경쟁 서비스 분석을 통해 시장 내 차별화 기회와 해결해야 할 실질적인 페인 포인트를 도출합니다. </p>
+        </li>
+        <li class="process-step">
+          <span class="process-dot" aria-hidden="true"></span>
+          <span class="process-num">02</span>
+          <h3>Structure</h3>
+          <p class="process-lead">정보 구조 및 유저 플로우 설계</p>
+          <p>도출된 인사이트를 기반으로 IA와 콘텐츠 우선순위를 정의합니다. 데이터의 위계를 정립하여 사용자가 직관적으로 도달할 수 있는 동선을 설계합니다.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-dot" aria-hidden="true"></span>
+          <span class="process-num">03</span>
+          <h3>Wireframe &amp; UI Design</h3>
+          <p class="process-lead">비주얼 가이드 및 고도화</p>
+          <p>와이어프레임으로 화면의 뼈대를 견고히 다진 후, 브랜드 아이덴티티가 반영된 고해상도 UI를 디자인합니다. 컴포넌트 중심 설계로 일관성 있는 비주얼을 구축합니다.</p>
+        </li>
+        <li class="process-step">
+          <span class="process-dot" aria-hidden="true"></span>
+          <span class="process-num">04</span>
+          <h3>Publishing</h3>
+          <p class="process-lead">웹 표준 기반의 반응형 퍼블리싱</p>
+          <p>웹 표준을 준수하며 HTML, CSS, JS로 유연한 반응형 웹을 직접 구현합니다. 디자이너의 의도가 온전히 담긴 레이아웃과 자연스러운 인터랙션을 완성합니다.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- =========================================================
+      CONTACT
+    ========================================================== -->
+    <section id="contact" class="section contact-section">
+      <div class="contact-card reveal-up">
+        <p class="eyebrow">CONTACT</p>
+        <h2>함께 만들고 싶은 화면이 있다면 언제든 연락 주세요.</h2>
+        <p>새로운 프로젝트와 협업, 채용 제안 모두 환영합니다.</p>
+        <a href="mailto:hye0277@gmail.com" class="btn btn-primary" data-magnetic>
+          Contact Me
+          <span class="material-symbols-rounded" aria-hidden="true">mail</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 HYE02 Portfolio. All Rights Reserved.</p>
+  </footer>
+
+  <button type="button" class="scroll-top-btn" data-scroll-top aria-label="맨 위로 이동">
+    <span class="material-symbols-rounded" aria-hidden="true">arrow_upward</span>
+  </button>
+
+  <!-- GSAP / Draggable / Lenis CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

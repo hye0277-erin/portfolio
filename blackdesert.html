@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="검은사막 게임 사이트 리뉴얼 프로젝트 | HYE02 Portfolio" />
+  <title>검은사막 리뉴얼 | HYE02 Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/blackdesert.css" />
+</head>
+<body class="blackdesert-case">
+  <a class="skip-link" href="#blackdesert-main">본문 바로가기</a>
+  <div class="scroll-progress" data-progress aria-hidden="true"></div>
+  <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
+  <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
+
+  <div class="bd-atmosphere" aria-hidden="true">
+    <div class="bd-atmosphere-img" data-atmos></div>
+    <div class="bd-atmosphere-fog"></div>
+    <div class="bd-vignette"></div>
+    <canvas class="bd-embers" data-embers></canvas>
+  </div>
+
+  <header class="site-header" data-header>
+    <a href="./main.html" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
+      <span class="brand-mark">HYE02</span>
+      <span class="brand-sub">UIUX PORTFOLIO</span>
+    </a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="material-symbols-rounded menu-toggle-icon" aria-hidden="true">menu</span>
+    </button>
+    <nav class="gnb" id="primary-navigation" aria-label="주요 메뉴">
+      <a href="./main.html#works" data-nav>Works</a>
+      <a href="./main.html#about" data-nav>About</a>
+      <a href="./main.html#archive" data-nav>Experience</a>
+      <a href="./main.html#process" data-nav>Process</a>
+      <a href="./archive.html">Archive</a>
+      <a href="./main.html#contact" data-nav>Contact</a>
+    </nav>
+    <a href="./main.html#contact" class="header-cta" data-magnetic>Let's Talk</a>
+  </header>
+
+  <main id="blackdesert-main" class="blackdesert-main">
+    <nav class="bd-section-index" aria-label="검은사막 케이스 스터디 섹션 이동">
+      <a href="#overview"><em></em><span>Overview</span></a>
+      <a href="#background"><em></em><span>Problem</span></a>
+      <a href="#goals"><em></em><span>Goals</span></a>
+      <a href="#insight"><em></em><span>Insight</span></a>
+      <a href="#system"><em></em><span>System</span></a>
+      <a href="#result"><em></em><span>Result</span></a>
+      <a href="#review"><em></em><span>Review</span></a>
+    </nav>
+
+    <section class="bd-hero" id="overview" data-section>
+      <div class="bd-hero-stage" data-hero-stage aria-hidden="true">
+        <div class="bd-hero-layer bd-hero-key" data-depth="0.06"></div>
+        <div class="bd-hero-eclipse" data-depth="0.12"></div>
+        <div class="bd-hero-grain"></div>
+      </div>
+
+      <div class="bd-hero-inner bd-reveal">
+        <p class="bd-hero-kicker"><span class="bd-rune">◆</span> Game Website Renewal</p>
+        <h1 class="bd-hero-title">
+          <span class="bd-line">광활한 세계관과</span>
+          <span class="bd-line bd-line-em">모험의 설렘을</span>
+          <span class="bd-line">디지털 경험으로</span>
+        </h1>
+        <p class="bd-hero-sub">Black Desert Renewal Case Study</p>
+        <p class="bd-hero-lead">
+          게임의 첫인상은 플레이 버튼을 누르기 전부터 시작된다고 생각했습니다. 검은사막 리뉴얼은 방대한 세계관과 자유도 높은 MMORPG의 매력을
+          <em>신규 유저도 쉽게 이해하고, 기존 유저도 빠르게 탐색할 수 있는 공식 사이트</em>로 다시 정리한 프로젝트입니다.
+        </p>
+        <div class="bd-hero-actions">
+          <a href="#background" class="bd-btn bd-btn-primary">Case Study 보기 <span class="material-symbols-rounded" aria-hidden="true">arrow_downward</span></a>
+          <a href="https://hye0277-erin.github.io/blackdesert/" class="bd-btn bd-btn-ghost" target="_blank" rel="noopener noreferrer">사이트 보기 <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span></a>
+        </div>
+        <ul class="bd-hero-meta">
+          <li><b>Type</b>개인 리뉴얼 프로젝트</li>
+          <li><b>Role</b>기획 · UX 분석 · UI 디자인 · 퍼블리싱</li>
+          <li><b>Period</b>2026.04 - 2026.05</li>
+        </ul>
+      </div>
+
+      <div class="bd-scroll-cue" aria-hidden="true">
+        Scroll
+        <span></span>
+      </div>
+    </section>
+
+    <section class="bd-section" id="background" data-section>
+      <div class="bd-block">
+        <div class="bd-lede bd-reveal">
+          <span class="bd-mark">01 · Background</span>
+          <h2 class="bd-display">콘텐츠는 많았지만,<br />처음 들어온 사용자가 붙잡을 장면이 부족했습니다.</h2>
+          <div class="bd-lede-body">
+            <p>
+              MMORPG 공식 홈페이지는 이벤트, 공지, 업데이트, 클래스, 다운로드처럼 보여줘야 할 정보가 많습니다. 문제는 그 정보가 한꺼번에 노출될 때 신규 유저가 무엇부터 봐야 할지 놓치기 쉽다는 점이었습니다.
+            </p>
+            <p>
+              검은사막은 세계관과 비주얼이 강한 게임인 만큼, 정보를 나열하기 전에 먼저 “이 세계에 들어가 보고 싶다”는 감정을 만들어야 한다고 봤습니다.
+            </p>
+          </div>
+        </div>
+
+        <figure class="bd-wide-figure bd-reveal">
+          <img src="./images/blackdesert/hero-poster-02.jpg" alt="검은사막 리뉴얼의 시네마틱 히어로 이미지" />
+          <figcaption>처음 만나는 화면은 공지판보다, 세계로 들어가는 입구에 가까워야 했습니다.</figcaption>
+        </figure>
+
+        <p class="bd-list-label bd-reveal">Problem Definition</p>
+        <div class="bd-row bd-reveal">
+          <span class="bd-row-no">01</span>
+          <span class="material-symbols-rounded bd-row-icon" aria-hidden="true">dashboard</span>
+          <div>
+            <h4>정보가 한꺼번에 몰려 보임</h4>
+            <p>이벤트, 공지, 배너가 동시에 노출되면서 사용자가 핵심 콘텐츠를 빠르게 파악하기 어려웠습니다.</p>
+          </div>
+        </div>
+        <div class="bd-row bd-reveal">
+          <span class="bd-row-no">02</span>
+          <span class="material-symbols-rounded bd-row-icon" aria-hidden="true">person_add</span>
+          <div>
+            <h4>신규 유저에게 높은 진입 장벽</h4>
+            <p>게임의 특징을 경험하기 전에 복잡한 정보 구조를 먼저 만나면서 이탈 가능성이 생겼습니다.</p>
+          </div>
+        </div>
+        <div class="bd-row bd-reveal">
+          <span class="bd-row-no">03</span>
+          <span class="material-symbols-rounded bd-row-icon" aria-hidden="true">public</span>
+          <div>
+            <h4>세계관의 매력이 충분히 드러나지 않음</h4>
+            <p>검은사막 특유의 광활한 풍경과 클래스의 분위기가 정보 영역에 밀려 약하게 느껴졌습니다.</p>
+          </div>
+        </div>
+        <div class="bd-row bd-reveal">
+          <span class="bd-row-no">04</span>
+          <span class="material-symbols-rounded bd-row-icon" aria-hidden="true">sort</span>
+          <div>
+            <h4>콘텐츠 우선순위가 모호함</h4>
+            <p>신규 유저와 기존 유저가 원하는 정보가 섞여 있어 탐색 흐름을 다시 정리할 필요가 있었습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bd-section" id="goals" data-section>
+      <div class="bd-block">
+        <div class="bd-lede bd-reveal">
+          <span class="bd-mark">02 · Goal</span>
+          <h2 class="bd-display">플레이하기 전부터<br />모험을 시작한 듯한 흐름 만들기</h2>
+        </div>
+
+        <div class="bd-info-grid">
+          <article class="bd-card bd-reveal">
+            <h3 class="bd-card-title"><span class="material-symbols-rounded" aria-hidden="true">flag</span>Project Info</h3>
+            <dl>
+              <div>
+                <dt>Project</dt>
+                <dd>검은사막 공식 홈페이지 리뉴얼 콘셉트</dd>
+              </div>
+              <div>
+                <dt>Role</dt>
+                <dd>기획, UX 분석, 정보 구조 설계, UI 디자인, HTML/CSS/JavaScript 퍼블리싱</dd>
+              </div>
+              <div>
+                <dt>Direction</dt>
+                <dd>게임 소개 → 클래스 탐색 → 콘텐츠 경험 → 다운로드로 이어지는 자연스러운 동선</dd>
+              </div>
+            </dl>
+            <p class="bd-stack-label">Tools</p>
+            <ul class="bd-tools">
+              <li>Figma</li>
+              <li>Photoshop</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>GSAP</li>
+              <li>AI Image Tool</li>
+            </ul>
+          </article>
+
+          <figure class="bd-sword-card bd-reveal">
+            <img src="./images/blackdesert/06_sword.png" alt="검은사막 무기 오브젝트" />
+            <figcaption>정보를 정리하는 동시에, 게임 특유의 긴장감과 분위기를 놓치지 않는 것을 목표로 했습니다.</figcaption>
+          </figure>
+        </div>
+
+        <ol class="bd-goal-list">
+          <li class="bd-reveal">
+            <strong>세계관과 감성이 먼저 보이게</strong>
+            <span>대형 비주얼과 어두운 톤, 금빛 포인트를 사용해 검은사막의 무드를 첫 화면에서 바로 느끼도록 구성했습니다.</span>
+          </li>
+          <li class="bd-reveal">
+            <strong>신규 유저가 길을 잃지 않게</strong>
+            <span>게임 소개, 클래스, 콘텐츠, 다운로드로 이어지는 순서를 잡아 처음 방문한 사용자도 자연스럽게 따라올 수 있게 했습니다.</span>
+          </li>
+          <li class="bd-reveal">
+            <strong>기존 유저는 필요한 정보를 빠르게</strong>
+            <span>이벤트와 공지, 업데이트성 정보는 우선순위를 다시 나눠 탐색 피로를 줄이는 방향으로 정리했습니다.</span>
+          </li>
+          <li class="bd-reveal">
+            <strong>스크롤 자체가 탐험처럼 느껴지게</strong>
+            <span>GSAP 기반의 등장 모션, 배경 패럴랙스, 클래스 카드 인터랙션으로 페이지 이동에 리듬을 줬습니다.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="bd-section" id="insight" data-section>
+      <div class="bd-block">
+        <div class="bd-lede bd-reveal">
+          <span class="bd-mark">03 · Insight</span>
+          <h2 class="bd-display">공식 사이트도<br />게임 경험의 일부입니다.</h2>
+        </div>
+
+        <div class="bd-pull bd-reveal">
+          <p class="bd-pull-pre">작업하면서 가장 크게 잡은 기준은 하나였습니다.</p>
+          <blockquote class="bd-pull-quote">사용자는 정보를 보러 오지만, 결국 마음이 움직여야 플레이를 시작합니다.</blockquote>
+          <p class="bd-pull-post">
+            그래서 화면을 공지와 배너의 묶음으로 보지 않고, 게임 세계로 들어가는 첫 장면으로 다시 바라봤습니다. 정보는 줄이지 않되, 처음 만나는 순서를 바꿔 설렘이 먼저 오도록 했습니다.
+          </p>
+        </div>
+
+        <div class="bd-solution-rows">
+          <div class="bd-row bd-reveal">
+            <span class="bd-row-no">01</span>
+            <h4>시네마틱 히어로</h4>
+            <p>대형 비주얼과 어두운 그라데이션, 금빛 액센트로 첫 화면에서 게임의 분위기를 강하게 전달했습니다.</p>
+          </div>
+          <div class="bd-row bd-reveal">
+            <span class="bd-row-no">02</span>
+            <h4>신규 유저 동선 최적화</h4>
+            <p>게임 소개에서 클래스 탐색, 콘텐츠 경험, 다운로드까지 이어지는 흐름을 하나의 이야기처럼 정리했습니다.</p>
+          </div>
+          <div class="bd-row bd-reveal">
+            <span class="bd-row-no">03</span>
+            <h4>클래스 경험 강화</h4>
+            <p>클래스별 전투 스타일과 이미지를 카드로 보여줘 사용자가 자신에게 맞는 캐릭터를 빠르게 상상할 수 있게 했습니다.</p>
+          </div>
+          <div class="bd-row bd-reveal">
+            <span class="bd-row-no">04</span>
+            <h4>정보 구조 재정비</h4>
+            <p>이벤트, 공지, 가이드 콘텐츠를 같은 무게로 나열하지 않고, 목적에 따라 노출 순서를 다시 나눴습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bd-section" id="system" data-section>
+      <div class="bd-block">
+        <div class="bd-lede bd-reveal">
+          <span class="bd-mark">04 · Design System</span>
+          <h2 class="bd-display">웅장함은 살리고,<br />사용성은 흐트러지지 않게.</h2>
+          <div class="bd-lede-body">
+            <p>
+              게임 사이트는 화려할수록 읽는 순서가 무너지기 쉽습니다. 그래서 컬러와 타입은 강하게 가져가되, 카드와 리스트, CTA 같은 기본 컴포넌트는 반복 가능한 규칙으로 정리했습니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="bd-system-grid bd-reveal">
+          <article class="bd-card">
+            <h3>Design Principle</h3>
+            <ul class="bd-tag-list">
+              <li>Immersive</li>
+              <li>Epic</li>
+              <li>Dramatic</li>
+              <li>Intuitive</li>
+            </ul>
+          </article>
+          <article class="bd-card">
+            <h3>Color</h3>
+            <ul class="bd-swatch-list">
+              <li><i style="--c:#050405"></i>Midnight Black</li>
+              <li><i style="--c:#e6b450"></i>Desert Gold</li>
+              <li><i style="--c:#f3ece0"></i>Warm Ivory</li>
+              <li><i style="--c:#b6332f"></i>Crimson Red</li>
+            </ul>
+          </article>
+          <article class="bd-card">
+            <h3>Typography</h3>
+            <ul class="bd-type-list">
+              <li><span>Pretendard</span><em>본문과 정보 UI</em></li>
+              <li class="bd-cinzel"><span>Cinzel</span><em>타이틀과 장식적 문장</em></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="bd-system-cards bd-reveal">
+          <article>
+            <h4><span class="material-symbols-rounded" aria-hidden="true">widgets</span>Component</h4>
+            <ul>
+              <li>시네마틱 히어로 배너</li>
+              <li>클래스 탐색 카드</li>
+              <li>이벤트 카드와 콘텐츠 소개 모듈</li>
+              <li>다운로드 CTA, 뉴스 및 공지 모듈</li>
+            </ul>
+          </article>
+          <article>
+            <h4><span class="material-symbols-rounded" aria-hidden="true">code</span>Development</h4>
+            <ul>
+              <li>HTML/CSS 기반 반응형 웹 구현</li>
+              <li>JavaScript 인터랙션 설계</li>
+              <li>GSAP 스크롤 애니메이션 적용</li>
+              <li>비주얼 중심 레이아웃과 사용자 동선 구성</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="bd-class-grid bd-reveal" aria-label="클래스 탐색 카드 예시">
+          <article class="bd-class-card" style="--img:url('./images/blackdesert/class-warrior.jpg')">
+            <div class="bd-class-meta"><span>Class</span><strong>Warrior</strong></div>
+            <p>가장 직관적인 전투 스타일을 앞세워 신규 유저가 쉽게 이해할 수 있는 진입 클래스로 구성했습니다.</p>
+          </article>
+          <article class="bd-class-card" style="--img:url('./images/blackdesert/class-ranger.jpg')">
+            <div class="bd-class-meta"><span>Class</span><strong>Ranger</strong></div>
+            <p>거리감과 속도감을 살려 검은사막 전투의 넓은 선택지를 보여주는 카드로 배치했습니다.</p>
+          </article>
+          <article class="bd-class-card" style="--img:url('./images/blackdesert/class-maegu.jpg')">
+            <div class="bd-class-meta"><span>Class</span><strong>Maegu</strong></div>
+            <p>캐릭터의 분위기와 액션 이미지를 함께 보여줘 클래스 선택의 재미를 강조했습니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bd-section" id="result" data-section>
+      <div class="bd-block">
+        <div class="bd-lede bd-reveal">
+          <span class="bd-mark">05 · Result</span>
+          <h2 class="bd-display">정보 중심의 홈페이지를<br />세계관 중심의 경험으로 다시 구성했습니다.</h2>
+        </div>
+
+        <div class="bd-result-grid">
+          <figure class="bd-result-shot bd-reveal">
+            <img src="./images/blackdesert/content-01.jpg" alt="검은사막 콘텐츠 소개 화면" />
+            <figcaption>콘텐츠 소개 영역</figcaption>
+          </figure>
+          <figure class="bd-result-shot bd-reveal">
+            <img src="./images/blackdesert/content-02.jpg" alt="검은사막 전투와 모험 콘텐츠 화면" />
+            <figcaption>전투와 모험 경험</figcaption>
+          </figure>
+          <figure class="bd-result-shot bd-reveal">
+            <img src="./images/blackdesert/content-03.jpg" alt="검은사막 월드 콘텐츠 화면" />
+            <figcaption>세계관 기반 콘텐츠</figcaption>
+          </figure>
+          <article class="bd-result-copy bd-reveal">
+            <strong><span class="material-symbols-rounded" aria-hidden="true">done_all</span>정리된 결과</strong>
+            <ul>
+              <li>신규 유저 중심의 정보 구조 개선</li>
+              <li>시네마틱 기반 몰입형 첫 화면 설계</li>
+              <li>클래스 탐색 경험 강화</li>
+              <li>반응형 게임 웹사이트 구현</li>
+              <li>GSAP 기반 인터랙션 적용 경험</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bd-section" id="review" data-section>
+      <div class="bd-block">
+        <div class="bd-lede bd-reveal">
+          <span class="bd-mark">06 · Review</span>
+          <h2 class="bd-display">좋은 게임 경험은<br />첫 화면을 마주하는 순간부터 시작됩니다.</h2>
+        </div>
+
+        <div class="bd-review-copy bd-reveal">
+          <p>
+            이번 작업을 하면서 게임 웹사이트는 단순한 정보 전달 채널이 아니라, 플레이어의 기대감과 감정을 끌어올리는 첫 경험이라는 점을 많이 느꼈습니다.
+          </p>
+          <p>
+            특히 검은사막처럼 콘텐츠가 큰 서비스는 “무엇을 더 넣을까”보다 “무엇을 먼저 보게 할까”가 더 중요했습니다. 방대한 정보를 줄이는 대신 순서를 다시 잡고, 세계관을 먼저 경험하게 만드는 쪽으로 방향을 잡았습니다.
+          </p>
+          <blockquote>대규모 콘텐츠를 사용자 중심으로 다시 해석하고, 브랜드의 세계관을 웹 경험으로 확장해본 프로젝트였습니다.</blockquote>
+          <div class="bd-back-actions">
+            <a href="https://hye0277-erin.github.io/blackdesert/" class="bd-btn bd-btn-primary" target="_blank" rel="noopener noreferrer">사이트 보기 <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span></a>
+            <a href="./archive.html" class="bd-btn bd-btn-ghost">Archive로 돌아가기</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="archive-page-footer">
+    <p>© 2026 HYE02 Portfolio. All Rights Reserved.</p>
+  </footer>
+
+  <button type="button" class="bd-top-btn" data-top-btn aria-label="맨 위로 이동">
+    <span class="material-symbols-rounded" aria-hidden="true">arrow_upward</span>
+  </button>
+
+  <script src="./js/blackdesert.js" defer></script>
+</body>
+</html>

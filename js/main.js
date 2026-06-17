@@ -35,54 +35,28 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================================================
-  PROJECT INDEX 미리보기 (GSAP과 독립 실행)
-  - 이름 위에 마우스를 올리면 커서를 따라오는 미리보기가 나타남
-  - GSAP/CDN 로드 실패와 무관하게 항상 동작하도록 순수 JS로 분리
+  EXPERIENCE ARCHIVE 모바일 썸네일 슬라이더
 ========================================================= */
 window.addEventListener("DOMContentLoaded", () => {
-  const indexWrap = document.querySelector("[data-index]");
-  const preview = document.querySelector("[data-index-preview]");
-  const previewImg = document.querySelector("[data-index-preview-img]");
-  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-  if (!indexWrap || !preview || !previewImg || !finePointer) return;
+  const track = document.querySelector(".company-flow-track");
+  const prevBtn = document.querySelector("[data-company-prev]");
+  const nextBtn = document.querySelector("[data-company-next]");
+  if (!track || !prevBtn || !nextBtn) return;
 
-  const rows = indexWrap.querySelectorAll(".index-row");
-  let rafId = null;
-  let tx = 0, ty = 0, cx = 0, cy = 0; // target / current 좌표
+  function getStep() {
+    const card = track.querySelector(".company-work-card");
+    return card ? card.getBoundingClientRect().width : track.clientWidth;
+  }
 
-  const follow = () => {
-    cx += (tx - cx) * 0.18;
-    cy += (ty - cy) * 0.18;
-    preview.style.transform = `translate(${cx}px, ${cy}px)`;
-    if (Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) {
-      rafId = requestAnimationFrame(follow);
-    } else {
-      rafId = null;
-    }
-  };
-
-  indexWrap.addEventListener("pointermove", (e) => {
-    const r = indexWrap.getBoundingClientRect();
-    tx = e.clientX - r.left;
-    ty = e.clientY - r.top;
-    if (rafId === null) { cx = tx; cy = ty; follow(); }
-  });
-
-  rows.forEach((row) => {
-    row.addEventListener("pointerenter", () => {
-      const src = row.dataset.img;
-      if (src) { previewImg.src = src; preview.classList.remove("is-empty"); }
-      else { previewImg.removeAttribute("src"); preview.classList.add("is-empty"); }
-      preview.classList.add("is-visible");
-      indexWrap.classList.add("is-hovering");
-      rows.forEach((r) => r.classList.toggle("is-dimmed", r !== row));
+  function slide(direction) {
+    track.scrollBy({
+      left: getStep() * direction,
+      behavior: "smooth"
     });
-    row.addEventListener("pointerleave", () => {
-      preview.classList.remove("is-visible");
-      indexWrap.classList.remove("is-hovering");
-      rows.forEach((r) => r.classList.remove("is-dimmed"));
-    });
-  });
+  }
+
+  prevBtn.addEventListener("click", () => slide(-1));
+  nextBtn.addEventListener("click", () => slide(1));
 });
 
 window.addEventListener("DOMContentLoaded", () => {

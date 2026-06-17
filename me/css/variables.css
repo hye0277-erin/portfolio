@@ -1,0 +1,51 @@
+/* variables.css */
+:root {
+  --font-main: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --bg: #f5f4ef;
+  --bg-2: #eae7dd;
+  --text: #1a1a1a;
+  --text-soft: rgba(26, 26, 26, 0.65);
+  --text-dim: rgba(26, 26, 26, 0.42);
+  --line: rgba(26, 26, 26, 0.10);
+  --line-strong: rgba(26, 26, 26, 0.20);
+  --white: #ffffff;
+  --black: #111111;
+
+  --accent: #5bc97a;
+  --accent-2: #a8e6be;
+  --accent-dark: #1c4530;
+  --card: rgba(255, 255, 255, 0.60);
+  --card-strong: rgba(255, 255, 255, 0.82);
+  --shadow-sm: 0 4px 24px rgba(20, 20, 20, 0.07);
+  --shadow: 0 16px 60px rgba(20, 20, 20, 0.09);
+  --shadow-lg: 0 32px 100px rgba(20, 20, 20, 0.12);
+
+  --max: 1520px;
+  --header-h: 72px;
+  --section-x: clamp(20px, 5vw, 100px);
+  --section-y: clamp(80px, 10vw, 160px);
+  --radius-xl: 40px;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+  --ease: cubic-bezier(.16,.9,.3,1);
+  --ease-spring: cubic-bezier(.34,1.56,.64,1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0d0b;
+    --bg-2: #131510;
+    --text: #f2f0ea;
+    --text-soft: rgba(242, 240, 234, 0.70);
+    --text-dim: rgba(242, 240, 234, 0.44);
+    --line: rgba(255, 255, 255, 0.10);
+    --line-strong: rgba(255, 255, 255, 0.20);
+    --card: rgba(255, 255, 255, 0.06);
+    --card-strong: rgba(255, 255, 255, 0.10);
+    --shadow-sm: 0 4px 24px rgba(0, 0, 0, 0.25);
+    --shadow: 0 16px 60px rgba(0, 0, 0, 0.32);
+    --shadow-lg: 0 32px 100px rgba(0, 0, 0, 0.42);
+  }
+}

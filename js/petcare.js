@@ -1,44 +1,74 @@
 /* =========================================================
-   PetCare+ Case Study - High-end Interactions (GSAP + ScrollTrigger)
+   PetCare+ Case Study - interactions
 ========================================================= */
 (() => {
-  const page = document.querySelector('.petcase-page');
+  const page = document.querySelector(".petcase-page");
   if (!page) return;
 
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- 1. 우측 섹션 인덱스 활성화 (IntersectionObserver) ---------- */
-  const sections = page.querySelectorAll('[data-section]');
-  const navLinks = page.querySelectorAll('.pcp-fixed-index a');
+  /* Phone slideshow */
+  const slideshow = page.querySelector("[data-slideshow]");
+  if (slideshow) {
+    const slides = Array.from(slideshow.querySelectorAll("img"));
+    if (slides.length > 1) {
+      let current = 0;
+      setInterval(() => {
+        slides[current].classList.remove("is-active");
+        current = (current + 1) % slides.length;
+        slides[current].classList.add("is-active");
+      }, 2600);
+    }
+  }
 
-  if ('IntersectionObserver' in window) {
+  /* Draggable horizontal strip */
+  const strip = page.querySelector(".pcp-showcase-strip");
+  if (strip) {
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    strip.addEventListener("mousedown", (e) => {
+      isDown = true;
+      startX = e.pageX - strip.offsetLeft;
+      scrollLeft = strip.scrollLeft;
+    });
+    document.addEventListener("mouseup", () => { isDown = false; });
+    strip.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - strip.offsetLeft;
+      strip.scrollLeft = scrollLeft - (x - startX) * 1.4;
+    });
+  }
+
+  const sections = page.querySelectorAll("[data-section]");
+  const navLinks = page.querySelectorAll(".pcp-fixed-index a");
+
+  if ("IntersectionObserver" in window) {
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         const activeIndex = Array.from(sections).indexOf(entry.target);
         navLinks.forEach((link, index) => {
-          link.classList.toggle('is-active', index === activeIndex);
+          link.classList.toggle("is-active", index === activeIndex);
         });
       });
-    }, { rootMargin: '-42% 0px -48% 0px', threshold: 0.01 });
+    }, { rootMargin: "-42% 0px -48% 0px", threshold: 0.01 });
 
     sections.forEach((section) => sectionObserver.observe(section));
   }
 
-  // GSAP이 로드되지 않았거나 모션 최소화가 켜져 있으면 종료
   if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined" || prefersReduced) {
-    // GSAP이 없을 때만 기본 페이드인 효과 주기 위해 fallback 클래스 추가
-    const reveals = page.querySelectorAll('.pcp-reveal');
-    reveals.forEach(r => r.classList.add('is-visible'));
+    page.querySelectorAll(".pcp-reveal").forEach((item) => item.classList.add("is-visible"));
     return;
   }
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // 2. 히어로 폰 목업 입체 스크롤 모션 (3D Parallax & Scale)
   const phone = document.querySelector(".pcp-phone");
   if (phone) {
-    gsap.fromTo(phone, 
+    gsap.fromTo(phone,
       { rotationY: -16, rotationX: 8, y: 10, scale: 0.96 },
       {
         rotationY: 8,
@@ -56,9 +86,7 @@
     );
   }
 
-  // 3. 텍스트 마스크 및 순차 업 (Reveal Up) 애니메이션
-  const titles = gsap.utils.toArray(".pcp-title, .pcp-section-title");
-  titles.forEach(title => {
+  gsap.utils.toArray(".pcp-title, .pcp-section-title").forEach((title) => {
     gsap.fromTo(title,
       { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)", y: 30 },
       {
@@ -75,7 +103,6 @@
     );
   });
 
-  // 4. Goal 카드 스태깅 모션 (Card Stagger)
   const goalCards = gsap.utils.toArray(".pcp-goal-card");
   if (goalCards.length > 0) {
     gsap.from(goalCards, {
@@ -93,9 +120,7 @@
     });
   }
 
-  // 5. Insight 행 부드러운 순차 등장
-  const insightRows = gsap.utils.toArray(".pcp-insight-row");
-  insightRows.forEach((row, i) => {
+  gsap.utils.toArray(".pcp-insight-row").forEach((row) => {
     gsap.from(row, {
       opacity: 0,
       y: 40,
@@ -109,7 +134,6 @@
     });
   });
 
-  // 6. Background 및 System 페이지의 리스트 스태거링
   const problemItems = gsap.utils.toArray(".pcp-problem-item");
   if (problemItems.length > 0) {
     gsap.from(problemItems, {
@@ -140,11 +164,9 @@
     });
   }
 
-  // 7. 결과(Result) 카드 패럴랙스 슬라이드 업
-  const resultCards = gsap.utils.toArray(".pcp-result-card");
-  resultCards.forEach((card, i) => {
+  gsap.utils.toArray(".pcp-result-card").forEach((card, index) => {
     gsap.from(card, {
-      y: 80 + (i * 20),
+      y: 80 + (index * 20),
       opacity: 0,
       duration: 1,
       ease: "power3.out",
@@ -155,7 +177,6 @@
     });
   });
 
-  // 8. 리뷰 영역 스크롤 반응 스케일
   const review = document.querySelector(".pcp-review");
   if (review) {
     gsap.fromTo(review,

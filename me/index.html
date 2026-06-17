@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>김혜영 — Web Designer</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+
+  <!-- 진행바 -->
+  <div class="progress-bar" aria-hidden="true"><span></span></div>
+
+  <!-- 헤더 -->
+  <header class="header" id="header">
+    <a class="header__logo" href="#intro">KHY02</a>
+    <nav class="header__nav">
+      <a href="#about">About</a>
+      <a href="#strength">Strength</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="header__menu" aria-label="메뉴" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- 모바일 풀스크린 메뉴 -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav>
+      <a href="#about">About</a>
+      <a href="#strength">Strength</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- ══════════════════════════════
+         01. INTRO — 풀스크린 텍스트 + 이미지 콜라주
+    ══════════════════════════════ -->
+    <section class="s-intro" id="intro">
+      <div class="s-intro__bg">
+        <img src="./images/1349259404808.jpg" alt="" aria-hidden="true" />
+        <div class="s-intro__bg-overlay"></div>
+      </div>
+
+      <div class="s-intro__inner">
+        <div class="s-intro__label">Portfolio · About · 2026</div>
+
+        <h1 class="s-intro__title">
+          <span class="line" data-reveal>Web</span>
+          <span class="line" data-reveal>Designer</span>
+          <span class="line line--accent" data-reveal>김혜영</span>
+        </h1>
+
+        <div class="s-intro__sub" data-reveal>
+          <p>상품과 브랜드를 화면 안에서<br />명확하게 전달합니다.</p>
+          <div class="s-intro__cta">
+            <a class="cta-btn cta-btn--light" href="#about">소개 보기</a>
+            <a class="cta-btn cta-btn--ghost" href="https://hye0277-erin.github.io/portfolio/main.html" target="_blank" rel="noreferrer">Portfolio →</a>
+          </div>
+        </div>
+
+        <div class="s-intro__stats" data-reveal>
+          <div><strong>20Y+</strong><span>실무 경력</span></div>
+          <div><strong>HTML/CSS</strong><span>퍼블리싱 이해</span></div>
+          <div><strong>AI Assisted Workflow</strong><span>워크플로우 활용</span></div>
+        </div>
+      </div>
+
+      <div class="s-intro__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="s-intro__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         02. ABOUT — 비대칭 스플릿 + 실제 사진
+    ══════════════════════════════ -->
+    <section class="s-about" id="about">
+      <div class="s-about__photo-col">
+        <div class="s-about__photo-wrap" data-reveal="left">
+          <img src="./images/1369957905425.jpg" alt="김혜영 프로필 사진" />
+        </div>
+        <div class="s-about__photo-tag" data-reveal>
+          <span>Web Designer</span>
+          <span>UI/UX</span>
+        </div>
+      </div>
+
+      <div class="s-about__text-col" data-reveal="right">
+        <p class="kicker">About Me</p><br>
+        <h2>시각적 화려함보다<br />'정보의 전달력'을 먼저 생각하는<br /> UIUX 디자이너입니다.
+        </h2>
+
+        <div class="s-about__body">
+          제품 상세페이지 기획부터 촬영, 이미지 보정, 카테고리 디자인 수정·업데이트까지 담당하며 실무 경험을 쌓았습니다.
+          이전에는 홈페이지와 모바일 웹 디자인, 배너 및 프로모션 이미지 제작, 운영 이미지 수정과 유지보수 업무를 두루 경험했습니다.
+          화려한 화면보다 정보가 잘 읽히는 구조를 우선하며, 브랜드 톤에 맞는 레이아웃으로 사용자가 필요한 정보를 자연스럽게 따라갈 수 있도록 설계하는 일을 즐깁니다.
+        </div>
+
+        <ul class="s-about__info">
+          <li><b>Work</b><span>웹디자인 · 상세페이지 · 배너 · 모바일 UIUX · Graphy & Print Design</span></li>
+          <li><b>Tools</b>
+            <span><img src="images/icon_Photoshop.png" alt=""></span>
+            <span><img src="images/icon_Illustrator.png" alt=""></span>
+            <span><img src="images/icon_figma.png" alt=""></span>
+            <span><img src="images/icon_claude.png" alt=""></span>
+            <span><img src="images/icon_gemini.png" alt=""></span>
+            <span><img src="images/icon_chatgpt.png" alt=""></span>
+            <span><img src="images/icon_midjourney.png" alt=""></span>
+          </li>
+          <li><b>Code</b>
+            <span><img src="images/html.png" alt=""></span>
+            <span><img src="images/css.png" alt=""></span>
+            <span><img src="images/js.png" alt=""></span>
+            <span><img src="images/icon_gsap.png" alt=""></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         03. STRENGTH — 번호 타이포 + 텍스트 그리드
+    ══════════════════════════════ -->
+    <section class="s-strength" id="strength">
+      <div class="s-strength__head" data-reveal>
+        <p class="kicker">Core Strength</p>
+        <h2>제가 잘하는<br />여섯 가지</h2>
+      </div>
+
+      <div class="s-strength__grid">
+        <article class="str-item" data-reveal>
+          <div class="str-item__num">01</div>
+          <div class="str-item__body">
+            <h3>상품 정보 구조화</h3>
+            <p>상품 특징, 구성, 사용 정보, 보관 방법 등을 사용자가 한눈에 파악할 수 있도록 시각적으로 정리합니다.</p>
+          </div>
+        </article>
+        <article class="str-item" data-reveal>
+          <div class="str-item__num">02</div>
+          <div class="str-item__body">
+            <h3>상세페이지 제작</h3>
+            <p>기획부터 디자인, 이미지 보정, 콘텐츠 편집까지 실제 운영 흐름에 맞춰 제작합니다.</p>
+          </div>
+        </article>
+        <article class="str-item" data-reveal>
+          <div class="str-item__num">03</div>
+          <div class="str-item__body">
+            <h3>운영 콘텐츠 디자인</h3>
+            <p>썸네일, 배너, 프로모션 이미지, POP, 상품 안내 이미지 등 운영에 필요한 콘텐츠를 만듭니다.</p>
+          </div>
+        </article>
+        <article class="str-item" data-reveal>
+          <div class="str-item__num">04</div>
+          <div class="str-item__body">
+            <h3>모바일 화면 구성</h3>
+            <p>PC와 모바일 환경에 맞는 이미지 사이즈 최적화와 직관적인 모바일 UI 화면 구성이 가능합니다.</p>
+          </div>
+        </article>
+        <article class="str-item" data-reveal>
+          <div class="str-item__num">05</div>
+          <div class="str-item__body">
+            <h3>퍼블리싱 이해</h3>
+            <p>HTML/CSS 기본 구조를 이해하고 있어 구현 가능성을 고려한 화면 설계와 정적 페이지 작업을 할 수 있습니다.</p>
+          </div>
+        </article>
+        <article class="str-item" data-reveal>
+          <div class="str-item__num">06</div>
+          <div class="str-item__body">
+            <h3>AI 도구 활용</h3>
+            <p>ChatGPT, Gemini, Midjourney 등을 기획 정리와 시안 확장, 이미지 보조 작업에 적극 활용합니다.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         04. EXPERIENCE
+         ─ 행 추가 방법: .exp-row 블록 하나를 복사해서
+           번호·회사명·역할·기간·업무 목록만 수정하면 됩니다.
+    ══════════════════════════════ -->
+    <section class="s-exp" id="experience">
+      <div class="s-exp__inner">
+
+        <div class="s-exp__head">
+          <p class="kicker">Experience</p>
+          <h2>어떤 화면을 맡아<br />어떻게 만들었는지가<br />더 중요합니다.</h2>
+        </div>
+
+        <div class="s-exp__list">
+
+          <!-- ── 경력 1 ───────────────────────────────── -->
+          <article class="exp-row">
+            <div class="exp-row__num">01</div>
+
+            <div class="exp-row__meta">
+              <h3 class="exp-row__company">참바다영어조합법인</h3>
+              <p class="exp-row__role">이커머스 웹디자인 · UX/UI · 상품 콘텐츠 제작</p>
+            </div>
+
+            <div class="exp-row__period">
+              <span class="exp-row__dates">2021.06 – 2025.11</span>
+              <span class="exp-row__duration">4년 6개월</span>
+            </div>
+
+            <ul class="exp-row__tasks">
+              <li><b>이커머스 상세페이지 기획 및 UI 디자인</b><br>
+              구매 전환율 향상을 위한 스토리보드 기획, 제품 촬영, 하이엔드 이미지 리터칭 및 상세 화면 설계</li>
+              <li><b>화면 UI 개편 및 UX 유지보수</b><br>
+              구매 여정 개선을 위한 카테고리 네비게이션 및 UI 컴포넌트 지속적 업데이트</li>
+              <li><b>프로모션 UI/UX 에셋 제작</b><br>
+              시즌별 이벤트 메인 배너 및 기획전 레이아웃 디자인</li>
+              <li><b>웹 최적화 및 운영</b><br>
+              모바일/웹 로딩 속도 개선을 위한 이미지 에셋 최적화(WebP 전환, 용량 다이어트) 및 가이드라인 수립</li>
+             <!--  <li>제품 상세페이지 기획 및 디자인</li>
+              <li>제품 촬영 및 이미지 보정</li>
+              <li>카테고리 디자인 수정 및 업데이트</li>
+              <li>이벤트 및 프로모션 배너 이미지 제작</li>
+              <li>이미지 사이즈 최적화 및 운영 최적화</li> -->
+            </ul>
+          </article>
+
+          <!-- ── 경력 2 ───────────────────────────────── -->
+          <article class="exp-row">
+            <div class="exp-row__num">02</div>
+
+            <div class="exp-row__meta">
+              <h3 class="exp-row__company">로바나코리아</h3>
+              <p class="exp-row__role">웹디자인 · 모바일 UI/UX 디자인</p>
+            </div>
+
+            <div class="exp-row__period">
+              <span class="exp-row__dates">2015.10 – 2021.04</span>
+              <span class="exp-row__duration">5년 7개월</span>
+            </div>
+
+            <ul class="exp-row__tasks">
+              <li><b>공식 홈페이지 신규 구축 및 리뉴얼 디자인</b><br>
+              브랜드 아이덴티티를 반영한 메인/서브 화면 UI 설계 (PC/Mobile responsive)</li>
+              <li><b>모바일 전용 웹 페이지 디자인 및 유지보수</b><br>
+              모바일 퍼스트 기반의 UI 레이아웃 최적화 및 컴포넌트 가독성 개선</li>
+              <li><b>마케팅&프로모션 디자인</b><br>
+              브랜드 인지도 제고를 위한 이벤트 페이지 UX/UI 설계 및 비주얼 배너 제작</li>
+              <li><b>크로스 브라우징 및 환경 최적화</b><br>
+              다양한 해상도와 디바이스 환경에 대응하는 반응형 이미지 및 레이아웃 최적화</li>
+              <!-- <li>홈페이지 신규 및 리뉴얼 디자인</li>
+              <li>모바일 웹 페이지 디자인 및 유지보수</li>
+              <li>이벤트 및 프로모션 배너 제작</li>
+              <li>회사 및 제품 소개 이미지 제작</li>
+              <li>PC/모바일 환경에 맞춘 이미지 최적화</li> -->
+            </ul>
+          </article>
+
+          <!-- ── 경력 3 ───────────────────────────────── -->
+          <article class="exp-row">
+            <div class="exp-row__num">03</div>
+
+            <div class="exp-row__meta">
+              <h3 class="exp-row__company">최선어학원</h3>
+              <p class="exp-row__role">웹사이트 운영 · 브랜드 홍보 디자인</p>
+            </div>
+
+            <div class="exp-row__period">
+              <span class="exp-row__dates">2007.05 – 2011.05</span>
+              <span class="exp-row__duration">4년 1개월</span>
+            </div>
+
+            <ul class="exp-row__tasks">
+              <li><b>웹사이트 콘텐츠 및 UI 관리</b><br>
+              학원 공식 웹사이트의 정보 구조(IA)에 맞춘 콘텐츠 업데이트 및 화면 유지보수</li>
+              <li><b>브랜드 아이덴티티(BI) 고도화 지원</b><br>
+              학원 브랜드 가이드라인 수립 지원 및 이에 맞춘 온/오프라인 디자인 시스템 적용</li>
+              <li><b>홍보 및 마케팅 디자인</b><br>
+              신규 원생 모집을 위한 온라인 캠페인 페이지 및 오프라인 프로모션 제작물 디자인</li>
+              <!-- <li>웹사이트 콘텐츠 관리 및 업데이트</li>
+              <li>마케팅 기획 및 업무 지원</li>
+              <li>브랜드 아이덴티티(identity) 수립 지원</li>
+              <li>온/오프라인 홍보 디자인 제작</li> -->
+            </ul>
+          </article>
+
+          <!-- ── 경력 추가 시 아래 블록을 복사해서 붙여넣기 ── -->
+          <!--
+          <article class="exp-row">
+            <div class="exp-row__num">04</div>
+            <div class="exp-row__meta">
+              <h3 class="exp-row__company">회사명</h3>
+              <p class="exp-row__role">역할 · 담당 업무</p>
+            </div>
+            <div class="exp-row__period">
+              <span class="exp-row__dates">0000.00 – 0000.00</span>
+              <span class="exp-row__duration">0년 0개월</span>
+            </div>
+            <ul class="exp-row__tasks">
+              <li>업무 내용 1</li>
+              <li>업무 내용 2</li>
+            </ul>
+          </article>
+          -->
+
+        </div><!-- /.s-exp__list -->
+
+        <p class="s-exp__note">
+          경력 기간은 이력서 기준 재직 기간이며, 실무 중심의 디자인 경험을 쌓아왔습니다.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         05. SKILLS — 전체폭 다크 섹션
+    ══════════════════════════════ -->
+    <section class="s-skills" id="skills">
+      <div class="s-skills__inner">
+        <div class="s-skills__head" data-reveal>
+          <p class="kicker kicker--light">Skills &amp; Tools</p>
+          <h2>작업에 필요한<br /> 도구를 목적에 맞게<br /> 사용합니다.</h2>
+        </div>
+
+        <div class="s-skills__board">
+          <div class="sk-group" data-reveal>
+            <h3>Design</h3>
+            <div class="sk-tags">
+              <span>Photoshop</span>
+              <span>Illustrator</span>
+              <span>Figma</span>
+              <span>premier</span>
+            </div>
+          </div>
+          <div class="sk-group" data-reveal>
+            <h3>Publishing</h3>
+            <div class="sk-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>jQuery 기초</span>
+            </div>
+          </div>
+          <div class="sk-group" data-reveal>
+            <h3>Scope</h3>
+            <div class="sk-tags">
+              <span>웹디자인</span>
+              <span>상세페이지</span>
+              <span>배너</span>
+              <span>모바일 UIUX</span>
+              <span>반응형</span>
+              <span>편집 디자인</span>
+            </div>
+          </div>
+          <div class="sk-group" data-reveal>
+            <h3>AI Workflow</h3>
+            <div class="sk-tags">
+              <span>ChatGPT</span>
+              <span>Gemini</span>
+              <span>Claude</span>
+              <span>Midjourney</span>
+              <span>Veo</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="s-skills__note" data-reveal>
+          심플하고 정돈된 사용자 중심 디자인을 지향합니다.
+          사용자가 정보를 빠르게 파악하고 자연스럽게 다음 행동으로
+          이동할 수 있는 화면 구조를 먼저 설계하는 편입니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         06. PROJECTS — 가로 스크롤 카드
+    ══════════════════════════════ -->
+    <section class="s-projects" id="projects">
+      <div class="s-projects__head" data-reveal>
+        <p class="kicker">Featured Projects</p>
+        <h2>대표 작업물</h2>
+      </div>
+
+      <div class="s-projects__track">
+        <article class="pj-card" data-reveal>
+          <a href="https://hye0277-erin.github.io/QuietSkin/" target="_blank" rel="noreferrer" class="pj-card__link">
+            <div class="pj-card__thumb pj-card__thumb--qs">
+              <span class="pj-card__name">QuietSkin</span>
+              <span class="pj-card__arrow">↗</span>
+            </div>
+            <div class="pj-card__info">
+              <p class="pj-card__type">쇼핑몰 웹디자인 &amp; 퍼블리싱</p>
+              <p class="pj-card__desc">화장품 쇼핑몰의 메인 비주얼, 상품 카드, 브랜드 스토리, 이벤트 영역을 구성하고 상품 정보를 편하게 확인할 수 있는 레이아웃으로 설계했습니다.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="pj-card" data-reveal>
+          <a href="https://hye0277-erin.github.io/woodplace/" target="_blank" rel="noreferrer" class="pj-card__link">
+            <div class="pj-card__thumb pj-card__thumb--wp">
+              <span class="pj-card__name">WoodPlace</span>
+              <span class="pj-card__arrow">↗</span>
+            </div>
+            <div class="pj-card__info">
+              <p class="pj-card__type">쇼핑몰 웹디자인 &amp; 퍼블리싱</p>
+              <p class="pj-card__desc">가구 쇼핑몰의 상품 탐색 흐름과 메인 페이지 구성을 정리하고 브랜드 분위기에 맞는 상품 중심 화면으로 디자인했습니다.</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="pj-card" data-reveal>
+          <a href="https://hye0277-erin.github.io/portfolio/" target="_blank" rel="noreferrer" class="pj-card__link">
+            <div class="pj-card__thumb pj-card__thumb--pf">
+              <span class="pj-card__name">Portfolio</span>
+              <span class="pj-card__arrow">↗</span>
+            </div>
+            <div class="pj-card__info">
+              <p class="pj-card__type">기획 · 콘텐츠 · 화면 구현</p>
+              <p class="pj-card__desc">소개 페이지, 프로젝트 서브 페이지, 작업 아카이브를 하나의 흐름으로 연결하기 위해 공통 CSS와 섹션 구조를 기준으로 확장 가능한 형태를 잡았습니다.</p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         07. CREDENTIALS — 2단 테이블
+    ══════════════════════════════ -->
+    <section class="s-cred" id="credentials">
+      <div class="s-cred__inner">
+        <div class="s-cred__head" data-reveal>
+          <p class="kicker">Credentials</p>
+          <h2>학력 &amp; 자격</h2>
+        </div>
+
+        <div class="s-cred__cols">
+          <div data-reveal>
+            <h3>Education</h3>
+            <table class="cred-table">
+              <tr><td>2013 – 2014</td><td>학점은행제 학사대학교 시각디자인</td></tr>
+              <tr><td>1995 – 1997</td><td>오산대학교 산업경영</td></tr>
+              <tr><td>1993 – 1995</td><td>성남여자고등학교</td></tr>
+            </table>
+          </div>
+          <div data-reveal>
+            <h3>Certificates</h3>
+            <table class="cred-table">
+              <tr><td>2015.12</td><td>컴퓨터그래픽기능사</td></tr>
+              <tr><td>2015.09</td><td>웹디자인기능사</td></tr>
+              <tr><td>2011.12</td><td>시각디자인산업기사</td></tr>
+              <tr><td>2011.11</td><td>컬러리스트기사</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         08. CONTACT — 사진 풀블리드 + 오버레이 텍스트
+    ══════════════════════════════ -->
+    <section class="s-contact" id="contact">
+      <div class="s-contact__bg">
+        <img src="./images/1369957905425.jpg" alt="" aria-hidden="true" />
+        <div class="s-contact__overlay"></div>
+      </div>
+
+      <div class="s-contact__inner">
+        <div class="s-contact__text" data-reveal>
+          <p class="kicker kicker--light">Let's Connect</p>
+          <h2>정리된 화면이<br />더 좋은 이해를<br />만든다고 믿습니다.</h2>
+          <p class="s-contact__desc">
+            브랜드의 목적과 사용자의 흐름이 자연스럽게 맞닿는 화면을 고민합니다.
+            차분하지만 분명한 결과물을 만드는 디자이너로 성장하고 있습니다.
+          </p>
+        </div>
+
+        <div class="s-contact__links" data-reveal>
+          <a href="mailto:hye0277@gmail.com" class="contact-link">
+            <span class="contact-link__label">Email</span>
+            <span class="contact-link__value">hye0277@gmail.com</span>
+            <span class="contact-link__arrow">↗</span>
+          </a>
+          <a href="https://hye0277-erin.github.io/portfolio/" target="_blank" rel="noreferrer" class="contact-link">
+            <span class="contact-link__label">Portfolio</span>
+            <span class="contact-link__value">https://hye0277-erin.github.io/portfolio/</span>
+            <span class="contact-link__arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

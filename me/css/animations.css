@@ -1,0 +1,134 @@
+/* animations.css */
+
+/* ── 기본 will-change 설정 ── */
+[data-animate] {
+  will-change: transform, opacity;
+}
+
+/* ── 텍스트 스플릿 애니메이션 ── */
+.char-wrap {
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* ── 커서 블링크 ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: "|";
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s steps(1) infinite;
+  color: var(--accent);
+}
+
+/* ── 플로팅 배지 ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.float-badge {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ── 그라디언트 오브 ── */
+@keyframes orb-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.97); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: .5;
+  animation: orb-drift 12s ease-in-out infinite;
+}
+
+.bg-orb--1 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(91, 201, 122, .3), transparent 70%);
+  top: -120px;
+  right: -80px;
+  animation-delay: 0s;
+}
+
+.bg-orb--2 {
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(28, 69, 48, .2), transparent 70%);
+  bottom: -60px;
+  left: -60px;
+  animation-delay: -6s;
+  animation-duration: 16s;
+}
+
+/* ── 스킬 태그 웨이브 ── */
+@keyframes tag-wave {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 카드 shimmer ── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.card-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255,255,255,.18) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.4s linear infinite;
+  pointer-events: none;
+}
+
+/* ── 히어로 배경 노이즈 ── */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+}
+
+/* ── 섹션 입장 애니메이션 (GSAP 없는 폴백) ── */
+@media (prefers-reduced-motion: no-preference) {
+  .section {
+    transition: opacity .6s ease;
+  }
+}
+
+/* ── reduced motion 대응 ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .bg-orb,
+  .float-badge {
+    animation: none;
+  }
+}
