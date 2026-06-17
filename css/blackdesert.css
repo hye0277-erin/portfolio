@@ -255,7 +255,7 @@
 .bd-section { position: relative; }
 .bd-block {
   width: min(100%, 1140px); margin: 0 auto;
-  padding: clamp(80px, 11vw, 150px) clamp(20px, 5vw, 40px);
+  padding: clamp(80px, 11vw, 100px) clamp(20px, 5vw, 40px);
 }
 
 /* ---- Editorial lede (replaces PPT-style chapter header) ---- */
@@ -431,29 +431,27 @@
 .bd-system-cards li::before { content: "◆"; position: absolute; left: 0; color: rgba(230,180,80,0.7); font-size: 9px; top: 5px; }
 
 /* ---- Classes ---- */
-.bd-class-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.bd-class-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
 .bd-class-card {
   position: relative; min-height: 380px; border-radius: 6px; overflow: hidden;
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: 28px; isolation: isolate;
   border: 1px solid rgba(230,180,80,0.14);
-  transition: transform 0.4s cubic-bezier(.2,.7,.2,1), box-shadow 0.4s ease, border-color 0.4s ease;
-}
-.bd-class-card::before {
-  content: ""; position: absolute; inset: 0; z-index: -2;
-  background-image: var(--img); background-size: cover; background-position: center;
-  transition: transform 0.6s cubic-bezier(.2,.7,.2,1), filter 0.5s ease;
-  filter: saturate(0.85) brightness(0.78);
+  background-size: cover;
+  background-position: center top;
+  filter: saturate(0.85) brightness(0.88);
+  transition: transform 0.4s cubic-bezier(.2,.7,.2,1), box-shadow 0.4s ease, border-color 0.4s ease, filter 0.4s ease;
 }
 .bd-class-card::after {
-  content: ""; position: absolute; inset: 0; z-index: -1;
+  content: ""; position: absolute; inset: 0; z-index: 0;
   background: linear-gradient(180deg, transparent 30%, rgba(5,4,5,0.55) 62%, rgba(5,4,5,0.95) 100%);
 }
+.bd-class-card > * { position: relative; z-index: 1; }
 .bd-class-card:hover {
   transform: translateY(-8px); border-color: rgba(230,180,80,0.55);
   box-shadow: 0 30px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(230,180,80,0.2);
+  filter: saturate(1.1) brightness(1);
 }
-.bd-class-card:hover::before { transform: scale(1.08); filter: saturate(1.1) brightness(0.92); }
 .bd-class-meta span {
   display: inline-block; color: var(--bd-gold); font-size: 11px;
   letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; margin-bottom: 6px;
@@ -552,6 +550,7 @@
   .bd-system-cards,
   .bd-result-grid { grid-template-columns: 1fr; }
   .bd-class-grid { grid-template-columns: repeat(2, 1fr); }
+  .bd-class-card { min-height: 300px; }
   .bd-class-card p { max-height: 80px; opacity: 1; }
 }
 

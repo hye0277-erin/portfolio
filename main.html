@@ -33,7 +33,7 @@
     HEADER
   ========================================================== -->
   <header class="site-header" data-header>
-    <a href="./main.html" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
+    <a href="./main.html" class="brand" aria-label="HYE02 Portfolio Home">
       <span class="brand-mark">HYE02</span>
       <span class="brand-sub">UIUX PORTFOLIO</span>
     </a>
@@ -43,15 +43,18 @@
     </button>
 
     <nav class="gnb" id="primary-navigation" aria-label="주요 메뉴">
-      <a href="#works" data-nav>Works</a>
-      <a href="./me/index.html" target="_blank" data-nav>AboutMe</a>
-      <a href="#archive" data-nav>Experience</a>
-      <a href="#process" data-nav>Process</a>
-      <a href="./archive.html">Archive</a>
-      <a href="#contact" data-nav>Contact</a>
+      <div class="gnb-center">
+        <a href="#works" data-nav>Featured</a>
+        <a href="#archive" data-nav>Experience</a>
+        <a href="#process" data-nav>Process</a>
+        <a href="#contact" data-nav>Contact</a>
+      </div>
+      <div class="gnb-divider" aria-hidden="true"></div>
+      <div class="gnb-right">
+        <a href="archive.html" class="gnb-archive">All Archive ↗</a>
+        <a href="me/index.html" target="_blank" class="gnb-aboutme">About Me ↗</a>
+      </div>
     </nav>
-
-    <a href="#contact" class="header-cta" data-magnetic>Let's Talk</a>
   </header>
 
   <main id="main">

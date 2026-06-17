@@ -137,6 +137,27 @@ window.addEventListener("DOMContentLoaded", () => {
     onUpdate: (self) => header?.classList.toggle("is-scrolled", self.scroll() > 50)
   });
 
+  /* =======================================================
+    GNB ACTIVE STATE — 현재 뷰포트 섹션에 맞게 메뉴 밑줄 표시
+  ======================================================= */
+  const navLinks = document.querySelectorAll(".gnb a[href^='#']");
+  const sections = [...navLinks].map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+
+  const setActive = (id) => {
+    navLinks.forEach(a => {
+      a.classList.toggle("is-active", a.getAttribute("href") === "#" + id);
+    });
+  };
+
+  if (sections.length) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, { threshold: 0.3 });
+    sections.forEach(s => sectionObserver.observe(s));
+  }
+
   const scrollTopBtn = document.querySelector("[data-scroll-top]");
   if (scrollTopBtn) {
     ScrollTrigger.create({

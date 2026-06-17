@@ -16,20 +16,28 @@
   <a class="skip-link" href="#archiveMain">본문 바로가기</a>
 
   <header class="site-header" data-header>
-    <a href="./main.html" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
+    <a href="./main.html" class="brand" aria-label="HYE02 Portfolio Home">
       <span class="brand-mark">HYE02</span>
       <span class="brand-sub">UIUX PORTFOLIO</span>
     </a>
 
-    <nav class="gnb" aria-label="주요 메뉴">
-      <a href="./index.html#works">Works</a>
-      <a href="./index.html#about">About</a>
-      <a href="./index.html#archive">Experience</a>
-      <a href="./index.html#process">Process</a>
-      <a href="./index.html#contact">Contact</a>
-    </nav>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="material-symbols-rounded menu-toggle-icon" aria-hidden="true">menu</span>
+    </button>
 
-    <a href="./index.html#contact" class="header-cta" data-magnetic>Let's Talk</a>
+    <nav class="gnb" id="primary-navigation" aria-label="주요 메뉴">
+      <div class="gnb-center">
+        <a href="#works" data-nav>Featured</a>
+        <a href="#archive" data-nav>Experience</a>
+        <a href="#process" data-nav>Process</a>
+        <a href="#contact" data-nav>Contact</a>
+      </div>
+      <div class="gnb-divider" aria-hidden="true"></div>
+      <div class="gnb-right">
+        <a href="archive.html" class="gnb-archive">All Archive ↗</a>
+        <a href="me/index.html" target="_blank" class="gnb-aboutme">About Me ↗</a>
+      </div>
+    </nav>
   </header>
 
   <main id="archiveMain" class="archive-page-main">
