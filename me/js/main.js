@@ -14,6 +14,11 @@
     header?.classList.toggle("scrolled", window.scrollY > 60);
   };
 
+  const topButton = document.querySelector(".top-button");
+  const updateTopButton = () => {
+    topButton?.classList.toggle("is-visible", window.scrollY > 500);
+  };
+
   /* ── 헤더 nav active ── */
   const sections = Array.from(document.querySelectorAll("section[id]"));
   const navLinks = Array.from(document.querySelectorAll(".header__nav a"));
@@ -250,11 +255,13 @@
   window.addEventListener("scroll", () => {
     updateProgress();
     updateHeader();
+    updateTopButton();
     setActiveNav();
   }, { passive: true });
 
   /* 초기 실행 */
   updateProgress();
   updateHeader();
+  updateTopButton();
   setActiveNav();
 })();
