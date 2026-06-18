@@ -20,18 +20,28 @@
   <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
 
   <header class="site-header" data-header>
-    <a href="./main.html" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
+    <a href="./main.html" class="brand" aria-label="HYE02 Portfolio Home">
       <span class="brand-mark">HYE02</span>
       <span class="brand-sub">UIUX PORTFOLIO</span>
     </a>
-    <nav class="gnb" aria-label="주요 메뉴">
-      <a href="./main.html#works">Works</a>
-      <a href="./main.html#about">About</a>
-      <a href="./main.html#archive">Experience</a>
-      <a href="./main.html#process">Process</a>
-      <a href="./main.html#contact">Contact</a>
+
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="material-symbols-rounded menu-toggle-icon" aria-hidden="true">menu</span>
+    </button>
+
+    <nav class="gnb" id="primary-navigation" aria-label="주요 메뉴">
+      <div class="gnb-center">
+        <a href="main.html#works" data-nav>Featured</a>
+        <a href="main.html#archive" data-nav>Experience</a>
+        <a href="main.html#process" data-nav>Process</a>
+        <a href="main.html#contact" data-nav>Contact</a>
+      </div>
+      <div class="gnb-divider" aria-hidden="true"></div>
+      <div class="gnb-right">
+        <a href="archive.html" class="gnb-archive">All Archive ↗</a>
+        <a href="me/index.html" target="_blank" class="gnb-aboutme">About Me ↗</a>
+      </div>
     </nav>
-    <a href="./main.html#works" class="header-cta" data-magnetic>Back to Works</a>
   </header>
 
   <main class="wp-main" id="woodplace-case">
@@ -114,10 +124,27 @@
           </p>
         </header>
 
+        <!-- 메인 화면 풀 와이드 -->
         <figure class="wp-wide-figure wp-reveal">
-          <img src="./images/woodplace/hero_bg.jpg" alt="WoodPlace 라이프스타일 메인 화면 시안" loading="lazy" />
+          <img src="./images/woodplace/site_main.jpg" alt="WoodPlace 메인 화면" loading="lazy" />
           <figcaption>라이프스타일 중심 메인 비주얼</figcaption>
         </figure>
+
+        <!-- 섹션별 화면 3단 그리드 -->
+        <div class="wp-screen-grid wp-reveal">
+          <figure class="wp-screen-fig">
+            <img src="./images/woodplace/section1_01.jpg" alt="컬렉션 섹션" loading="lazy" />
+            <figcaption>인기 컬렉션 제안</figcaption>
+          </figure>
+          <figure class="wp-screen-fig">
+            <img src="./images/woodplace/section2_01.jpg" alt="공간 제안 콘텐츠" loading="lazy" />
+            <figcaption>공간 제안 콘텐츠</figcaption>
+          </figure>
+          <figure class="wp-screen-fig">
+            <img src="./images/woodplace/section4_01.jpg" alt="서비스 안내" loading="lazy" />
+            <figcaption>구매 신뢰 요소</figcaption>
+          </figure>
+        </div>
 
         <div class="wp-solution-grid">
           <article class="wp-reveal">
@@ -140,6 +167,18 @@
             <h3>구매 신뢰 요소</h3>
             <p>무료 배송, 전문 상담, 안전 결제, 고객 지원을 별도 서비스 영역으로 정리해 구매 전 불안 요소를 줄였습니다.</p>
           </article>
+        </div>
+
+        <!-- 상품 상세 + 장바구니 2단 -->
+        <div class="wp-detail-row wp-reveal">
+          <figure class="wp-detail-fig">
+            <img src="./images/woodplace/detail_page_01.jpg" alt="상품 상세 페이지" loading="lazy" />
+            <figcaption>상품 상세 페이지</figcaption>
+          </figure>
+          <figure class="wp-detail-fig">
+            <img src="./images/woodplace/cart.jpg" alt="장바구니" loading="lazy" />
+            <figcaption>장바구니</figcaption>
+          </figure>
         </div>
 
         <div class="wp-cafe-band wp-reveal">
@@ -201,6 +240,22 @@
           </article>
         </div>
 
+        <!-- 상품 썸네일 롤링 -->
+        <div class="wp-thumb-row wp-reveal">
+          <p class="wp-thumb-label">Product Thumbnails</p>
+          <div class="wp-thumb-track">
+            <figure><img src="./images/woodplace/thum1.png"  alt="" loading="lazy" /></figure>
+            <figure><img src="./images/woodplace/thum2.png"  alt="" loading="lazy" /></figure>
+            <figure><img src="./images/woodplace/thum3.png"  alt="" loading="lazy" /></figure>
+            <figure><img src="./images/woodplace/thum4.png"  alt="" loading="lazy" /></figure>
+            <figure><img src="./images/woodplace/thum6.png"  alt="" loading="lazy" /></figure>
+            <figure><img src="./images/woodplace/thum10.png" alt="" loading="lazy" /></figure>
+            <figure><img src="./images/woodplace/thum11.png" alt="" loading="lazy" /></figure>
+            <figure><img src="./images/woodplace/thum12.png" alt="" loading="lazy" /></figure>
+            <figure><img src="./images/woodplace/thum13.png" alt="" loading="lazy" /></figure>
+          </div>
+        </div>
+
         <div class="wp-dev-grid">
           <article class="wp-dev-card wp-reveal">
             <h3>Publishing</h3>
@@ -223,25 +278,49 @@
     </section>
 
     <section class="wp-section" id="result">
-      <div class="wp-wrap wp-result-grid">
-        <figure class="wp-result-figure wp-reveal">
-          <img src="./images/woodplace/hero_bg.jpg" alt="WoodPlace 반응형 쇼핑몰 결과 화면" loading="lazy" />
-        </figure>
-        <div class="wp-result-copy">
+      <div class="wp-wrap">
+        <header class="wp-section-head">
           <span class="wp-mark wp-reveal">Project Result</span>
           <h2 class="wp-display wp-reveal">판매 화면을 넘어, 브랜드가 제안하는 생활 장면을 만들었습니다.</h2>
           <p class="wp-reveal">
             WoodPlace를 통해 단순한 상품 판매가 아니라 라이프스타일을 제안하는 쇼핑 경험을 구현했습니다.
             Cafe24 연동까지 진행하며 디자인, 퍼블리싱, 운영 구조가 함께 맞물려야 한다는 점도 확인했습니다.
           </p>
-          <ul class="wp-check-list">
-            <li class="wp-reveal">라이프스타일 중심 쇼핑 경험 구축</li>
-            <li class="wp-reveal">반응형 쇼핑몰 구현</li>
-            <li class="wp-reveal">Cafe24 연동 및 운영 경험 확보</li>
-            <li class="wp-reveal">상품 관리 프로세스 이해</li>
-            <li class="wp-reveal">브랜드 감성을 반영한 UI 설계</li>
-          </ul>
+        </header>
+
+        <!-- 결과 화면 메인 -->
+        <figure class="wp-wide-figure wp-reveal">
+          <img src="./images/woodplace/detail_list.jpg" alt="WoodPlace 상품 목록 화면" loading="lazy" />
+          <figcaption>상품 목록 페이지</figcaption>
+        </figure>
+
+        <!-- 섹션 스크린샷 4단 -->
+        <div class="wp-result-screens wp-reveal">
+          <figure>
+            <img src="./images/woodplace/section1_02.jpg" alt="" loading="lazy" />
+            <figcaption>신상품 컬렉션</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/woodplace/section1_03.jpg" alt="" loading="lazy" />
+            <figcaption>추천 아이템</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/woodplace/section1_04.jpg" alt="" loading="lazy" />
+            <figcaption>스타일 제안</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/woodplace/detail_page_02.jpg" alt="" loading="lazy" />
+            <figcaption>상품 상세</figcaption>
+          </figure>
         </div>
+
+        <ul class="wp-check-list wp-result-checks wp-reveal">
+          <li>라이프스타일 중심 쇼핑 경험 구축</li>
+          <li>반응형 쇼핑몰 구현</li>
+          <li>Cafe24 연동 및 운영 경험 확보</li>
+          <li>상품 관리 프로세스 이해</li>
+          <li>브랜드 감성을 반영한 UI 설계</li>
+        </ul>
       </div>
     </section>
 

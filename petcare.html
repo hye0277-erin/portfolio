@@ -21,7 +21,7 @@
   <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
 
   <header class="site-header" data-header>
-    <a href="./main.html" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
+    <a href="./main.html" class="brand" aria-label="HYE02 Portfolio Home">
       <span class="brand-mark">HYE02</span>
       <span class="brand-sub">UIUX PORTFOLIO</span>
     </a>
@@ -31,14 +31,18 @@
     </button>
 
     <nav class="gnb" id="primary-navigation" aria-label="주요 메뉴">
-      <a href="./index.html#works" data-nav>Works</a>
-      <a href="./index.html#about" data-nav>About</a>
-      <a href="./index.html#archive" data-nav>Experience</a>
-      <a href="./index.html#process" data-nav>Process</a>
-      <a href="./index.html#contact" data-nav>Contact</a>
+      <div class="gnb-center">
+        <a href="main.html#works" data-nav>Featured</a>
+        <a href="main.html#archive" data-nav>Experience</a>
+        <a href="main.html#process" data-nav>Process</a>
+        <a href="main.html#contact" data-nav>Contact</a>
+      </div>
+      <div class="gnb-divider" aria-hidden="true"></div>
+      <div class="gnb-right">
+        <a href="archive.html" class="gnb-archive">All Archive ↗</a>
+        <a href="me/index.html" target="_blank" class="gnb-aboutme">About Me ↗</a>
+      </div>
     </nav>
-
-    <a href="./index.html#contact" class="header-cta" data-magnetic>Let's Talk</a>
   </header>
 
   <main class="petcase-page" id="petcare-case">
@@ -390,6 +394,131 @@
             <figcaption>건강 기록</figcaption>
           </figure>
         </div>
+
+        <!-- 앱 UI 컴포넌트 미리보기 -->
+        <div class="pcp-comp-section pcp-reveal">
+          <p class="pcp-comp-label">UI Components</p>
+
+          <div class="pcp-comp-grid">
+
+            <!-- Pet Card — 좌상단 -->
+            <div class="pcp-comp-cell pcp-comp-cell--petcard">
+              <span class="pcp-comp-tag">Pet Card</span>
+              <div class="pcp-mock-petcard">
+                <div class="pcp-mock-photo">🐶</div>
+                <div class="pcp-mock-info">
+                  <div class="pcp-mock-name">해피 <span class="material-symbols-rounded">chevron_right</span></div>
+                  <div class="pcp-mock-meta">12살 · 말티즈</div>
+                  <div class="pcp-mock-tags">
+                    <span class="pcp-mock-tag pcp-mock-tag--red">심장질환</span>
+                    <span class="pcp-mock-tag pcp-mock-tag--blue">신장관리</span>
+                  </div>
+                  <div class="pcp-mock-progress-wrap">
+                    <div class="pcp-mock-progress-row">
+                      <span>오늘 케어</span><span><b>3</b> / 5</span>
+                    </div>
+                    <div class="pcp-mock-bar"><div class="pcp-mock-fill" style="width:60%"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Care Checklist — 우상단 -->
+            <div class="pcp-comp-cell">
+              <span class="pcp-comp-tag">Care Checklist</span>
+              <div class="pcp-mock-card">
+                <div class="pcp-mock-check pcp-mock-check--done">
+                  <span class="pcp-mock-checkbox pcp-mock-checkbox--done"><span class="material-symbols-rounded">check</span></span>
+                  <span class="pcp-mock-check-label">아침 심장약</span>
+                  <span class="pcp-mock-check-time pcp-mock-check-time--done">완료</span>
+                </div>
+                <div class="pcp-mock-check pcp-mock-check--done">
+                  <span class="pcp-mock-checkbox pcp-mock-checkbox--done"><span class="material-symbols-rounded">check</span></span>
+                  <span class="pcp-mock-check-label">아침 식사</span>
+                  <span class="pcp-mock-check-time pcp-mock-check-time--done">완료</span>
+                </div>
+                <div class="pcp-mock-check">
+                  <span class="pcp-mock-checkbox"></span>
+                  <span class="pcp-mock-check-label">저녁 산책</span>
+                  <span class="pcp-mock-check-time">18:00</span>
+                </div>
+                <div class="pcp-mock-check">
+                  <span class="pcp-mock-checkbox"></span>
+                  <span class="pcp-mock-check-label">저녁약</span>
+                  <span class="pcp-mock-check-time">20:00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Record — 좌하단 -->
+            <div class="pcp-comp-cell">
+              <span class="pcp-comp-tag">Quick Record</span>
+              <div class="pcp-mock-card pcp-mock-quick-grid">
+                <div class="pcp-mock-quick-btn">
+                  <span class="pcp-mock-qi pcp-mock-qi--red"><span class="material-symbols-rounded">stethoscope</span></span>
+                  <span>증상</span>
+                </div>
+                <div class="pcp-mock-quick-btn">
+                  <span class="pcp-mock-qi pcp-mock-qi--orange"><span class="material-symbols-rounded">restaurant</span></span>
+                  <span>식사</span>
+                </div>
+                <div class="pcp-mock-quick-btn">
+                  <span class="pcp-mock-qi pcp-mock-qi--blue"><span class="material-symbols-rounded">water_drop</span></span>
+                  <span>물</span>
+                </div>
+                <div class="pcp-mock-quick-btn">
+                  <span class="pcp-mock-qi pcp-mock-qi--yellow"><span class="material-symbols-rounded">note_alt</span></span>
+                  <span>메모</span>
+                </div>
+                <div class="pcp-mock-quick-btn">
+                  <span class="pcp-mock-qi pcp-mock-qi--green"><span class="material-symbols-rounded">monitor_weight</span></span>
+                  <span>체중</span>
+                </div>
+                <div class="pcp-mock-quick-btn">
+                  <span class="pcp-mock-qi pcp-mock-qi--purple"><span class="material-symbols-rounded">photo_camera</span></span>
+                  <span>사진</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next Visit + Tab Bar — 우하단 (세로 스택) -->
+            <div class="pcp-comp-cell pcp-comp-cell--stack">
+              <div class="pcp-comp-sub">
+                <span class="pcp-comp-tag">Next Visit Banner</span>
+                <div class="pcp-mock-visit">
+                  <span class="pcp-mock-visit-ic"><span class="material-symbols-rounded">calendar_month</span></span>
+                  <div class="pcp-mock-visit-body">
+                    <span class="pcp-mock-visit-label">다음 진료일</span>
+                    <span class="pcp-mock-visit-date">2026.06.21 (토)</span>
+                  </div>
+                  <span class="pcp-mock-dday">D-3</span>
+                </div>
+              </div>
+              <div class="pcp-comp-sub">
+                <span class="pcp-comp-tag">Tab Bar</span>
+                <div class="pcp-mock-tabbar">
+                  <div class="pcp-mock-tab pcp-mock-tab--active">
+                    <span class="material-symbols-rounded">home</span><span>홈</span>
+                  </div>
+                  <div class="pcp-mock-tab">
+                    <span class="material-symbols-rounded">edit_note</span><span>기록</span>
+                  </div>
+                  <div class="pcp-mock-tab">
+                    <span class="material-symbols-rounded">local_hospital</span><span>병원</span>
+                  </div>
+                  <div class="pcp-mock-tab">
+                    <span class="material-symbols-rounded">bar_chart</span><span>리포트</span>
+                  </div>
+                  <div class="pcp-mock-tab">
+                    <span class="material-symbols-rounded">settings</span><span>설정</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -426,41 +555,43 @@
           </article>
         </div>
 
-        <div class="pcp-screen-showcase pcp-reveal">
-          <div class="pcp-showcase-strip">
-            <figure class="pcp-screen pcp-screen--showcase">
+        <div class="pcp-rolling-carousel-wrap pcp-reveal">
+        <div class="pcp-rolling-carousel" id="pcpCarousel">
+          <div class="pcp-rolling-track">
+            <figure class="pcp-rolling-item" data-caption="홈 대시보드">
               <img src="./images/petcare/app_main.jpg" alt="PetCare+ 홈 화면" />
               <figcaption>홈 대시보드</figcaption>
             </figure>
-            <figure class="pcp-screen pcp-screen--showcase">
+            <figure class="pcp-rolling-item" data-caption="케어 일정">
               <img src="./images/petcare/app_schejul.jpg" alt="PetCare+ 일정 화면" />
               <figcaption>케어 일정</figcaption>
             </figure>
-            <figure class="pcp-screen pcp-screen--showcase">
+            <figure class="pcp-rolling-item" data-caption="건강 기록">
               <img src="./images/petcare/app_record.jpg" alt="PetCare+ 기록 화면" />
               <figcaption>건강 기록</figcaption>
             </figure>
-            <figure class="pcp-screen pcp-screen--showcase">
+            <figure class="pcp-rolling-item" data-caption="병원 일정">
               <img src="./images/petcare/app_hospital.jpg" alt="PetCare+ 병원 일정 화면" />
               <figcaption>병원 일정</figcaption>
             </figure>
-            <figure class="pcp-screen pcp-screen--showcase">
+            <figure class="pcp-rolling-item" data-caption="기록 추가">
               <img src="./images/petcare/app_record_add.jpg" alt="PetCare+ 기록 추가 화면" />
               <figcaption>기록 추가</figcaption>
             </figure>
-            <figure class="pcp-screen pcp-screen--showcase">
+            <figure class="pcp-rolling-item" data-caption="건강 리포트">
               <img src="./images/petcare/app_report.jpg" alt="PetCare+ 리포트 화면" />
               <figcaption>건강 리포트</figcaption>
             </figure>
-            <figure class="pcp-screen pcp-screen--showcase">
+            <figure class="pcp-rolling-item" data-caption="설정">
               <img src="./images/petcare/app_setting.jpg" alt="PetCare+ 설정 화면" />
               <figcaption>설정</figcaption>
             </figure>
-            <figure class="pcp-screen pcp-screen--showcase">
+            <figure class="pcp-rolling-item" data-caption="일정 추가">
               <img src="./images/petcare/app_schejul_add.jpg" alt="PetCare+ 일정 추가 화면" />
               <figcaption>일정 추가</figcaption>
             </figure>
           </div>
+        </div>
         </div>
       </div>
     </section>
@@ -481,6 +612,12 @@
             <span>보호자 공유 기능</span>
             <span>AI 건강 요약</span>
             <span>병원 제출용 기록 내보내기</span>
+          </div>
+          <div class="pcp-review-cta">
+            <a href="https://hye0277-erin.github.io/petcare/" target="_blank" rel="noopener noreferrer" class="pcp-service-btn">
+              <span>사이트 보러가기</span>
+              <span class="material-symbols-rounded">arrow_outward</span>
+            </a>
           </div>
         </div>
       </div>

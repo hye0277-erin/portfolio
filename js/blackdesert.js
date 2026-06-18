@@ -11,11 +11,23 @@ document.addEventListener("DOMContentLoaded", () => {
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.16 });
+    }, { threshold: 0, rootMargin: "0px 0px 0px 0px" });
     targets.forEach((t) => observer.observe(t));
   } else {
     targets.forEach((t) => t.classList.add("is-visible"));
   }
+
+  /* ---------- Anchor smooth scroll (side index) ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      const target = document.querySelector(anchor.getAttribute("href"));
+      if (!target) return;
+      e.preventDefault();
+      const headerH = document.querySelector(".site-header")?.offsetHeight || 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerH - 16;
+      window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  });
 
   /* ---------- Section index active state ---------- */
   const indexLinks = Array.from(document.querySelectorAll(".bd-section-index a"));

@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="./css/blackdesert.css" />
+  <link rel="stylesheet" href="./css/style.css?v=2" />
+  <link rel="stylesheet" href="./css/blackdesert.css?v=2" />
 </head>
 <body class="blackdesert-case">
   <a class="skip-link" href="#blackdesert-main">본문 바로가기</a>
@@ -26,22 +26,28 @@
   </div>
 
   <header class="site-header" data-header>
-    <a href="./main.html" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
+    <a href="./main.html" class="brand" aria-label="HYE02 Portfolio Home">
       <span class="brand-mark">HYE02</span>
       <span class="brand-sub">UIUX PORTFOLIO</span>
     </a>
+
     <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
       <span class="material-symbols-rounded menu-toggle-icon" aria-hidden="true">menu</span>
     </button>
+
     <nav class="gnb" id="primary-navigation" aria-label="주요 메뉴">
-      <a href="./main.html#works" data-nav>Works</a>
-      <a href="./main.html#about" data-nav>About</a>
-      <a href="./main.html#archive" data-nav>Experience</a>
-      <a href="./main.html#process" data-nav>Process</a>
-      <a href="./archive.html">Archive</a>
-      <a href="./main.html#contact" data-nav>Contact</a>
+      <div class="gnb-center">
+        <a href="main.html#works" data-nav>Featured</a>
+        <a href="main.html#archive" data-nav>Experience</a>
+        <a href="main.html#process" data-nav>Process</a>
+        <a href="main.html#contact" data-nav>Contact</a>
+      </div>
+      <div class="gnb-divider" aria-hidden="true"></div>
+      <div class="gnb-right">
+        <a href="archive.html" class="gnb-archive">All Archive ↗</a>
+        <a href="me/index.html" target="_blank" class="gnb-aboutme">About Me ↗</a>
+      </div>
     </nav>
-    <a href="./main.html#contact" class="header-cta" data-magnetic>Let's Talk</a>
   </header>
 
   <main id="blackdesert-main" class="blackdesert-main">
@@ -384,28 +390,58 @@
       </div>
     </section>
 
-    <section class=”bd-section” id=”review” data-section>
+    <section class=”bd-section bd-section--review” id=”review” data-section>
       <div class=”bd-block”>
-        <div class=”bd-lede bd-reveal”>
-          <span class=”bd-mark”>06 · Review</span>
-          <h2 class=”bd-display”>좋은 게임 경험은<br />첫 화면을 마주하는 순간부터 시작됩니다.</h2>
-          <div class=”bd-lede-body”>
-            <p>
-              이번 작업을 하면서 게임 웹사이트는 단순한 정보 전달 채널이 아니라, 플레이어의 기대감과 감정을 끌어올리는 첫 경험이라는 점을 많이 느꼈습니다.
-            </p>
-            <p>
-              특히 검은사막처럼 콘텐츠가 큰 서비스는 “무엇을 더 넣을까”보다 “무엇을 먼저 보게 할까”가 더 중요했습니다. 방대한 정보를 줄이는 대신 순서를 다시 잡고, 세계관을 먼저 경험하게 만드는 쪽으로 방향을 잡았습니다.
-            </p>
+
+        <span class=”bd-mark”>06 · Review</span>
+
+        <div class=”bd-review-layout”>
+
+          <!-- 왼쪽: 제목 + 인용 -->
+          <div class=”bd-review-left”>
+            <h2 class=”bd-display bd-review-title”>
+              좋은 게임 경험은<br />
+              <em class=”bd-review-em”>첫 화면</em>을<br />
+              마주하는 순간부터
+            </h2>
+            <div class=”bd-review-deco” aria-hidden=”true”>
+              <span class=”bd-rune”>◆</span>
+              <span class=”bd-rune-line”></span>
+              <span class=”bd-rune”>◆</span>
+            </div>
           </div>
+
+          <!-- 오른쪽: 본문 + 버튼 -->
+          <div class=”bd-review-right”>
+            <blockquote class=”bd-review-quote”>
+              “대규모 콘텐츠를 사용자 중심으로 다시 해석하고,
+              브랜드의 세계관을 웹 경험으로 확장해본 프로젝트였습니다.”
+            </blockquote>
+            <p>
+              이번 작업을 하면서 게임 웹사이트는 단순한 정보 전달 채널이 아니라,
+              플레이어의 기대감과 감정을 끌어올리는 첫 경험이라는 점을 많이 느꼈습니다.
+            </p>
+            <p>
+              검은사막처럼 콘텐츠가 큰 서비스는 “무엇을 더 넣을까”보다
+              “무엇을 먼저 보게 할까”가 더 중요했습니다. 방대한 정보를 줄이는 대신
+              순서를 다시 잡고, 세계관을 먼저 경험하게 만드는 쪽으로 방향을 잡았습니다.
+            </p>
+            <ul class=”bd-review-tags”>
+              <li>UX 구조 설계</li>
+              <li>세계관 기반 비주얼</li>
+              <li>신규 유저 동선</li>
+              <li>GSAP 인터랙션</li>
+            </ul>
+            <div class=”bd-review-actions”>
+              <a href=”https://hye0277-erin.github.io/blackdesert/” class=”bd-btn bd-btn-primary” target=”_blank” rel=”noopener noreferrer”>
+                사이트 보기 <span class=”material-symbols-rounded” aria-hidden=”true”>open_in_new</span>
+              </a>
+              <a href=”./archive.html” class=”bd-btn bd-btn-ghost”>Archive로 돌아가기</a>
+            </div>
+          </div>
+
         </div>
 
-        <div class=”bd-review-copy bd-reveal”>
-          <blockquote>대규모 콘텐츠를 사용자 중심으로 다시 해석하고, 브랜드의 세계관을 웹 경험으로 확장해본 프로젝트였습니다.</blockquote>
-          <div class=”bd-back-actions”>
-            <a href=”https://hye0277-erin.github.io/blackdesert/” class=”bd-btn bd-btn-primary” target=”_blank” rel=”noopener noreferrer”>사이트 보기 <span class=”material-symbols-rounded” aria-hidden=”true”>open_in_new</span></a>
-            <a href=”./archive.html” class=”bd-btn bd-btn-ghost”>Archive로 돌아가기</a>
-          </div>
-        </div>
       </div>
     </section>
   </main>

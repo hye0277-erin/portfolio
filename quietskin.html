@@ -28,31 +28,32 @@
   <!-- =========================================================
     HEADER (전역 헤더 재사용)
   ========================================================== -->
-  <header class="site-header" data-header>
-    <a href="./main.html" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
+   <header class="site-header" data-header>
+    <a href="./main.html" class="brand" aria-label="HYE02 Portfolio Home">
       <span class="brand-mark">HYE02</span>
       <span class="brand-sub">UIUX PORTFOLIO</span>
     </a>
 
-    <nav class="gnb" aria-label="주요 메뉴">
-      <a href="./index.html#works">Works</a>
-      <a href="./index.html#about">About</a>
-      <a href="./index.html#archive">Experience</a>
-      <a href="./index.html#process">Process</a>
-      <a href="./index.html#contact">Contact</a>
-    </nav>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="material-symbols-rounded menu-toggle-icon" aria-hidden="true">menu</span>
+    </button>
 
-    <a href="https://hye0277-erin.github.io/QuietSkin/index.html" class="header-cta" data-magnetic target="_blank" rel="noopener">View Site</a>
+    <nav class="gnb" id="primary-navigation" aria-label="주요 메뉴">
+      <div class="gnb-center">
+        <a href="main.html#works" data-nav>Featured</a>
+        <a href="main.html#archive" data-nav>Experience</a>
+        <a href="main.html#process" data-nav>Process</a>
+        <a href="main.html#contact" data-nav>Contact</a>
+      </div>
+      <div class="gnb-divider" aria-hidden="true"></div>
+      <div class="gnb-right">
+        <a href="archive.html" class="gnb-archive">All Archive ↗</a>
+        <a href="me/index.html" target="_blank" class="gnb-aboutme">About Me ↗</a>
+      </div>
+    </nav>
   </header>
 
-  <!--
-    QuietSkin Case Study Page
-    - 전역 header / footer 재사용
-    - 이 페이지의 스타일은 .qs-page 내부에만 적용
-    - 스크립트는 ./js/quietskin.js
-    - 실사 이미지는 images/ 폴더의 quietSkin 에셋을 사용
-    - .qs-figure[data-empty] 영역은 추천 이미지 안내에 맞춰 교체하면 됩니다
-  -->
+ 
   <main class="qs-page" id="quietskin-case">
     <!-- 페이지 진행 인디케이터 -->
     <div class="qs-progress" aria-hidden="true"><span data-qs-progress></span></div>
@@ -97,13 +98,6 @@
         </figure>
       </div>
 
-      <!-- 키워드 마퀴 -->
-      <div class="qs-marquee" aria-hidden="true">
-        <div class="qs-marquee-track" data-qs-marquee>
-          <span>Calm</span><i>✦</i><span>Minimal</span><i>✦</i><span>Pure</span><i>✦</i><span>Trust</span><i>✦</i>
-          <span>Skin needs rest</span><i>✦</i><span>Calm</span><i>✦</i><span>Minimal</span><i>✦</i><span>Pure</span><i>✦</i><span>Trust</span><i>✦</i><span>Skin needs rest</span><i>✦</i>
-        </div>
-      </div>
 
       <!-- 프로젝트 정보 -->
       <div class="qs-wrap">

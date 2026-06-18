@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:hye0277-erin.github.io)"
+      "WebFetch(domain:hye0277-erin.github.io)",
+      "WebFetch(domain:4team-notalk.vercel.app)",
+      "Read(//e/2026-컴퓨터교육/김혜영/petcare-ver1/css/**)",
+      "Read(//e/2026-컴퓨터교육/김혜영/petcare-ver1/**)",
+      "Bash(ls \"E:/2026-컴퓨터교육/김혜영/hye02/culture/\")",
+      "Read(//e/2026-컴퓨터교육/김혜영/hye02/culture/**)"
     ]
   }
 }

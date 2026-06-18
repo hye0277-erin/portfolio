@@ -1,5 +1,5 @@
 /* =========================================================
-  BLACK DESERT — Cinematic Game Case Study
+  BLACK DESERT — Cinematic Game Case Study — v3
 ========================================================= */
 .blackdesert-case {
   --bd-gold: #e6b450;
@@ -500,16 +500,89 @@
 .bd-result-copy li::before { content: "◆"; position: absolute; left: 0; top: 4px; color: var(--bd-gold); font-size: 9px; }
 
 /* ---- Review ---- */
-.bd-review-copy { max-width: 820px; }
-.bd-review-copy p { font-size: 17px; margin: 0 0 20px; }
-.bd-review-copy blockquote {
-  margin: 30px 0; padding: 28px 32px; border-radius: 16px;
-  border-left: 3px solid var(--bd-gold);
-  background: linear-gradient(100deg, rgba(230,180,80,0.1), rgba(230,180,80,0.02));
-  font-family: var(--bd-display); font-size: clamp(18px, 2.4vw, 26px);
-  line-height: 1.5; color: var(--bd-gold-soft);
+.bd-section--review {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
 }
-.bd-back-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 44px; }
+.bd-section--review::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 50%, rgba(230,180,80,0.07), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 80%, rgba(182,51,47,0.08), transparent 55%);
+  pointer-events: none;
+}
+.bd-section--review .bd-mark { margin-bottom: 40px; }
+
+.bd-review-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* 왼쪽 */
+.bd-review-left { position: sticky; top: 120px; }
+.bd-review-title {
+  font-size: clamp(32px, 4vw, 56px) !important;
+  line-height: 1.1 !important;
+  margin-bottom: 36px !important;
+}
+.bd-review-em {
+  font-style: normal;
+  background: linear-gradient(100deg, var(--bd-gold-soft), var(--bd-gold) 50%, #b07a2c);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.bd-review-deco {
+  display: flex; align-items: center; gap: 14px;
+  color: rgba(230,180,80,0.4); font-size: 10px; letter-spacing: 0.2em;
+}
+.bd-rune-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, rgba(230,180,80,0.4), transparent);
+}
+
+/* 오른쪽 */
+.bd-review-right { padding-top: 8px; }
+
+.bd-review-quote {
+  position: relative;
+  margin: 0 0 36px; padding: 28px 28px 28px 36px;
+  border-radius: 0 16px 16px 0;
+  border-left: 3px solid var(--bd-gold);
+  background: linear-gradient(100deg, rgba(230,180,80,0.1) 0%, rgba(230,180,80,0.03) 100%);
+  font-family: var(--bd-display);
+  font-size: clamp(15px, 1.8vw, 20px);
+  line-height: 1.65; color: var(--bd-gold-soft);
+}
+.bd-review-quote::before {
+  content: "\201C";
+  position: absolute; top: -10px; left: 14px;
+  font-size: 64px; line-height: 1; font-family: var(--bd-display);
+  color: rgba(230,180,80,0.25);
+}
+
+.bd-review-right p {
+  font-size: 15.5px; line-height: 1.9;
+  color: rgba(243,236,224,0.78);
+  margin: 0 0 18px;
+}
+
+.bd-review-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  list-style: none; padding: 0; margin: 28px 0 36px;
+}
+.bd-review-tags li {
+  padding: 7px 16px; border-radius: 999px;
+  border: 1px solid rgba(230,180,80,0.3);
+  background: rgba(230,180,80,0.06);
+  color: var(--bd-gold-soft);
+  font-size: 12px; letter-spacing: 0.08em;
+}
+
+.bd-review-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.bd-back-actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
 /* ---- Reveal ---- */
 .bd-reveal, .fade-up {
@@ -552,6 +625,8 @@
   .bd-class-grid { grid-template-columns: repeat(2, 1fr); }
   .bd-class-card { min-height: 300px; }
   .bd-class-card p { max-height: 80px; opacity: 1; }
+  .bd-review-layout { grid-template-columns: 1fr; gap: 48px; }
+  .bd-review-left { position: static; }
 }
 
 @media (max-width: 680px) {

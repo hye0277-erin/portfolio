@@ -91,7 +91,13 @@
 .yn-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 70% center; }
 .yn-hero-media::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.5) 50%, transparent 100%);
+  background:
+    linear-gradient(90deg,
+      rgba(255,255,255,0.97) 0%,
+      rgba(255,255,255,0.92) 30%,
+      rgba(255,255,255,0.72) 52%,
+      rgba(255,255,255,0.15) 72%,
+      transparent 100%);
 }
 .yn-hero-copy {
   position: relative; z-index: 1;
@@ -178,6 +184,24 @@
 .yn-spec dt { color: var(--yn-accent-deep); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 800; margin-bottom: 8px; }
 .yn-spec dd { margin: 0; font-size: 15.5px; color: var(--yn-ink); line-height: 1.7; }
 
+.yn-tool-icons {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+  list-style: none; padding: 0; margin: 0;
+}
+.yn-tool-icons li {
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+}
+.yn-tool-icons li img {
+  width: 44px; height: 44px; border-radius: 10px; object-fit: cover;
+}
+.yn-tool-icons li span {
+  font-size: 11px; color: var(--yn-ink-soft); letter-spacing: 0.04em;
+}
+.yn-tool-text {
+  font-size: 14px !important; color: var(--yn-ink) !important;
+  align-self: center; padding: 0 2px; flex-direction: row !important;
+}
+
 /* ---- Two col ---- */
 .yn-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .yn-two-col p { margin: 0 0 16px; font-size: 16.5px; }
@@ -229,7 +253,7 @@
 .yn-solution-card:hover { transform: translateY(-5px); box-shadow: 0 22px 48px rgba(27,42,78,0.12); }
 .yn-solution-card .material-symbols-rounded {
   font-size: 30px; color: var(--yn-navy);
-  padding: 10px; border-radius: 10px; background: rgba(240,169,43,0.16);
+  padding: 10px; border-radius: 10px; background: #fff;
   margin-bottom: 16px;
 }
 .yn-solution-card h4 { margin: 0 0 10px; font-size: 19px; color: var(--yn-navy); }
@@ -348,7 +372,11 @@
   .yn-index { display: none; }
   .yn-hero { min-height: 100svh; }
   .yn-hero-media::after {
-    background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.5) 60%, transparent 100%);
+    background: linear-gradient(180deg,
+      rgba(255,255,255,0.97) 0%,
+      rgba(255,255,255,0.92) 40%,
+      rgba(255,255,255,0.6) 65%,
+      transparent 100%);
   }
   .yn-hero-copy {
     width: 100%;

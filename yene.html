@@ -17,7 +17,7 @@
   <div class="scroll-progress" data-progress aria-hidden="true"></div>
 
   <header class="site-header" data-header>
-    <a href="./index.html#intro" class="brand" aria-label="HYE02 Portfolio Home">
+    <a href="./main.html" class="brand" aria-label="HYE02 Portfolio Home">
       <span class="brand-mark">HYE02</span>
       <span class="brand-sub">UIUX PORTFOLIO</span>
     </a>
@@ -27,14 +27,18 @@
     </button>
 
     <nav class="gnb" id="primary-navigation" aria-label="주요 메뉴">
-      <a href="./index.html#works">Works</a>
-      <a href="./index.html#about">About</a>
-      <a href="./index.html#archive">Experience</a>
-      <a href="./index.html#process">Process</a>
-      <a href="./archive.html">Archive</a>
+      <div class="gnb-center">
+        <a href="main.html#works" data-nav>Featured</a>
+        <a href="main.html#archive" data-nav>Experience</a>
+        <a href="main.html#process" data-nav>Process</a>
+        <a href="main.html#contact" data-nav>Contact</a>
+      </div>
+      <div class="gnb-divider" aria-hidden="true"></div>
+      <div class="gnb-right">
+        <a href="archive.html" class="gnb-archive">All Archive ↗</a>
+        <a href="me/index.html" target="_blank" class="gnb-aboutme">About Me ↗</a>
+      </div>
     </nav>
-
-    <a href="./archive.html" class="header-cta">Archive</a>
   </header>
 
   <main id="yene-main" class="yene-main">
@@ -66,7 +70,7 @@
           <li><b>유형</b>팀 프로젝트 (4인)</li>
           <li><b>역할</b>UX 리서치 · IA 설계 · UI 디자인 · 퍼블리싱</li>
           <li><b>기여도</b>40%</li>
-          <li><b>기간</b>2026.03 — 2026.04</li>
+          <li><b>기간</b>7일</li>
         </ul>
         <a href="#yn-challenge" class="yn-scroll-cue">
           <span class="material-symbols-rounded" aria-hidden="true">arrow_downward</span>
@@ -89,7 +93,20 @@
       </div>
 
       <dl class="yn-spec yn-reveal">
-        <div><dt>Tools</dt><dd>Figma · Photoshop · HTML · CSS · JavaScript</dd></div>
+        <div>
+          <dt>Tools</dt>
+          <dd>
+            <ul class="yn-tool-icons">
+              <li><img src="./images/icon_figma.png" alt="Figma" /><span>Figma</span></li>
+              <li><img src="./images/icon_Photoshop.png" alt="Photoshop" /><span>Photoshop</span></li>
+              <li><img src="./images/html.png" alt="html" /><span>HTML</span></li>
+              <li><img src="./images/css.png" alt="css" /><span>CSS</span></li>
+              <li><img src="./images/icon_chatgpt.png" alt="css" /><span>Chatgpt</span></li>
+              <li><img src="./images/icon_claude.png" alt="css" /><span>Claude</span></li>
+              <li><img src="./images/icon_midjourney.png" alt="css" /><span>Claude</span></li>
+            </ul>
+          </dd>
+        </div>
         <div><dt>담당 범위</dt><dd>UX 리서치 · IA 설계 · 메인/서브 UI 디자인 · 퍼블리싱 참여</dd></div>
       </dl>
     </section>

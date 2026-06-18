@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="노톡(NoTalk) — 말 없이도 통하는 소모임 앱 케이스 스터디 | HYE02 Portfolio" />
+  <title>NoTalk — 소모임 앱 Case Study | HYE02 Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/notalk.css" />
+</head>
+<body>
+  <div class="scroll-progress" data-progress aria-hidden="true"></div>
+  <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
+  <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
+
+ <header class="site-header" data-header>
+    <a href="./main.html" class="brand" aria-label="HYE02 Portfolio Home">
+      <span class="brand-mark">HYE02</span>
+      <span class="brand-sub">UIUX PORTFOLIO</span>
+    </a>
+
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="material-symbols-rounded menu-toggle-icon" aria-hidden="true">menu</span>
+    </button>
+
+    <nav class="gnb" id="primary-navigation" aria-label="주요 메뉴">
+      <div class="gnb-center">
+        <a href="main.html#works" data-nav>Featured</a>
+        <a href="main.html#archive" data-nav>Experience</a>
+        <a href="main.html#process" data-nav>Process</a>
+        <a href="main.html#contact" data-nav>Contact</a>
+      </div>
+      <div class="gnb-divider" aria-hidden="true"></div>
+      <div class="gnb-right">
+        <a href="archive.html" class="gnb-archive">All Archive ↗</a>
+        <a href="me/index.html" target="_blank" class="gnb-aboutme">About Me ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="ntk-page" id="notalk-case">
+
+    <nav class="ntk-index" aria-label="NoTalk 섹션 이동">
+      <a href="#ntk-overview"    aria-label="Overview"><em></em><span>Overview</span></a>
+      <a href="#ntk-background"  aria-label="Background"><em></em><span>Background</span></a>
+      <a href="#ntk-goal"        aria-label="Goal"><em></em><span>Goal</span></a>
+      <a href="#ntk-insight"     aria-label="Insight"><em></em><span>Insight</span></a>
+      <a href="#ntk-system"      aria-label="System"><em></em><span>System</span></a>
+      <a href="#ntk-result"      aria-label="Result"><em></em><span>Result</span></a>
+      <a href="#ntk-review"      aria-label="Review"><em></em><span>Review</span></a>
+    </nav>
+
+    <!-- ============================================================
+         HERO — 캐릭터들이 공간에 떠있는 밝은 히어로
+    ============================================================ -->
+    <section class="ntk-hero" id="ntk-overview" data-section>
+
+      <!-- 배경 캐릭터 장식 -->
+      <div class="ntk-hero-chars" aria-hidden="true">
+        <img class="ntk-hc ntk-hc--1" src="./images/notalk/character_01.png" alt="" />
+        <img class="ntk-hc ntk-hc--2" src="./images/notalk/character_03.png" alt="" />
+        <img class="ntk-hc ntk-hc--3" src="./images/notalk/character_05.png" alt="" />
+        <img class="ntk-hc ntk-hc--4" src="./images/notalk/character_07.png" alt="" />
+        <img class="ntk-hc ntk-hc--5" src="./images/notalk/character_09.png" alt="" />
+        <img class="ntk-hc ntk-hc--6" src="./images/notalk/character_011.png" alt="" />
+      </div>
+
+      <div class="ntk-container ntk-hero-inner">
+        <!-- 중앙 텍스트 -->
+        <div class="ntk-hero-center">
+          <div class="ntk-hero-badge ntk-reveal">소모임 앱 · 팀 프로젝트 · UIUX Design</div>
+          <h1 class="ntk-hero-title ntk-reveal">
+            말 없이도<br /><em>통하는</em> 사람들
+          </h1>
+          <p class="ntk-hero-sub ntk-reveal">
+            관심사로 연결되는 소모임 앱, <strong>NoTalk</strong>
+          </p>
+          <a href="https://4team-notalk.vercel.app/" class="ntk-hero-cta ntk-reveal" target="_blank" rel="noopener">
+            서비스 보기 <span class="material-symbols-rounded" aria-hidden="true">arrow_outward</span>
+          </a>
+        </div>
+
+        <!-- 하단 메타 정보 바 -->
+        <dl class="ntk-hero-meta ntk-reveal">
+          <div><dt>구분</dt><dd>팀 프로젝트 (4인)</dd></div>
+          <div><dt>역할</dt><dd>기획 · UIUX 디자인 · 퍼블리싱</dd></div>
+          <div><dt>기간</dt><dd>2026.04 – 2026.05</dd></div>
+          <div><dt>툴</dt><dd class="ntk-tool-list">
+            <span class="ntk-tool-item">
+              <img src="./images/icon_Figma.svg" alt="" width="14" height="14" />
+              Figma
+            </span>
+            <span class="ntk-tool-item">
+              <img src="./images/icon_Photoshop.png" alt="" width="14" height="14" />
+              Photoshop
+            </span>
+            <span class="ntk-tool-item">
+              <img src="./images/icon_Claude.svg" alt="" width="14" height="14" />
+              Claude Code
+            </span>
+            <span class="ntk-tool-item">
+              <img src="./images/icon_ChatGPT.svg" alt="" width="14" height="14" />
+              ChatGPT
+            </span>
+          </dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BACKGROUND — 말풍선 형태로 문제 표현
+    ============================================================ -->
+    <section class="ntk-section" id="ntk-background" data-section>
+      <div class="ntk-container">
+
+        <div class="ntk-bg-header ntk-reveal">
+          <p class="ntk-eyebrow">Background</p>
+          <h2 class="ntk-section-title">관심사는 있는데,<br />말 걸기가 <em>어렵습니다.</em></h2>
+        </div>
+
+        <!-- 말풍선 + 통계 카드 2단 레이아웃 -->
+        <div class="ntk-bg-body ntk-reveal">
+
+          <!-- 말풍선 -->
+          <div class="ntk-bubbles">
+            <div class="ntk-bubble ntk-bubble--left">
+              <div class="ntk-bubble-char"><img src="./images/notalk/character_02.png" alt="" /></div>
+              <div class="ntk-bubble-body">
+                <strong>높은 첫 참여 장벽</strong>
+                <p>프로필 작성, 소개글까지 써야 한다는 게 부담스러워요. 그냥 같이 밥 먹고 싶은 건데…</p>
+              </div>
+            </div>
+            <div class="ntk-bubble ntk-bubble--right">
+              <div class="ntk-bubble-body">
+                <strong>나를 표현할 수단이 없다</strong>
+                <p>텍스트 프로필만으로는 제 취향을 제대로 못 보여주겠더라고요.</p>
+              </div>
+              <div class="ntk-bubble-char"><img src="./images/notalk/character_06.png" alt="" /></div>
+            </div>
+            <div class="ntk-bubble ntk-bubble--left">
+              <div class="ntk-bubble-char"><img src="./images/notalk/character_04.png" alt="" /></div>
+              <div class="ntk-bubble-body">
+                <strong>모임 분위기를 미리 알 수 없다</strong>
+                <p>참여하기 전에 어떤 분위기인지 알 방법이 없어서 선뜻 못 들어가겠어요.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 통계 수치 카드 -->
+          <div class="ntk-stat-cards">
+            <div class="ntk-stat-card ntk-stat-card--a">
+              <span class="ntk-stat-num">72<small>%</small></span>
+              <p>소셜 앱 이탈 원인 1위<br /><em>가입 첫 단계의 복잡한 온보딩</em></p>
+            </div>
+            <div class="ntk-stat-card ntk-stat-card--b">
+              <span class="ntk-stat-num">3<small>초</small></span>
+              <p>사용자가 앱 첫 화면에서<br /><em>이탈을 결정하는 평균 시간</em></p>
+            </div>
+            <div class="ntk-stat-card ntk-stat-card--c">
+              <span class="ntk-stat-num">58<small>%</small></span>
+              <p>오프라인 모임 경험자 중<br /><em>재참여 의향이 있는 비율</em></p>
+            </div>
+            <div class="ntk-stat-card ntk-stat-card--d">
+              <span class="ntk-stat-num">2<small>배</small></span>
+              <p>아바타·캐릭터 제공 시<br /><em>프로필 완성률 향상 수치</em></p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 카테고리 마퀴 -->
+        <div class="ntk-cat-marquee ntk-reveal" aria-hidden="true">
+          <div class="ntk-cat-track">
+            <span><img src="./images/notalk/category_icon_food.png" alt="" />음식</span>
+            <span><img src="./images/notalk/category_icon_drink.png" alt="" />음료</span>
+            <span><img src="./images/notalk/category_icon_hobby.png" alt="" />취미</span>
+            <span><img src="./images/notalk/category_icon_self.png" alt="" />셀프케어</span>
+            <span><img src="./images/notalk/category_icon_culture.png" alt="" />문화</span>
+            <span><img src="./images/notalk/category_icon_food.png" alt="" />음식</span>
+            <span><img src="./images/notalk/category_icon_drink.png" alt="" />음료</span>
+            <span><img src="./images/notalk/category_icon_hobby.png" alt="" />취미</span>
+            <span><img src="./images/notalk/category_icon_self.png" alt="" />셀프케어</span>
+            <span><img src="./images/notalk/category_icon_culture.png" alt="" />문화</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GOAL — 2×2 그라디언트 카드 그리드
+    ============================================================ -->
+    <section class="ntk-section ntk-goal-section" id="ntk-goal" data-section>
+      <div class="ntk-container">
+        <div class="ntk-bg-header ntk-reveal">
+          <p class="ntk-eyebrow">Goal</p>
+          <h2 class="ntk-section-title">부담 없이 참여하고,<br /><em>자연스럽게</em> 연결되게.</h2>
+        </div>
+
+        <div class="ntk-goal-grid">
+          <article class="ntk-goal-card ntk-goal-card--a ntk-reveal">
+            <div class="ntk-goal-card-top">
+              <span class="ntk-goal-no">01</span>
+              <img src="./images/notalk/category_icon_hobby.png" alt="" class="ntk-goal-cat-icon" />
+            </div>
+            <h3>쉬운 탐색</h3>
+            <p>카테고리와 태그로 관심사에 맞는 모임을 빠르게 찾을 수 있게 합니다.</p>
+            <div class="ntk-goal-card-foot">
+              <span>취미 · 음식 · 문화</span>
+            </div>
+          </article>
+
+          <article class="ntk-goal-card ntk-goal-card--b ntk-reveal">
+            <div class="ntk-goal-card-top">
+              <span class="ntk-goal-no">02</span>
+              <img src="./images/notalk/category_icon_self.png" alt="" class="ntk-goal-cat-icon" />
+            </div>
+            <h3>나다운 표현</h3>
+            <p>캐릭터와 뱃지로 텍스트 없이도 나를 드러낼 수 있는 프로필을 만듭니다.</p>
+            <div class="ntk-goal-card-foot">
+              <span>캐릭터 12종 · 뱃지 시스템</span>
+            </div>
+          </article>
+
+          <article class="ntk-goal-card ntk-goal-card--c ntk-reveal">
+            <div class="ntk-goal-card-top">
+              <span class="ntk-goal-no">03</span>
+              <img src="./images/notalk/category_icon_food.png" alt="" class="ntk-goal-cat-icon" />
+            </div>
+            <h3>낮은 첫 진입</h3>
+            <p>긴 소개글 없이도 모임에 참여하고 사람들과 이어질 수 있는 흐름을 만듭니다.</p>
+            <div class="ntk-goal-card-foot">
+              <span>온보딩 3단계 이내</span>
+            </div>
+          </article>
+
+          <article class="ntk-goal-card ntk-goal-card--d ntk-reveal">
+            <div class="ntk-goal-card-top">
+              <span class="ntk-goal-no">04</span>
+              <img src="./images/notalk/category_icon_culture.png" alt="" class="ntk-goal-cat-icon" />
+            </div>
+            <h3>성장하는 기록</h3>
+            <p>참여 이력이 뱃지로 쌓이며 나만의 소셜 이력을 만들어갑니다.</p>
+            <div class="ntk-goal-card-foot">
+              <span>활동 → 뱃지 → 재방문</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         INSIGHT — Before / After 대비 카드
+    ============================================================ -->
+    <section class="ntk-section" id="ntk-insight" data-section>
+      <div class="ntk-container">
+        <div class="ntk-bg-header ntk-reveal">
+          <p class="ntk-eyebrow">Insight</p>
+          <h2 class="ntk-section-title">문제는 모임이 없는 게 아니라,<br /><em>참여까지의 과정</em>이 어렵다는 것.</h2>
+        </div>
+
+        <div class="ntk-insight-cards">
+          <article class="ntk-ins-card ntk-ins-card--before ntk-reveal">
+            <span class="ntk-ins-tag">Before</span>
+            <ul>
+              <li>
+                <span class="material-symbols-rounded">close</span>
+                <div><b>가입 후 첫 모임 참여율이 낮다</b><p>탐색은 하지만 실제 참여로 이어지지 않습니다.</p></div>
+              </li>
+              <li>
+                <span class="material-symbols-rounded">close</span>
+                <div><b>프로필 작성에서 이탈</b><p>자기소개를 써야 한다는 부담이 진입을 막습니다.</p></div>
+              </li>
+              <li>
+                <span class="material-symbols-rounded">close</span>
+                <div><b>모임 분위기를 사전에 파악 불가</b><p>참여 전 불확실성이 소극적인 유저를 막습니다.</p></div>
+              </li>
+            </ul>
+          </article>
+
+          <div class="ntk-ins-arrow ntk-reveal" aria-hidden="true">
+            <span class="material-symbols-rounded">arrow_forward</span>
+          </div>
+
+          <article class="ntk-ins-card ntk-ins-card--after ntk-reveal">
+            <span class="ntk-ins-tag">After</span>
+            <ul>
+              <li>
+                <span class="material-symbols-rounded">check</span>
+                <div><b>캐릭터로 대신하는 자기소개</b><p>글 대신 캐릭터 선택으로 가입 장벽을 낮췄습니다.</p></div>
+              </li>
+              <li>
+                <span class="material-symbols-rounded">check</span>
+                <div><b>참여자 캐릭터·뱃지 미리 보기</b><p>상세 페이지에서 모임 분위기를 미리 짐작합니다.</p></div>
+              </li>
+              <li>
+                <span class="material-symbols-rounded">check</span>
+                <div><b>뱃지로 쌓이는 소셜 이력</b><p>활동이 보상으로 이어져 재방문 동기를 만듭니다.</p></div>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- 배운 점 -->
+        <div class="ntk-learn-row ntk-reveal">
+          <span class="ntk-learn-icon material-symbols-rounded">lightbulb</span>
+          <div class="ntk-learn-items">
+            <div class="ntk-learn-item">
+              <b>소셜 앱의 첫인상이 전부다</b>
+              <p>온보딩에서 앱 무드와 커뮤니티 성격이 전달되어야 참여로 이어집니다.</p>
+            </div>
+            <div class="ntk-learn-item">
+              <b>캐릭터는 장식이 아니라 언어다</b>
+              <p>아바타가 소통 수단이 될 때 앱에 대한 애착이 생깁니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DESIGN SYSTEM
+    ============================================================ -->
+    <section class="ntk-section ntk-system-section" id="ntk-system" data-section>
+      <div class="ntk-container">
+        <div class="ntk-bg-header ntk-reveal">
+          <p class="ntk-eyebrow">Design System</p>
+          <h2 class="ntk-section-title">노톡을 만드는<br /><em>디자인 언어</em>들</h2>
+        </div>
+
+        <!-- ① 3단 탭 레이아웃: 컬러 / 타이포 / 컴포넌트 -->
+        <div class="ntk-ds-grid ntk-reveal">
+
+          <!-- 01 컬러 -->
+          <div class="ntk-ds-block">
+            <p class="ntk-ds-label">01 · Color</p>
+
+            <!-- 메인 그라디언트 -->
+            <div class="ntk-ds-grad-bar">
+              <div class="ntk-ds-grad-preview"></div>
+              <div class="ntk-ds-grad-info">
+                <strong>Main Gradient</strong>
+                <span>#83D8BF → #7D6DFF</span>
+                <small>차분하면서도 부드러운 연결감을 전달하기 위해 보라색과 민트 계열을 중심으로 사용</small>
+              </div>
+            </div>
+
+            <!-- 브랜드 스와치 -->
+            <div class="ntk-ds-swatches">
+              <div class="ntk-ds-sw" style="background:#83D8BF;"><span>#83D8BF</span></div>
+              <div class="ntk-ds-sw" style="background:#7D6DFF;"><span>#7D6DFF</span></div>
+            </div>
+
+            <!-- 텍스트 컬러 -->
+            <div class="ntk-ds-text-colors">
+              <div><span class="ntk-ds-tc" style="background:#111111;"></span><small>TextMain #111</small></div>
+              <div><span class="ntk-ds-tc" style="background:#333333;"></span><small>TextSub #333</small></div>
+              <div><span class="ntk-ds-tc" style="background:#666666;"></span><small>TextMuted #666</small></div>
+            </div>
+
+            <!-- 카테고리 컬러 -->
+            <p class="ntk-ds-sublabel">Category Color</p>
+            <div class="ntk-ds-categories">
+              <div class="ntk-ds-cat">
+                <img src="./images/notalk/category_icon_food.png" alt="푸드" />
+                <span class="ntk-ds-cat-chip" style="background:#FF7C38;">푸드</span>
+                <small>#FF7C38</small>
+              </div>
+              <div class="ntk-ds-cat">
+                <img src="./images/notalk/category_icon_drink.png" alt="드링크" />
+                <span class="ntk-ds-cat-chip" style="background:#3AA1CD;">드링크</span>
+                <small>#3AA1CD</small>
+              </div>
+              <div class="ntk-ds-cat">
+                <img src="./images/notalk/category_icon_hobby.png" alt="취미" />
+                <span class="ntk-ds-cat-chip" style="background:#7D6DFF;">취미</span>
+                <small>#7D6DFF</small>
+              </div>
+              <div class="ntk-ds-cat">
+                <img src="./images/notalk/category_icon_self.png" alt="자기계발" />
+                <span class="ntk-ds-cat-chip" style="background:#53C563;">자기계발</span>
+                <small>#53C563</small>
+              </div>
+              <div class="ntk-ds-cat">
+                <img src="./images/notalk/category_icon_culture.png" alt="문화예술" />
+                <span class="ntk-ds-cat-chip" style="background:#E458BA;">문화예술</span>
+                <small>#E458BA</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- 02 타이포 -->
+          <div class="ntk-ds-block">
+            <p class="ntk-ds-label">02 · Typography · Pretendard</p>
+            <div class="ntk-ds-typo-list">
+              <div class="ntk-ds-typo-row">
+                <span class="ntk-ds-typo-sample" style="font-size:22px; font-weight:700; color:#111;">가나다라마바사</span>
+                <div class="ntk-ds-typo-meta">
+                  <b>메인 타이틀</b>
+                  <small>20px / 700</small>
+                  <em>오늘 예정 모임</em>
+                </div>
+              </div>
+              <div class="ntk-ds-typo-row">
+                <span class="ntk-ds-typo-sample" style="font-size:19px; font-weight:500; color:#333;">가나다라마바사</span>
+                <div class="ntk-ds-typo-meta">
+                  <b>서브 타이틀</b>
+                  <small>20px / 500</small>
+                  <em>모임소개</em>
+                </div>
+              </div>
+              <div class="ntk-ds-typo-row">
+                <span class="ntk-ds-typo-sample" style="font-size:16px; font-weight:400; color:#333;">가나다라마바사</span>
+                <div class="ntk-ds-typo-meta">
+                  <b>본문</b>
+                  <small>16px / 400</small>
+                  <em>한강에서 모입니다.</em>
+                </div>
+              </div>
+              <div class="ntk-ds-typo-row">
+                <span class="ntk-ds-typo-sample" style="font-size:13px; font-weight:400; color:#666;">가나다라마바사</span>
+                <div class="ntk-ds-typo-meta">
+                  <b>캡션</b>
+                  <small>12px / 400</small>
+                  <em>시간, 장소</em>
+                </div>
+              </div>
+            </div>
+            <p class="ntk-ds-typo-desc">정보를 빠르게 이해할 수 있도록 복잡한 장식보다 가독성을 위해 프리텐다드 폰트 선택</p>
+          </div>
+
+          <!-- 03 컴포넌트 -->
+          <div class="ntk-ds-block">
+            <p class="ntk-ds-label">03 · UI Component</p>
+
+            <!-- 버튼 -->
+            <div class="ntk-ds-comp-group">
+              <small class="ntk-ds-comp-label">Button · 50px / 라운드 12px</small>
+              <button class="ntk-ds-btn ntk-ds-btn--primary">적용하기</button>
+              <button class="ntk-ds-btn ntk-ds-btn--secondary">＋ 모임 만들기</button>
+              <button class="ntk-ds-btn ntk-ds-btn--outline">＋ 모임 만들기</button>
+              <button class="ntk-ds-btn ntk-ds-btn--disabled" disabled>적용하기</button>
+              <input class="ntk-ds-input" type="text" placeholder="Inputbox" readonly />
+            </div>
+
+            <!-- 칩 -->
+            <div class="ntk-ds-comp-group">
+              <small class="ntk-ds-comp-label">Chips</small>
+              <div class="ntk-ds-chips">
+                <span class="ntk-ds-chip" style="background:#E8E6FF; color:#7D6DFF;">20대</span>
+                <span class="ntk-ds-chip" style="background:#FFE8D6; color:#FF7C38;">통요일 마감</span>
+                <span class="ntk-ds-chip" style="background:#83D8BF22; color:#2AA882;">도착완료</span>
+                <span class="ntk-ds-chip" style="background:#E8FFE8; color:#53C563;">높은층</span>
+                <span class="ntk-ds-chip" style="background:#E8E6FF; color:#7D6DFF;">자리비움</span>
+                <span class="ntk-ds-chip" style="background:#FFE8D6; color:#FF7C38;">푸드</span>
+                <span class="ntk-ds-chip" style="background:#FCE8F8; color:#E458BA;">액티비티</span>
+                <span class="ntk-ds-chip" style="background:#3AA1CD22; color:#3AA1CD;">드링크</span>
+                <span class="ntk-ds-chip" style="background:#E8E6FF; color:#7D6DFF;">취미</span>
+                <span class="ntk-ds-chip" style="background:#E8FFE8; color:#53C563;">자기계발</span>
+                <span class="ntk-ds-chip" style="background:#FCE8F8; color:#E458BA;">문화예술</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ④ 뱃지 가로 스크롤 -->
+        <div class="ntk-badge-section ntk-reveal">
+          <p class="ntk-badge-title">Badge System<span>— 활동이 쌓이면 뱃지가 생깁니다</span></p>
+          <div class="ntk-badge-track">
+            <div class="ntk-badge-item"><img src="./images/notalk/badge_firstNotalk.png" alt="" /><span>첫 노톡</span></div>
+            <div class="ntk-badge-item"><img src="./images/notalk/badge_firstMeeting.png" alt="" /><span>첫 모임</span></div>
+            <div class="ntk-badge-item"><img src="./images/notalk/badge_explorer.png" alt="" /><span>탐험가</span></div>
+            <div class="ntk-badge-item"><img src="./images/notalk/badge_noTalker.png" alt="" /><span>노토커</span></div>
+            <div class="ntk-badge-item"><img src="./images/notalk/badge_5hours.png" alt="" /><span>5시간</span></div>
+            <div class="ntk-badge-item"><img src="./images/notalk/badge_10hours.png" alt="" /><span>10시간</span></div>
+            <div class="ntk-badge-item"><img src="./images/notalk/badge_30hours.png" alt="" /><span>30시간</span></div>
+            <div class="ntk-badge-item"><img src="./images/notalk/badge_100hours.png" alt="" /><span>100시간</span></div>
+            <div class="ntk-badge-item"><img src="./images/notalk/badge_bangjang.png" alt="" /><span>방장</span></div>
+            <div class="ntk-badge-item"><img src="./images/notalk/badge_breath.png" alt="" /><span>숨결</span></div>
+            <div class="ntk-badge-item"><img src="./images/notalk/badge_cheering.png" alt="" /><span>응원단</span></div>
+            <div class="ntk-badge-item"><img src="./images/notalk/badge_weekend.png" alt="" /><span>주말러</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         RESULT — 앱 화면 4개 크게 + 롤링
+    ============================================================ -->
+    <section class="ntk-section" id="ntk-result" data-section>
+      <div class="ntk-container">
+        <div class="ntk-bg-header ntk-reveal">
+          <p class="ntk-eyebrow">Result</p>
+          <h2 class="ntk-section-title">말보다 먼저 통하는<br /><em>소셜 경험</em>을 완성했습니다.</h2>
+        </div>
+
+        <!-- 앱 화면 4종 풀 와이드 -->
+        <div class="ntk-screens ntk-reveal">
+          <figure class="ntk-screen">
+            <img src="./images/notalk/login.jpg" alt="로그인 화면" />
+            <figcaption><span>01</span>온보딩 · 로그인</figcaption>
+          </figure>
+          <figure class="ntk-screen">
+            <img src="./images/notalk/home.jpg" alt="홈 피드 화면" />
+            <figcaption><span>02</span>홈 피드</figcaption>
+          </figure>
+          <figure class="ntk-screen">
+            <img src="./images/notalk/metting_list.jpg" alt="모임 목록 화면" />
+            <figcaption><span>03</span>모임 목록</figcaption>
+          </figure>
+          <figure class="ntk-screen">
+            <img src="./images/notalk/detail_page.jpg" alt="모임 상세 화면" />
+            <figcaption><span>04</span>모임 상세</figcaption>
+          </figure>
+        </div>
+
+        <!-- 결과 요약 3개 -->
+        <div class="ntk-result-row ntk-reveal">
+          <div class="ntk-result-item">
+            <strong>01</strong>
+            <b>캐릭터 온보딩</b>
+            <p>12종 캐릭터 선택으로 말 없이 나를 표현하는 첫 경험.</p>
+          </div>
+          <div class="ntk-result-item">
+            <strong>02</strong>
+            <b>카테고리 탐색 UX</b>
+            <p>5개 카테고리 + 태그 필터로 원하는 모임을 빠르게 탐색.</p>
+          </div>
+          <div class="ntk-result-item">
+            <strong>03</strong>
+            <b>뱃지 성장 시스템</b>
+            <p>활동 이력이 뱃지로 쌓이며 재방문 동기와 앱 애착을 동시에 설계.</p>
+          </div>
+        </div>
+
+        <!-- 롤링 캐러셀 -->
+        <div class="ntk-rolling-carousel-wrap ntk-reveal">
+          <div class="ntk-rolling-carousel">
+            <div class="ntk-rolling-track">
+              <figure class="ntk-rolling-item"><img src="./images/notalk/home.jpg" alt="홈 피드" /><figcaption>홈 피드</figcaption></figure>
+              <figure class="ntk-rolling-item"><img src="./images/notalk/metting_list.jpg" alt="모임 목록" /><figcaption>모임 목록</figcaption></figure>
+              <figure class="ntk-rolling-item"><img src="./images/notalk/detail_page.jpg" alt="모임 상세" /><figcaption>모임 상세</figcaption></figure>
+              <figure class="ntk-rolling-item"><img src="./images/notalk/login.jpg" alt="로그인" /><figcaption>로그인</figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         REVIEW
+    ============================================================ -->
+    <section class="ntk-section ntk-review-section" id="ntk-review" data-section>
+      <div class="ntk-container">
+        <div class="ntk-review-inner ntk-reveal">
+          <div class="ntk-review-chars" aria-hidden="true">
+            <img src="./images/notalk/character_010.png" alt="" />
+            <img src="./images/notalk/character_011.png" alt="" />
+            <img src="./images/notalk/character_012.png" alt="" />
+          </div>
+          <div class="ntk-review-text">
+            <p class="ntk-eyebrow">Review</p>
+            <h2>소셜 앱에서 중요한 건 기능의 수가 아니라,<br /><em>첫 연결의 허들을 낮추는 설계</em>였습니다.</h2>
+            <p>
+              캐릭터와 뱃지가 단순한 꾸미기가 아니라 앱의 언어가 될 수 있도록 시스템을 설계하는 과정이 의미 있었습니다. 팀 프로젝트로 진행하면서 의사결정·역할 분담·디자인-개발 커뮤니케이션을 실제로 경험할 수 있었습니다.
+            </p>
+            <div class="ntk-next-tags">
+              <span>실시간 채팅</span>
+              <span>위치 기반 추천</span>
+              <span>모임 후기 시스템</span>
+              <span>AI 모임 매칭</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 HYE02 Portfolio. All Rights Reserved.</p>
+  </footer>
+
+  <button type="button" class="scroll-top-btn" data-scroll-top aria-label="맨 위로 이동">
+    <span class="material-symbols-rounded" aria-hidden="true">arrow_upward</span>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/notalk.js"></script>
+</body>
+</html>

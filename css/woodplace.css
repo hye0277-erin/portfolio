@@ -342,6 +342,7 @@
   display: block;
   aspect-ratio: 21 / 9;
   object-fit: cover;
+  object-position: top;
 }
 .wp-wide-figure figcaption {
   position: absolute;
@@ -588,6 +589,165 @@
 .wp-back:hover {
   background: rgba(240, 196, 137, 0.12);
   transform: translateY(-3px);
+}
+
+/* 섹션 화면 3단 그리드 */
+.wp-screen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.wp-screen-fig {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(80,56,30,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.wp-screen-fig:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 52px rgba(80,56,30,0.18);
+}
+.wp-screen-fig img {
+  width: 100%; display: block;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+}
+.wp-screen-fig figcaption {
+  padding: 10px 14px;
+  background: var(--wp-cream);
+  color: var(--wp-ink-soft);
+  font-size: 13px;
+  font-weight: 700;
+  border-top: 1px solid var(--wp-line);
+}
+
+/* 상세 + 장바구니 2단 */
+.wp-detail-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 48px 0;
+}
+.wp-detail-fig {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(80,56,30,0.12);
+  transition: transform 0.3s ease;
+}
+.wp-detail-fig:hover { transform: translateY(-5px); }
+.wp-detail-fig img {
+  width: 100%; display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top;
+}
+.wp-detail-fig figcaption {
+  padding: 10px 14px;
+  background: var(--wp-cream);
+  color: var(--wp-ink-soft);
+  font-size: 13px;
+  font-weight: 700;
+  border-top: 1px solid var(--wp-line);
+}
+
+/* 상품 썸네일 가로 스크롤 */
+.wp-thumb-row {
+  margin: 48px 0 28px;
+}
+.wp-thumb-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--wp-wood-deep);
+  margin: 0 0 16px;
+}
+.wp-thumb-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--wp-line) transparent;
+}
+.wp-thumb-track::-webkit-scrollbar { height: 3px; }
+.wp-thumb-track::-webkit-scrollbar-thumb { background: rgba(138,90,44,0.3); border-radius: 99px; }
+.wp-thumb-track figure {
+  flex: 0 0 auto;
+  margin: 0;
+  width: 160px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(80,56,30,0.10);
+  transition: transform 0.25s ease;
+}
+.wp-thumb-track figure:hover { transform: translateY(-4px) scale(1.04); }
+.wp-thumb-track img {
+  width: 100%; display: block;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* 결과 화면 4단 */
+.wp-result-screens {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 40px;
+}
+.wp-result-screens figure {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(80,56,30,0.10);
+  transition: transform 0.3s ease;
+}
+.wp-result-screens figure:hover { transform: translateY(-6px); }
+.wp-result-screens img {
+  width: 100%; display: block;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top;
+}
+.wp-result-screens figcaption {
+  padding: 8px 12px;
+  background: var(--wp-cream);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--wp-ink-soft);
+  border-top: 1px solid var(--wp-line);
+}
+
+/* 결과 체크리스트 — 가로 배치 */
+.wp-result-checks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 0;
+}
+.wp-result-checks li {
+  background: var(--wp-cream);
+  border: 1px solid var(--wp-line);
+  border-radius: 12px;
+  padding: 16px 16px 16px 40px;
+  font-size: 15px;
+  box-shadow: 0 4px 14px rgba(80,56,30,0.06);
+}
+
+@media (max-width: 900px) {
+  .wp-screen-grid { grid-template-columns: 1fr 1fr; }
+  .wp-result-screens { grid-template-columns: repeat(2, 1fr); }
+  .wp-result-checks { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .wp-screen-grid,
+  .wp-detail-row { grid-template-columns: 1fr; }
+  .wp-result-screens { grid-template-columns: repeat(2, 1fr); }
+  .wp-result-checks { grid-template-columns: 1fr; }
 }
 
 .wp-reveal {
