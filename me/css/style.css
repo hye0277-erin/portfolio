@@ -12,7 +12,7 @@
   --c-ink2:    rgba(21,21,16,.62);
   --c-ink3:    rgba(21,21,16,.38);
   --c-line:    rgba(21,21,16,.10);
-  --c-green:   #b8ff65;
+  --c-green:   #a9eb5c;
   --c-green-d: #1b3f28;
   --c-white:   #ffffff;
   --c-dark:    #111310;
@@ -221,8 +221,7 @@ ul, ol { list-style: none; }
   object-fit: cover;
   object-position: center 30%;
   filter: grayscale(1) brightness(.55);
-  transform: scale(1.04);
-  transition: transform 8s ease;
+  will-change: transform;
 }
 .s-intro__bg-overlay {
   position: absolute; inset: 0;
@@ -270,6 +269,8 @@ ul, ol { list-style: none; }
   opacity: 0;
 }
 .s-intro__title .line--accent { color: var(--c-green); margin-top: 16px; }
+#introName { transform: none; }
+#introName .char { display: inline-block; }
 
 .s-intro__sub {
   grid-column: 2;

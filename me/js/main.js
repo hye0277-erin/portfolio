@@ -100,8 +100,26 @@
   if (!reduceMotion && window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-    /* 히어로 타이틀 라인 등장 */
-    const lines = document.querySelectorAll(".s-intro__title .line");
+    /* 히어로 배경 Ken Burns — 확대 + 좌→우 이동 */
+    gsap.fromTo(".s-intro__bg img",
+      { scale: 1.12, x: -20 },
+      { scale: 1.02, x: 0, duration: 3.2, ease: "power2.out" }
+    );
+
+    /* 히어로 배경 스크롤 패럴랙스 */
+    gsap.to(".s-intro__bg img", {
+      yPercent: 22,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".s-intro",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+
+    /* 히어로 타이틀 라인 등장 (Web, Designer) */
+    const lines = document.querySelectorAll(".s-intro__title .line:not(#introName)");
     gsap.to(lines, {
       y: 0, opacity: 1,
       duration: 1.0,
@@ -109,6 +127,13 @@
       ease: "power4.out",
       delay: 0.2
     });
+
+    /* 김혜영 — 한 글자씩 등장 */
+    gsap.fromTo("#introName", { opacity: 0 }, { opacity: 1, duration: 0.01, delay: 0.44 });
+    gsap.fromTo("#introName .char",
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 0.55, stagger: 0.13, ease: "power4.out", delay: 0.44 }
+    );
 
     /* 히어로 서브 + 스탯 */
     gsap.to(".s-intro__sub", {
@@ -120,13 +145,6 @@
       duration: 0.9, ease: "power3.out", delay: 0.85
     });
 
-    /* 히어로 배경 서서히 확대 해제 */
-    gsap.to(".s-intro__bg img", {
-      scale: 1,
-      duration: 2.4,
-      ease: "power2.out",
-      delay: 0
-    });
 
     /* About 사진 */
     gsap.to(".s-about__photo-wrap", {
