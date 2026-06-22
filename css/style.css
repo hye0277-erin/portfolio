@@ -353,7 +353,7 @@ button {
 .about-main p {
   margin: 0;
   color: rgba(244, 245, 248, 0.82);
-  font-size: clamp(14px, 1.3vw, 18px);
+  font-size: clamp(18px, 2vw, 28px);
   line-height: 1.55;
   letter-spacing: -0.04em;
   word-break: keep-all;
@@ -664,7 +664,7 @@ button {
 
 .featured-project__meta {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   margin: 0 0 22px;
   padding: 0;
@@ -2516,13 +2516,14 @@ body.archive-page::before {
   background: var(--color-surface, #111);
   border-top: 1px solid rgba(255,255,255,0.07);
   border-bottom: 1px solid rgba(255,255,255,0.07);
-  padding: clamp(28px, 4vw, 48px) var(--section-x, 6vw);
+  padding: 18px var(--section-x, 6vw);
+  overflow: hidden;
 }
 
 .career-bar__list {
   display: flex;
-  align-items: stretch;
-  justify-content: center;
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -2530,61 +2531,22 @@ body.archive-page::before {
 }
 
 .career-bar__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex: 1;
-  min-width: 140px;
-  padding: 20px 32px;
-  text-align: center;
-  position: relative;
-}
-
-.career-bar__item + .career-bar__item::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 20%;
-  height: 60%;
-  width: 1px;
-  background: rgba(255,255,255,0.1);
-}
-
-.career-bar__icon {
-  font-size: 28px;
-  color: #fff;
-  opacity: 0.55;
-  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 28;
-}
-
-.career-bar__num {
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-
-.career-bar__label {
-  font-size: clamp(0.68rem, 0.95vw, 0.78rem);
+  font-size: clamp(0.75rem, 1.1vw, 0.875rem);
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: var(--color-text-muted, rgba(255,255,255,0.45));
   white-space: nowrap;
 }
 
-@media (max-width: 600px) {
-  .career-bar__list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .career-bar__item::before { display: none; }
-  .career-bar__item:nth-child(even)::before { display: block; }
-  .career-bar__item:nth-child(3),
-  .career-bar__item:nth-child(4) {
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
+.career-bar__item + .career-bar__item::before {
+  content: "·";
+  margin-right: clamp(24px, 5vw, 64px);
+  opacity: 0.3;
+}
+
+.career-bar__num {
+  color: var(--color-accent, #fff);
+  font-weight: 700;
+  margin-right: 4px;
 }
