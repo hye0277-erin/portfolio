@@ -339,7 +339,7 @@
 
       <a class="archive-detail-card" data-cat="web-page uiux ai-visual " href="https://hye0277-erin.github.io/QuietSkin/index.html" target="_blank" rel="noopener">
         <div class="archive-detail-thumb">
-          <img src="./images/quietsSkin-main.webp" alt="QuietSkin 메인 페이지" onerror="this.style.display='none'" />
+          <img src="./images/main/project_quietskin.jpg" alt="QuietSkin 메인 페이지" onerror="this.style.display='none'" />
         </div>
         <div class="archive-card-meta">
           <span class="archive-card-category">Web Site</span>
@@ -350,7 +350,7 @@
 
       <a class="archive-detail-card" data-cat="web-page uiux ai-visual" href="https://hye0277-erin.github.io/woodplace/" target="_blank" rel="noopener">
         <div class="archive-detail-thumb">
-          <img src="./images/woodplace_intro.webp" alt="WoodPlace 메인 페이지" onerror="this.style.display='none'" />
+          <img src="./images/main/project_woodplace.jpg" alt="WoodPlace 메인 페이지" onerror="this.style.display='none'" />
         </div>
         <div class="archive-card-meta">
           <span class="archive-card-category">Web Site</span>
@@ -361,7 +361,7 @@
 
       <a class="archive-detail-card" data-cat="web-page uiux ai-visual" href="https://stella0526.github.io/yene/" target="_blank" rel="noopener">
         <div class="archive-detail-thumb">
-          <img src="./images/yene_intro.webp" alt="YENE 메인 페이지" onerror="this.style.display='none'" />
+          <img src="./images/main/project_yene.jpg" alt="YENE 메인 페이지" onerror="this.style.display='none'" />
         </div>
         <div class="archive-card-meta">
           <span class="archive-card-category">Web Site</span>
@@ -372,7 +372,7 @@
 
       <a class="archive-detail-card" data-cat="web-page uiux ai-visual" href="https://hye0277-erin.github.io/blackdesert/" target="_blank" rel="noopener">
         <div class="archive-detail-thumb">
-          <img src="./images/blackdesert_intro.webp" alt="Black Desert game site" onerror="this.style.display='none'" />
+          <img src="./images/main/project_blackdesert.jpg" alt="Black Desert game site" onerror="this.style.display='none'" />
         </div>
         <div class="archive-card-meta">
           <span class="archive-card-category">Web Site</span>
@@ -406,6 +406,27 @@
   ========================================================== -->
   <script>
     (function () {
+      const menuToggle = document.querySelector("[data-menu-toggle]");
+      const mobileNav = menuToggle ? document.getElementById(menuToggle.getAttribute("aria-controls")) : null;
+      const header = menuToggle?.closest("[data-header]");
+      const menuIcon = menuToggle?.querySelector(".menu-toggle-icon");
+
+      function closeMenu() {
+        header?.classList.remove("is-menu-open");
+        menuToggle?.setAttribute("aria-expanded", "false");
+        if (menuIcon) menuIcon.textContent = "menu";
+      }
+
+      menuToggle?.addEventListener("click", () => {
+        const isOpen = header?.classList.toggle("is-menu-open") || false;
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        if (menuIcon) menuIcon.textContent = isOpen ? "close" : "menu";
+      });
+
+      mobileNav?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
       const buttons = document.querySelectorAll(".archive-filter-row button");
       const grid = document.querySelector(".archive-detail-grid");
       const cards = Array.from(document.querySelectorAll(".archive-detail-card"));
