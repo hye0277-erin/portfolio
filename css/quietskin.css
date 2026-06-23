@@ -111,6 +111,8 @@ body:has(.qs-page) .scroll-top-btn:hover {
 .qs-btn .material-symbols-rounded { font-size: 19px; }
 .qs-btn-solid { background: var(--qs-green-deep); color: #fff; }
 .qs-btn-solid:hover { transform: translateY(-3px); background: #2f3a29; }
+.qs-btn-primary { background: #fff; color: var(--qs-green-deep); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+.qs-btn-primary:hover { transform: translateY(-3px); background: #f1efe6; box-shadow: 0 14px 32px rgba(0,0,0,0.22); }
 .qs-btn-light { background: #fff; color: var(--qs-green-deep); }
 .qs-btn-light:hover { background: #f1efe6; }
 .qs-btn-ghost { border: 1px solid var(--qs-line); color: var(--qs-ink); }
