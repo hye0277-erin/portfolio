@@ -1,6 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- Mobile menu toggle ---------- */
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const header = document.querySelector("[data-header]");
+  const menuIcon = menuToggle?.querySelector(".menu-toggle-icon");
+  if (menuToggle && header) {
+    menuToggle.addEventListener("click", () => {
+      const open = header.classList.toggle("is-menu-open");
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (menuIcon) menuIcon.textContent = open ? "close" : "menu";
+    });
+    header.querySelectorAll(".gnb a").forEach((link) => {
+      link.addEventListener("click", () => {
+        header.classList.remove("is-menu-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        if (menuIcon) menuIcon.textContent = "menu";
+      });
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 860) {
+        header.classList.remove("is-menu-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        if (menuIcon) menuIcon.textContent = "menu";
+      }
+    });
+  }
+
   /* ---------- Reveal on scroll ---------- */
   const targets = document.querySelectorAll(".fade-up, .bd-reveal");
   if ("IntersectionObserver" in window) {
