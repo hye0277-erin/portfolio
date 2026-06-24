@@ -3,41 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="QuietSkin — 피부를 위한 쉼의 시간을 제안하는 스킨케어 브랜드 경험 (UIUX Case Study)" />
-  <title>QuietSkin — Brand Experience Case Study | HYE02</title>
+  <meta name="description" content="QuietSkin — 슬로우 에이징 스킨케어 브랜드 전략 및 웹 경험 설계 케이스 스터디" />
+  <title>QuietSkin Case Study | HYE02</title>
 
-  <!-- Google Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet" />
-  <!-- Display serif for editorial accent -->
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&display=swap" rel="stylesheet" />
-
-  <!-- Pretendard CDN -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
 
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/quietskin.css" />
 </head>
 <body>
-  <!-- Scroll progress + custom cursor (전역 main.js 호환) -->
   <div class="scroll-progress" data-progress aria-hidden="true"></div>
   <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
   <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
 
-  <!-- =========================================================
-    HEADER (전역 헤더 재사용)
-  ========================================================== -->
-   <header class="site-header" data-header>
+  <header class="site-header" data-header>
     <a href="./main.html" class="brand" aria-label="HYE02 Portfolio Home">
       <span class="brand-mark">HYE02</span>
       <span class="brand-sub">DESIGN PORTFOLIO</span>
     </a>
-
     <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
       <span class="material-symbols-rounded menu-toggle-icon" aria-hidden="true">menu</span>
     </button>
-
     <nav class="gnb" id="primary-navigation" aria-label="주요 메뉴">
       <div class="gnb-center">
         <a href="main.html#works" data-nav>Featured</a>
@@ -53,368 +43,519 @@
     </nav>
   </header>
 
- 
-  <main class="qs-page" id="quietskin-case">
-    <!-- 페이지 진행 인디케이터 -->
-    <div class="qs-progress" aria-hidden="true"><span data-qs-progress></span></div>
+  <main class="qs-page" id="qs-main">
 
-    <!-- 우측 섹션 인덱스 -->
-    <nav class="qs-index" aria-label="QuietSkin 섹션 이동">
-      <a href="#qs-overview" data-qs-dot><em></em><span>Overview</span></a>
-      <a href="#qs-background" data-qs-dot><em></em><span>Background</span></a>
-      <a href="#qs-goal" data-qs-dot><em></em><span>Goal</span></a>
-      <a href="#qs-insight" data-qs-dot><em></em><span>Insight</span></a>
-      <a href="#qs-system" data-qs-dot><em></em><span>System</span></a>
-      <a href="#qs-result" data-qs-dot><em></em><span>Result</span></a>
-      <a href="#qs-review" data-qs-dot><em></em><span>Review</span></a>
+    <!-- 우측 섹션 닷 네비 -->
+    <nav class="qs-dot-nav" aria-label="섹션 이동">
+      <a href="#qs-hero" data-dot class="is-active"><span>Intro</span></a>
+      <a href="#qs-brief" data-dot><span>Brief</span></a>
+      <a href="#qs-problem" data-dot><span>Problem</span></a>
+      <a href="#qs-strategy" data-dot><span>Strategy</span></a>
+      <a href="#qs-product" data-dot><span>Product</span></a>
+      <a href="#qs-visual" data-dot><span>Visual</span></a>
+      <a href="#qs-screens" data-dot><span>Screens</span></a>
+      <a href="#qs-retro" data-dot><span>Retro</span></a>
     </nav>
 
-    <!-- =========================================================
-      01. OVERVIEW / HERO
-    ========================================================== -->
-    <section class="qs-hero" id="qs-overview" data-qs-section>
-      <div class="qs-wrap qs-hero-inner">
-        <div class="qs-hero-copy">
-          <p class="qs-eyebrow qs-reveal">Cosmetic Brand Experience · UIUX</p>
-          <h1 class="qs-hero-title qs-reveal">
-            피부를 위한 <em>쉼의 시간</em>,<br />브랜드로 경험하다
-          </h1>
-          <p class="qs-hero-lead qs-reveal">
-            QuietSkin은 빠르고 자극적인 뷰티 시장 속에서 피부 본연의 균형과 휴식에 주목한 스킨케어 브랜드 컨셉 프로젝트입니다.
-            단순한 제품 판매를 넘어, 사용자가 브랜드 철학을 자연스럽게 경험하고 탐색부터 구매까지 편안하게 이어지는
-            온라인 경험을 설계했습니다.
-          </p>
-          <div class="qs-hero-actions qs-reveal">
-            <a href="#qs-background" class="qs-btn qs-btn-primary">
-              프로젝트 보기
-              <span class="material-symbols-rounded" aria-hidden="true">arrow_downward</span>
-            </a>
-            <a href="https://hye0277-erin.github.io/QuietSkin/index.html" class="qs-btn qs-btn-ghost" target="_blank" rel="noopener">
-              사이트 보기
-              <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
-            </a>
-          </div>
-        </div>
+    <!-- ═══════════════════════════════════════
+      HERO — 전체화면 영상 배경
+    ═══════════════════════════════════════ -->
+    <section class="qs-hero" id="qs-hero" data-section>
 
-        <figure class="qs-hero-figure qs-reveal">
-          <img src="images/quietskin/quietSkin_serum_01.jpg" alt="QuietSkin 제품 라인업 — 물 위 돌 위에 놓인 토너, 앰플, 클렌징 폼, 크림" loading="eager" />
-          <figcaption>QuietSkin Calming Line — Skin needs rest.</figcaption>
-        </figure>
+      <!-- 배경 영상 -->
+      <div class="qs-hero__video-wrap" aria-hidden="true">
+        <video
+          class="qs-hero__video"
+          src="./images/quietskin/serum.mp4"
+          autoplay muted loop playsinline
+          poster="./images/quietskin/quietsSkin-main_02.webp"
+        ></video>
+        <div class="qs-hero__overlay"></div>
       </div>
 
+      <!-- 좌하단 메인 카피 -->
+      <div class="qs-hero__body">
+        <div class="qs-hero__tag qs-fade" style="--d:.1s">
+          <span>Brand Strategy</span>
+          <span class="qs-hero__tag-sep" aria-hidden="true"></span>
+          <span>UI/UX Design</span>
+        </div>
 
-      <!-- 프로젝트 정보 -->
+        <h1 class="qs-hero__title">
+          <span class="qs-hero__title-en qs-fade" style="--d:.22s">QuietSkin</span>
+          <span class="qs-hero__title-ko qs-fade" style="--d:.36s">피부의 시간을 천천히</span>
+        </h1>
+
+        <p class="qs-hero__desc qs-fade" style="--d:.48s">
+          빠르게 바꾸는 피부가 아닌,<br>
+          매일의 조용한 관리로 피부를 오래 유지하는<br>
+          슬로우 에이징 스킨케어 브랜드.
+        </p>
+
+        <div class="qs-hero__cta qs-fade" style="--d:.6s">
+          <a href="#qs-brief" class="qs-hero__btn-down">
+            케이스 스터디 보기
+            <span class="material-symbols-rounded" aria-hidden="true">south</span>
+          </a>
+          <a href="https://hye0277-erin.github.io/QuietSkin/index.html" class="qs-hero__btn-live" target="_blank" rel="noopener">
+            라이브 사이트
+            <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 우하단 메타 -->
+      <dl class="qs-hero__meta qs-fade" style="--d:.55s">
+        <div><dt>유형</dt><dd>개인 프로젝트</dd></div>
+        <div><dt>역할</dt><dd>브랜드 전략 · 콘텐츠 · UI/UX</dd></div>
+        <div><dt>연도</dt><dd>2026</dd></div>
+      </dl>
+
+      <!-- 스크롤 힌트 -->
+      <div class="qs-hero__scroll qs-fade" style="--d:.8s" aria-hidden="true">
+        <span class="qs-hero__scroll-line"></span>
+        <span>scroll</span>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════
+      BRIEF — 풀 와이드 수평 레이아웃
+    ═══════════════════════════════════════ -->
+    <section class="qs-section qs-brief" id="qs-brief" data-section>
       <div class="qs-wrap">
-        <div class="qs-info qs-reveal">
-          <dl class="qs-meta">
-            <div class="qs-meta-item"><dt>프로젝트 구분</dt><dd>개인 프로젝트</dd></div>
-            <div class="qs-meta-item"><dt>담당 역할</dt><dd>브랜드 기획 · UX/UI 디자인 · 퍼블리싱</dd></div>
-            <div class="qs-meta-item"><dt>제작 기간</dt><dd>7일</dd></div>
-          </dl>
-          <div class="qs-tools">
-            <span class="qs-tools-label">사용 툴</span>
-            <ul class="qs-tool-list">
-              <li><img src="images/main/icon_Figma.svg" alt="" aria-hidden="true" /><span>Figma</span></li>
-              <li><img src="images/main/icon_Photoshop.png" alt="" aria-hidden="true" /><span>Photoshop</span></li>
-              <li><img src="images/main/icon_Illustrator.png" alt="" aria-hidden="true" /><span>Illustrator</span></li>
-              <li class="is-text"><span>HTML</span></li>
-              <li class="is-text"><span>CSS</span></li>
-              <li class="is-text"><span>JavaScript</span></li>
-              <li><img src="images/main/icon_midjourney.png" alt="" aria-hidden="true" /><span>Midjourney</span></li>
-              <li><img src="images/main/icon_chatgpt.png" alt="" aria-hidden="true" /><span>Chatgpt</span></li>
-              <li><img src="images/main/icon_claude.png" alt="" aria-hidden="true" /><span>Claude</span></li>
-            </ul>
+
+        <!-- 상단: 번호 + 큰 헤드라인 -->
+        <div class="qs-brief__head">
+          <span class="qs-idx qs-reveal">01</span>
+          <h2 class="qs-brief__h qs-reveal">
+            피부의 시간을<br/>천천히.
+          </h2>
+        </div>
+
+        <!-- 본문 3단 -->
+        <div class="qs-brief__cols">
+          <div class="qs-brief__col qs-reveal">
+            <p class="qs-brief__col-label">배경</p>
+            <p>안티에이징 시장이 즉각적인 효과를 강조하는 방향으로 과열되면서, 오히려 매일 꾸준히 피부를 관리하는 슬로우 에이징 관점이 주목받기 시작했습니다.</p>
+          </div>
+          <div class="qs-brief__col qs-reveal">
+            <p class="qs-brief__col-label">기획 방향</p>
+            <p>피부 장벽 보호와 스킨 롱제비티 개념을 중심으로, 브랜드 포지셔닝·제품 루틴·콘텐츠 전략·웹 경험을 하나의 방향으로 설계했습니다.</p>
+          </div>
+          <div class="qs-brief__col qs-reveal">
+            <p class="qs-brief__col-label">결과물</p>
+            <p>브랜드 전략 문서, 제품 루틴 구조, 콘텐츠 캠페인 기획, 웹사이트 디자인 및 라이브 배포까지 하나의 프로젝트로 완성했습니다.</p>
           </div>
         </div>
+
+        <!-- 트렌드 키워드 — 가로 스크롤 슬라이더 -->
+        <div class="qs-brief__trend qs-reveal">
+          <p class="qs-brief__trend-ttl">Market Trend</p>
+          <div class="qs-trend-track">
+            <div class="qs-trend-item">
+              <em>Slow Aging</em>
+              <span>노화를 되돌리기보다 피부 상태를 오래 유지하는 관리</span>
+            </div>
+            <div class="qs-trend-item">
+              <em>Skin Longevity</em>
+              <span>피부 기능과 회복력을 장기적으로 관리하는 접근</span>
+            </div>
+            <div class="qs-trend-item">
+              <em>Barrier-First</em>
+              <span>고기능 성분보다 피부 장벽 안정을 우선하는 방식</span>
+            </div>
+            <div class="qs-trend-item">
+              <em>Skinimalism</em>
+              <span>적은 제품으로 매일 지속 가능한 루틴 구성</span>
+            </div>
+            <div class="qs-trend-item">
+              <em>Preventive Beauty</em>
+              <span>문제 발생 이후보다 예방 중심의 관리</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- =========================================================
-      02. BACKGROUND & PROBLEM
-    ========================================================== -->
-    <section class="qs-section" id="qs-background" data-qs-section>
-      <div class="qs-wrap">
-        <header class="qs-section-head">
-          <span class="qs-section-no qs-reveal">02</span>
-          <div class="qs-section-headtext">
-            <p class="qs-eyebrow qs-reveal">Background &amp; Problem</p>
-            <h2 class="qs-section-title qs-reveal">왜 만들게 되었을까</h2>
-          </div>
-          <p class="qs-section-desc qs-reveal">
-            기존 화장품 쇼핑몰은 할인과 판매 중심 콘텐츠가 많아 브랜드의 가치와 철학을 충분히 전하지 못했습니다.
-            특히 스킨케어는 사용자의 피부 고민과 라이프스타일에 대한 공감이 중요한데도, 제품 나열에 머무는 경우가 많았습니다.
-            QuietSkin은 사용자가 브랜드 철학을 먼저 경험하고 자연스럽게 제품을 탐색하는 흐름을 제안합니다.
-          </p>
-        </header>
+    <!-- ═══════════════════════════════════════
+      PROBLEM — 어두운 배경, 이미지 왼쪽 고정
+    ═══════════════════════════════════════ -->
+    <section class="qs-section qs-problem" id="qs-problem" data-section>
 
-        <figure class="qs-figure qs-band qs-reveal">
-          <img src="images/quietskin/quietSkin_leap.png" alt="물 위에 놓인 QuietSkin 시카 카밍 앰플과 초록 잎" loading="lazy" />
-          <figcaption>제품보다 먼저 전해지는 브랜드의 분위기 — 진정, 여백, 자연.</figcaption>
-        </figure>
-
-        <!-- 문제 정의 (아코디언 액션) -->
-        <div class="qs-accordion" data-qs-accordion>
-          <article class="qs-acc-item qs-reveal is-open">
-            <button type="button" class="qs-acc-head" aria-expanded="true">
-              <span class="qs-acc-no">01</span>
-              <span class="qs-acc-title">제품 중심의 단순한 쇼핑 경험</span>
-              <span class="qs-acc-icon material-symbols-rounded" aria-hidden="true">add</span>
-            </button>
-            <div class="qs-acc-body"><p>브랜드의 가치보다 제품 판매에 집중되어, 다른 쇼핑몰과 구분되는 경험을 주지 못했습니다.</p></div>
-          </article>
-          <article class="qs-acc-item qs-reveal">
-            <button type="button" class="qs-acc-head" aria-expanded="false">
-              <span class="qs-acc-no">02</span>
-              <span class="qs-acc-title">과도한 정보 제공</span>
-              <span class="qs-acc-icon material-symbols-rounded" aria-hidden="true">add</span>
-            </button>
-            <div class="qs-acc-body"><p>수많은 이벤트와 프로모션이 한꺼번에 노출돼, 정작 필요한 정보를 찾기 어려웠습니다.</p></div>
-          </article>
-          <article class="qs-acc-item qs-reveal">
-            <button type="button" class="qs-acc-head" aria-expanded="false">
-              <span class="qs-acc-no">03</span>
-              <span class="qs-acc-title">감성적 연결의 부족</span>
-              <span class="qs-acc-icon material-symbols-rounded" aria-hidden="true">add</span>
-            </button>
-            <div class="qs-acc-body"><p>브랜드가 전하려는 메시지가 화면과 콘텐츠에 충분히 녹아들지 못했습니다.</p></div>
-          </article>
+      <!-- 좌측 이미지 스티키 -->
+      <div class="qs-problem__img-col" aria-hidden="true">
+        <div class="qs-problem__img-sticky">
+          <img src="./images/quietskin/quietSkin_leap.png" alt="" />
         </div>
+      </div>
+
+      <!-- 우측 콘텐츠 -->
+      <div class="qs-problem__content">
+        <div class="qs-problem__head qs-reveal">
+          <span class="qs-idx qs-idx--light">02</span>
+          <h2 class="qs-problem__h">
+            왜 지금,<br>슬로우 에이징인가
+          </h2>
+          <p>빠른 효과를 앞세운 안티에이징 시장에서 소비자들은 피로감을 느끼기 시작했습니다. QuietSkin은 그 반대편의 관점에서 출발합니다.</p>
+        </div>
+
+        <ol class="qs-problem__list">
+          <li class="qs-reveal">
+            <span class="qs-problem__num">01</span>
+            <div>
+              <strong>즉각 효과 피로감이 커지고 있습니다</strong>
+              <p>강한 성분과 극적인 변화를 강조하는 제품들이 오히려 피부 장벽을 무너뜨리면서, 순한 관리를 원하는 수요가 빠르게 늘고 있습니다.</p>
+            </div>
+          </li>
+          <li class="qs-reveal">
+            <span class="qs-problem__num">02</span>
+            <div>
+              <strong>예방 중심의 스킨케어가 주목받습니다</strong>
+              <p>문제가 생긴 뒤 고치는 방식보다, 피부 장벽을 일상적으로 보호하고 노화를 늦추는 예방적 관리로 관점이 이동하고 있습니다.</p>
+            </div>
+          </li>
+          <li class="qs-reveal">
+            <span class="qs-problem__num">03</span>
+            <div>
+              <strong>루틴의 간결함이 새로운 기준이 됩니다</strong>
+              <p>스키니멀리즘 트렌드 속에서 복잡한 단계 없이 매일 지속 가능한 루틴을 원하는 사용자가 늘고 있습니다.</p>
+            </div>
+          </li>
+          <li class="qs-reveal">
+            <span class="qs-problem__num">04</span>
+            <div>
+              <strong>브랜드 철학이 구매 이유가 됩니다</strong>
+              <p>제품 성분만으로는 차별화가 어려운 시대, 브랜드가 어떤 철학으로 피부를 바라보는지가 선택의 기준이 되고 있습니다.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════
+      STRATEGY — 수평 고정 스크롤 + 패널 전환
+    ═══════════════════════════════════════ -->
+    <section class="qs-section qs-strategy" id="qs-strategy" data-section>
+      <div class="qs-wrap">
+
+        <div class="qs-strategy__head qs-reveal">
+          <span class="qs-idx">03</span>
+          <h2 class="qs-strategy__h">Brand Strategy</h2>
+          <p class="qs-strategy__sub">매일의 조용한 관리로 피부의 시간을 천천히</p>
+        </div>
+
+        <!-- 포지셔닝 카드 -->
+        <div class="qs-ba qs-reveal">
+          <div class="qs-ba__before">
+            <span class="qs-ba__tag">Positioning</span>
+            <p class="qs-ba__copy">슬로우 에이징<br>스킨케어 브랜드</p>
+            <ul class="qs-ba__issues">
+              <li>즉각 효과 중심 시장과 거리두기</li>
+              <li>피부 장벽 보호를 핵심 가치로</li>
+              <li>예방 중심의 일상 루틴 제안</li>
+            </ul>
+          </div>
+          <div class="qs-ba__arrow" aria-hidden="true">
+            <span class="material-symbols-rounded">east</span>
+          </div>
+          <div class="qs-ba__after">
+            <span class="qs-ba__tag">Brand Promise</span>
+            <p class="qs-ba__copy">오래 유지되는 피부,<br>매일 쓰고 싶은 루틴</p>
+            <ul class="qs-ba__gains">
+              <li>피부를 빠르게 바꾸지 않는다</li>
+              <li>자극 없이 장기적으로 관리한다</li>
+              <li>간결한 루틴으로 꾸준히 지속한다</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 핵심 가치 — 5개 세로 스택 -->
+        <div class="qs-values qs-reveal">
+          <p class="qs-label">Brand Values</p>
+          <div class="qs-values__grid">
+            <div class="qs-values__item">
+              <em>Quiet</em>
+              <span>자극 없이 차분하게, 피부에 부담을 주지 않는 관리</span>
+            </div>
+            <div class="qs-values__item">
+              <em>Balance</em>
+              <span>수분·유분·피부 장벽의 균형을 매일 지키는 것</span>
+            </div>
+            <div class="qs-values__item">
+              <em>Recovery</em>
+              <span>예민해진 피부가 스스로 회복할 수 있도록 돕는 것</span>
+            </div>
+            <div class="qs-values__item">
+              <em>Continuity</em>
+              <span>복잡하지 않아서 매일 지속할 수 있는 루틴</span>
+            </div>
+            <div class="qs-values__item">
+              <em>Longevity</em>
+              <span>피부를 빠르게 바꾸는 것이 아닌 오래 유지하는 것</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 브랜드 메시지 — 풀 와이드 배너 -->
+        <div class="qs-message qs-reveal">
+          <figure class="qs-message__img">
+            <img src="./images/quietskin/quietsSkin-main_02.webp" alt="" aria-hidden="true" />
+            <div class="qs-message__img-overlay"></div>
+          </figure>
+          <div class="qs-message__copy">
+            <p class="qs-label">Brand Message</p>
+            <h3 class="qs-message__title">Age Slowly,<br>Stay Quiet.</h3>
+            <p>노화를 되돌리려 하지 않습니다. 피부의 시간을 조금 더 천천히 흐르게 합니다.</p>
+          </div>
+        </div>
+
+        <!-- 타깃 — 2컬럼 카드 -->
+        <div class="qs-target qs-reveal">
+          <p class="qs-label">Target Audience</p>
+          <div class="qs-target__cards">
+            <article class="qs-target__card">
+              <span class="qs-target__badge">Primary</span>
+              <h4>30–40대, 피부 변화를 느끼기 시작한 사람</h4>
+              <ul>
+                <li>건조함과 탄력 저하를 조금씩 체감하고 있음</li>
+                <li>강한 안티에이징 성분 제품이 피부에 부담스러움</li>
+                <li>복잡한 다단계 루틴보다 간결하고 꾸준한 관리를 원함</li>
+                <li>빠른 변화보다 피부 상태를 오래 유지하는 것을 중시함</li>
+              </ul>
+            </article>
+            <article class="qs-target__card">
+              <span class="qs-target__badge qs-target__badge--sec">Secondary</span>
+              <h4>20대 후반, 피부 장벽이 약해진 것을 느끼는 사람</h4>
+              <ul>
+                <li>트렌드를 따라 다양한 성분을 써오다 피부가 예민해짐</li>
+                <li>붉어짐·속건조·당김이 반복되어 루틴을 단순화하고 싶음</li>
+                <li>지금부터 예방적으로 피부를 관리하고 싶음</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- =========================================================
-      03. GOAL
-    ========================================================== -->
-    <section class="qs-section qs-section-alt" id="qs-goal" data-qs-section>
+    <!-- ═══════════════════════════════════════
+      PRODUCT
+    ═══════════════════════════════════════ -->
+    <section class="qs-section qs-section--alt qs-product" id="qs-product" data-section>
       <div class="qs-wrap">
-        <header class="qs-section-head">
-          <span class="qs-section-no qs-reveal">03</span>
-          <div class="qs-section-headtext">
-            <p class="qs-eyebrow qs-reveal">Project Goal</p>
-            <h2 class="qs-section-title qs-reveal">브랜드를 먼저 경험하게,<br />구매까지 편안하게</h2>
-          </div>
-          <p class="qs-section-desc qs-reveal">
-            기능을 늘리기보다 브랜드 철학이 자연스럽게 전해지고, 탐색에서 구매까지 막힘 없이 이어지는 흐름을 만드는 데 집중했습니다.
-          </p>
-        </header>
-
-        <div class="qs-goal-grid">
-          <article class="qs-goal-card qs-reveal">
-            <span class="qs-goal-no">Goal 01</span>
-            <h3>철학이 전해지는 경험</h3>
-            <p>브랜드 메시지를 콘텐츠 전면에 두어 자연스럽게 닿게 합니다.</p>
-          </article>
-          <article class="qs-goal-card qs-reveal">
-            <span class="qs-goal-no">Goal 02</span>
-            <h3>편안한 구매 흐름</h3>
-            <p>탐색부터 결제까지 끊김 없이 이어지는 사용자 흐름을 구축합니다.</p>
-          </article>
-          <article class="qs-goal-card qs-reveal">
-            <span class="qs-goal-no">Goal 03</span>
-            <h3>공감하는 콘텐츠</h3>
-            <p>피부 고민과 라이프스타일에 공감하는 이야기를 담습니다.</p>
-          </article>
-          <article class="qs-goal-card qs-reveal">
-            <span class="qs-goal-no">Goal 04</span>
-            <h3>신뢰감 있는 분위기</h3>
-            <p>차분하고 정돈된 톤으로 믿음이 가는 브랜드 이미지를 만듭니다.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-      04. INSIGHT
-    ========================================================== -->
-    <section class="qs-section" id="qs-insight" data-qs-section>
-      <div class="qs-wrap">
-        <header class="qs-section-head">
-          <span class="qs-section-no qs-reveal">04</span>
-          <div class="qs-section-headtext">
-            <p class="qs-eyebrow qs-reveal">Problem Solving Insight</p>
-            <h2 class="qs-section-title qs-reveal">문제를 분위기로 바꾸기</h2>
-          </div>
-          <p class="qs-section-desc qs-reveal">
-            판매 중심의 화면을 브랜드 스토리 중심으로 재구성했습니다. 문제를 정리하고, 그에 맞는 해결 방향을 화면 언어로 옮겼습니다.
-          </p>
-        </header>
-
-        <div class="qs-insight">
-          <div class="qs-insight-col qs-reveal">
-            <span class="qs-insight-tag is-problem">Problem</span>
-            <ul class="qs-insight-list">
-              <li>판매 중심의 화면 구성</li>
-              <li>브랜드 스토리 전달 부족</li>
-              <li>정보 과잉으로 인한 피로감</li>
-              <li>감성적 경험의 부족</li>
-            </ul>
-          </div>
-          <div class="qs-insight-col is-solution qs-reveal">
-            <span class="qs-insight-tag is-solution">Solution</span>
-            <div class="qs-solution-item">
-              <b>브랜드 스토리 강화</b>
-              <p>‘피부도 쉬어야 한다’는 메시지를 중심으로 브랜드 철학을 주요 콘텐츠로 배치했습니다.</p>
-            </div>
-            <div class="qs-solution-item">
-              <b>콘텐츠 중심 탐색 구조</b>
-              <p>카테고리뿐 아니라 루틴·리뷰·브랜드 스토리를 통해 자연스럽게 제품을 발견하게 했습니다.</p>
-            </div>
-            <div class="qs-solution-item">
-              <b>감성적 비주얼 강화</b>
-              <p>부드러운 조명, 자연 소재, 여백 중심의 디자인으로 브랜드 정체성을 표현했습니다.</p>
-            </div>
-          </div>
+        <div class="qs-section-head qs-reveal">
+          <p class="qs-label">Product Strategy</p>
+          <h2 class="qs-h2">피부가 안정되는 순서로<br>설계한 4단계 루틴</h2>
+          <p class="qs-section-desc">자극을 줄이고 장벽을 지키는 방향으로 구성된 간결한 슬로우 에이징 루틴입니다.</p>
         </div>
 
-        <blockquote class="qs-quote qs-reveal">
-          <p>사용자는 제품을 사는 게 아니라,<br /><em>“내 피부를 이해해주는 브랜드”</em>를 경험하고 싶어 합니다.</p>
-          <cite>브랜드의 철학과 감성이 구매 결정에 큰 영향을 준다는 것을 확인했습니다.</cite>
-        </blockquote>
-      </div>
-    </section>
+        <ol class="qs-routine qs-reveal" data-qs-routine>
+          <li>
+            <span>Step 01</span>
+            <strong>Calm</strong>
+            <p>민감해진 피부를 진정시키는 단계</p>
+            <em>Quiet Cleansing Gel</em>
+          </li>
+          <li>
+            <span>Step 02</span>
+            <strong>Balance</strong>
+            <p>수분과 유분 균형을 맞추는 단계</p>
+            <em>Balance Essence Toner</em>
+          </li>
+          <li>
+            <span>Step 03</span>
+            <strong>Protect</strong>
+            <p>피부 장벽을 보호하고 수분 손실을 줄이는 단계</p>
+            <em>Barrier Recovery Serum</em>
+          </li>
+          <li>
+            <span>Step 04</span>
+            <strong>Maintain</strong>
+            <p>컨디션과 탄력을 안정적으로 유지하는 단계</p>
+            <em>Slow Aging Cream</em>
+          </li>
+        </ol>
 
-    <!-- =========================================================
-      05. DESIGN SYSTEM & DEVELOPMENT
-    ========================================================== -->
-    <section class="qs-section qs-section-alt" id="qs-system" data-qs-section>
-      <div class="qs-wrap">
-        <header class="qs-section-head">
-          <span class="qs-section-no qs-reveal">05</span>
-          <div class="qs-section-headtext">
-            <p class="qs-eyebrow qs-reveal">Design System &amp; Development</p>
-            <h2 class="qs-section-title qs-reveal">브랜드를 디지털로 확장하기</h2>
-          </div>
-          <p class="qs-section-desc qs-reveal">
-            브랜드 아이덴티티를 디지털 경험으로 옮기기 위해 디자인 시스템과 실제 구현을 함께 진행했습니다.
-          </p>
-        </header>
-
-        <div class="qs-system-grid">
-          <!-- Principle -->
-          <article class="qs-sys-card qs-reveal">
-            <h3>Design Principle</h3>
-            <ul class="qs-principle">
-              <li>Calm</li><li>Minimal</li><li>Pure</li><li>Trust</li>
-            </ul>
-          </article>
-
-          <!-- Color (클릭 복사 액션) -->
-          <article class="qs-sys-card qs-reveal">
-            <h3>Color <small>탭하면 HEX가 복사돼요</small></h3>
-            <div class="qs-palette" data-qs-palette>
-              <button type="button" class="qs-swatch" data-hex="#5F7257" style="--c:#5F7257"><span>Quiet Green</span><em>#5F7257</em></button>
-              <button type="button" class="qs-swatch" data-hex="#F3EFE5" style="--c:#F3EFE5"><span>Warm Ivory</span><em>#F3EFE5</em></button>
-              <button type="button" class="qs-swatch" data-hex="#C9CCC4" style="--c:#C9CCC4"><span>Soft Gray</span><em>#C9CCC4</em></button>
-              <button type="button" class="qs-swatch" data-hex="#D8CDB8" style="--c:#D8CDB8"><span>Natural Beige</span><em>#D8CDB8</em></button>
-            </div>
-          </article>
-
-          <!-- Typography -->
-          <article class="qs-sys-card qs-reveal">
-            <h3>Typography</h3>
-            <div class="qs-type">
-              <strong>Pretendard</strong>
-              <p class="qs-type-sample">가나다라마바사 ABCDdefg 0123<br />차분하고 읽기 편한 본문 서체</p>
-            </div>
-          </article>
-
-          <!-- Component -->
-          <article class="qs-sys-card qs-reveal">
-            <h3>UI Component</h3>
-            <ul class="qs-chips">
-              <li>Hero Banner</li><li>Product Card</li><li>Brand Story Module</li>
-              <li>Routine Guide Card</li><li>Review Card</li><li>Cart UI</li><li>CTA Button</li>
-            </ul>
-          </article>
-        </div>
-
-        <!-- 개발 경험 + 결과 목업 -->
-        <div class="qs-dev">
-          <div class="qs-dev-list qs-reveal">
-            <h3>개발 경험</h3>
-            <ul>
-              <li>HTML / CSS 기반 반응형 쇼핑몰 구현</li>
-              <li>JavaScript 인터랙션 적용</li>
-              <li>Swiper를 활용한 비주얼 슬라이드 구현</li>
-              <li>제품 상세 페이지 · 장바구니 UI 설계</li>
-              <li>AI 생성 이미지를 활용한 브랜드 콘텐츠 제작</li>
-            </ul>
-          </div>
-          <figure class="qs-figure qs-reveal">
-            <img src="images/quietskin/quietsSkin-main.webp" alt="QuietSkin 메인 비주얼 — 제품 라인업과 카드 UI" loading="lazy" />
-            <figcaption>브랜드 분위기를 담은 메인 비주얼 구성</figcaption>
+        <div class="qs-product__images">
+          <figure class="qs-reveal">
+            <img src="./images/quietskin/product_all.jpg" alt="콰이어트스킨 전체 제품 라인업" />
+          </figure>
+          <figure class="qs-reveal">
+            <img src="./images/quietskin/all_product.jpg" alt="콰이어트스킨 제품 상세 컷" />
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- =========================================================
-      06. RESULT
-    ========================================================== -->
-    <section class="qs-section" id="qs-result" data-qs-section>
+    <!-- ═══════════════════════════════════════
+      VISUAL DIRECTION
+    ═══════════════════════════════════════ -->
+    <section class="qs-section qs-visual" id="qs-visual" data-section>
       <div class="qs-wrap">
-        <header class="qs-section-head">
-          <span class="qs-section-no qs-reveal">06</span>
-          <div class="qs-section-headtext">
-            <p class="qs-eyebrow qs-reveal">Project Result</p>
-            <h2 class="qs-section-title qs-reveal">브랜드 철학과 쇼핑 경험을 잇다</h2>
+        <div class="qs-section-head qs-reveal">
+          <p class="qs-label">Visual Direction</p>
+          <h2 class="qs-h2">슬로우 에이징의 감성을<br>시각 언어로 구체화하다</h2>
+        </div>
+
+        <!-- 컬러 팔레트 — Muted Brown 제외 -->
+        <div class="qs-palette qs-reveal">
+          <p class="qs-label">Color Palette</p>
+          <ul>
+            <li style="--c:#f4f6f4; --tc:#1e221e">
+              <span>BG Ivory</span>
+              <em>#F4F6F4</em>
+            </li>
+            <li style="--c:#1a4d38; --tc:#fff">
+              <span>Deep Green</span>
+              <em>#1A4D38</em>
+            </li>
+            <li style="--c:#8fa89b; --tc:#fff">
+              <span>Sage Green</span>
+              <em>#8FA89B</em>
+            </li>
+            <li style="--c:#d9dcd7; --tc:#1e221e">
+              <span>Soft Gray</span>
+              <em>#D9DCD7</em>
+            </li>
+            <li style="--c:#dce7e1; --tc:#1e221e">
+              <span>Pale Green</span>
+              <em>#DCE7E1</em>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 비주얼 키워드 + 이미지 -->
+        <div class="qs-visual__grid">
+          <div class="qs-visual__keywords qs-reveal">
+            <p class="qs-label">Visual Keywords</p>
+            <ul>
+              <li>Quiet</li>
+              <li>Balance</li>
+              <li>Slow</li>
+              <li>Natural</li>
+              <li>Resilience</li>
+            </ul>
+            <p class="qs-visual__note">자연광이 드는 조용한 공간, 피부 결이 자연스러운 모델, 물·유리·천·식물 같은 부드러운 소재. 극적인 전후 비교, 강한 메디컬 이미지, 즉각적인 리프팅 표현은 배제했습니다.</p>
           </div>
-          <p class="qs-section-desc qs-reveal">
-            QuietSkin은 브랜드 철학과 쇼핑 경험을 자연스럽게 연결하는 온라인 경험을 제안했습니다.
-            아이덴티티를 UI와 콘텐츠 전반에 일관되게 적용하며 감성적 경험 설계 역량을 넓혔습니다.
-          </p>
-        </header>
+          <figure class="qs-visual__img qs-reveal">
+            <img src="./images/quietskin/sec_img01.png" alt="콰이어트스킨 비주얼 무드 이미지" />
+          </figure>
+          <figure class="qs-visual__img qs-reveal">
+            <img src="./images/quietskin/hand.png" alt="콰이어트스킨 제품을 들고 있는 손" />
+          </figure>
+        </div>
 
-        <figure class="qs-figure qs-result-hero qs-reveal">
-          <img src="images/quietskin/quietSkin_pc.jpg" alt="QuietSkin 반응형 쇼핑몰 — 데스크톱과 모바일 화면" loading="lazy" />
-          <figcaption>데스크톱 · 모바일 반응형으로 구현한 QuietSkin 쇼핑몰</figcaption>
-        </figure>
-
-        <ul class="qs-result-list">
-          <li class="qs-reveal"><span>01</span>브랜드 중심의 쇼핑 경험 구축</li>
-          <li class="qs-reveal"><span>02</span>반응형 쇼핑몰 구현</li>
-          <li class="qs-reveal"><span>03</span>콘텐츠 기반 제품 탐색 구조 설계</li>
-          <li class="qs-reveal"><span>04</span>브랜드 아이덴티티의 디지털 확장</li>
-          <li class="qs-reveal"><span>05</span>AI 이미지 활용 경험</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- =========================================================
-      07. REVIEW
-    ========================================================== -->
-    <section class="qs-section qs-review-section" id="qs-review" data-qs-section>
-      <div class="qs-wrap">
-        <div class="qs-review qs-reveal">
-          <p class="qs-eyebrow">Review &amp; Learning</p>
-          <p class="qs-review-quote">
-            좋은 브랜드 경험은 제품을 설명하기보다,
-            <em>사용자의 감정을 움직이는 것</em>에서 시작된다.
-          </p>
-          <p class="qs-review-body">
-            이번 프로젝트로 제품을 파는 것이 아니라 브랜드의 가치와 철학을 경험으로 전달하는 일이 중요하다는 것을 배웠습니다.
-            사용자가 브랜드를 어떻게 느끼고 기억하는지에 대한 고민은 UI뿐 아니라 콘텐츠 구성과 비주얼 방향까지 영향을 준다는 것을 체감했고,
-            QuietSkin은 브랜드 감성을 디지털 경험으로 구현하며 사용자와 브랜드의 관계를 설계해본 프로젝트였습니다.
-          </p>
-          <a href="https://hye0277-erin.github.io/QuietSkin/index.html" class="qs-btn qs-btn-green" target="_blank" rel="noopener">
-            라이브 사이트 보기
-            <span class="material-symbols-rounded" aria-hidden="true">arrow_outward</span>
-          </a>
+        <!-- 성분 아이콘 -->
+        <div class="qs-ingredients qs-reveal">
+          <p class="qs-label">Key Ingredients</p>
+          <ul>
+            <li><img src="./images/quietskin/ingredient_1.png" alt="성분 1" /></li>
+            <li><img src="./images/quietskin/ingredient_2.png" alt="성분 2" /></li>
+            <li><img src="./images/quietskin/ingredient_3.png" alt="성분 3" /></li>
+            <li><img src="./images/quietskin/ingredient_4.png" alt="성분 4" /></li>
+            <li><img src="./images/quietskin/ingredient_5.png" alt="성분 5" /></li>
+          </ul>
         </div>
       </div>
     </section>
-  </main>
 
-  <!-- 클릭 복사 토스트 -->
-  <div class="qs-toast" data-qs-toast aria-live="polite"></div>
+    <!-- ═══════════════════════════════════════
+      KEY SCREENS
+    ═══════════════════════════════════════ -->
+    <section class="qs-section qs-section--alt qs-screens" id="qs-screens" data-section>
+      <div class="qs-wrap">
+        <div class="qs-section-head qs-reveal">
+          <p class="qs-label">Website Design</p>
+          <h2 class="qs-h2">브랜드 철학에서 시작해<br>루틴 선택까지 이어지는 웹 경험</h2>
+          <p class="qs-section-desc">QuietSkin이 왜 슬로우 에이징인지를 먼저 이해하고, 자신의 피부 상태에 맞는 루틴을 선택하는 흐름으로 설계했습니다.</p>
+        </div>
+
+        <figure class="qs-screens__main qs-reveal">
+          <img src="./images/quietskin/quietSkin_pc.jpg" alt="콰이어트스킨 데스크톱과 모바일 화면" />
+          <figcaption>메인 페이지 — 브랜드 메시지와 제품 루틴 중심 구성</figcaption>
+        </figure>
+
+        <div class="qs-screens__sub">
+          <figure class="qs-reveal">
+            <img src="./images/quietskin/quietsSkin-main.webp" alt="콰이어트스킨 메인 비주얼" />
+            <figcaption>Brand Story</figcaption>
+          </figure>
+          <figure class="qs-reveal">
+            <img src="./images/quietskin/all_poroduct_page.png" alt="전체 제품 목록 페이지" />
+            <figcaption>Product List</figcaption>
+          </figure>
+          <figure class="qs-reveal">
+            <img src="./images/quietskin/morning_routine_page.jpg" alt="모닝 루틴 페이지" />
+            <figcaption>Morning Routine</figcaption>
+          </figure>
+          <figure class="qs-reveal">
+            <img src="./images/quietskin/photo_reviews_page.png" alt="포토 리뷰 페이지" />
+            <figcaption>Photo Review</figcaption>
+          </figure>
+        </div>
+
+        <div class="qs-reviews qs-reveal">
+          <p class="qs-label">User Review</p>
+          <ul>
+            <li><img src="./images/quietskin/review_img_01.jpg" alt="사용자 리뷰 이미지 1" /></li>
+            <li><img src="./images/quietskin/review_img_02.jpg" alt="사용자 리뷰 이미지 2" /></li>
+            <li><img src="./images/quietskin/review_img_04.jpg" alt="사용자 리뷰 이미지 4" /></li>
+            <li><img src="./images/quietskin/review_img_05.jpg" alt="사용자 리뷰 이미지 5" /></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+      RETROSPECTIVE
+    ═══════════════════════════════════════ -->
+    <section class="qs-section qs-retro" id="qs-retro" data-section>
+      <div class="qs-wrap">
+        <div class="qs-retro__inner qs-reveal">
+          <p class="qs-label">Retrospective</p>
+          <h2 class="qs-h2">화면을 만들기 전에<br>브랜드가 무엇을 말해야 하는지를<br /> 먼저 정했습니다</h2>
+          <p>QuietSkin은 처음부터 슬로우 에이징을 브랜드 핵심으로 설정하고, 그 철학이 제품 구성·콘텐츠·웹 경험 전반에 일관되게 흐르도록 설계했습니다. 빠른 효과를 강조하는 시장에서 반대 방향을 명확히 선택하는 것이 이 브랜드의 출발점이었습니다.</p>
+          <p>브랜드 전략, 콘텐츠, UI/UX는 각각의 작업이 아니라 하나의 사용자 경험으로 연결되어야 한다는 것을 이 프로젝트에서 직접 구현했습니다.</p>
+
+          <ul class="qs-retro__outcomes">
+            <li>슬로우 에이징 브랜드 포지셔닝 설계</li>
+            <li>타깃 소비자 인사이트 및 페르소나 정의</li>
+            <li>브랜드 메시지 및 슬로건 기획</li>
+            <li>4단계 제품 루틴 구조 설계</li>
+            <li>콘텐츠 마케팅 캠페인 기획</li>
+            <li>브랜드 철학과 커머스 경험 연결</li>
+            <li>웹사이트 정보 구조 설계 및 디자인</li>
+          </ul>
+
+          <div class="qs-retro__links">
+            <a href="https://hye0277-erin.github.io/QuietSkin/index.html" class="qs-btn-primary" target="_blank" rel="noopener">
+              라이브 사이트 보기
+              <span class="material-symbols-rounded" aria-hidden="true">open_in_new</span>
+            </a>
+            <a href="./main.html" class="qs-btn-ghost">
+              포트폴리오로 돌아가기
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <footer class="site-footer">
     <p>© 2026 HYE02 Portfolio. All Rights Reserved.</p>
   </footer>
 
-  <!-- GSAP / Lenis CDN (전역 main.js 호환) -->
+  <button type="button" class="scroll-top-btn" data-scroll-top aria-label="맨 위로 이동">
+    <span class="material-symbols-rounded" aria-hidden="true">arrow_upward</span>
+  </button>
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="./js/main.js"></script>
   <script src="./js/quietskin.js"></script>
