@@ -14,20 +14,7 @@
 <body class="archive-page">
   <a class="skip-link" href="#workMain">본문 바로가기</a>
 
-  <header class="site-header" data-header>
-    <a href="../index.html#intro" class="brand" data-magnetic aria-label="HYE02 Portfolio Home">
-      <span class="brand-mark">HYE02</span>
-      <span class="brand-sub">DESIGN PORTFOLIO</span>
-    </a>
-    <nav class="gnb" aria-label="주요 메뉴">
-      <a href="../index.html#works">Works</a>
-      <a href="../index.html#about">About</a>
-      <a href="../index.html#archive">Experience</a>
-      <a href="../index.html#process">Process</a>
-      <a href="../index.html#contact">Contact</a>
-    </nav>
-    <a href="../archive.html" class="header-cta" data-magnetic>← Archive</a>
-  </header>
+  <div id="site-header-placeholder"></div>
 
   <main id="workMain" class="work-detail-main">
     <a class="work-back" href="../archive.html">← 작업물 목록으로</a>
@@ -60,5 +47,35 @@
   <footer class="archive-page-footer">
     <p>© 2026 HYE02 Portfolio Archive. All Rights Reserved.</p>
   </footer>
+  <script>
+    fetch("./header.html").then(r => r.text()).then(html => {
+      const placeholder = document.getElementById("site-header-placeholder");
+      if (placeholder) { placeholder.outerHTML = html; }
+      const menuToggle = document.querySelector("[data-menu-toggle]");
+      const header = document.querySelector("[data-header]");
+      const menuIcon = menuToggle?.querySelector(".menu-toggle-icon");
+      if (menuToggle && header) {
+        menuToggle.addEventListener("click", () => {
+          const open = header.classList.toggle("is-menu-open");
+          menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+          if (menuIcon) menuIcon.textContent = open ? "close" : "menu";
+        });
+        header.querySelectorAll(".gnb a").forEach(link => {
+          link.addEventListener("click", () => {
+            header.classList.remove("is-menu-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            if (menuIcon) menuIcon.textContent = "menu";
+          });
+        });
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 860) {
+            header.classList.remove("is-menu-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            if (menuIcon) menuIcon.textContent = "menu";
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
