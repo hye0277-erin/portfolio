@@ -1,3 +1,30 @@
+/* ---- Header (라이트 화이트 테마) ---- */
+.qs-page-body .site-header {
+  background: rgba(255,255,255,0.92) !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  backdrop-filter: blur(16px) !important;
+}
+.qs-page-body .brand,
+.qs-page-body .gnb a { color: #1a1a1a; }
+.qs-page-body .brand-sub { color: #888; }
+.qs-page-body .menu-toggle {
+  border-color: rgba(0,0,0,0.12);
+  background: rgba(0,0,0,0.04);
+  color: #1a1a1a;
+}
+
+@media (max-width: 860px) {
+  .qs-page-body .menu-toggle + .gnb {
+    background: rgba(255,255,255,0.97) !important;
+    border-color: rgba(0,0,0,0.08) !important;
+    box-shadow: none !important;
+  }
+  .qs-page-body .menu-toggle + .gnb a,
+  .qs-page-body .menu-toggle + .gnb .gnb-archive,
+  .qs-page-body .menu-toggle + .gnb .gnb-aboutme { color: #1a1a1a !important; }
+  .qs-page-body .gnb-divider { background: rgba(0,0,0,0.08); }
+}
+
 /* =========================
    PAPERLOGY FONT
 ========================= */
@@ -221,21 +248,27 @@
     linear-gradient(to right, rgba(12,22,15,.3) 0%, transparent 60%);
 }
 
-/* 메인 카피 영역 (좌하단) */
+/* 메인 카피 영역 */
 .qs-hero__body {
   position: relative;
   z-index: 1;
-  padding: 0 min(calc((100vw - var(--w)) / 2 + 0px), 24px) 140px;
-  max-width: calc(var(--w) + 48px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  align-items: end;
+  gap: 0 64px;
+  padding: 0 clamp(24px, 6vw, 80px) 80px;
+  max-width: 1320px;
   margin: 0 auto;
   width: 100%;
 }
 
 .qs-hero__tag {
+  grid-column: 1 / -1;
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 28px;
+  margin-bottom: 48px;
   color: rgba(255,255,255,.55);
   font-size: 11px;
   font-weight: 600;
@@ -251,13 +284,16 @@
 }
 
 .qs-hero__title {
-  margin: 0 0 28px;
+  grid-column: 1 / -1;
+  margin: 0 0 0;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
 }
 
 .qs-hero__title-en {
   display: block;
   font-family: var(--font-sans);
-  font-size: clamp(56px, 9vw, 130px);
+  font-size: clamp(44px, 6.5vw, 96px);
   font-weight: 700;
   line-height: .92;
   letter-spacing: -.03em;
@@ -266,26 +302,27 @@
 
 .qs-hero__title-ko {
   display: block;
-  margin-top: 14px;
-  font-size: clamp(18px, 2.4vw, 32px);
+  margin-top: 16px;
+  font-size: clamp(16px, 1.8vw, 24px);
   font-weight: 300;
-  color: rgba(255,255,255,.7);
-  letter-spacing: .02em;
+  color: rgba(255,255,255,.6);
+  letter-spacing: .04em;
 }
 
 .qs-hero__desc {
-  margin: 0 0 40px;
+  margin: 32px 0 32px;
   color: rgba(255,255,255,.55);
-  font-size: 15px;
-  line-height: 2;
+  font-size: 14px;
+  line-height: 1.9;
   word-break: keep-all;
-  max-width: 440px;
 }
 
 .qs-hero__cta {
+  grid-column: 1;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .qs-hero__btn-down {
@@ -326,18 +363,18 @@
 
 .qs-hero__btn-live .material-symbols-rounded { font-size: 15px; }
 
-.qs-hero__meta-line {
-  width: 100%;
-  height: 1px;
-  background: rgba(255,255,255,.15);
-  margin: 28px 0;
-}
+.qs-hero__meta-line { display: none; }
 
-/* 메타 정보 (CTA 하단) */
+/* 메타 정보 (우측 컬럼) */
 .qs-hero__meta {
-  display: flex;
-  gap: 32px;
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 32px;
   margin-top: 32px;
+  padding-left: 40px;
+  border-left: 1px solid rgba(255,255,255,.12);
+  align-self: end;
 }
 
 .qs-hero__meta div {
@@ -1370,11 +1407,34 @@
 
   /* Hero */
   .qs-hero__body {
+    grid-template-columns: 1fr;
     padding: 0 20px 60px;
+    gap: 0;
+  }
+
+  .qs-hero__tag { margin-bottom: 32px; }
+
+  .qs-hero__title {
+    padding-bottom: 28px;
   }
 
   .qs-hero__title-en {
-    font-size: clamp(44px, 14vw, 72px);
+    font-size: clamp(36px, 12vw, 64px);
+  }
+
+  .qs-hero__desc { margin: 24px 0 24px; }
+
+  .qs-hero__cta { grid-column: auto; }
+
+  .qs-hero__meta {
+    grid-column: auto;
+    grid-template-columns: 1fr 1fr;
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,.12);
+    padding-left: 0;
+    padding-top: 24px;
+    margin-top: 24px;
+    gap: 16px 24px;
   }
 
   .qs-hero__scroll { display: none; }
