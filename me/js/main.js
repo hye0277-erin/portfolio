@@ -56,25 +56,17 @@
     gsap.registerPlugin(ScrollTrigger);
 
     /* 인트로 */
-    gsap.fromTo(".s-intro__tag",
-      { opacity: 0, y: 12 },
-      { opacity: 1, y: 0, duration: .5, ease: "power3.out", delay: .1 }
-    );
     gsap.fromTo("#introName .char",
-      { opacity: 0, y: 52 },
-      { opacity: 1, y: 0, duration: .7, stagger: .1, ease: "power4.out", delay: .25 }
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: .6, stagger: .05, ease: "power4.out", delay: .1 }
     );
-    gsap.fromTo(".s-intro__desc",
-      { opacity: 0, y: 16 },
-      { opacity: 1, y: 0, duration: .7, ease: "power3.out", delay: .6 }
+    gsap.fromTo(".s-intro__sub",
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: .5, ease: "power3.out", delay: .9 }
     );
-    gsap.fromTo(".s-intro__meta",
-      { opacity: 0, y: 12 },
-      { opacity: 1, y: 0, duration: .6, ease: "power3.out", delay: .75 }
-    );
-    gsap.fromTo(".s-intro__img",
-      { opacity: 0, x: 32 },
-      { opacity: 1, x: 0, duration: 1.0, ease: "power4.out", delay: .15 }
+    gsap.fromTo(".s-intro__float",
+      { opacity: 0, scale: .8 },
+      { opacity: 1, scale: 1, duration: .6, stagger: .12, ease: "back.out(1.4)", delay: 1.0 }
     );
 
     /* 진행바 */
@@ -83,7 +75,7 @@
       scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: .2 }
     });
   } else {
-    document.querySelectorAll(".s-intro__tag, #introName .char, .s-intro__desc, .s-intro__meta, .s-intro__img").forEach(el => {
+    document.querySelectorAll("#introName .char, .s-intro__sub, .s-intro__float").forEach(el => {
       el.style.opacity = "1"; el.style.transform = "none";
     });
   }

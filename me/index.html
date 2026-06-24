@@ -44,29 +44,22 @@
     <!-- ══ INTRO ══ -->
     <section class="s-intro" id="intro">
       <canvas class="s-intro__bg" id="introBg" aria-hidden="true"></canvas>
-      <div class="s-intro__inner">
 
-        <span class="s-intro__tag" data-reveal>Designer</span>
+      <!-- 흩어진 태그들 -->
+      <div class="s-intro__float s-intro__float--1">UI / UX</div>
+      <div class="s-intro__float s-intro__float--2">E-commerce</div>
+      <div class="s-intro__float s-intro__float--3">AI-assisted Workflow</div>
+      <div class="s-intro__float s-intro__float--4">Web Publishing</div>
+      <div class="s-intro__float s-intro__float--5">Brand & Contents</div>
 
-        <h1 class="s-intro__name" id="introName">
-          <span class="char">김</span><span class="char">혜</span><span class="char">영</span>
+      <!-- 중앙 타이틀 -->
+      <div class="s-intro__center">
+        <h1 class="s-intro__copy" id="introName">
+          <span class="char">웹</span><span class="char">과</span> <span class="char i-hl">이</span><span class="char i-hl">커</span><span class="char i-hl">머</span><span class="char i-hl">스</span><br>
+          <span class="char">디</span><span class="char">자</span><span class="char">인</span><span class="char">을</span> <span class="char">설</span><span class="char">계</span><span class="char">하</span><span class="char">는</span><br>
+          <span class="char i-hl2">김</span><span class="char i-hl2">혜</span><span class="char i-hl2">영</span><span class="char">입</span><span class="char">니</span><span class="char">다</span>
         </h1>
-
-        <p class="s-intro__desc" data-reveal>
-          사용자가 자연스럽게 이해하고<br />움직일 수 있는 화면을 만듭니다.
-        </p>
-
-        <div class="s-intro__meta" data-reveal>
-          <span>UI / UX</span>
-          <span>HTML · CSS</span>
-          <span>Figma</span>
-          <span>Publishing</span>
-        </div>
-
-      </div>
-
-      <div class="s-intro__img" data-reveal="right">
-        <img src="./images/1369957905425.jpg" alt="김혜영" />
+        <p class="s-intro__sub">WEB DESIGN · UI/UX · E-COMMERCE · PUBLISHING</p>
       </div>
 
       <a href="#about" class="s-intro__scroll" aria-label="아래로">
@@ -355,8 +348,8 @@
     let W, H, dots;
 
     const resize = () => {
-      W = canvas.width  = canvas.offsetWidth;
-      H = canvas.height = canvas.offsetHeight;
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
     };
 
     const mkDot = () => ({
@@ -416,7 +409,15 @@
 
     init();
     draw();
-    window.addEventListener("resize", () => { resize(); });
+    window.addEventListener("resize", resize);
+
+    const intro = document.getElementById("intro");
+    const fadeCanvas = () => {
+      const ratio = Math.max(0, 1 - window.scrollY / (intro?.offsetHeight ?? window.innerHeight));
+      canvas.style.opacity = ratio;
+    };
+    window.addEventListener("scroll", fadeCanvas, { passive: true });
+    fadeCanvas();
   })();
   </script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
