@@ -332,26 +332,28 @@ window.addEventListener("DOMContentLoaded", () => {
     CUSTOM CURSOR (데스크톱 정밀 포인터에서만)
   ======================================================= */
   if (finePointer && !reduceMotion) {
-    document.body.classList.add("has-custom-cursor");
     const dot = document.querySelector("[data-cursor-dot]");
     const ring = document.querySelector("[data-cursor-ring]");
-    const dotX = gsap.quickTo(dot, "x", { duration: 0.12, ease: "power3" });
-    const dotY = gsap.quickTo(dot, "y", { duration: 0.12, ease: "power3" });
-    const ringX = gsap.quickTo(ring, "x", { duration: 0.35, ease: "power3" });
-    const ringY = gsap.quickTo(ring, "y", { duration: 0.35, ease: "power3" });
+    if (dot && ring) {
+      document.body.classList.add("has-custom-cursor");
+      const dotX = gsap.quickTo(dot, "x", { duration: 0.12, ease: "power3" });
+      const dotY = gsap.quickTo(dot, "y", { duration: 0.12, ease: "power3" });
+      const ringX = gsap.quickTo(ring, "x", { duration: 0.35, ease: "power3" });
+      const ringY = gsap.quickTo(ring, "y", { duration: 0.35, ease: "power3" });
 
-    window.addEventListener("pointermove", (e) => {
-      dotX(e.clientX); dotY(e.clientY);
-      ringX(e.clientX); ringY(e.clientY);
-    });
+      window.addEventListener("pointermove", (e) => {
+        dotX(e.clientX); dotY(e.clientY);
+        ringX(e.clientX); ringY(e.clientY);
+      });
 
-    const hoverTargets = 'a, button, [data-magnetic], .index-row, .rotunda-card, input, textarea';
-    document.querySelectorAll(hoverTargets).forEach((el) => {
-      el.addEventListener("pointerenter", () => ring.classList.add("is-active"));
-      el.addEventListener("pointerleave", () => ring.classList.remove("is-active"));
-    });
-    window.addEventListener("pointerdown", () => ring.classList.add("is-down"));
-    window.addEventListener("pointerup", () => ring.classList.remove("is-down"));
+      const hoverTargets = 'a, button, [data-magnetic], .index-row, .rotunda-card, input, textarea';
+      document.querySelectorAll(hoverTargets).forEach((el) => {
+        el.addEventListener("pointerenter", () => ring.classList.add("is-active"));
+        el.addEventListener("pointerleave", () => ring.classList.remove("is-active"));
+      });
+      window.addEventListener("pointerdown", () => ring.classList.add("is-down"));
+      window.addEventListener("pointerup", () => ring.classList.remove("is-down"));
+    }
   }
 
   /* =======================================================

@@ -2,6 +2,7 @@
   const page = document.querySelector('.qs-page');
   if (!page) return;
 
+
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ── 스크롤 reveal ── */
