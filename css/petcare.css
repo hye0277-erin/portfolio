@@ -7,21 +7,38 @@
 
 /* 헤더 — 흰색 글래스모피즘 */
 body:has(.petcase-page) .site-header {
-  background: rgba(255, 255, 255, 0.65);
-  border-color: rgba(79, 114, 96, 0.14);
-  box-shadow: 0 8px 32px rgba(79, 114, 96, 0.10), inset 0 1px 0 rgba(255,255,255,0.9);
-  backdrop-filter: blur(20px) saturate(1.6);
-  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  background: rgba(255, 255, 255, 0.45);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px rgba(79, 114, 96, 0.12), inset 0 1px 0 rgba(255,255,255,0.95);
+  backdrop-filter: blur(28px) saturate(1.8) brightness(1.05);
+  -webkit-backdrop-filter: blur(28px) saturate(1.8) brightness(1.05);
 }
 body:has(.petcase-page) .site-header.is-scrolled {
-  background: rgba(255, 255, 255, 0.82);
-  border-color: rgba(79, 114, 96, 0.20);
-  box-shadow: 0 12px 40px rgba(79, 114, 96, 0.14), inset 0 1px 0 rgba(255,255,255,0.95);
+  background: rgba(255, 255, 255, 0.62);
+  border-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 12px 40px rgba(79, 114, 96, 0.15), inset 0 1px 0 rgba(255,255,255,1);
+  backdrop-filter: blur(32px) saturate(2) brightness(1.06);
+  -webkit-backdrop-filter: blur(32px) saturate(2) brightness(1.06);
 }
 body:has(.petcase-page) .brand,
 body:has(.petcase-page) .gnb a,
 body:has(.petcase-page) .menu-toggle { color: var(--pcp-ink); }
 body:has(.petcase-page) .brand-sub { color: var(--pcp-muted); }
+body:has(.petcase-page) .menu-toggle {
+  border-color: var(--pcp-line-strong);
+  background: rgba(255,255,255,.7);
+}
+body:has(.petcase-page) .menu-toggle + .gnb {
+  background: rgba(255,255,255,.97);
+  border-color: var(--pcp-line-strong);
+  box-shadow: none;
+}
+body:has(.petcase-page) .menu-toggle + .gnb a {
+  color: var(--pcp-ink);
+}
+body:has(.petcase-page) .gnb-divider {
+  background: var(--pcp-line-strong);
+}
 
 /* 스크롤 상단 버튼 — PetCare 그린 */
 body:has(.petcase-page) .scroll-top-btn {
@@ -1591,6 +1608,14 @@ body.has-custom-cursor * {
 
   .pcp-hero-scroll-hint {
     margin-top: 40px;
+  }
+
+  .pcp-comp-section {
+    padding: 28px 20px;
+  }
+
+  .pcp-comp-grid {
+    grid-template-columns: 1fr;
   }
 }
 

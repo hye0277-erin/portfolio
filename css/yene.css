@@ -21,19 +21,40 @@
   line-height: 1.7;
   word-break: keep-all;
   overflow-wrap: break-word;
+  overflow-x: hidden;
 }
 
 /* ---- Header (라이트) ---- */
 .yene-case .site-header {
-  background: rgba(255,255,255,0.96);
-  border-color: var(--yn-line);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 1px 0 var(--yn-line);
+  background: rgba(255,255,255,0.92) !important;
+  border-color: var(--yn-line) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  box-shadow: 0 1px 0 var(--yn-line) !important;
 }
 .yene-case .brand,
 .yene-case .gnb a,
 .yene-case .menu-toggle { color: var(--yn-navy); }
 .yene-case .brand-sub { color: var(--yn-muted); }
+.yene-case .menu-toggle {
+  border-color: var(--yn-line);
+  background: rgba(15,34,61,.05);
+}
+@media (max-width: 860px) {
+  .yene-case .menu-toggle + .gnb {
+    background: rgba(255,255,255,0.97) !important;
+    border-color: var(--yn-line) !important;
+    box-shadow: none !important;
+  }
+  .yene-case .menu-toggle + .gnb a,
+  .yene-case .menu-toggle + .gnb .gnb-archive,
+  .yene-case .menu-toggle + .gnb .gnb-aboutme {
+    color: var(--yn-navy) !important;
+  }
+}
+.yene-case .gnb-divider {
+  background: var(--yn-line);
+}
 .yene-case .skip-link { background: var(--yn-navy); color: #fff; }
 .yene-case .scroll-progress { background: var(--yn-line); }
 .yene-case .scroll-progress::before {
@@ -137,12 +158,12 @@
 .yn-btn-ghost .material-symbols-rounded { font-size: 18px; }
 
 .yn-hero-meta {
-  list-style: none; margin: 0; padding: 0;
-  display: grid; gap: 18px;
-  border-left: 1px solid rgba(255,255,255,0.15);
-  padding-left: 28px;
+  list-style: none; margin: 32px 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 20px 36px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 24px;
 }
-.yn-hero-meta li { display: flex; flex-direction: column; gap: 3px; }
+.yn-hero-meta li { display: flex; flex-direction: column; gap: 4px; }
 .yn-hero-meta b {
   font-size: 12px; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--yn-yellow); font-weight: 800;
@@ -542,12 +563,6 @@
 ========================================================= */
 @media (max-width: 1024px) {
   .yn-hero-inner { grid-template-columns: 1fr; }
-  .yn-hero-meta {
-    border-left: none;
-    border-top: 1px solid rgba(255,255,255,0.12);
-    padding-left: 0; padding-top: 22px;
-    grid-template-columns: repeat(2,1fr);
-  }
   .yn-two-col,
   .yn-role-wrap,
   .yn-outcome-wrap { grid-template-columns: 1fr; gap: 32px; }
@@ -556,11 +571,69 @@
 }
 
 @media (max-width: 720px) {
+  .yn-hero-inner {
+    padding: 100px 20px 48px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .yn-hero-title {
+    font-size: clamp(44px, 12vw, 68px);
+  }
+
+  .yn-hero-sub {
+    font-size: 17px;
+  }
+
+  .yn-hero-desc {
+    font-size: 15px;
+  }
+
+  .yn-btn-primary,
+  .yn-btn-ghost {
+    font-size: 15px;
+    padding: 12px 20px;
+  }
+
+  /* 최소 12px 보장 — 라벨/태그류 */
+  .yn-eyebrow,
+  .yn-label,
+  .yn-tag-bar span,
+  .yn-ba-page-label,
+  .yn-ba-caption li,
+  .yn-hero-meta b { font-size: 12px; }
+
+  /* 메타 값, 기여도 라벨 */
+  .yn-hero-meta span,
+  .yn-contribution-label { font-size: 15px; }
+
+  /* 본문 15px 통일 */
+  .yn-two-col p,
+  .yn-row p,
+  .yn-solution-card p,
+  .yn-role-copy p,
+  .yn-outcome-copy p,
+  .yn-outcome-copy li,
+  .yn-role-list li,
+  .yn-reflection-body p,
+  .yn-display-sub { font-size: 15px; }
+
+  .yn-wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-x: hidden;
+  }
+
   .yn-ba-row {
     grid-template-columns: 1fr;
     gap: 8px;
   }
   .yn-ba-divider { transform: rotate(90deg); margin: 4px 0; }
+
+  .yn-ba-card--before .yn-ba-img-wrap img {
+    height: 260px;
+  }
+
   .yn-gallery { grid-template-columns: 1fr; }
   .yn-row {
     grid-template-columns: 44px 1fr;
@@ -570,7 +643,7 @@
 }
 
 @media (max-width: 480px) {
-  .yn-hero-meta { grid-template-columns: 1fr; }
+  .yn-hero-meta { gap: 16px 24px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
