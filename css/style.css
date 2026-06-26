@@ -17,8 +17,8 @@
   --max: 1600px;
   --section-x: clamp(20px, 4vw, 72px);
   --section-y: clamp(96px, 13vw, 190px);
-  --radius-lg: 34px;
-  --radius-md: 22px;
+  --radius-lg: 12px;
+  --radius-md: 8px;
   --header-h: 82px;
 
   --font: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -278,7 +278,7 @@ button {
   position: absolute;
   inset: 16px;
   border: 1px dashed rgba(255, 255, 255, 0.18);
-  border-radius: 20px;
+  border-radius: 8px;
   pointer-events: none;
 }
 
@@ -1045,7 +1045,7 @@ button {
     min-height: 0;
     padding: 18px;
     border: 1px solid var(--line);
-    border-radius: 18px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.045);
   }
 
@@ -1101,7 +1101,7 @@ button {
     gap: 4px;
     padding: 10px;
     border: 1px solid var(--line);
-    border-radius: 22px;
+    border-radius: 8px;
     background: rgba(7, 8, 12, 0.95);
     backdrop-filter: blur(20px);
     box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
@@ -1400,7 +1400,7 @@ button {
   min-height: 330px;
   padding: 14px;
   border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 28px;
+  border-radius: 8px;
   background: linear-gradient(145deg, rgba(255,255,255,0.11), rgba(255,255,255,0.035));
   box-shadow: 0 24px 70px rgba(0,0,0,0.22);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -1421,7 +1421,7 @@ button {
 .company-thumb {
   height: 230px;
   margin-bottom: 18px;
-  border-radius: 22px;
+  border-radius: 8px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.10);
   background:
@@ -1619,7 +1619,7 @@ body.archive-page::before {
   display: block;
   padding: 10px 10px 16px;
   border: 1px solid var(--archive-line);
-  border-radius: 16px;
+  border-radius: 6px;
   background: rgba(255,255,255,0.54);
   transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
@@ -2096,7 +2096,7 @@ body.archive-page::before {
   position: relative;
   min-height: 100svh;
   overflow: hidden;
-  padding: calc(var(--header-h) + 20px) var(--section-x) 30px;
+  padding: var(--header-h) var(--section-x);
   display: grid;
   grid-template-columns: minmax(280px, 0.9fr) minmax(480px, 1.25fr) minmax(240px, 0.62fr);
   align-items: center;
@@ -2147,8 +2147,8 @@ body.archive-page::before {
 .rotunda-wrap {
   position: relative;
   z-index: 2;
-  height: min(58vh, 500px);
-  min-height: 350px;
+  height: min(clamp(200px, 18.5vw, 320px), 42vh);
+  min-height: 200px;
   transform-style: preserve-3d;
   cursor: grab;
 }
@@ -2156,7 +2156,7 @@ body.archive-page::before {
 
 .rotunda-stage {
   position: absolute;
-  left: 50%; top: 45%;
+  left: 50%; top: 50%;
   width: 1px; height: 1px;
   transform-style: preserve-3d;
   will-change: transform;
@@ -2165,19 +2165,19 @@ body.archive-page::before {
 .rotunda-card {
   position: absolute;
   left: 50%; top: 50%;
-  width: clamp(220px, 18vw, 320px);
-  height: min(clamp(308px, 25.2vw, 448px), 48vh);
+  width: clamp(300px, 28vw, 500px);
+  height: min(clamp(200px, 18.5vw, 300px), 42vh);
   will-change: opacity;
   transform-style: preserve-3d;
 }
 
 .card-inner {
   width: 100%; height: 100%;
-  padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-lg);
-  background: linear-gradient(145deg, rgba(25, 28, 36, 0.9), rgba(15, 17, 22, 0.95));
-  box-shadow: 0 38px 90px rgba(0, 0, 0, 0.45);
+  background: transparent;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   transform-style: preserve-3d;
 }
@@ -2185,19 +2185,16 @@ body.archive-page::before {
 .project-image {
   width: 100%;
   height: 100%;
-  border-radius: 22px;
+  border-radius: 8px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
-    radial-gradient(circle at 30% 20%, rgba(184, 255, 101, 0.18), transparent 34%),
-    radial-gradient(circle at 80% 75%, rgba(140, 199, 255, 0.16), transparent 36%);
+  border: none;
+  background: none;
 }
 .project-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
+  object-position: center;
   transform: translate3d(0, 0, 0);
 }
 
@@ -2401,8 +2398,8 @@ body.archive-page::before {
   .intro-copy { max-width: 100%; }
   /* 모바일에서는 DOM 순서대로 쌓이도록 정렬 초기화 (텍스트 → 갤러리 → 패널) */
   .intro-copy, .rotunda-wrap, .intro-panel { order: 0; }
-  .rotunda-wrap { height: 420px; min-height: 420px; }
-  .rotunda-card { width: 260px; height: 364px; }
+  .rotunda-wrap { height: 360px; min-height: 360px; }
+  .rotunda-card { width: 320px; height: 210px; }
   .intro-panel { position: relative; right: auto; bottom: auto; width: 100%; }
   .intro-control {
     position: relative;
@@ -2423,8 +2420,8 @@ body.archive-page::before {
 @media (max-width: 560px) {
   .intro-title { font-size: clamp(40px, 13vw, 64px); }
   .intro-desc { font-size: 14px; }
-  .rotunda-wrap { height: 340px; min-height: 340px; }
-  .rotunda-card { width: 200px; height: 280px; }
+  .rotunda-wrap { height: 300px; min-height: 300px; }
+  .rotunda-card { width: 260px; height: 170px; }
   .intro-control p { display: none; }
 }
 
@@ -2488,7 +2485,7 @@ body.archive-page::before {
 
   .featured-project__meta {
     grid-template-columns: 1fr;
-    border-radius: 18px;
+    border-radius: 8px;
   }
 
   .featured-project__actions {

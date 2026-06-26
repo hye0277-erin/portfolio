@@ -5,39 +5,28 @@
    - Typography: Pretendard + Instrument Serif (Italic Accents)
 ========================================================= */
 
-/* 헤더 — 흰색 글래스모피즘 */
+/* 헤더 — 다크 글래스모피즘 */
 body:has(.petcase-page) .site-header {
-  background: rgba(255, 255, 255, 0.45);
-  border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 8px 32px rgba(79, 114, 96, 0.12), inset 0 1px 0 rgba(255,255,255,0.95);
-  backdrop-filter: blur(28px) saturate(1.8) brightness(1.05);
-  -webkit-backdrop-filter: blur(28px) saturate(1.8) brightness(1.05);
+  background: rgba(7, 8, 12, 0.70);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
 }
 body:has(.petcase-page) .site-header.is-scrolled {
-  background: rgba(255, 255, 255, 0.62);
-  border-color: rgba(255, 255, 255, 0.75);
-  box-shadow: 0 12px 40px rgba(79, 114, 96, 0.15), inset 0 1px 0 rgba(255,255,255,1);
-  backdrop-filter: blur(32px) saturate(2) brightness(1.06);
-  -webkit-backdrop-filter: blur(32px) saturate(2) brightness(1.06);
+  background: rgba(7, 8, 12, 0.85);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 body:has(.petcase-page) .brand,
 body:has(.petcase-page) .gnb a,
-body:has(.petcase-page) .menu-toggle { color: var(--pcp-ink); }
-body:has(.petcase-page) .brand-sub { color: var(--pcp-muted); }
+body:has(.petcase-page) .menu-toggle { color: #f4f5f8; }
+body:has(.petcase-page) .brand-sub { color: rgba(244,245,248,.5); }
 body:has(.petcase-page) .menu-toggle {
-  border-color: var(--pcp-line-strong);
-  background: rgba(255,255,255,.7);
-}
-body:has(.petcase-page) .menu-toggle + .gnb {
-  background: rgba(255,255,255,.97);
-  border-color: var(--pcp-line-strong);
-  box-shadow: none;
-}
-body:has(.petcase-page) .menu-toggle + .gnb a {
-  color: var(--pcp-ink);
+  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.08);
 }
 body:has(.petcase-page) .gnb-divider {
-  background: var(--pcp-line-strong);
+  background: rgba(255,255,255,.3);
 }
 
 /* 스크롤 상단 버튼 — PetCare 그린 */
@@ -162,80 +151,171 @@ body.has-custom-cursor * {
 /* ============================================================
    HERO
 ============================================================ */
+/* ─── HERO (중앙 카피 + 플로팅 칩) ─── */
 .pcp-hero {
   position: relative;
-  padding: 160px 0 120px;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
 }
 
+/* 배경 이미지 */
 .pcp-hero-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
-
 .pcp-hero-bg-img {
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   object-fit: cover;
   object-position: center 30%;
-  opacity: 0.07;
-  filter: saturate(0.4);
+  opacity: 0.3;
+  filter: saturate(0.25) blur(0px);
+}
+.pcp-hero-bg-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 55% 65% at 50% 50%,
+    transparent 20%, rgba(247,246,242,0.85) 70%, var(--pcp-bg) 95%);
 }
 
-.pcp-hero-bg-overlay {
+/* 플로팅 칩 — 중앙 집중 배치 */
+.pcp-floats {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 75% 60% at 70% 50%, rgba(79, 114, 96, 0.06) 0%, transparent 70%),
-              linear-gradient(180deg, var(--pcp-bg) 0%, transparent 40%, var(--pcp-bg) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.pcp-float-chip {
+  position: absolute;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.30);
+  backdrop-filter: blur(14px) saturate(1.6);
+  -webkit-backdrop-filter: blur(14px) saturate(1.6);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  font-size: 13px; font-weight: 600; color: var(--pcp-ink);
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.6);
+  animation: pcpFloat 6s ease-in-out infinite;
 }
 
-.pcp-hero-grid {
+/* 좌 3개 */
+.pcp-fc--a { top: 18%; left: 14%; animation-delay: 0s;   animation-duration: 6.2s; }
+.pcp-fc--c { top: 38%; left: 10%; animation-delay: 0.8s; animation-duration: 7s;   }
+.pcp-fc--e { top: 56%; left: 15%; animation-delay: 1.6s; animation-duration: 5.8s; }
+
+/* 우 3개 */
+.pcp-fc--b { top: 14%; right: 13%; animation-delay: 1.0s; animation-duration: 5.8s; }
+.pcp-fc--d { top: 34%; right: 10%; animation-delay: 1.8s; animation-duration: 6.4s; }
+.pcp-fc--f { top: 54%; right: 14%; animation-delay: 0.4s; animation-duration: 6.8s; }
+
+@keyframes pcpFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* 좌우 2열 그리드 */
+.pcp-hero-center {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(48px, 6vw, 96px);
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
   align-items: center;
+  padding: clamp(70px, 9vh, 110px) 0 clamp(24px, 3vh, 40px);
+  flex: 1;
 }
 
+/* 왼쪽 카피 */
+.pcp-hero-copy {
+  display: flex; flex-direction: column; gap: 0;
+}
+
+/* 태그 */
 .pcp-hero-kicker {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 28px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+  margin-bottom: 32px;
 }
-
 .pcp-chip {
-  display: inline-flex;
-  align-items: center;
-  height: 32px;
-  padding: 0 16px;
+  display: inline-flex; align-items: center;
+  height: 28px; padding: 0 14px;
   border: 1px solid var(--pcp-line-strong);
   border-radius: 999px;
   color: var(--pcp-primary-dark);
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 11px; font-weight: 700; letter-spacing: .05em;
+  text-transform: uppercase;
   background: var(--pcp-card);
-  letter-spacing: 0.02em;
 }
 
+/* 설명 */
 .pcp-hero-lead {
-  max-width: 580px;
-  margin: 28px 0 0;
-  color: #3A4840;
-  font-size: 17px;
-  line-height: 1.9;
+  margin: 20px 0 0;
+  color: var(--pcp-muted);
+  font-size: 16px; line-height: 1.9;
   word-break: keep-all;
 }
 
-/* Meta info panel */
-.pcp-meta-panel {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin-top: 48px;
-  max-width: 640px;
+/* 버튼 */
+.pcp-hero-links {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 36px;
+}
+.pcp-hero-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 14px 26px; border-radius: 6px;
+  font-size: 14px; font-weight: 700;
+  transition: all .2s; white-space: nowrap; cursor: pointer;
+}
+.pcp-hero-btn:hover { transform: translateY(-2px); }
+.pcp-hero-btn .material-symbols-rounded { font-size: 17px; }
+.pcp-hero-btn--primary {
+  background: var(--pcp-primary-dark); color: #fff;
+}
+.pcp-hero-btn--primary:hover { background: var(--pcp-green); }
+.pcp-hero-btn--outline {
+  border: 1.5px solid var(--pcp-line-strong);
+  color: var(--pcp-ink);
+  background: transparent;
+}
+.pcp-hero-btn--outline:hover { border-color: var(--pcp-primary-dark); color: var(--pcp-primary-dark); }
+
+/* 스크롤 하단 블록 */
+.pcp-hero-bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: clamp(20px, 3vh, 36px);
+}
+
+/* 메타 — 카피 아래 행 목록 */
+.pcp-hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--pcp-line);
+}
+.pcp-hero-meta > div {
+  display: flex; gap: 12px; align-items: baseline;
+  font-size: 13px;
+}
+.pcp-hero-meta dt {
+  width: 36px; flex-shrink: 0;
+  font-size: 10px; font-weight: 800;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--pcp-primary);
+}
+.pcp-hero-meta dd {
+  margin: 0;
+  font-weight: 500; color: var(--pcp-muted);
+  line-height: 1.5; word-break: keep-all;
 }
 
 .pcp-meta-card {
@@ -380,13 +460,11 @@ body.has-custom-cursor * {
 
 /* Scroll hint */
 .pcp-hero-scroll-hint {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-top: 64px;
+  gap: 8px;
+  padding-top: 40px;
   opacity: 0.45;
 }
 
@@ -1257,23 +1335,6 @@ body.has-custom-cursor * {
 .pcp-rolling-carousel-wrap {
   position: relative;
   padding: 60px 0 64px;
-}
-.pcp-rolling-carousel-wrap::before,
-.pcp-rolling-carousel-wrap::after {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 120px;
-  z-index: 3;
-  pointer-events: none;
-}
-.pcp-rolling-carousel-wrap::before {
-  left: 0;
-  background: linear-gradient(90deg, var(--pcp-bg) 0%, transparent 100%);
-}
-.pcp-rolling-carousel-wrap::after {
-  right: 0;
-  background: linear-gradient(270deg, var(--pcp-bg) 0%, transparent 100%);
 }
 
 .pcp-rolling-carousel {
