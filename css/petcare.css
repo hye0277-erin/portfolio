@@ -28,6 +28,9 @@ body:has(.petcase-page) .menu-toggle {
 body:has(.petcase-page) .gnb-divider {
   background: rgba(255,255,255,.3);
 }
+body:has(.petcase-page) .gnb-aboutme {
+  color: #07080a !important;
+}
 
 /* 스크롤 상단 버튼 — PetCare 그린 */
 body:has(.petcase-page) .scroll-top-btn {
@@ -417,7 +420,7 @@ body.has-custom-cursor * {
   }
 }
 
-/* Floating notification badges */
+/* Floating notification badges — 글래스모피즘 */
 .pcp-phone-float {
   position: absolute;
   display: flex;
@@ -425,9 +428,11 @@ body.has-custom-cursor * {
   gap: 8px;
   padding: 10px 16px;
   border-radius: 999px;
-  background: var(--pcp-card);
-  border: 1px solid var(--pcp-line);
-  box-shadow: 0 8px 30px -10px rgba(43, 63, 50, 0.22);
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(14px) saturate(1.8);
+  -webkit-backdrop-filter: blur(14px) saturate(1.8);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 4px 20px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.6);
   font-size: 12.5px;
   font-weight: 700;
   color: var(--pcp-ink);
@@ -437,20 +442,24 @@ body.has-custom-cursor * {
 }
 
 .pcp-phone-float--a {
-  top: 18%;
-  left: -48px;
+  top: 12%;
+  left: -52px;
   animation-delay: 0s;
 }
-
 .pcp-phone-float--b {
-  bottom: 22%;
-  right: -52px;
+  bottom: 18%;
+  right: -56px;
   animation-delay: -2s;
 }
-
-.pcp-phone-float .material-symbols-rounded {
-  font-size: 16px;
-  color: var(--pcp-primary);
+.pcp-phone-float--c {
+  top: 38%;
+  left: -60px;
+  animation-delay: -1s;
+}
+.pcp-phone-float--d {
+  bottom: 40%;
+  right: -64px;
+  animation-delay: -3s;
 }
 
 @keyframes pcp-float {
@@ -1579,6 +1588,16 @@ body.has-custom-cursor * {
    RESPONSIVE
 ============================================================ */
 @media (max-width: 1080px) {
+  .pcp-hero-center {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .pcp-phone-stage {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
   .pcp-hero-grid,
   .pcp-section-head,
   .pcp-two-col,
@@ -1625,7 +1644,29 @@ body.has-custom-cursor * {
   }
 
   .pcp-hero {
-    padding: 110px 0 64px;
+    min-height: auto;
+    padding: 0;
+  }
+
+  .pcp-hero-center {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: clamp(80px, 12vh, 120px) 0 32px;
+  }
+
+  .pcp-phone-stage {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .pcp-hero-meta {
+    margin-top: 24px;
+    padding-top: 20px;
+    gap: 8px;
+  }
+
+  .pcp-hero-bottom {
+    padding-bottom: 24px;
   }
 
   .pcp-meta-panel,
