@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PetCare+ UX/UI Case Study — HYE02 Portfolio" />
+  <title>PetCare+ Case Study | HYE02</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/petcare.css" />
+  <link rel="stylesheet" href="./css/petcare_casestudy.css" />
+</head>
+<body>
+  <div class="scroll-progress" data-progress aria-hidden="true"></div>
+  <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
+  <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <a href="./index.html" class="brand" aria-label="HYE02 Portfolio Home">
+      <span class="brand-mark">HYE02</span>
+      <span class="brand-sub">DESIGN PORTFOLIO</span>
+    </a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="material-symbols-rounded menu-toggle-icon" aria-hidden="true">menu</span>
+    </button>
+    <nav class="gnb" id="primary-navigation" aria-label="주요 메뉴">
+      <div class="gnb-center">
+        <a href="index.html#works" data-nav>Featured</a>
+        <a href="index.html#archive" data-nav>Experience</a>
+        <a href="index.html#process" data-nav>Process</a>
+        <a href="index.html#contact" data-nav>Contact</a>
+      </div>
+      <div class="gnb-divider" aria-hidden="true"></div>
+      <div class="gnb-right">
+        <a href="archive.html" class="gnb-archive">All Archive ↗</a>
+        <a href="me/index.html" target="_blank" class="gnb-aboutme">About Me ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="petcase-page pcs-page" id="petcare-casestudy">
+
+    <!-- 우측 고정 섹션 인덱스 -->
+    <nav class="pcp-fixed-index" aria-label="케이스 스터디 섹션 이동">
+      <a href="#pcs-hero"      aria-label="Overview"><em></em><span>Overview</span></a>
+      <a href="#pcs-problem"   aria-label="Problem"><em></em><span>Problem</span></a>
+      <a href="#pcs-challenge" aria-label="Challenge"><em></em><span>Challenge</span></a>
+      <a href="#pcs-flow"      aria-label="Flow"><em></em><span>Flow</span></a>
+      <a href="#pcs-design"    aria-label="Design"><em></em><span>Design</span></a>
+      <a href="#pcs-result"    aria-label="Result"><em></em><span>Result</span></a>
+      <a href="#pcs-review"    aria-label="Review"><em></em><span>Review</span></a>
+    </nav>
+
+    <!-- ================================================================
+         HERO / OVERVIEW
+    ================================================================ -->
+    <section class="pcp-hero pcp-section pcs-hero" id="pcs-hero" data-section>
+      <div class="pcp-hero-bg" aria-hidden="true">
+        <img src="./images/petcare/img_04.jpg" alt="" class="pcp-hero-bg-img" />
+        <div class="pcp-hero-bg-overlay"></div>
+      </div>
+
+      <div class="pcp-container pcs-hero-inner">
+        <!-- 왼쪽 카피 -->
+        <div class="pcs-hero-copy pcp-reveal">
+          <div class="pcs-hero-tags">
+            <span class="pcs-tag">UX/UI Case Study</span>
+            <span class="pcs-tag">Web App</span>
+            <span class="pcs-tag">Vibe Coding</span>
+          </div>
+          <h1 class="pcp-title">
+            아픈 반려견의 케어를<br />
+            <em>기록에서 진료까지</em> 연결합니다.
+          </h1>
+          <p class="pcp-hero-lead">
+            약, 식사, 음수량, 증상과 병원 일정을 한 앱에서 관리하고<br />
+            매일의 기록이 진료 전 건강 확인까지 이어지도록 설계했습니다.
+          </p>
+          <dl class="pcp-hero-meta">
+            <div><dt>구분</dt><dd>개인 작업 · 포트폴리오</dd></div>
+            <div><dt>역할</dt><dd>기획 · UIUX · 바이브코딩</dd></div>
+            <div><dt>기간</dt><dd>2026.03 — 2026.06</dd></div>
+            <div><dt>툴</dt><dd>Figma · Photoshop · Claude · Gemini</dd></div>
+          </dl>
+          <div class="pcs-hero-links">
+            <a href="https://hye0277-erin.github.io/petcare/" target="_blank" rel="noopener" class="pcs-btn pcs-btn--primary">
+              <span class="material-symbols-rounded">open_in_new</span>앱 보기
+            </a>
+            <a href="https://hye0277-erin.github.io/petcarelanding/" target="_blank" rel="noopener" class="pcs-btn pcs-btn--outline">
+              <span class="material-symbols-rounded">open_in_new</span>랜딩 보기
+            </a>
+            <a href="./petcare.html" class="pcs-btn pcs-btn--ghost">
+              <span class="material-symbols-rounded">arrow_back</span>프로젝트 소개
+            </a>
+          </div>
+        </div>
+
+        <!-- 오른쪽 폰 목업 -->
+        <div class="pcp-phone-stage pcp-reveal" aria-label="앱 화면 미리보기">
+          <div class="pcp-phone-halo" aria-hidden="true"></div>
+          <div class="pcp-phone">
+            <div class="pcp-phone-screen pcp-slideshow" data-slideshow>
+              <img class="is-active" src="./images/petcare/app_main.jpg" alt="Home 화면" />
+              <img src="./images/petcare/app_record.jpg" alt="Record 화면" />
+              <img src="./images/petcare/app_schejul.jpg" alt="Schedule 화면" />
+              <img src="./images/petcare/app_report.jpg" alt="Report 화면" />
+            </div>
+          </div>
+          <div class="pcp-phone-float pcp-phone-float--a" aria-hidden="true">
+            <span>💊</span><span class="pcp-float-label">약 복용 완료</span>
+          </div>
+          <div class="pcp-phone-float pcp-phone-float--b" aria-hidden="true">
+            <span>⚖️</span><span class="pcp-float-label">체중 3.8 kg</span>
+          </div>
+          <div class="pcp-phone-float pcp-phone-float--c" aria-hidden="true">
+            <span>💧</span><span class="pcp-float-label">음수량 340ml</span>
+          </div>
+          <div class="pcp-phone-float pcp-phone-float--d" aria-hidden="true">
+            <span>📅</span><span class="pcp-float-label">다음 진료 D-3</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcp-hero-bottom">
+        <div class="pcp-hero-scroll-hint pcp-reveal" aria-hidden="true">
+          <span class="pcp-scroll-line"></span>
+          <span class="pcp-scroll-text">Scroll</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         01 · PROBLEM / BACKGROUND
+    ================================================================ -->
+    <section class="pcp-section pcs-section pcs-section--cream" id="pcs-problem" data-section>
+      <div class="pcp-container">
+
+        <div class="pcp-section-head pcp-reveal">
+          <div>
+            <p class="pcp-eyebrow">01 · Background</p>
+            <h2 class="pcp-section-title">기록은 있는데,<br />막상 <em>필요할 때 찾을 수가 없었습니다.</em></h2>
+          </div>
+          <p class="pcp-desc">
+            노령견이나 만성질환이 있는 반려견은 약 복용, 식사량, 음수량, 증상 변화, 병원 일정을 꾸준히 챙겨야 합니다. 그런데 실제 기록은 메모장, 사진첩, 캘린더에 흩어져 있고, 보호자는 매일 기억에 의존하게 됩니다.
+          </p>
+        </div>
+
+        <!-- AS-IS 흐름도 -->
+        <div class="pcs-situation pcp-reveal">
+
+          <!-- AS-IS -->
+          <div class="pcs-sit-col pcs-sit-col--bad">
+            <p class="pcs-sit-label pcs-sit-label--bad">
+              <span class="material-symbols-rounded">sentiment_dissatisfied</span>AS-IS · 지금
+            </p>
+            <div class="pcs-sit-row">
+              <div class="pcs-sit-node">
+                <span class="material-symbols-rounded">note_alt</span>
+                <span>메모장</span>
+              </div>
+              <div class="pcs-sit-node">
+                <span class="material-symbols-rounded">photo_library</span>
+                <span>사진첩</span>
+              </div>
+              <div class="pcs-sit-node">
+                <span class="material-symbols-rounded">calendar_month</span>
+                <span>캘린더</span>
+              </div>
+              <div class="pcs-sit-node">
+                <span class="material-symbols-rounded">chat_bubble</span>
+                <span>카카오톡</span>
+              </div>
+            </div>
+            <div class="pcs-sit-arrow" aria-hidden="true">↓</div>
+            <div class="pcs-sit-result pcs-sit-result--bad">
+              <span class="material-symbols-rounded">psychology_alt</span>
+              <div>
+                <strong>기억에 의존</strong>
+                <span>진료 전마다 흩어진 기록을 다시 정리</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- VS -->
+          <div class="pcs-sit-vs" aria-hidden="true">VS</div>
+
+          <!-- TO-BE -->
+          <div class="pcs-sit-col pcs-sit-col--good">
+            <p class="pcs-sit-label pcs-sit-label--good">
+              <span class="material-symbols-rounded">sentiment_satisfied</span>TO-BE · PetCare+
+            </p>
+            <div class="pcs-sit-row">
+              <div class="pcs-sit-node pcs-sit-node--good">
+                <span class="material-symbols-rounded">edit_note</span>
+                <span>기록</span>
+              </div>
+              <div class="pcs-sit-node pcs-sit-node--good">
+                <span class="material-symbols-rounded">calendar_month</span>
+                <span>일정</span>
+              </div>
+              <div class="pcs-sit-node pcs-sit-node--good">
+                <span class="material-symbols-rounded">bar_chart</span>
+                <span>리포트</span>
+              </div>
+              <div class="pcs-sit-node pcs-sit-node--good">
+                <span class="material-symbols-rounded">local_hospital</span>
+                <span>진료</span>
+              </div>
+            </div>
+            <div class="pcs-sit-arrow pcs-sit-arrow--good" aria-hidden="true">↓</div>
+            <div class="pcs-sit-result pcs-sit-result--good">
+              <span class="material-symbols-rounded">check_circle</span>
+              <div>
+                <strong>한 곳에서 연결</strong>
+                <span>매일의 기록이 진료까지 자동으로 이어짐</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 2컬럼: 카드 + 사진 -->
+        <div class="pcp-two-col">
+          <div class="pcp-reveal">
+            <blockquote class="pcs-quote">
+              체크로 끝내는 게 아니라, 매일 남긴 기록이 병원 진료까지 자연스럽게 이어지면 좋겠다고 생각했습니다. 특히 노령견 보호자는 작은 변화에도 예민하기 때문에, 경고를 앞세우기보다 조용히 확인하고 넘어가는 흐름이 필요했습니다.
+            </blockquote>
+            <div class="pcp-problem-list">
+              <div class="pcp-problem-item">
+                <span class="pcp-num">01</span>
+                <div>
+                  <strong>기록이 흩어진다</strong>
+                  <span>약, 증상, 사진, 병원 일정이 각기 다른 앱에 저장돼 전체 흐름을 한눈에 보기 어렵습니다.</span>
+                </div>
+                <span class="material-symbols-rounded pcs-prob-icon" aria-hidden="true">scatter_plot</span>
+              </div>
+              <div class="pcp-problem-item">
+                <span class="pcp-num">02</span>
+                <div>
+                  <strong>매일 반복이라 빠뜨리기 쉽다</strong>
+                  <span>약, 식사, 음수는 단순하지만 한 번 놓치면 건강에 바로 영향을 줍니다.</span>
+                </div>
+                <span class="material-symbols-rounded pcs-prob-icon" aria-hidden="true">warning</span>
+              </div>
+              <div class="pcp-problem-item">
+                <span class="pcp-num">03</span>
+                <div>
+                  <strong>진료 전마다 다시 정리해야 한다</strong>
+                  <span>일상 기록과 병원 진료 사이에 단절이 생겨 보호자 부담이 매번 반복됩니다.</span>
+                </div>
+                <span class="material-symbols-rounded pcs-prob-icon" aria-hidden="true">link_off</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pcp-bg-photo-stack pcp-reveal">
+            <figure class="pcp-photo pcp-photo--main">
+              <img src="./images/petcare/docter.jpeg" alt="반려견 진료 이미지" />
+            </figure>
+            <figure class="pcp-photo pcp-photo--sub">
+              <img src="./images/petcare/dog-senior.jpg" alt="노령견 케어" />
+            </figure>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================
+         02 · DESIGN CHALLENGE
+    ================================================================ -->
+    <section class="pcp-section pcs-section pcs-section--dark" id="pcs-challenge" data-section>
+      <div class="pcp-container">
+
+        <div class="pcp-section-head pcp-reveal">
+          <div>
+            <p class="pcp-eyebrow pcs-eyebrow--light">02 · Design Challenge</p>
+            <h2 class="pcp-section-title pcs-title--light">기능을 많이 넣는 것보다,<br /><em class="pcs-em--light">매일 다시 열게 만드는 것</em>이 핵심이었습니다.</h2>
+          </div>
+          <p class="pcp-desc pcs-desc--light">
+            매일 반복되는 서비스일수록 입력이 길어지면 사용이 끊깁니다. 앱을 열자마자 오늘 해야 할 일을 확인하고 빠르게 기록할 수 있어야 했고, 그 기록이 진료까지 이어지는 구조가 필요했습니다.
+          </p>
+        </div>
+
+        <!-- HMW 문제→해결 대응 다이어그램 -->
+        <div class="pcs-hmw-grid pcp-reveal">
+          <div class="pcs-hmw-card">
+            <div class="pcs-hmw-problem">
+              <span class="material-symbols-rounded">person_off</span>
+              <span>낮은 지속 사용률</span>
+            </div>
+            <div class="pcs-hmw-arrow">→</div>
+            <div class="pcs-hmw-solution">
+              <span class="material-symbols-rounded">refresh</span>
+              <span>홈 진입 즉시 오늘의 케어 표시 · 습관 형성 루틴</span>
+            </div>
+          </div>
+          <div class="pcs-hmw-card">
+            <div class="pcs-hmw-problem">
+              <span class="material-symbols-rounded">edit_off</span>
+              <span>긴 입력 피로감</span>
+            </div>
+            <div class="pcs-hmw-arrow">→</div>
+            <div class="pcs-hmw-solution">
+              <span class="material-symbols-rounded">touch_app</span>
+              <span>카드 선택형으로 탭 최소화 · 반복 케어 자동화</span>
+            </div>
+          </div>
+          <div class="pcs-hmw-card">
+            <div class="pcs-hmw-problem">
+              <span class="material-symbols-rounded">link_off</span>
+              <span>진료와 기록의 단절</span>
+            </div>
+            <div class="pcs-hmw-arrow">→</div>
+            <div class="pcs-hmw-solution">
+              <span class="material-symbols-rounded">local_hospital</span>
+              <span>누적 기록이 진료 전 자동 요약으로 연결</span>
+            </div>
+          </div>
+          <div class="pcs-hmw-card">
+            <div class="pcs-hmw-problem">
+              <span class="material-symbols-rounded">sentiment_worried</span>
+              <span>보호자 불안 자극</span>
+            </div>
+            <div class="pcs-hmw-arrow">→</div>
+            <div class="pcs-hmw-solution">
+              <span class="material-symbols-rounded">spa</span>
+              <span>경고 대신 조용한 확인 중심 톤앤매너</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 목표 카드 4개 -->
+        <div class="pcp-goal-grid pcp-reveal">
+          <article class="pcp-goal-card pcs-goal-card--dark">
+            <div class="pcp-goal-icon"><span class="material-symbols-rounded">home</span></div>
+            <small>01</small>
+            <h3>오늘 할 일을 먼저</h3>
+            <p>남은 케어 일정과 진행률을 홈 상단에서 바로 확인할 수 있게 배치했습니다.</p>
+          </article>
+          <article class="pcp-goal-card pcs-goal-card--dark">
+            <div class="pcp-goal-icon"><span class="material-symbols-rounded">edit_note</span></div>
+            <small>02</small>
+            <h3>반복 입력을 줄인다</h3>
+            <p>약, 식사, 물, 증상 같은 자주 쓰는 항목은 카드·선택형으로 단계를 최소화했습니다.</p>
+          </article>
+          <article class="pcp-goal-card pcs-goal-card--dark">
+            <div class="pcp-goal-icon"><span class="material-symbols-rounded">local_hospital</span></div>
+            <small>03</small>
+            <h3>기록이 진료로 이어진다</h3>
+            <p>오늘의 체크가 날짜별 기록, 상태 변화, 진료 전 요약까지 연결되도록 구조를 잡았습니다.</p>
+          </article>
+          <article class="pcp-goal-card pcs-goal-card--dark">
+            <div class="pcp-goal-icon"><span class="material-symbols-rounded">spa</span></div>
+            <small>04</small>
+            <h3>불안을 자극하지 않는 톤</h3>
+            <p>의료 서비스의 경고 중심 표현 대신, 생활 속 돌봄에 가까운 차분한 인터페이스를 적용했습니다.</p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================
+         03 · SERVICE FLOW  (왼쪽 sticky 폰 + 오른쪽 스크롤 설명)
+    ================================================================ -->
+    <section class="pcp-section pcs-section pcs-section--cream" id="pcs-flow" data-section>
+      <div class="pcp-container">
+
+        <div class="pcp-section-head pcp-reveal">
+          <div>
+            <p class="pcp-eyebrow">03 · Service Flow</p>
+            <h2 class="pcp-section-title">5개의 화면으로<br /><em>케어의 전체 흐름</em>을 연결했습니다.</h2>
+          </div>
+          <p class="pcp-desc">
+            홈에서 시작해 기록·일정을 거쳐 리포트로 이어지는 흐름을 기준으로 화면 구조를 잡았습니다. 기능을 늘리기보다 자주 쓰는 동작이 끊기지 않게 연결하는 데 집중했습니다.
+          </p>
+        </div>
+
+        <!-- 사용자 플로우 다이어그램 -->
+        <div class="pcs-userflow pcp-reveal">
+          <div class="pcs-uf-node pcs-uf-node--user">
+            <span class="material-symbols-rounded">person</span>
+            <span>보호자</span>
+          </div>
+          <svg class="pcs-uf-arr" viewBox="0 0 40 16" fill="none"><path d="M0 8h34M26 2l8 6-8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="pcs-uf-node">
+            <span class="material-symbols-rounded">home</span>
+            <span>Home</span>
+          </div>
+          <svg class="pcs-uf-arr" viewBox="0 0 40 16" fill="none"><path d="M0 8h34M26 2l8 6-8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="pcs-uf-node">
+            <span class="material-symbols-rounded">edit_note</span>
+            <span>Record</span>
+          </div>
+          <svg class="pcs-uf-arr" viewBox="0 0 40 16" fill="none"><path d="M0 8h34M26 2l8 6-8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="pcs-uf-node">
+            <span class="material-symbols-rounded">calendar_month</span>
+            <span>Schedule</span>
+          </div>
+          <svg class="pcs-uf-arr" viewBox="0 0 40 16" fill="none"><path d="M0 8h34M26 2l8 6-8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="pcs-uf-node">
+            <span class="material-symbols-rounded">bar_chart</span>
+            <span>Report</span>
+          </div>
+          <svg class="pcs-uf-arr" viewBox="0 0 40 16" fill="none"><path d="M0 8h34M26 2l8 6-8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="pcs-uf-node pcs-uf-node--end">
+            <span class="material-symbols-rounded">local_hospital</span>
+            <span>진료</span>
+          </div>
+        </div>
+
+        <!-- 화면 상세: 왼쪽 sticky 폰 + 오른쪽 스크롤 -->
+        <div class="pcs-sticky-wrap">
+
+          <!-- 왼쪽 sticky 폰 -->
+          <div class="pcs-sticky-phone-col">
+            <div class="pcs-sticky-phone" id="pcs-sticky-phone">
+              <div class="pcs-phone">
+                <div class="pcs-phone-notch" aria-hidden="true"></div>
+                <div class="pcs-phone-screen">
+                  <img src="./images/petcare/app_main.jpg" class="pcs-screen-img" id="pcs-phone-img" alt="앱 화면" />
+                </div>
+              </div>
+              <p class="pcs-phone-caption" id="pcs-phone-caption">Home</p>
+              <!-- 도트 네비 -->
+              <div class="pcs-dots" id="pcs-dots" role="tablist" aria-label="화면 선택">
+                <button class="pcs-dot is-active" data-target="pcs-step-1" role="tab" aria-selected="true" aria-label="Home"></button>
+                <button class="pcs-dot" data-target="pcs-step-2" role="tab" aria-selected="false" aria-label="Record"></button>
+                <button class="pcs-dot" data-target="pcs-step-3" role="tab" aria-selected="false" aria-label="Schedule"></button>
+                <button class="pcs-dot" data-target="pcs-step-4" role="tab" aria-selected="false" aria-label="Report"></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 오른쪽 스크롤 화면 설명 -->
+          <div class="pcs-steps-col">
+
+            <div class="pcs-step pcp-reveal" id="pcs-step-1" data-screen="app_main.jpg" data-label="Home">
+              <div class="pcs-step-header">
+                <span class="pcs-step-num">01</span>
+                <div class="pcs-step-icon"><span class="material-symbols-rounded">home</span></div>
+              </div>
+              <h3 class="pcs-step-title">Home — 오늘의 케어 현황</h3>
+              <p class="pcs-step-desc">반려견 프로필, 다음 진료 D-day, 오늘의 케어 진행률과 남은 일정을 한 화면에서 확인합니다. 완료한 항목과 남은 항목을 시각적으로 구분해 보호자가 빠르게 상황을 파악할 수 있습니다.</p>
+              <div class="pcs-step-tags">
+                <span>진행률 바</span>
+                <span>다음 진료 D-day</span>
+                <span>케어 체크리스트</span>
+                <span>사용자 지정 항목</span>
+              </div>
+              <blockquote class="pcs-step-quote">"앱을 열면 오늘 해야 할 게 바로 보여야 한다"</blockquote>
+            </div>
+
+            <div class="pcs-step pcp-reveal" id="pcs-step-2" data-screen="app_record.jpg" data-label="Record">
+              <div class="pcs-step-header">
+                <span class="pcs-step-num">02</span>
+                <div class="pcs-step-icon"><span class="material-symbols-rounded">edit_note</span></div>
+              </div>
+              <h3 class="pcs-step-title">Record — 빠른 기록</h3>
+              <p class="pcs-step-desc">약, 식사, 음수량, 증상, 배변, 체중을 공통 카드 구조로 정리해 최소 선택으로 저장합니다. 기록 시간과 상태를 함께 저장해 단순 완료 여부가 아닌 시간대별 변화를 볼 수 있습니다.</p>
+              <div class="pcs-step-tags">
+                <span>카드 선택형</span>
+                <span>시간 기반 이력</span>
+                <span>6개 카테고리</span>
+              </div>
+              <blockquote class="pcs-step-quote">"기록이 복잡하면 하루만 지나도 안 쓰게 된다"</blockquote>
+            </div>
+
+            <div class="pcs-step pcp-reveal" id="pcs-step-3" data-screen="app_schejul.jpg" data-label="Schedule">
+              <div class="pcs-step-header">
+                <span class="pcs-step-num">03</span>
+                <div class="pcs-step-icon"><span class="material-symbols-rounded">calendar_month</span></div>
+              </div>
+              <h3 class="pcs-step-title">Schedule — 일정 관리</h3>
+              <p class="pcs-step-desc">Supabase와 연동해 약 복용, 반복 케어, 병원 일정을 실제 데이터로 저장합니다. 진료 예약일, 병원명, 담당 의사 메모를 일정에 함께 기록해 병원 방문 준비를 간소화합니다.</p>
+              <div class="pcs-step-tags">
+                <span>Supabase 연동</span>
+                <span>반복 일정</span>
+                <span>병원 정보</span>
+              </div>
+              <blockquote class="pcs-step-quote">"캘린더와 기록이 따로 있으면 결국 둘 다 안 쓴다"</blockquote>
+            </div>
+
+            <div class="pcs-step pcp-reveal" id="pcs-step-4" data-screen="app_report.jpg" data-label="Report">
+              <div class="pcs-step-header">
+                <span class="pcs-step-num">04</span>
+                <div class="pcs-step-icon"><span class="material-symbols-rounded">bar_chart</span></div>
+              </div>
+              <h3 class="pcs-step-title">Report — 건강 리포트</h3>
+              <p class="pcs-step-desc">날짜별 기록과 상태 변화를 시각화하고 진료 전 필요한 정보를 자동으로 정리합니다. 보호자가 병원 갈 때마다 기록을 다시 찾는 과정을 없애는 것이 핵심 목적이었습니다.</p>
+              <div class="pcs-step-tags">
+                <span>주간 요약</span>
+                <span>상태 변화 시각화</span>
+                <span>진료 전 자동 정리</span>
+              </div>
+              <blockquote class="pcs-step-quote">"매일 쌓인 기록이 진료실에서 쓸모 있어야 한다"</blockquote>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================
+         04 · DESIGN SYSTEM
+    ================================================================ -->
+    <section class="pcp-section pcs-section pcs-section--mint" id="pcs-design" data-section>
+      <div class="pcp-container">
+
+        <div class="pcp-section-head pcp-reveal">
+          <div>
+            <p class="pcp-eyebrow">04 · Design System</p>
+            <h2 class="pcp-section-title">Soft Care, Warm Medical,<br /><em>Calm Dashboard.</em></h2>
+          </div>
+          <p class="pcp-desc">
+            보호자가 매일 쓰는 서비스인 만큼 지나치게 의료적이거나 긴장감을 주는 표현은 피했습니다. 세이지 그린과 크림 계열로 신뢰감을 유지하면서, 현재 상태와 다음 행동이 먼저 보이도록 여백과 정보 위계를 조정했습니다.
+          </p>
+        </div>
+
+        <!-- 컬러 팔레트 -->
+        <div class="pcs-ds-block pcp-reveal">
+          <p class="pcs-ds-label">Color Palette</p>
+          <div class="pcs-palette">
+            <div class="pcs-swatch">
+              <div class="pcs-swatch-bar" style="background:#4F7260;"></div>
+              <span class="pcs-swatch-name">Sage Green</span>
+              <span class="pcs-swatch-hex">#4F7260</span>
+              <span class="pcs-swatch-role">Primary · CTA</span>
+            </div>
+            <div class="pcs-swatch">
+              <div class="pcs-swatch-bar" style="background:#2B3F32;"></div>
+              <span class="pcs-swatch-name">Deep Forest</span>
+              <span class="pcs-swatch-hex">#2B3F32</span>
+              <span class="pcs-swatch-role">Header · Dark BG</span>
+            </div>
+            <div class="pcs-swatch">
+              <div class="pcs-swatch-bar" style="background:#E8F0EB;"></div>
+              <span class="pcs-swatch-name">Mint</span>
+              <span class="pcs-swatch-hex">#E8F0EB</span>
+              <span class="pcs-swatch-role">Card · Section BG</span>
+            </div>
+            <div class="pcs-swatch">
+              <div class="pcs-swatch-bar" style="background:#F7F5F0; outline:1px solid #e0dbd4;"></div>
+              <span class="pcs-swatch-name">Warm Cream</span>
+              <span class="pcs-swatch-hex">#F7F5F0</span>
+              <span class="pcs-swatch-role">Page Background</span>
+            </div>
+            <div class="pcs-swatch">
+              <div class="pcs-swatch-bar" style="background:#DCE7EA;"></div>
+              <span class="pcs-swatch-name">Mist</span>
+              <span class="pcs-swatch-hex">#DCE7EA</span>
+              <span class="pcs-swatch-role">Divider · Border</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 타이포 + 원칙 + 프로세스 -->
+        <div class="pcs-ds-grid pcp-reveal">
+
+          <div class="pcs-ds-col">
+            <p class="pcs-ds-label">Typography</p>
+            <div class="pcs-typo-card">
+              <span class="pcs-typo-role">Body / UI</span>
+              <span class="pcs-typo-sample pcs-typo-pretendard">Pretendard<br /><small>가나다라마바사 / 400 · 700 · 800</small></span>
+              <span class="pcs-typo-note">가독성과 공간 효율을 위한 기본 서체</span>
+            </div>
+            <div class="pcs-typo-card">
+              <span class="pcs-typo-role">Accent / Heading</span>
+              <span class="pcs-typo-sample pcs-typo-serif"><em>Instrument Serif<br />기록에서 진료까지</em></span>
+              <span class="pcs-typo-note">감성적 강조를 위한 이탤릭 세리프</span>
+            </div>
+          </div>
+
+          <div class="pcs-ds-col">
+            <p class="pcs-ds-label">Design Principles</p>
+            <div class="pcs-principle">
+              <span class="material-symbols-rounded pcs-check">check_circle</span>
+              <div>
+                <strong>경고보다 확인</strong>
+                <p>빨간 알림 대신 조용한 체크로 보호자 불안을 줄였습니다.</p>
+              </div>
+            </div>
+            <div class="pcs-principle">
+              <span class="material-symbols-rounded pcs-check">check_circle</span>
+              <div>
+                <strong>숫자보다 흐름</strong>
+                <p>정확한 수치보다 변화의 방향을 시각적으로 표현합니다.</p>
+              </div>
+            </div>
+            <div class="pcs-principle">
+              <span class="material-symbols-rounded pcs-check">check_circle</span>
+              <div>
+                <strong>복잡함보다 단순함</strong>
+                <p>자주 쓰는 기능 2~3개를 노출하고 나머지는 뒤로 정리합니다.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pcs-ds-col">
+            <p class="pcs-ds-label">Development Process</p>
+            <div class="pcs-process">
+              <div class="pcs-process-step"><span class="pcs-pn">1</span><div><strong>IA 설계</strong><p>MVP 범위 정의 · 화면별 우선순위</p></div></div>
+              <div class="pcs-process-line"></div>
+              <div class="pcs-process-step"><span class="pcs-pn">2</span><div><strong>UI 컴포넌트</strong><p>케어 카드 · 일정 카드 · 네비게이션</p></div></div>
+              <div class="pcs-process-line"></div>
+              <div class="pcs-process-step"><span class="pcs-pn">3</span><div><strong>Vibe Coding</strong><p>Claude · Gemini로 화면 구현 및 검증</p></div></div>
+              <div class="pcs-process-line"></div>
+              <div class="pcs-process-step"><span class="pcs-pn">4</span><div><strong>Supabase 연동</strong><p>CRUD · 실시간 상태 반영</p></div></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================
+         05 · RESULT
+    ================================================================ -->
+    <section class="pcp-section pcs-section pcs-section--cream" id="pcs-result" data-section>
+      <div class="pcp-container">
+
+        <div class="pcp-section-head pcp-reveal">
+          <div>
+            <p class="pcp-eyebrow">05 · Result</p>
+            <h2 class="pcp-section-title">화면 설계에서 끝내지 않고,<br /><em>실제로 동작하는 프로토타입</em>을 만들었습니다.</h2>
+          </div>
+          <p class="pcp-desc">
+            케어 확인부터 기록, 일정 관리, 진료 전 요약까지 이어지는 핵심 흐름을 구축했습니다. Supabase로 일정 데이터를 실제 저장·변경하는 흐름까지 연결해 동작하는 프로토타입으로 완성했습니다.
+          </p>
+        </div>
+
+        <!-- 앱 화면 4개 나란히 -->
+        <div class="pcs-screens pcp-reveal">
+          <figure class="pcs-screen-item pcs-screen-item--main">
+            <div class="pcs-screen-phone">
+              <div class="pcs-screen-notch"></div>
+              <img src="./images/petcare/app_main.jpg" alt="Home" />
+            </div>
+            <figcaption>Home</figcaption>
+          </figure>
+          <figure class="pcs-screen-item">
+            <div class="pcs-screen-phone">
+              <div class="pcs-screen-notch"></div>
+              <img src="./images/petcare/app_record.jpg" alt="Record" />
+            </div>
+            <figcaption>Record</figcaption>
+          </figure>
+          <figure class="pcs-screen-item">
+            <div class="pcs-screen-phone">
+              <div class="pcs-screen-notch"></div>
+              <img src="./images/petcare/app_schejul.jpg" alt="Schedule" />
+            </div>
+            <figcaption>Schedule</figcaption>
+          </figure>
+          <figure class="pcs-screen-item">
+            <div class="pcs-screen-phone">
+              <div class="pcs-screen-notch"></div>
+              <img src="./images/petcare/app_report.jpg" alt="Report" />
+            </div>
+            <figcaption>Report</figcaption>
+          </figure>
+        </div>
+
+        <!-- 성과 3개 -->
+        <div class="pcs-result-grid pcp-reveal">
+          <div class="pcs-result-card">
+            <span class="pcs-result-num">01</span>
+            <span class="material-symbols-rounded pcs-result-icon">route</span>
+            <strong>서비스 흐름 정리</strong>
+            <p>오늘의 케어 → 기록 → 일정 → 진료 전 요약으로 이어지는 핵심 사용자 흐름 완성</p>
+          </div>
+          <div class="pcs-result-card">
+            <span class="pcs-result-num">02</span>
+            <span class="material-symbols-rounded pcs-result-icon">widgets</span>
+            <strong>확장 가능한 UI 구조</strong>
+            <p>반복 요소를 공통 컴포넌트로 정리해 새 케어 항목을 언제든 추가할 수 있는 기반 마련</p>
+          </div>
+          <div class="pcs-result-card">
+            <span class="pcs-result-num">03</span>
+            <span class="material-symbols-rounded pcs-result-icon">storage</span>
+            <strong>실제 데이터 기반 프로토타입</strong>
+            <p>Supabase 연동으로 일정 CRUD와 상태 변경까지 구현, 화면과 동작을 연결</p>
+          </div>
+        </div>
+
+        <!-- 링크 -->
+        <div class="pcs-result-links pcp-reveal">
+          <a href="https://hye0277-erin.github.io/petcare/" target="_blank" rel="noopener" class="pcs-btn pcs-btn--primary">
+            <span class="material-symbols-rounded">open_in_new</span>앱 보기
+          </a>
+          <a href="https://hye0277-erin.github.io/petcarelanding/" target="_blank" rel="noopener" class="pcs-btn pcs-btn--outline">
+            <span class="material-symbols-rounded">open_in_new</span>랜딩 보기
+          </a>
+          <a href="./petcare.html" class="pcs-btn pcs-btn--ghost">
+            <span class="material-symbols-rounded">arrow_back</span>프로젝트 소개로
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================
+         06 · REVIEW
+    ================================================================ -->
+    <section class="pcp-section pcs-section pcs-section--dark" id="pcs-review" data-section>
+      <div class="pcp-container">
+
+        <div class="pcs-review-inner pcp-reveal">
+          <p class="pcp-eyebrow pcs-eyebrow--light">06 · Review</p>
+          <h2 class="pcp-section-title pcs-title--light">
+            반복 사용 서비스에서는 기능 수보다,<br />
+            <em class="pcs-em--light">매일 다시 열게 만드는 흐름</em>이 중요합니다.
+          </h2>
+          <p class="pcs-review-text">
+            UI 디자인이 화면을 만드는 데서 끝나지 않고, 사용자의 감정과 반복 행동까지 함께 설계하는 일이라는 걸 이번 프로젝트에서 실감했습니다. 반려동물 건강처럼 예민한 주제에서는 정보의 강도를 조절하는 것 자체가 설계의 일부였습니다. 화면을 디자인하는 데서 끝내지 않고 데이터 저장과 상태 변경까지 직접 연결해보면서, UI 구조가 개발 방식과 운영 확장성에 어떤 영향을 주는지도 경험했습니다.
+          </p>
+
+          <div class="pcs-next-block">
+            <p class="pcs-next-label">Next Direction</p>
+            <div class="pcs-next-chips">
+              <span><span class="material-symbols-rounded">pets</span>다견 관리</span>
+              <span><span class="material-symbols-rounded">group</span>가족 기록 공유</span>
+              <span><span class="material-symbols-rounded">smart_toy</span>AI 건강 요약</span>
+              <span><span class="material-symbols-rounded">file_export</span>병원 제출 내보내기</span>
+            </div>
+          </div>
+
+          <a href="./index.html#works" class="pcs-back-link">
+            <span class="material-symbols-rounded">arrow_back</span>Back to Works
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pcs-footer">
+    <p>© 2026 HYE02 Portfolio. All Rights Reserved.</p>
+  </footer>
+
+  <script src="./js/main.js"></script>
+  <script src="./js/petcare.js"></script>
+  <script src="./js/petcare_casestudy.js"></script>
+</body>
+</html>

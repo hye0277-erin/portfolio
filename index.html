@@ -1,102 +1,985 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>HYE02 PORTFOLIO</title>
-    <link href="https://fonts.googleapis.com/css?family=Red+Hat+Display:400,700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HYE02 — UI/UX Designer Portfolio 2026</title>
+<meta name="description" content="HYE02 UI/UX Designer Portfolio — 이커머스 운영 경험을 바탕으로 웹사이트, 상세페이지, UI/UX 화면의 정보 흐름을 설계합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --font-display:"Archivo","Pretendard Variable",Pretendard,sans-serif;
+  --font-body:"Pretendard Variable",Pretendard,"Archivo",sans-serif;
+  --font-mono:"Space Mono",monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --radius:20px;
+}
+:root[data-theme="light"]{
+  --bg:#F4F5F8;
+  --bg-2:#ECEDF2;
+  --card:#FFFFFF;
+  --ink:#0D0E13;
+  --sub:#5B5F6E;
+  --line:rgba(13,14,19,.12);
+  --line-strong:rgba(13,14,19,.22);
+  --accent:#3336EE;
+  --accent-2:#9B95FF;
+  --accent-ink:#FFFFFF;
+  --tint:#E6E7FF;
+  --shadow:0 24px 60px -24px rgba(13,14,19,.18);
+  --img-filter:none;
+}
+:root[data-theme="dark"]{
+  --bg:#0A0B10;
+  --bg-2:#0F1017;
+  --card:#14151E;
+  --ink:#F0F0F6;
+  --sub:#9AA0B2;
+  --line:rgba(240,240,246,.13);
+  --line-strong:rgba(240,240,246,.26);
+  --accent:#9B95FF;
+  --accent-2:#BDB9FF;
+  --accent-ink:#0A0B10;
+  --tint:#1B1C31;
+  --shadow:0 24px 60px -20px rgba(0,0,0,.6);
+  --img-filter:brightness(.92);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);color:var(--ink);
+  line-height:1.6;letter-spacing:-.01em;
+  word-break:keep-all;
+  overflow-wrap:break-word;
+  transition:background .5s var(--ease),color .5s var(--ease);
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;filter:var(--img-filter)}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.serif{font-family:var(--font-display);font-style:normal;font-weight:500;letter-spacing:-.02em}
+.wrap{width:min(1240px,92vw);margin:0 auto}
 
-    <style>
-        html, body {
-        width:100%;
-        height:100%;
-        background:#000;
-        position:relative;
-        overflow:hidden;
-        }
+/* ============ INTRO - A. KINETIC ROLLING TYPE ============ */
+#intro{
+  position:fixed;inset:0;z-index:100;
+  background:var(--ink);
+  color:var(--bg);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3rem;
+}
+#intro.done{display:none}
+#intro.leave{animation:introLeave .9s var(--ease) forwards}
+@keyframes introLeave{to{transform:translateY(-101%)}}
+.intro-window{
+  height:clamp(3.6rem,11vw,9rem);overflow:hidden;
+  font-family:var(--font-display);font-weight:900;letter-spacing:-.04em;
+  font-size:clamp(3rem,10vw,8rem);line-height:1.1;text-align:center;
+}
+.intro-roll{display:flex;flex-direction:column;transition:transform .75s var(--ease)}
+.intro-roll span{
+  height:clamp(3.6rem,11vw,9rem);
+  display:flex;align-items:center;justify-content:center;
+}
+.intro-roll .fin{color:var(--accent-2)}
+.intro-count{
+  font-family:var(--font-mono);font-size:.85rem;letter-spacing:.28em;
+  display:flex;align-items:center;gap:1.2rem;opacity:.85;
+}
+.intro-line{
+  width:clamp(120px,22vw,260px);height:1px;
+  background:color-mix(in srgb,var(--bg) 25%,transparent);
+  position:relative;overflow:hidden;
+}
+.intro-line i{
+  position:absolute;inset:0;background:var(--accent-2);
+  transform-origin:left;transform:scaleX(0);
+}
 
-        .container {
-        font-size:50px;
-        font-family: 'Red Hat Display', sans-serif;
-        letter-spacing:1.5px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 400px;
-        height:50px;
-        }
+/* ============ HEADER ============ */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  backdrop-filter:blur(14px);
+  background:color-mix(in srgb,var(--bg) 78%,transparent);
+  border-bottom:1px solid var(--line);
+  transition:background .5s var(--ease);
+}
+.nav{
+  width:min(1400px,95vw);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.95rem 0;
+}
+.logo{font-family:var(--font-display);font-weight:900;font-size:1.05rem;letter-spacing:-.02em}
+.logo sup{color:var(--accent);font-size:.6em}
+.nav-links{display:flex;gap:1.9rem;font-size:.86rem;font-weight:600;color:var(--sub)}
+.nav-links a{transition:color .25s}
+.nav-links a:hover{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:.7rem}
+.pill{
+  font-size:.78rem;font-weight:700;padding:.5rem 1rem;border-radius:99px;
+  border:1px solid var(--line-strong);transition:all .3s var(--ease);
+}
+.pill:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pill.solid{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+.pill.solid:hover{filter:brightness(1.1)}
+#themeBtn{
+  width:38px;height:38px;border-radius:50%;cursor:pointer;
+  border:1px solid var(--line-strong);background:transparent;color:var(--ink);
+  display:grid;place-items:center;font-size:1rem;
+  transition:transform .4s var(--ease),background .3s;
+}
+#themeBtn:hover{transform:rotate(40deg);background:var(--tint)}
 
-        .container > * {
-        display:inline-block;
-        overflow:hidden;
-        position:absolute;
-        }
+/* ============ HERO (E. Word Swap + Flow Field Canvas) ============ */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  overflow:hidden;background:#0D0E13;padding:8rem 0 6rem;
+}
+#flowCanvas{
+  position:absolute;inset:0;z-index:0;width:100%;height:100%;display:block;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.25) 32%,#000 62%);
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.25) 32%,#000 62%);
+}
+.hero-glow{
+  position:absolute;z-index:0;right:-12%;top:50%;transform:translateY(-50%);
+  width:60vw;height:60vw;max-width:820px;max-height:820px;border-radius:50%;
+  background:radial-gradient(circle,rgba(51,54,238,.2),rgba(155,149,255,.08) 45%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2;width:min(1240px,92vw);margin:0 auto}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:var(--font-display);font-size:.75rem;font-weight:700;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--accent);
+  margin-bottom:1.6rem;
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--accent)}
+.hero .eyebrow{color:#9B95FF}
+.hero .eyebrow::before{background:#9B95FF}
+.hero h1{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(2.8rem,8.4vw,7rem);
+  line-height:1.1;letter-spacing:-.035em;color:#F4F5F8;
+}
+.swap{display:inline-flex;flex-direction:column;height:1.12em;overflow:hidden;vertical-align:bottom}
+.swap-track{display:flex;flex-direction:column;transition:transform .6s var(--ease)}
+.swap-track span{height:1.12em;display:flex;align-items:center;color:#9B95FF;font-weight:500;white-space:nowrap}
+.hero-sub{
+  margin-top:2rem;max-width:50ch;color:rgba(244,245,248,.6);font-size:1.02rem;
+}
+.hero-stats{display:flex;gap:3rem;margin-top:3.4rem;flex-wrap:wrap}
+.hero-stats div{font-size:.8rem;color:rgba(244,245,248,.55)}
+.hero-stats b{
+  display:block;font-family:var(--font-display);font-weight:900;
+  font-size:clamp(1.8rem,3.4vw,2.8rem);letter-spacing:-.02em;color:#F4F5F8;
+}
+.hero-stats b i{font-style:normal;color:#9B95FF;font-weight:500}
+.scroll-hint{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;
+  font-family:var(--font-display);font-size:.68rem;font-weight:700;letter-spacing:.3em;
+  text-transform:uppercase;color:rgba(244,245,248,.4);
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+}
+.scroll-hint::after{content:"";width:1px;height:34px;background:linear-gradient(#9B95FF,transparent);animation:hintDrop 1.8s var(--ease) infinite}
+@keyframes hintDrop{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-        .ch {
-        display:inline-block;
-        position:relative;
-        overflow:visible;
-        }
+/* ============ MARQUEE ============ */
+.marquee{
+  border-block:1px solid var(--line);padding:1.1rem 0;overflow:hidden;
+  background:var(--bg-2);transition:background .5s;
+}
+.marquee-track{
+  display:flex;gap:3rem;width:max-content;
+  animation:scrollX 26s linear infinite;
+  font-family:var(--font-display);font-weight:800;font-size:.9rem;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--sub);
+}
+.marquee-track em{font-style:normal;color:var(--accent)}
+@keyframes scrollX{to{transform:translateX(-50%)}}
 
-        .bar {
-        width:3px;
-        height:50px;
-        position:absolute;
-        top:5px;
-        }
-        .txt2 {
-        font-weight: 700;
-        }
+/* ============ SECTION SHARED ============ */
+section{padding:7rem 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3.5rem;flex-wrap:wrap}
+.sec-head h2{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(2rem,4.6vw,3.6rem);letter-spacing:-.03em;line-height:1.1;
+}
+.sec-head p{color:var(--sub);max-width:42ch;font-size:.96rem}
 
-    </style>
+/* ============ WORK INDEX (plain list) ============ */
+#work-index{position:relative}
+.index-list{border-top:1px solid var(--line)}
+.index-row{
+  display:grid;grid-template-columns:70px 1fr auto auto;
+  align-items:center;gap:1.6rem;
+  padding:2.2rem .4rem;border-bottom:1px solid var(--line);
+  transition:padding .4s var(--ease);
+}
+.index-row:hover{padding-left:1.2rem}
+.index-row .no{
+  font-family:var(--font-display);font-weight:500;font-size:1.05rem;color:var(--accent);letter-spacing:.04em;
+}
+.index-row h3{
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(1.4rem,3.4vw,2.5rem);letter-spacing:-.03em;line-height:1.05;
+  transition:color .3s;
+}
+.index-row:hover h3{color:var(--accent)}
+.index-row .tags{font-size:.82rem;color:var(--sub);text-align:right}
+.go-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.82rem;font-weight:700;padding:.65rem 1.25rem;border-radius:99px;
+  border:1px solid var(--line-strong);white-space:nowrap;
+  transition:all .3s var(--ease);
+}
+.go-btn svg{width:13px;height:13px;transition:transform .3s var(--ease)}
+.go-btn:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.go-btn:hover svg{transform:translate(2px,-2px)}
+/* ============ FEATURED (sticky stack) ============ */
+#featured{background:var(--bg-2);transition:background .5s}
+.case-stack{display:flex;flex-direction:column;gap:3rem}
+.case-card{
+  position:sticky;top:110px;
+  background:var(--card);border:1px solid var(--line);border-radius:28px;
+  box-shadow:var(--shadow);overflow:hidden;
+  display:grid;grid-template-columns:1.05fr 1fr;min-height:480px;
+}
+.case-media{position:relative;overflow:hidden;background:var(--tint)}
+.case-media img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.case-media .badge{
+  position:absolute;top:1.2rem;left:1.2rem;
+  font-family:var(--font-display);font-size:.7rem;font-weight:800;
+  letter-spacing:.18em;text-transform:uppercase;
+  background:var(--ink);color:var(--bg);padding:.45rem .9rem;border-radius:99px;
+}
+.case-body{padding:clamp(1.8rem,3.4vw,3.2rem);display:flex;flex-direction:column;gap:1.15rem}
+.case-kicker{
+  font-family:var(--font-display);font-size:.74rem;font-weight:700;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--accent);
+}
+.case-body h3{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(1.7rem,3vw,2.6rem);letter-spacing:-.03em;line-height:1.05;
+}
+.case-body h3 .serif{font-size:.62em;color:var(--sub);margin-left:.4rem}
+.case-desc{color:var(--sub);font-size:.95rem;max-width:46ch}
+.case-facts{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;
+  padding:1.1rem 0;border-block:1px solid var(--line);
+  font-size:.78rem;color:var(--sub);
+}
+.case-facts b{display:block;color:var(--ink);font-weight:700;font-size:.84rem;margin-bottom:.1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.chips li{
+  font-size:.72rem;font-weight:600;padding:.34rem .75rem;border-radius:99px;
+  background:var(--tint);color:var(--ink);
+}
+.case-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:auto;padding-top:.6rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-size:.86rem;font-weight:700;padding:.8rem 1.5rem;border-radius:99px;
+  transition:all .3s var(--ease);
+}
+.btn svg{width:14px;height:14px;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translate(2px,-2px)}
+.btn-primary{background:var(--ink);color:var(--bg)}
+.btn-primary:hover{background:var(--accent);color:var(--accent-ink)}
+.btn-ghost{border:1px solid var(--line-strong)}
+.btn-ghost:hover{border-color:var(--ink);background:var(--tint)}
+
+/* ============ ARCHIVE PREVIEW ============ */
+#archive-preview{background:var(--bg);transition:background .5s}
+#about{border-top:1px solid var(--line)}
+.archive-showcase{
+  display:grid;grid-template-columns:minmax(260px,.7fr) minmax(0,1.5fr);
+  gap:clamp(2rem,4vw,4.5rem);align-items:start;
+}
+.archive-copy{position:sticky;top:120px}
+.archive-copy h2{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(2.1rem,5.2vw,4.6rem);letter-spacing:-.035em;line-height:.96;
+  margin-bottom:1.4rem;
+}
+.archive-copy h2 .serif{display:block;color:var(--accent);font-size:.42em;line-height:1.25;margin-top:.55rem}
+.archive-copy p{color:var(--sub);font-size:.96rem;max-width:36ch;margin-bottom:1.4rem}
+.archive-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;
+  border-block:1px solid var(--line);padding:1rem 0;margin:1.5rem 0 1.7rem;
+}
+.archive-stats b{display:block;font-family:var(--font-display);font-size:1.55rem;line-height:1;color:var(--ink)}
+.archive-stats span{display:block;margin-top:.35rem;font-size:.72rem;font-weight:700;color:var(--sub)}
+.archive-filter-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.5rem}
+.archive-filter-chips a{
+  font-size:.74rem;font-weight:700;padding:.45rem .8rem;border-radius:99px;
+  border:1px solid var(--line-strong);color:var(--sub);
+  transition:all .3s var(--ease);
+}
+.archive-filter-chips a:hover{color:var(--ink);background:var(--tint);border-color:var(--accent)}
+.archive-wall{
+  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);
+  gap:1rem;align-items:stretch;
+}
+.archive-spotlight,
+.archive-row{
+  background:var(--card);border:1px solid var(--line);overflow:hidden;
+  box-shadow:0 18px 46px -34px rgba(13,14,19,.55);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);
+}
+.archive-spotlight{border-radius:18px;display:flex;flex-direction:column}
+.archive-spotlight:hover,
+.archive-row:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--line-strong)}
+.archive-spotlight figure{position:relative;background:var(--tint);overflow:hidden}
+.archive-spotlight img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top center;transition:transform .7s var(--ease)}
+.archive-spotlight:hover img{transform:scale(1.04)}
+.archive-spotlight-body{padding:1.25rem;display:flex;flex-direction:column;gap:.85rem}
+.archive-work-meta{
+  display:flex;align-items:center;justify-content:space-between;gap:.8rem;
+  font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);
+}
+.archive-work-meta span:first-child{color:var(--accent)}
+.archive-spotlight h3{
+  font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.35rem);
+  font-weight:900;line-height:1.04;letter-spacing:-.03em;
+}
+.archive-spotlight p{color:var(--sub);font-size:.88rem;line-height:1.55}
+.archive-list{display:flex;flex-direction:column;gap:.75rem}
+.archive-row{
+  display:grid;grid-template-columns:104px minmax(0,1fr);gap:1rem;align-items:center;
+  min-height:116px;border-radius:14px;padding:.65rem;color:inherit;
+}
+.archive-row figure{background:var(--tint);overflow:hidden;border-radius:10px}
+.archive-row img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top center;transition:transform .55s var(--ease)}
+.archive-row:hover img{transform:scale(1.06)}
+.archive-row-body{min-width:0;display:flex;flex-direction:column;gap:.45rem}
+.archive-row h3{
+  font-family:var(--font-display);font-size:1.02rem;font-weight:800;
+  line-height:1.12;letter-spacing:-.02em;
+}
+.archive-row p{color:var(--sub);font-size:.78rem;line-height:1.45}
+.archive-wall-more{
+  grid-column:1/-1;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1rem 1.15rem;border:1px solid var(--line);border-radius:14px;
+  background:color-mix(in srgb,var(--card) 70%,transparent);
+}
+.archive-wall-more strong{font-family:var(--font-display);font-size:1.05rem}
+.archive-wall-more span{color:var(--sub);font-size:.82rem}
+
+/* ============ ABOUT / ARCHIVE CTA ============ */
+.about-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:start;
+}
+.about-grid h2{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(1.9rem,4vw,3.1rem);letter-spacing:-.03em;line-height:1.15;
+  margin-bottom:1.6rem;
+}
+.about-grid h2 .serif{color:var(--accent)}
+.about-grid p{color:var(--sub);font-size:.98rem;margin-bottom:1.1rem}
+.about-links{display:flex;gap:.8rem;margin-top:2rem;flex-wrap:wrap}
+.focus-box{
+  background:var(--card);border:1px solid var(--line);border-radius:24px;
+  padding:2rem;box-shadow:var(--shadow);
+}
+.focus-box h4{
+  font-family:var(--font-display);font-size:.75rem;font-weight:800;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--sub);
+  margin-bottom:1.1rem;
+}
+.focus-box ul{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.8rem}
+.focus-box ul li{
+  font-size:.8rem;font-weight:600;padding:.45rem .9rem;border-radius:99px;
+  border:1px solid var(--line-strong);
+}
+.tools{display:flex;flex-wrap:wrap;gap:.9rem 1.4rem;font-size:.82rem;color:var(--sub)}
+.tools span{display:inline-flex;align-items:center;gap:.45rem}
+.tools img{width:18px;height:18px;object-fit:contain;border-radius:4px}
+
+/* ============ CONTACT ============ */
+#contact{background:var(--ink);color:var(--bg);transition:background .5s}
+#contact .eyebrow{color:var(--accent)}
+:root[data-theme="dark"] #contact{background:var(--card)} 
+#contact h2{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(2.2rem,6.4vw,5rem);letter-spacing:-.035em;line-height:1.08;
+  margin-bottom:2.4rem;max-width:16ch;color:var(--bg);
+}
+:root[data-theme="dark"] #contact h2{color:var(--ink)}
+#contact h2 .serif{color:var(--accent)}
+.contact-row{display:flex;gap:.9rem;flex-wrap:wrap}
+#contact .btn-primary{background:var(--accent);color:var(--accent-ink)}
+#contact .btn-ghost{border-color:color-mix(in srgb,var(--bg) 35%,transparent);color:var(--bg)}
+:root[data-theme="dark"] #contact .btn-ghost{color:var(--ink);border-color:var(--line-strong)}
+footer{
+  padding:1.6rem 0;border-top:1px solid color-mix(in srgb,var(--bg) 18%,transparent);
+  background:var(--ink);color:color-mix(in srgb,var(--bg) 60%,transparent);
+  font-size:.78rem;transition:background .5s;
+}
+:root[data-theme="dark"] footer{background:var(--card);color:var(--sub);border-color:var(--line)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:980px){
+  .nav-links{display:none}
+  #flowCanvas{
+    -webkit-mask-image:linear-gradient(180deg,transparent 18%,#000 62%);
+    mask-image:linear-gradient(180deg,transparent 18%,#000 62%);
+  }
+  .hero-glow{right:-30%;top:auto;bottom:-20%;transform:none}
+  .hero-stats{gap:1.6rem 2.2rem}
+  .case-card{grid-template-columns:1fr;min-height:0}
+  .case-media img{aspect-ratio:16/10;height:auto}
+  .archive-showcase{grid-template-columns:1fr}
+  .archive-copy{position:static}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .index-row{grid-template-columns:44px 1fr;grid-template-rows:auto auto;row-gap:.8rem}
+  .index-row .tags{grid-column:2;text-align:left}
+  .index-row .go-btn{grid-column:2;justify-self:start}
+}
+@media(max-width:560px){
+  section{padding:4.5rem 0}
+  .hero{padding-top:7.5rem}
+  .case-card{position:static}
+  .case-facts{grid-template-columns:1fr 1fr}
+  .archive-wall{grid-template-columns:1fr}
+  .archive-spotlight img{aspect-ratio:16/10}
+  .archive-row{grid-template-columns:88px minmax(0,1fr)}
+  .archive-wall-more{align-items:flex-start;flex-direction:column}
+  .archive-stats{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *,#intro,.marquee-track{animation:none!important;transition:none!important}
+  #intro{display:none}
+  #flowCanvas,.scroll-hint{display:none}
+  .reveal{opacity:1;transform:none}
+}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+</style>
 </head>
 <body>
 
-
-  <div class="container">
-  <span class="txt1">HYE02 </span><span class="txt2"></span><div class="bar"></div>
+<!-- ================= INTRO (A. Kinetic Rolling Type) ================= -->
+<div id="intro" aria-hidden="true">
+  <div class="intro-window">
+    <div class="intro-roll" id="introRoll">
+      <span>DESIGN</span>
+      <span>FLOW</span>
+      <span>DETAIL</span>
+      <span class="fin">PORTFOLIO</span>
+    </div>
+  </div>
+  <div class="intro-count">
+    <span id="introNum">0%</span>
+    <div class="intro-line"><i id="introBar"></i></div>
+    <span>HYE02 · 2026</span>
+  </div>
 </div>
 
+<!-- ================= HEADER ================= -->
+<header>
+  <nav class="nav" aria-label="주 메뉴">
+    <a class="logo" href="#top">HYE02<sup>®</sup></a>
+    <div class="nav-links">
+      <a href="#work-index">Work Index</a>
+      <a href="#featured">Featured</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button id="themeBtn" aria-label="라이트/다크 모드 전환">◐</button>
+      <a class="pill" href="https://www.onmode.kr/me/index.html" target="_blank" rel="noopener">About Me ↗</a>
+      <a class="pill solid" href="https://www.onmode.kr/archive.html" target="_blank" rel="noopener">All Archive ↗</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO (E + Flow Field) ================= -->
+<section class="hero">
+  <canvas id="flowCanvas" aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">Web · Commerce · UI Designer</p>
+    <h1 class="reveal">
+      <span class="swap"><span class="swap-track" id="swapTrack">
+        <span>화면의 흐름</span><span>브랜드 경험</span><span>구매 여정</span><span>정보 구조</span>
+      </span></span>을<br>설계합니다.
+    </h1>
+    <p class="hero-sub reveal">이커머스 운영, 상세페이지, 브랜드 콘텐츠 제작 경험을 바탕으로 사용자가 정보를 이해하고 행동으로 이어갈 수 있는 웹 경험을 설계합니다.</p>
+    <div class="hero-stats reveal">
+      <div><b>7<i>+</i></b>Years in Commerce</div>
+      <div><b>50<i>+</i></b>Projects Delivered</div>
+      <div><b>4</b>Featured Case Studies</div>
+      <div><b>2026</b>Open to Work</div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<!-- <div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>UI/UX Design <em>—</em> Detail Page <em>—</em> Graphic / Print <em>—</em> AI Visual <em>—</em> Responsive Web <em>—</em> Publishing <em>—</em></span>
+    <span>UI/UX Design <em>—</em> Detail Page <em>—</em> Graphic / Print <em>—</em> AI Visual <em>—</em> Responsive Web <em>—</em> Publishing <em>—</em></span>
+  </div>
+</div> -->
+
+<!-- ================= SECTION 1 : WORK INDEX ================= -->
+<section id="work-index">
+  <div class="wrap" style="position:relative">
+    <div class="sec-head reveal">
+      <h2>Work<br>Index <span class="serif" style="font-size:.55em;color:var(--accent)">— archive</span></h2>
+      <p>상세페이지, 웹사이트, UI/UX, 그래픽 작업을 성격별로 나누어 정리했습니다. 각 항목은 아카이브의 해당 카테고리 목록으로 연결됩니다.</p>
+    </div>
+
+    <ul class="index-list">
+      <li class="index-row reveal">
+        <span class="no">01</span>
+        <h3>UI/UX Design</h3>
+        <span class="tags">Mobile App · Web App · Flow Design</span>
+        <a class="go-btn" href="https://www.onmode.kr/archive.html?filter=uiux" target="_blank" rel="noopener">바로가기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </li>
+      <li class="index-row reveal">
+        <span class="no">02</span>
+        <h3>Web Site</h3>
+        <span class="tags">Corporate · Brand · Landing</span>
+        <a class="go-btn" href="https://www.onmode.kr/archive.html?filter=web-page" target="_blank" rel="noopener">바로가기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </li>
+      <li class="index-row reveal">
+        <span class="no">03</span>
+        <h3>Detail Page</h3>
+        <span class="tags">Commerce · Product · Promotion</span>
+        <a class="go-btn" href="https://www.onmode.kr/archive.html?filter=detail-page" target="_blank" rel="noopener">바로가기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </li>
+      <li class="index-row reveal">
+        <span class="no">04</span>
+        <h3>Graphic / Print</h3>
+        <span class="tags">Poster · Banner · Editorial</span>
+        <a class="go-btn" href="https://www.onmode.kr/archive.html?filter=graphic-print" target="_blank" rel="noopener">바로가기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </li>
+      <li class="index-row reveal">
+        <span class="no">05</span>
+        <h3>AI Visual &amp; Vibe Coding</h3>
+        <span class="tags">AI-generated Image · Vibe Coding · Product Cut</span>
+        <a class="go-btn" href="https://www.onmode.kr/archive.html?filter=ai-visual" target="_blank" rel="noopener">바로가기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </li>
+    </ul>
+
+    <div style="margin-top:2.6rem;text-align:right">
+      <a class="btn btn-primary" href="https://www.onmode.kr/archive.html" target="_blank" rel="noopener">전체 작업 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION 2 : FEATURED ================= -->
+<section id="featured">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Featured<br>Case Studies</h2>
+      <p>실무에서 쌓은 정보 구성과 콘텐츠 디자인 경험을 바탕으로, 서비스 흐름과 화면 구현까지 확장해 진행한 대표 프로젝트입니다.</p>
+    </div>
+
+    <div class="case-stack">
+
+      <!-- PetCare+ -->
+      <article class="case-card">
+        <div class="case-media">
+          <span class="badge">01 · Health Care Web App</span>
+          <img src="https://www.onmode.kr/images/main/hero_main_petcare.webp" alt="PetCare+ 서비스 화면" loading="lazy">
+        </div>
+        <div class="case-body">
+          <p class="case-kicker">Case Study</p>
+          <h3>PetCare+</h3>
+          <p class="case-desc">노령견·질환견 보호자가 반복적으로 확인해야 하는 복약, 식사, 증상, 병원 일정을 한곳에서 관리할 수 있도록 설계한 반려견 케어 웹앱입니다. 사용자가 <b>오늘 필요한 케어를 놓치지 않도록</b> 기록보다 실행 흐름에 초점을 맞췄습니다.</p>
+          <div class="case-facts">
+            <div><b>Role</b>기획 · UX/UI · 퍼블리싱</div>
+            <div><b>Type</b>개인 프로젝트</div>
+            <div><b>Scope</b>IA 설계 · 반응형 구현</div>
+          </div>
+          <ul class="chips"><li>Figma</li><li>Photoshop</li><li>HTML/CSS</li><li>GitHub</li><li>Claude</li></ul>
+          <div class="case-actions">
+            <a class="btn btn-primary" href="https://www.onmode.kr/petcare.html" target="_blank" rel="noopener">Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a class="btn btn-ghost" href="https://hye0277-erin.github.io/petcare/" target="_blank" rel="noopener">Live Demo</a>
+            <a class="btn btn-ghost" href="https://hye0277-erin.github.io/petcarelanding/" target="_blank" rel="noopener">Landing Page</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- QuietSkin -->
+      <article class="case-card">
+        <div class="case-media">
+          <span class="badge">02 · Beauty Brand Commerce</span>
+          <img src="https://www.onmode.kr/images/main/hero_main_quietskin.webp" alt="QuietSkin 브랜드 커머스 화면" loading="lazy">
+        </div>
+        <div class="case-body">
+          <p class="case-kicker">Case Study</p>
+          <h3>QuietSkin</h3>
+          <p class="case-desc">‘피부의 휴식과 조용한 회복’이라는 콘셉트로 제작한 뷰티 브랜드 커머스 사이트입니다. 브랜드 톤이 <b>제품 탐색, 상세 정보 확인, 구매 이동 흐름</b> 안에서 일관되게 이어지도록 구성했습니다.</p>
+          <div class="case-facts">
+            <div><b>Role</b>브랜드 기획 · UI/UX · 퍼블리싱</div>
+            <div><b>Type</b>개인 프로젝트</div>
+            <div><b>Scope</b>탐색 구조 · 구매 흐름</div>
+          </div>
+          <ul class="chips"><li>Figma</li><li>Illustrator</li><li>HTML/CSS</li><li>JavaScript</li><li>Midjourney</li></ul>
+          <div class="case-actions">
+            <a class="btn btn-primary" href="https://www.onmode.kr/quietskin.html" target="_blank" rel="noopener">Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a class="btn btn-ghost" href="https://hye0277-erin.github.io/QuietSkin/index.html" target="_blank" rel="noopener">Live Demo</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- NoTalk -->
+      <article class="case-card">
+        <div class="case-media">
+          <span class="badge">03 · Social Meetup App</span>
+          <img src="https://www.onmode.kr/images/main/project_notalk.jpg" alt="NoTalk 소모임 앱 홈 화면" loading="lazy">
+        </div>
+        <div class="case-body">
+          <p class="case-kicker">Case Study</p>
+          <h3>NoTalk</h3>
+          <p class="case-desc">관심사를 기반으로 소모임을 탐색하고 참여하는 앱 서비스입니다. 캐릭터와 뱃지를 활용해 <b>긴 자기소개 없이도 사용자의 성향을 표현</b>하고, 3단계 온보딩으로 진입 부담을 줄인 팀 프로젝트입니다.</p>
+          <div class="case-facts">
+            <div><b>Role</b>기획 · UI/UX · 퍼블리싱</div>
+            <div><b>Type</b>팀 프로젝트 (4인)</div>
+            <div><b>Scope</b>온보딩 · 뱃지 시스템</div>
+          </div>
+          <ul class="chips"><li>Figma</li><li>Photoshop</li><li>Claude Code</li><li>ChatGPT</li></ul>
+          <div class="case-actions">
+            <a class="btn btn-primary" href="https://www.onmode.kr/notalk.html" target="_blank" rel="noopener">Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a class="btn btn-ghost" href="https://4team-notalk.vercel.app/" target="_blank" rel="noopener">Live Service</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Black Desert -->
+      <article class="case-card">
+        <div class="case-media">
+          <span class="badge">04 · Immersive Game Website</span>
+          <img src="https://www.onmode.kr/images/main/hero_main_blackdesert.webp" alt="Black Desert 게임 사이트 화면" loading="lazy">
+        </div>
+        <div class="case-body">
+          <p class="case-kicker">Case Study</p>
+          <h3>Black Desert</h3>
+          <p class="case-desc">검은사막의 세계관과 분위기를 웹 경험으로 재해석한 게임 사이트 리디자인입니다. 던전 진입, 문 개방, 제단 연출 등 <b>단계적인 인터랙션</b>을 통해 사용자가 콘텐츠에 몰입하며 이동하도록 구성했습니다.</p>
+          <div class="case-facts">
+            <div><b>Role</b>UI/UX · 인터랙션 · 퍼블리싱</div>
+            <div><b>Type</b>개인 프로젝트</div>
+            <div><b>Scope</b>인트로 시퀀스 · 탐색 구조</div>
+          </div>
+          <ul class="chips"><li>Figma</li><li>Photoshop</li><li>HTML/CSS</li><li>GSAP</li></ul>
+          <div class="case-actions">
+            <a class="btn btn-primary" href="https://www.onmode.kr/blackdesert.html" target="_blank" rel="noopener">Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a class="btn btn-ghost" href="https://hye0277-erin.github.io/blackdesert/" target="_blank" rel="noopener">Live Demo</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTION 3 : ARCHIVE PREVIEW ================= -->
+<section id="archive-preview">
+  <div class="wrap archive-showcase">
+    <div class="archive-copy reveal">
+      <p class="eyebrow">Archive Preview</p>
+      <h2>Work<br>Library</h2>
+      <p>아카이브에 정리된 실무·학습 작업물을 선별해 보여주는 섹션입니다. 웹사이트 시안, 상세페이지, 이벤트 페이지, 패키지 작업을 빠르게 훑어보고 전체 목록으로 이동할 수 있습니다.</p>
+
+      <div class="archive-stats" aria-label="Archive summary">
+        <div><b>24</b><span>작업 파일</span></div>
+        <div><b>5</b><span>카테고리</span></div>
+        <div><b>6</b><span>라이브 프로젝트</span></div>
+      </div>
+
+      <div class="archive-filter-chips" aria-label="Archive category links">
+        <a href="https://www.onmode.kr/archive.html?filter=uiux" target="_blank" rel="noopener">UI/UX</a>
+        <a href="https://www.onmode.kr/archive.html?filter=web-page" target="_blank" rel="noopener">Web Site</a>
+        <a href="https://www.onmode.kr/archive.html?filter=detail-page" target="_blank" rel="noopener">Detail Page</a>
+        <a href="https://www.onmode.kr/archive.html?filter=graphic-print" target="_blank" rel="noopener">Graphic / Print</a>
+        <a href="https://www.onmode.kr/archive.html?filter=ai-visual" target="_blank" rel="noopener">AI Visual</a>
+      </div>
+
+      <a class="btn btn-primary" href="https://www.onmode.kr/archive.html" target="_blank" rel="noopener">전체 아카이브 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+    </div>
+
+    <div class="archive-wall">
+      <a class="archive-spotlight reveal" href="https://www.onmode.kr/works/work-22.html" target="_blank" rel="noopener">
+        <figure><img src="https://www.onmode.kr/images/works/work-22.jpg" alt="Wedding UI thumbnail" loading="lazy"></figure>
+        <div class="archive-spotlight-body">
+          <div class="archive-work-meta"><span>대표 작업</span></div>
+          <h3>웨딩업체 UI</h3>
+          <p>상담과 예약 문의로 이어지는 흐름을 중심으로 구성한 웨딩 서비스 UI 시안입니다.</p>
+        </div>
+      </a>
+
+      <div class="archive-list">
+        <a class="archive-row reveal" href="https://www.onmode.kr/works/work-24.html" target="_blank" rel="noopener">
+          <figure><img src="https://www.onmode.kr/images/works/work-24.jpg" alt="Place rental UI thumbnail" loading="lazy"></figure>
+          <div class="archive-row-body">
+            <div class="archive-work-meta"><span>Website</span></div>
+            <h3>장소 대여업체</h3>
+            <p>공간 정보 탐색과 예약 문의 흐름을 정리한 웹사이트 시안.</p>
+          </div>
+        </a>
+
+        <a class="archive-row reveal" href="https://www.onmode.kr/works/work-23.html" target="_blank" rel="noopener">
+          <figure><img src="https://www.onmode.kr/images/works/work-23.jpg" alt="Real estate mobile UI thumbnail" loading="lazy"></figure>
+          <div class="archive-row-body">
+            <div class="archive-work-meta"><span>UI/UX Design</span></div>
+            <h3>부동산 모바일 사이트</h3>
+            <p>매물 정보 탐색과 비교가 쉽도록 구성한 모바일 화면.</p>
+          </div>
+        </a>
+
+        <a class="archive-row reveal" href="https://www.onmode.kr/works/work-02.html" target="_blank" rel="noopener">
+          <figure><img src="https://www.onmode.kr/images/works/work-02.jpg" alt="Nuts detail page thumbnail" loading="lazy"></figure>
+          <div class="archive-row-body">
+            <div class="archive-work-meta"><span>Detail Page</span></div>
+            <h3>견과류 상세페이지</h3>
+            <p>제품 장점과 섭취 상황을 구매 흐름에 맞게 정리한 상세페이지.</p>
+          </div>
+        </a>
+
+        <a class="archive-row reveal" href="https://www.onmode.kr/works/work-11.html" target="_blank" rel="noopener">
+          <figure><img src="https://www.onmode.kr/images/works/work-11.jpg" alt="Black tiger shrimp detail page thumbnail" loading="lazy"></figure>
+          <div class="archive-row-body">
+            <div class="archive-work-meta"><span>Detail Page</span></div>
+            <h3>블랙타이거 새우 상세페이지</h3>
+            <p>식재료의 크기, 신선도, 조리 이미지를 강조한 상품 상세.</p>
+          </div>
+        </a>
+
+        <a class="archive-row reveal" href="https://www.onmode.kr/works/work-18.html" target="_blank" rel="noopener">
+          <figure><img src="https://www.onmode.kr/images/works/work-18.jpg" alt="Live commerce event page thumbnail" loading="lazy"></figure>
+          <div class="archive-row-body">
+            <div class="archive-work-meta"><span>Event Page</span></div>
+            <h3>TVON 라이브방송 이벤트</h3>
+            <p>혜택과 방송 정보를 짧은 시간 안에 이해하도록 구성한 이벤트 페이지.</p>
+          </div>
+        </a>
+
+        <a class="archive-row reveal" href="https://hye0277-erin.github.io/woodplace/" target="_blank" rel="noopener">
+          <figure><img src="https://www.onmode.kr/images/main/project_woodplace.jpg" alt="WoodPlace thumbnail" loading="lazy"></figure>
+          <div class="archive-row-body">
+            <div class="archive-work-meta"><span>Web Site</span></div>
+            <h3>WoodPlace</h3>
+            <p>브랜드 분위기와 공간 이미지를 중심으로 제작한 라이브 웹 프로젝트.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="archive-wall-more reveal">
+        <div>
+          <strong>더 많은 작업 보기</strong>
+          <span>상세페이지, 이벤트 페이지, 패키지, UI 시안은 전체 아카이브에서 이어서 확인할 수 있습니다.</span>
+        </div>
+        <a class="btn btn-ghost" href="https://www.onmode.kr/archive.html" target="_blank" rel="noopener">Archive 보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <p class="eyebrow">About</p>
+      <h2>콘텐츠를 정리하고,<br><span class="serif">행동</span>으로 이어지는 화면을 만듭니다</h2>
+      <p>웹사이트 운영, 브랜드 콘텐츠, 상세페이지 디자인을 중심으로 실무를 경험했습니다. 상품과 서비스의 장점을 정리하고, 사용자가 필요한 정보를 자연스러운 순서로 이해하도록 구성하는 작업을 꾸준히 해왔습니다.</p>
+      <p>최근에는 UI·UX 설계, 반응형 웹 퍼블리싱, AI 도구 활용까지 작업 범위를 넓히고 있습니다. 보기 좋은 화면에 그치지 않고 실제 운영과 전환 흐름까지 고려한 결과물을 만드는 것을 목표로 합니다.</p>
+      <div class="about-links">
+        <a class="btn btn-primary" href="https://www.onmode.kr/me/index.html" target="_blank" rel="noopener">프로필 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="btn btn-ghost" href="https://www.onmode.kr/archive.html" target="_blank" rel="noopener">Work Archive</a>
+      </div>
+    </div>
+    <aside class="focus-box reveal">
+      <h4>Focus</h4>
+      <ul>
+        <li>UI/UX Design</li><li>Responsive Web</li><li>Brand Experience</li><li>HTML / CSS Publishing</li>
+      </ul>
+      <h4>Tools</h4>
+      <div class="tools">
+        <span><img src="https://www.onmode.kr/images/main/icon_figma.png" alt="">Figma</span>
+        <span><img src="https://www.onmode.kr/images/main/icon_Photoshop.png" alt="">Photoshop</span>
+        <span><img src="https://www.onmode.kr/images/main/icon_Illustrator.png" alt="">Illustrator</span>
+        <span><img src="https://www.onmode.kr/images/main/icon_xd.png" alt="">Adobe XD</span>
+        <span><img src="https://www.onmode.kr/images/main/icon_vscode.png" alt="">VS Code</span>
+        <span><img src="https://www.onmode.kr/images/main/icon_gsap.png" alt="">GSAP</span>
+        <span><img src="https://www.onmode.kr/images/main/icon_chatgpt.png" alt="">ChatGPT</span>
+        <span><img src="https://www.onmode.kr/images/main/icon_claude.png" alt="">Claude</span>
+        <span><img src="https://www.onmode.kr/images/main/icon_gemini.png" alt="">Gemini</span>
+        <span><img src="https://www.onmode.kr/images/main/icon_midjourney.png" alt="">Midjourney</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap reveal">
+    <p class="eyebrow">Contact</p>
+    <h2>정리하고 싶은 <span class="serif">서비스</span>나<br>보여주고 싶은 제품이 있다면 연락 주세요.</h2>
+    <div class="contact-row">
+      <a class="btn btn-primary" href="mailto:hye0277@gmail.com">hye0277@gmail.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="btn btn-ghost" href="https://www.onmode.kr/archive.html" target="_blank" rel="noopener">All Archive ↗</a>
+      <a class="btn btn-ghost" href="https://www.onmode.kr/me/index.html" target="_blank" rel="noopener">About Me ↗</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 HYE02 Portfolio. All Rights Reserved.</span>
+    <span>UI/UX · Commerce · Web Publishing</span>
+  </div>
+</footer>
+
 <script>
-    var color2 = '#b8ff65',
-    color1 = '#fff',
-    moveBar = ()=>{ gsap.set('.bar', {left:gsap.getProperty('.txt1','width') + 1}) };
+(function(){
+  const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // " PORTFOLIO" 글자를 span으로 분리
-    var word = 'PORTFOLIO';
-    var txt2El = document.querySelector('.txt2');
-    txt2El.innerHTML = word.split('').map(function(ch) {
-        return '<span class="ch">' + (ch === ' ' ? '&nbsp;' : ch) + '</span>';
-    }).join('');
-    var t2 = txt2El.querySelectorAll('.ch');
+  /* ---- Intro: kinetic rolling type ---- */
+  const intro = document.getElementById('intro');
+  if(prefersReduced){ intro.remove(); }
+  else{
+    const roll = document.getElementById('introRoll');
+    const bar = document.getElementById('introBar');
+    const num = document.getElementById('introNum');
+    document.body.style.overflow='hidden';
+    intro.classList.add('play');
 
-gsap.timeline({
-    delay:0.2,
-    onComplete: function () {
-        window.location.href = 'main.html';
+    bar.style.transition = 'transform 2.2s linear';
+    requestAnimationFrame(()=>{ bar.style.transform = 'scaleX(1)'; });
+
+    const start = performance.now();
+    const tick = now => {
+      const progress = Math.min(100, Math.round((now - start) / 22));
+      num.textContent = progress + '%';
+      if(progress < 100 && document.body.contains(intro)) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+
+    [1,2,3].forEach((step, i)=>{
+      setTimeout(()=>{ roll.style.transform = 'translateY(-' + (step * 25) + '%)'; }, 500 + i * 550);
+    });
+
+    setTimeout(()=>{ intro.classList.add('leave'); }, 2700);
+    setTimeout(()=>{ intro.classList.add('done'); document.body.style.overflow=''; }, 3600);
+    setTimeout(()=>{ intro.remove(); }, 4300);
+  }
+
+  /* ---- Theme toggle (light / dark) ---- */
+  const root = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  if(matchMedia('(prefers-color-scheme: dark)').matches) root.dataset.theme='dark';
+  btn.addEventListener('click',()=>{
+    root.dataset.theme = root.dataset.theme==='dark' ? 'light' : 'dark';
+  });
+
+  /* ---- Scroll reveal ---- */
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* ---- Hero: word swap ---- */
+  const swapTrack = document.getElementById('swapTrack');
+  if(swapTrack && !prefersReduced){
+    let wi = 0;
+    setInterval(()=>{ wi=(wi+1)%4; swapTrack.style.transform='translateY(-'+(wi*25)+'%)'; }, 2200);
+  }
+
+  /* ---- Hero: flow field canvas ---- */
+  const cv = document.getElementById('flowCanvas');
+  if(cv && cv.getContext && !prefersReduced){
+    const ctx = cv.getContext('2d');
+    let W,H,dpr,parts=[],t=0,running=true;
+    const COLORS=['rgba(155,149,255,','rgba(51,54,238,','rgba(244,245,248,'];
+
+    function spawn(p){
+      p.x=W*0.35+Math.random()*W*0.75;
+      p.y=Math.random()*H;
+      p.life=0; p.max=200+Math.random()*260;
+      p.speed=.35+Math.random()*.75;
+      p.size=.5+Math.random()*1.3;
+      const r=Math.random();
+      p.color=COLORS[r<.55?0:r<.85?1:2];
+      p.alpha=.25+Math.random()*.4;
+      return p;
     }
-})
-    .set('.txt1',   {color:color1, fontWeight:'regular'})
-    .set('.txt2',   {color:color2, fontWeight:'bold', opacity:0, x:gsap.getProperty('.txt1','width')-2, immediateRender:true})
-    .set('.bar',    {left:1, backgroundColor:color1, immediateRender:true})
+    function initParts(){
+      const n=Math.min(240,Math.floor(W*H/9000));
+      parts=Array.from({length:n},()=>spawn({}));
+    }
+    function resizeCv(){
+      dpr=Math.min(2,devicePixelRatio||1);
+      W=cv.clientWidth; H=cv.clientHeight;
+      cv.width=W*dpr; cv.height=H*dpr;
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      ctx.fillStyle='#0D0E13'; ctx.fillRect(0,0,W,H);
+      initParts();
+    }
+    function fieldAngle(x,y){
+      return Math.sin(x*0.0016+t*0.0006)*1.6
+           + Math.cos(y*0.0021-t*0.0004)*1.4
+           + Math.sin((x+y)*0.0009+t*0.0003)*.8;
+    }
+    function frame(){
+      if(running){
+        t++;
+        ctx.fillStyle='rgba(13,14,19,0.075)';
+        ctx.fillRect(0,0,W,H);
+        for(const p of parts){
+          const a=fieldAngle(p.x,p.y);
+          const nx=p.x+Math.cos(a)*p.speed+p.speed*.55;
+          const ny=p.y+Math.sin(a)*p.speed;
+          const fade=Math.min(p.life/40,(p.max-p.life)/40,1);
+          ctx.strokeStyle=p.color+(p.alpha*Math.max(fade,0))+')';
+          ctx.lineWidth=p.size;
+          ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(nx,ny); ctx.stroke();
+          p.x=nx; p.y=ny; p.life++;
+          if(p.life>p.max||p.x<-20||p.x>W+20||p.y<-20||p.y>H+20) spawn(p);
+        }
+      }
+      requestAnimationFrame(frame);
+    }
+    new IntersectionObserver(es=>{ running=es[0].isIntersecting; },{threshold:.05}).observe(cv);
+    addEventListener('resize',resizeCv,{passive:true});
+    resizeCv();
+    frame();
+  }
 
-    .to('.bar',     {duration:0.1, opacity:0, ease:"expo.in", yoyo:true, repeat:5, repeatDelay:0.3}, 0)
-    .from('.txt1',  {duration:1.1, width:0, ease:"steps(14)", onUpdate:moveBar}, 2.5)
-    .to('.bar',     {duration:0.05, backgroundColor:color2}, '+=0.15')
-    .to('.bar',     {duration:1.0, width:()=>gsap.getProperty('.txt2','width'), ease:"power4.inOut"}, '+=0.1')
-    .from('.container',     {duration:1.0, x:135, ease:"power4.inOut"}, '-=1.0')
-    .to('.txt2',    {duration:0.01, opacity:1}, '-=0.1')
-    .to('.bar',     {duration:0.4, x:()=>gsap.getProperty('.txt2','width'), width:0, ease:"power4.in"})
-    .from(t2,       {duration:0.6, opacity:0, ease:"power3.inOut", stagger:0.02}, '-=0.5')
-    .to('.txt1',    {duration:1.5, opacity:0.25, ease:"power3.inOut"}, '-=1.2')
-    .to('.container', {duration:1.2, scale:14, y:-80, opacity:0, ease:"power2.inOut"}, '+=1')
-    .timeScale(1.45)
+  /* ---- Parallax ---- */
+  const pEls = [...document.querySelectorAll('[data-parallax]')];
+  if(!prefersReduced && pEls.length){
+    let ticking=false;
+    const update=()=>{
+      const vh = innerHeight;
+      pEls.forEach(el=>{
+        const r = el.getBoundingClientRect();
+        const speed = parseFloat(el.dataset.parallax);
+        const offset = (r.top + r.height/2 - vh/2) * speed;
+        el.style.transform = 'translateY('+offset.toFixed(1)+'px)';
+      });
+      ticking=false;
+    };
+    addEventListener('scroll',()=>{ if(!ticking){ requestAnimationFrame(update); ticking=true; } },{passive:true});
+    update();
+  }
+
+})();
 </script>
-    
 </body>
 </html>
