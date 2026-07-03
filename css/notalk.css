@@ -70,30 +70,33 @@ body:has(.ntk-page) .scroll-top-btn {
 
 /* 헤더 */
 body:has(.ntk-page) .site-header {
-  background: rgba(246,244,255,.75);
-  border-color: var(--n-line-m);
-  box-shadow: 0 4px 24px rgba(125,109,255,.08);
-  backdrop-filter: blur(18px) saturate(1.5);
-  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  border-color: var(--line);
+  box-shadow: none;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
-body:has(.ntk-page) .site-header.is-scrolled { background: rgba(246,244,255,.92); }
+body:has(.ntk-page) .site-header.is-scrolled { background: color-mix(in srgb, var(--bg) 90%, transparent); }
 body:has(.ntk-page) .brand,
 body:has(.ntk-page) .gnb a,
-body:has(.ntk-page) .menu-toggle { color: var(--n-ink); }
-body:has(.ntk-page) .brand-sub { color: var(--n-muted); }
+body:has(.ntk-page) .menu-toggle { color: var(--text); }
+body:has(.ntk-page) .brand-sub { color: var(--dim); }
 body:has(.ntk-page) .menu-toggle {
-  border-color: var(--n-line-m);
-  background: rgba(125,109,255,.06);
+  border-color: var(--line);
+  background: var(--glass);
 }
 body:has(.ntk-page) .menu-toggle + .gnb {
-  background: rgba(246,244,255,.96);
-  border-color: var(--n-line-m);
+  background: var(--glass-strong);
+  border-color: var(--line);
 }
 body:has(.ntk-page) .menu-toggle + .gnb a {
-  color: var(--n-ink);
+  color: var(--text);
+}
+body:has(.ntk-page) .menu-toggle + .gnb .gnb-aboutme {
+  color: #fff;
 }
 body:has(.ntk-page) .gnb-divider {
-  background: var(--n-line-m);
+  background: var(--line);
 }
 
 /* ── Layout utils ───────────────────────────────────── */
@@ -1046,4 +1049,3 @@ body:has(.ntk-page) .gnb-divider {
   .ntk-ba-arrow { transform: rotate(90deg) !important; }
   .ntk-badge-grid { grid-template-columns: repeat(4, 1fr); }
 }
-

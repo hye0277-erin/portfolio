@@ -1,28 +1,28 @@
 /* ---- Header (라이트 화이트 테마) ---- */
 .qs-page-body .site-header {
-  background: rgba(255,255,255,0.92) !important;
-  border-color: rgba(0,0,0,0.08) !important;
-  backdrop-filter: blur(16px) !important;
+  background: color-mix(in srgb, var(--bg) 78%, transparent) !important;
+  border-color: var(--line) !important;
+  backdrop-filter: blur(14px) !important;
 }
 .qs-page-body .brand,
-.qs-page-body .gnb a { color: #1a1a1a; }
-.qs-page-body .brand-sub { color: #888; }
+.qs-page-body .gnb a { color: var(--text); }
+.qs-page-body .brand-sub { color: var(--dim); }
 .qs-page-body .menu-toggle {
-  border-color: rgba(0,0,0,0.12);
-  background: rgba(0,0,0,0.04);
-  color: #1a1a1a;
+  border-color: var(--line);
+  background: var(--glass);
+  color: var(--text);
 }
 
 @media (max-width: 860px) {
   .qs-page-body .menu-toggle + .gnb {
-    background: rgba(255,255,255,0.97) !important;
-    border-color: rgba(0,0,0,0.08) !important;
+    background: var(--glass-strong) !important;
+    border-color: var(--line) !important;
     box-shadow: none !important;
   }
   .qs-page-body .menu-toggle + .gnb a,
-  .qs-page-body .menu-toggle + .gnb .gnb-archive,
-  .qs-page-body .menu-toggle + .gnb .gnb-aboutme { color: #1a1a1a !important; }
-  .qs-page-body .gnb-divider { background: rgba(0,0,0,0.08); }
+  .qs-page-body .menu-toggle + .gnb .gnb-archive { color: var(--text) !important; }
+  .qs-page-body .menu-toggle + .gnb .gnb-aboutme { color: #fff !important; }
+  .qs-page-body .gnb-divider { background: var(--line); }
 }
 
 /* =========================

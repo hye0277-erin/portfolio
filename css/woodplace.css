@@ -28,21 +28,21 @@
 }
 
 .woodplace-case .site-header {
-  background: rgba(255, 253, 248, 0.78);
-  border-color: var(--wp-line);
-  box-shadow: 0 16px 40px rgba(80, 60, 36, 0.08);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  border-color: var(--line);
+  box-shadow: none;
 }
 
 .woodplace-case .site-header.is-scrolled {
-  background: rgba(255, 253, 248, 0.9);
-  border-color: rgba(80, 64, 44, 0.18);
-  box-shadow: 0 18px 50px rgba(80, 60, 36, 0.12);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  border-color: var(--line);
+  box-shadow: 0 12px 32px rgba(13, 14, 19, 0.08);
 }
 
 .woodplace-case .brand,
 .woodplace-case .gnb a,
-.woodplace-case .menu-toggle { color: var(--wp-ink); }
-.woodplace-case .brand-sub { color: var(--wp-ink-soft); }
+.woodplace-case .menu-toggle { color: var(--text); }
+.woodplace-case .brand-sub { color: var(--dim); }
 .woodplace-case .header-cta {
   color: var(--wp-cream);
   background: var(--wp-wood-deep);
@@ -830,7 +830,7 @@
   }
 
   .woodplace-case .gnb {
-    display: none;
+    display: flex;
   }
 
   .woodplace-case .header-cta {
@@ -874,8 +874,8 @@
 
 @media (max-width: 480px) {
   .woodplace-case .site-header {
-    width: calc(100% - 24px);
-    padding: 0 14px;
+    width: 100%;
+    padding: 0.9rem 16px;
   }
 
   .woodplace-case .brand-mark {

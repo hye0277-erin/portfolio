@@ -7,29 +7,29 @@
 
 /* 헤더 — 다크 글래스모피즘 */
 body:has(.petcase-page) .site-header {
-  background: rgba(7, 8, 12, 0.70);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255,255,255,0.06);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  border-color: var(--line);
+  box-shadow: none;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 body:has(.petcase-page) .site-header.is-scrolled {
-  background: rgba(7, 8, 12, 0.85);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  border-color: var(--line);
 }
 body:has(.petcase-page) .brand,
 body:has(.petcase-page) .gnb a,
-body:has(.petcase-page) .menu-toggle { color: #f4f5f8; }
-body:has(.petcase-page) .brand-sub { color: rgba(244,245,248,.5); }
+body:has(.petcase-page) .menu-toggle { color: var(--text); }
+body:has(.petcase-page) .brand-sub { color: var(--dim); }
 body:has(.petcase-page) .menu-toggle {
-  border-color: rgba(255,255,255,.14);
-  background: rgba(255,255,255,.08);
+  border-color: var(--line);
+  background: var(--glass);
 }
 body:has(.petcase-page) .gnb-divider {
-  background: rgba(255,255,255,.3);
+  background: var(--line);
 }
 body:has(.petcase-page) .gnb-aboutme {
-  color: #07080a !important;
+  color: #fff !important;
 }
 
 /* 스크롤 상단 버튼 — PetCare 그린 */

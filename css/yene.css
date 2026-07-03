@@ -26,34 +26,36 @@
 
 /* ---- Header (라이트) ---- */
 .yene-case .site-header {
-  background: rgba(255,255,255,0.92) !important;
-  border-color: var(--yn-line) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  box-shadow: 0 1px 0 var(--yn-line) !important;
+  background: color-mix(in srgb, var(--bg) 78%, transparent) !important;
+  border-color: var(--line) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  box-shadow: none !important;
 }
 .yene-case .brand,
 .yene-case .gnb a,
-.yene-case .menu-toggle { color: var(--yn-navy); }
-.yene-case .brand-sub { color: var(--yn-muted); }
+.yene-case .menu-toggle { color: var(--text); }
+.yene-case .brand-sub { color: var(--dim); }
 .yene-case .menu-toggle {
-  border-color: var(--yn-line);
-  background: rgba(15,34,61,.05);
+  border-color: var(--line);
+  background: var(--glass);
 }
 @media (max-width: 860px) {
   .yene-case .menu-toggle + .gnb {
-    background: rgba(255,255,255,0.97) !important;
-    border-color: var(--yn-line) !important;
+    background: var(--glass-strong) !important;
+    border-color: var(--line) !important;
     box-shadow: none !important;
   }
   .yene-case .menu-toggle + .gnb a,
-  .yene-case .menu-toggle + .gnb .gnb-archive,
+  .yene-case .menu-toggle + .gnb .gnb-archive {
+    color: var(--text) !important;
+  }
   .yene-case .menu-toggle + .gnb .gnb-aboutme {
-    color: var(--yn-navy) !important;
+    color: #fff !important;
   }
 }
 .yene-case .gnb-divider {
-  background: var(--yn-line);
+  background: var(--line);
 }
 .yene-case .skip-link { background: var(--yn-navy); color: #fff; }
 .yene-case .scroll-progress { background: var(--yn-line); }
