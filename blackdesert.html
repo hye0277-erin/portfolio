@@ -25,30 +25,22 @@
     <canvas class="bd-embers" data-embers></canvas>
   </div>
 
-  <header class="site-header" data-header>
-    <a href="./index.html" class="brand" aria-label="HYE02 Portfolio Home">
-      <span class="brand-mark">HYE02</span>
-      <span class="brand-sub">UI/UX PORTFOLIO</span>
-    </a>
-
-    <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
-      <span class="material-symbols-rounded menu-toggle-icon" aria-hidden="true">menu</span>
-    </button>
-
-    <nav class="gnb" id="primary-navigation" aria-label="주요 메뉴">
-      <div class="gnb-center">
-        <a href="index.html#works" data-nav>Featured</a>
-        <a href="index.html#archive" data-nav>Experience</a>
-        <a href="index.html#process" data-nav>Process</a>
-        <a href="index.html#contact" data-nav>Contact</a>
-      </div>
-      <div class="gnb-divider" aria-hidden="true"></div>
-      <div class="gnb-right">
-        <a href="archive.html" class="gnb-archive">All Archive ↗</a>
-        <a href="me/index.html" target="_blank" class="gnb-aboutme">About Me ↗</a>
-      </div>
-    </nav>
-  </header>
+  <header>
+  <nav class="nav" aria-label="주 메뉴">
+    <a class="logo" href="index.html#top">HYE02<sup>®</sup></a>
+    <div class="nav-links">
+      <a href="index.html#work-index">Work Index</a>
+      <a href="index.html#featured">Featured</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button id="themeBtn" aria-label="라이트/다크 모드 전환">◐</button>
+      <a class="pill" href="https://www.onmode.kr/me/index.html" target="_blank" rel="noopener">About Me ↗</a>
+      <a class="pill solid" href="https://www.onmode.kr/archive.html" target="_blank" rel="noopener">All Archive ↗</a>
+    </div>
+  </nav>
+</header>
 
   <main id="blackdesert-main" class="blackdesert-main">
     <nav class="bd-section-index" aria-label="검은사막 케이스 스터디 섹션 이동">
@@ -455,5 +447,16 @@
   </button>
 
   <script src="./js/blackdesert.js" defer></script>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const btn = document.getElementById('themeBtn');
+      if (!btn) return;
+      if (matchMedia('(prefers-color-scheme: dark)').matches) root.dataset.theme = 'dark';
+      btn.addEventListener('click', () => {
+        root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      });
+    })();
+  </script>
 </body>
 </html>

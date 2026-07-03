@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
@@ -51,6 +51,14 @@
     fetch("./header.html").then(r => r.text()).then(html => {
       const placeholder = document.getElementById("site-header-placeholder");
       if (placeholder) { placeholder.outerHTML = html; }
+      const root = document.documentElement;
+      const themeBtn = document.getElementById('themeBtn');
+      if (themeBtn) {
+        if (matchMedia('(prefers-color-scheme: dark)').matches) root.dataset.theme = 'dark';
+        themeBtn.addEventListener('click', () => {
+          root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        });
+      }
       const menuToggle = document.querySelector("[data-menu-toggle]");
       const header = document.querySelector("[data-header]");
       const menuIcon = menuToggle?.querySelector(".menu-toggle-icon");
