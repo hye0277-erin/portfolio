@@ -80,6 +80,13 @@ body::before {
     linear-gradient(180deg, #F4F5F8 0%, #ECEDF2 52%, #F4F5F8 100%);
 }
 
+:root[data-theme="dark"] body::before {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(155, 149, 255, 0.14), transparent 26%),
+    radial-gradient(circle at 76% 20%, rgba(155, 149, 255, 0.10), transparent 32%),
+    linear-gradient(180deg, #0A0B10 0%, #0F1017 52%, #0A0B10 100%);
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -585,7 +592,7 @@ body > header {
   overflow: hidden;
   background:
     linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.035)),
-    radial-gradient(circle at 20% 15%, rgba(184,255,101,0.20), transparent 34%),
+    radial-gradient(circle at 20% 15%, rgba(91, 79, 207, 0.20), transparent 34%),
     radial-gradient(circle at 82% 72%, rgba(140,199,255,0.20), transparent 36%);
 }
 
@@ -951,7 +958,7 @@ body > header {
   left: calc(var(--dot) / 2);
   right: 8px;
   height: 1px;
-  background: linear-gradient(90deg, rgba(184, 255, 101, 0.4), rgba(184, 255, 101, 0.12));
+  background: linear-gradient(90deg, rgba(91, 79, 207, 0.4), rgba(91, 79, 207, 0.12));
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
@@ -975,7 +982,7 @@ body > header {
   border-radius: 50%;
   /* 밝은 라임 코어 + 부드러운 외곽 헤일로 (업로드 이미지 톤) */
   background: var(--accent);
-  box-shadow: 0 0 0 5px rgba(184, 255, 101, 0.08);
+  box-shadow: 0 0 0 5px rgba(91, 79, 207, 0.08);
   /* 기본값은 '보임' — JS가 실패해도 원이 항상 보이도록 */
   transform: scale(1);
   opacity: 1;
@@ -995,7 +1002,7 @@ body > header {
   position: absolute;
   inset: -7px;
   border-radius: 50%;
-  border: 2px solid rgba(184, 255, 101, 0.45);
+  border: 2px solid rgba(91, 79, 207, 0.45);
   opacity: 0;
 }
 
@@ -1058,8 +1065,8 @@ body > header {
 
 /* 마우스를 올린 단계는 강조 */
 .process-step:hover .process-dot {
-  border-color: rgba(184, 255, 101, 0.55);
-  box-shadow: 0 0 0 6px rgba(184, 255, 101, 0.12), 0 16px 40px rgba(184, 255, 101, 0.18);
+  border-color: rgba(91, 79, 207, 0.55);
+  box-shadow: 0 0 0 6px rgba(91, 79, 207, 0.12), 0 16px 40px rgba(91, 79, 207, 0.18);
 }
 
 @keyframes processPulse {
@@ -1086,7 +1093,7 @@ body > header {
   width: 50%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: rgba(184, 255, 101, 0.16);
+  background: rgba(91, 79, 207, 0.16);
   filter: blur(70px);
 }
 
@@ -1147,7 +1154,7 @@ body > header {
 
   .process-timeline::after {
     width: 2px;
-    background: linear-gradient(180deg, var(--accent), rgba(184, 255, 101, 0.35));
+    background: linear-gradient(180deg, var(--accent), rgba(91, 79, 207, 0.35));
     transform: scaleY(0);
     transform-origin: top center;
   }
@@ -1358,7 +1365,7 @@ body > header {
   border-radius: var(--radius-lg);
   background:
     linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035)),
-    radial-gradient(circle at 20% 0%, rgba(184,255,101,0.12), transparent 34%);
+    radial-gradient(circle at 20% 0%, rgba(91, 79, 207, 0.12), transparent 34%);
   backdrop-filter: blur(18px);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.22);
 }
@@ -1490,7 +1497,6 @@ body > header {
   min-height: 780px;
   overflow: hidden;
   padding: 12px;
-  border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.045);
 }
@@ -1550,7 +1556,7 @@ body > header {
 @media (hover: hover) and (pointer: fine) {
   a.company-work-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(184,255,101,0.5);
+    border-color: rgba(91, 79, 207, 0.5);
     box-shadow: 0 30px 80px rgba(0,0,0,0.3);
   }
 }
@@ -1567,7 +1573,7 @@ body > header {
   border: 1px solid rgba(255,255,255,0.10);
   background:
     linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.035)),
-    radial-gradient(circle at 20% 20%, rgba(184,255,101,0.18), transparent 34%),
+    radial-gradient(circle at 20% 20%, rgba(91, 79, 207, 0.18), transparent 34%),
     radial-gradient(circle at 80% 70%, rgba(140,199,255,0.16), transparent 36%);
 }
 
@@ -2181,12 +2187,12 @@ body.archive-page::before {
   width: 62px; height: 62px;
   margin: -31px 0 0 -31px;
   border-color: transparent;
-  background: rgba(184, 255, 101, 0.14);
+  background: rgba(91, 79, 207, 0.14);
 }
 .cursor-ring.is-down {
   width: 30px; height: 30px;
   margin: -15px 0 0 -15px;
-  background: rgba(184, 255, 101, 0.22);
+  background: rgba(91, 79, 207, 0.22);
 }
 
 /* ---- Scroll progress ---- */
@@ -2211,8 +2217,8 @@ body.archive-page::before {
   height: 50px;
   border: 1px solid var(--line);
   border-radius: 50%;
-  color: #07080a;
-  background: rgba(184, 255, 101, 0.8);
+  color: #ffffff;
+  background: rgba(91, 79, 207, 0.9);
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
   opacity: 0;
   pointer-events: none;
@@ -2272,7 +2278,7 @@ body.archive-page::before {
 
 .intro-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 .intro-bg .orb { position: absolute; width: 40vw; aspect-ratio: 1; border-radius: 50%; filter: blur(78px); opacity: 0.5; }
-.intro-bg .orb-a { left: -14vw; top: 12vh; background: rgba(184, 255, 101, 0.22); }
+.intro-bg .orb-a { left: -14vw; top: 12vh; background: rgba(91, 79, 207, 0.22); }
 .intro-bg .orb-b { right: -14vw; bottom: 6vh; background: rgba(109, 135, 255, 0.24); }
 .intro-bg .grid-noise {
   position: absolute; inset: 0; opacity: 0.22;
@@ -2493,7 +2499,7 @@ body.archive-page::before {
 @media (hover: hover) and (pointer: fine) {
   .index-row:hover {
     padding-left: 22px;
-    border-color: rgba(184, 255, 101, 0.35);
+    border-color: rgba(91, 79, 207, 0.35);
   }
 
   .index-row:hover::after {
