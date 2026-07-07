@@ -1,7 +1,10 @@
 (function () {
   'use strict';
 
-  /* ── pcp-reveal 애니메이션 ── */
+  /* ── pcp-reveal 스크롤 등장 애니메이션 ──
+     Single-column editorial layout: this is the only interactive
+     behavior needed now that the fixed section index and the
+     sticky-phone / scroll-spy layout have been removed. */
   var reveals = document.querySelectorAll('.pcp-reveal');
   if ('IntersectionObserver' in window) {
     var revObs = new IntersectionObserver(function (entries) {
@@ -17,109 +20,121 @@
     reveals.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
-  /* ── 우측 고정 인덱스 active ── */
-  var indexLinks = document.querySelectorAll('.pcp-fixed-index a');
-  var sections   = document.querySelectorAll('[data-section]');
+  var reaction = document.querySelector('[data-pcs-reaction]');
+  if (reaction) {
+    var title = reaction.querySelector('[data-reaction-title]');
+    var copy = reaction.querySelector('[data-reaction-copy]');
+    var card = reaction.querySelector('.pcs-reaction-card');
+    var buttons = reaction.querySelectorAll('.pcs-reaction-btn');
 
-  if ('IntersectionObserver' in window && indexLinks.length) {
-    var secMap = {};
-    sections.forEach(function (s) { secMap[s.id] = s; });
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        buttons.forEach(function (item) { item.classList.remove('is-active'); });
+        button.classList.add('is-active');
 
-    var secObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        var link = document.querySelector('.pcp-fixed-index a[href="#' + e.target.id + '"]');
-        if (!link) return;
-        if (e.isIntersecting) link.classList.add('is-active');
-        else link.classList.remove('is-active');
-      });
-    }, { threshold: 0.4 });
-    sections.forEach(function (s) { secObs.observe(s); });
-  }
+        if (title) title.textContent = button.getAttribute('data-title') || '';
+        if (copy) copy.textContent = button.getAttribute('data-copy') || '';
 
-  /* ── sticky 폰 교체 (Flow 섹션) ── */
-  var phoneImg   = document.getElementById('pcs-phone-img');
-  var phoneCap   = document.getElementById('pcs-phone-caption');
-  var dots       = document.querySelectorAll('.pcs-dot');
-  var steps      = document.querySelectorAll('.pcs-step[data-screen]');
-  var imgBase    = './images/petcare/';
-  var currentSrc = phoneImg ? phoneImg.src : '';
-  var swapTimer  = null;
-
-  function swapPhone(file, label) {
-    if (!phoneImg) return;
-    var newSrc = new URL(imgBase + file, location.href).href;
-    if (newSrc === currentSrc) return;
-
-    clearTimeout(swapTimer);
-    phoneImg.classList.add('fading');
-    swapTimer = setTimeout(function () {
-      var tmp = new Image();
-      tmp.onload = function () {
-        phoneImg.src = newSrc;
-        currentSrc = newSrc;
-        phoneImg.classList.remove('fading');
-        if (phoneCap && label) phoneCap.textContent = label;
-      };
-      tmp.onerror = function () { phoneImg.classList.remove('fading'); };
-      tmp.src = newSrc;
-    }, 220);
-  }
-
-  function setActiveDot(index) {
-    dots.forEach(function (d, i) {
-      d.classList.toggle('is-active', i === index);
-      d.setAttribute('aria-selected', i === index ? 'true' : 'false');
-    });
-  }
-
-  /* 스크롤 IntersectionObserver — 가장 많이 보이는 step 추적 */
-  if ('IntersectionObserver' in window && steps.length && phoneImg) {
-    var ratios   = {};
-    var activeIdx = 0;
-
-    var stepObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        ratios[e.target.id] = { ratio: e.intersectionRatio, el: e.target };
-      });
-
-      var best = null, bestR = 0;
-      Object.keys(ratios).forEach(function (k) {
-        if (ratios[k].ratio > bestR) { bestR = ratios[k].ratio; best = ratios[k].el; }
-      });
-
-      if (best && bestR > 0.05) {
-        var file  = best.getAttribute('data-screen');
-        var label = best.getAttribute('data-label');
-        swapPhone(file, label);
-
-        /* 어떤 step인지 인덱스 */
-        var idx = Array.prototype.indexOf.call(steps, best);
-        if (idx !== activeIdx) {
-          activeIdx = idx;
-          setActiveDot(idx);
-          /* 비활성 단계 dim 처리 */
-          steps.forEach(function (s, i) { s.classList.toggle('is-dim', i !== idx); });
-        }
-      }
-    }, { threshold: [0, 0.05, 0.15, 0.35, 0.5, 0.75] });
-
-    steps.forEach(function (s) { stepObs.observe(s); });
-
-    /* 도트 클릭 → 해당 step으로 스크롤 */
-    dots.forEach(function (dot, i) {
-      dot.addEventListener('click', function () {
-        if (steps[i]) {
-          steps[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (card) {
+          card.classList.remove('is-changing');
+          void card.offsetWidth;
+          card.classList.add('is-changing');
         }
       });
     });
+  }
 
-    /* 이미지 preload */
-    window.addEventListener('load', function () {
-      steps.forEach(function (s) {
-        var f = s.getAttribute('data-screen');
-        if (f) { var img = new Image(); img.src = imgBase + f; }
-      });
+  var flowSteps = document.querySelectorAll('#pcs-flow .pcs-step[data-flow-image]');
+  var flowScreen = document.querySelector('[data-flow-screen]');
+  var flowPhone = document.querySelector('.pcs-flow-phone');
+  var flowLive = document.querySelector('.pcs-flow-copy-live');
+  var flowStep = flowLive ? flowLive.querySelector('[data-flow-step]') : null;
+  var flowTitle = flowLive ? flowLive.querySelector('[data-flow-title]') : null;
+  var flowCopy = flowLive ? flowLive.querySelector('[data-flow-copy]') : null;
+  var flowTags = flowLive ? flowLive.querySelector('[data-flow-tags]') : null;
+  var flowQuote = flowLive ? flowLive.querySelector('[data-flow-quote]') : null;
+  var flowSection = document.getElementById('pcs-flow');
+  var flowStage = document.querySelector('.pcs-flow-stage');
+  var activeFlowImage = flowScreen ? flowScreen.getAttribute('src') : '';
+  var activeFlowIndex = -1;
+
+  function renderFlowStep(step) {
+    var nextImage = step.getAttribute('data-flow-image') || '';
+    if (nextImage && nextImage !== activeFlowImage) {
+      activeFlowImage = nextImage;
+      flowScreen.setAttribute('src', nextImage);
+      flowScreen.setAttribute('alt', (step.getAttribute('data-flow-title') || 'Service Flow') + ' screen preview');
+    }
+
+    if (flowStep) flowStep.textContent = step.getAttribute('data-flow-step') || '';
+    if (flowTitle) flowTitle.textContent = step.getAttribute('data-flow-title') || '';
+    if (flowCopy) flowCopy.textContent = step.getAttribute('data-flow-copy') || '';
+    if (flowTags) {
+      var tagSource = step.querySelector('.pcs-step-tags');
+      flowTags.innerHTML = tagSource ? tagSource.innerHTML : '';
+    }
+    if (flowQuote) {
+      var quoteSource = step.querySelector('.pcs-step-quote');
+      flowQuote.textContent = quoteSource ? quoteSource.textContent : '';
+    }
+  }
+
+  function setFlowStep(step, index) {
+    if (!step || !flowScreen) return;
+    if (typeof index === 'number' && index === activeFlowIndex) return;
+    if (typeof index === 'number') activeFlowIndex = index;
+
+    if (flowPhone) flowPhone.classList.add('is-changing');
+    if (flowLive) flowLive.classList.add('is-changing');
+    renderFlowStep(step);
+    window.setTimeout(function () {
+      if (flowPhone) flowPhone.classList.remove('is-changing');
+      if (flowLive) flowLive.classList.remove('is-changing');
+    }, 180);
+    flowSteps.forEach(function (item) { item.classList.toggle('is-active', item === step); });
+  }
+
+  var flowStartCache = null;
+  function getFlowStart() {
+    // flowStage is `position: sticky`, so its own getBoundingClientRect().top
+    // is ~0 whenever it's stuck — recomputing "start" from it on every
+    // scroll tick would always yield roughly the current scrollY, making
+    // `offset` stay near 0 forever. Instead, measure the scroll offset of
+    // the *section* (which is not sticky and keeps its real document
+    // position) once, and cache it; recompute on resize only.
+    if (flowStartCache === null && flowSection) {
+      flowStartCache = flowSection.getBoundingClientRect().top + window.pageYOffset;
+    }
+    return flowStartCache || 0;
+  }
+
+  function updateFlowByScroll() {
+    if (!flowSection || !flowStage || !flowSteps.length) return;
+
+    var flowStart = getFlowStart();
+    var stepHeight = Math.max(1, window.innerHeight * 0.92);
+    var offset = Math.max(0, window.pageYOffset - flowStart);
+    var index = Math.min(flowSteps.length - 1, Math.floor(offset / stepHeight));
+    setFlowStep(flowSteps[index], index);
+  }
+
+  var flowTicking = false;
+  function requestFlowUpdate() {
+    if (flowTicking) return;
+    flowTicking = true;
+    window.requestAnimationFrame(function () {
+      flowTicking = false;
+      updateFlowByScroll();
+    });
+  }
+
+  if (flowSteps.length) {
+    renderFlowStep(flowSteps[0]);
+    updateFlowByScroll();
+    window.addEventListener('scroll', requestFlowUpdate, { passive: true });
+    window.addEventListener('resize', function () {
+      flowStartCache = null;
+      requestFlowUpdate();
     });
   }
 

@@ -25,8 +25,8 @@
   --max: 1600px;
   --section-x: clamp(20px, 4vw, 72px);
   --section-y: clamp(96px, 13vw, 190px);
-  --radius-lg: 12px;
-  --radius-md: 8px;
+  --radius-lg: 8px;
+  --radius-md: 6px;
   --header-h: 82px;
 
   --font-display: "Archivo", "Pretendard Variable", Pretendard, sans-serif;
@@ -1990,6 +1990,23 @@ body.archive-page::before {
   width: 100%;
   height: auto;
   margin: 0 auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.work-detail-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 0 auto 44px;
+}
+
+.work-detail-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
   border: 0;
   border-radius: 0;
   background: transparent;

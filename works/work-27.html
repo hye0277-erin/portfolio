@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="HYE02 — 식품 프로모션 배너" />
+  <title>식품 프로모션 배너 | HYE02 Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="archive-page">
+  <a class="skip-link" href="#workMain">본문 바로가기</a>
+
+  <div id="site-header-placeholder"></div>
+
+  <main id="workMain" class="work-detail-main">
+    <a class="work-back" href="../archive.html">← 작업물 목록으로</a>
+
+    <!-- ✏️✏️✏️ 여기부터 자유롭게 내용을 수정/추가하세요 ✏️✏️✏️ -->
+    <header class="work-detail-head">
+      <p class="page-kicker">Graphic / Print</p>
+      <h1 class="work-detail-title">식품 프로모션 배너</h1>
+      <p class="work-detail-tools">Photoshop · AI 이미지 활용</p>
+    </header>
+
+    <div class="work-detail-gallery">
+      <img src="../images/works/food_01.png" alt="식품 프로모션 배너 01" loading="lazy" />
+      <img src="../images/works/food_02.png" alt="식품 프로모션 배너 02" loading="lazy" />
+      <img src="../images/works/food_03.png" alt="식품 프로모션 배너 03" loading="lazy" />
+      <img src="../images/works/food_04.jfif" alt="식품 프로모션 배너 04" loading="lazy" />
+    </div>
+
+    <section class="work-detail-body">
+      <h2>프로젝트 소개</h2>
+      <p>쇼핑몰 식품 카테고리의 시즌 프로모션 배너 모음입니다. 신선 식품, 집밥 밀키트, 베이커리·간식, 주스·음료 등 세부 카테고리별 특성에 맞춰 각기 다른 톤앤매너로 제작했습니다.</p>
+
+      <h2>작업 포인트</h2>
+      <ul>
+        <li>신선함, 건강함, 편안함 등 각 상품군의 핵심 이미지를 색감과 카피로 전달했습니다.</li>
+        <li>산지 직송, 빠른 배송 등 신뢰를 주는 정보를 아이콘으로 정리해 가독성을 높였습니다.</li>
+        <li>따뜻한 무드의 집밥·베이커리 배너와 청량한 무드의 채소·음료 배너를 대비되게 구성했습니다.</li>
+      </ul>
+    </section>
+    <!-- ✏️✏️✏️ 여기까지 수정 영역 ✏️✏️✏️ -->
+  </main>
+
+  <footer class="archive-page-footer">
+    <p>© 2026 HYE02 Portfolio Archive. All Rights Reserved.</p>
+  </footer>
+  <script>
+    fetch("./header.html").then(r => r.text()).then(html => {
+      const placeholder = document.getElementById("site-header-placeholder");
+      if (placeholder) { placeholder.outerHTML = html; }
+      const root = document.documentElement;
+      const themeBtn = document.getElementById('themeBtn');
+      if (themeBtn) {
+        if (matchMedia('(prefers-color-scheme: dark)').matches) root.dataset.theme = 'dark';
+        themeBtn.addEventListener('click', () => {
+          root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        });
+      }
+      const menuToggle = document.querySelector("[data-menu-toggle]");
+      const header = document.querySelector("[data-header]");
+      const menuIcon = menuToggle?.querySelector(".menu-toggle-icon");
+      if (menuToggle && header) {
+        menuToggle.addEventListener("click", () => {
+          const open = header.classList.toggle("is-menu-open");
+          menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+          if (menuIcon) menuIcon.textContent = open ? "close" : "menu";
+        });
+        header.querySelectorAll(".gnb a").forEach(link => {
+          link.addEventListener("click", () => {
+            header.classList.remove("is-menu-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            if (menuIcon) menuIcon.textContent = "menu";
+          });
+        });
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 860) {
+            header.classList.remove("is-menu-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            if (menuIcon) menuIcon.textContent = "menu";
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -243,8 +243,7 @@ section{padding:7rem 0}
 #featured{background:var(--bg-2);transition:background .5s}
 .case-stack{display:flex;flex-direction:column;gap:3rem}
 .case-card{
-  position:sticky;top:110px;
-  background:var(--card);border:1px solid var(--line);border-radius:28px;
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
   box-shadow:var(--shadow);overflow:hidden;
   display:grid;grid-template-columns:1.05fr 1fr;min-height:480px;
 }
@@ -319,55 +318,51 @@ section{padding:7rem 0}
   transition:all .3s var(--ease);
 }
 .archive-filter-chips a:hover{color:var(--ink);background:var(--tint);border-color:var(--accent)}
-.archive-wall{
-  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);
-  gap:1rem;align-items:stretch;
+.archive-wall{display:flex;flex-direction:column;gap:1.5rem}
+.archive-wall-flow{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;
+  height:640px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 8%,#000 92%,transparent);
 }
-.archive-spotlight,
+.archive-flow-col{display:flex;flex-direction:column;gap:1rem;width:100%}
+.archive-flow-col.up{animation:flowUp 46s linear infinite}
+.archive-flow-col.down{animation:flowDown 46s linear infinite}
+.archive-wall-flow:hover .archive-flow-col{animation-play-state:paused}
+@keyframes flowUp{to{transform:translateY(-50%)}}
+@keyframes flowDown{from{transform:translateY(-50%)}to{transform:translateY(0)}}
 .archive-row{
-  background:var(--card);border:1px solid var(--line);overflow:hidden;
+  background:var(--card);border:1px solid var(--line);overflow:hidden;border-radius:10px;
   box-shadow:0 18px 46px -34px rgba(13,14,19,.55);
   transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);
+  display:flex;flex-direction:column;color:inherit;
 }
-.archive-spotlight{border-radius:18px;display:flex;flex-direction:column}
-.archive-spotlight:hover,
 .archive-row:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--line-strong)}
-.archive-spotlight figure{position:relative;background:var(--tint);overflow:hidden}
-.archive-spotlight img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top center;transition:transform .7s var(--ease)}
-.archive-spotlight:hover img{transform:scale(1.04)}
-.archive-spotlight-body{padding:1.25rem;display:flex;flex-direction:column;gap:.85rem}
+.archive-row figure{background:var(--tint);overflow:hidden}
+.archive-row img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top center;transition:transform .55s var(--ease);display:block}
+.archive-row:hover img{transform:scale(1.06)}
+.archive-row-body{min-width:0;display:flex;flex-direction:column;gap:.4rem;padding:.9rem 1rem 1.05rem}
 .archive-work-meta{
   display:flex;align-items:center;justify-content:space-between;gap:.8rem;
   font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);
 }
 .archive-work-meta span:first-child{color:var(--accent)}
-.archive-spotlight h3{
-  font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.35rem);
-  font-weight:900;line-height:1.04;letter-spacing:-.03em;
-}
-.archive-spotlight p{color:var(--sub);font-size:.88rem;line-height:1.55}
-.archive-list{display:flex;flex-direction:column;gap:.75rem}
-.archive-row{
-  display:grid;grid-template-columns:104px minmax(0,1fr);gap:1rem;align-items:center;
-  min-height:116px;border-radius:14px;padding:.65rem;color:inherit;
-}
-.archive-row figure{background:var(--tint);overflow:hidden;border-radius:10px}
-.archive-row img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top center;transition:transform .55s var(--ease)}
-.archive-row:hover img{transform:scale(1.06)}
-.archive-row-body{min-width:0;display:flex;flex-direction:column;gap:.45rem}
 .archive-row h3{
   font-family:var(--font-display);font-size:1.02rem;font-weight:800;
   line-height:1.12;letter-spacing:-.02em;
 }
 .archive-row p{color:var(--sub);font-size:.78rem;line-height:1.45}
 .archive-wall-more{
-  grid-column:1/-1;
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  padding:1rem 1.15rem;border:1px solid var(--line);border-radius:14px;
+  padding:1rem 1.15rem;border:1px solid var(--line);border-radius:8px;
   background:color-mix(in srgb,var(--card) 70%,transparent);
 }
 .archive-wall-more strong{font-family:var(--font-display);font-size:1.05rem}
 .archive-wall-more span{color:var(--sub);font-size:.82rem}
+@media(prefers-reduced-motion:reduce){
+  .archive-flow-col{animation:none!important;transform:none!important}
+  .archive-wall-flow{height:auto;overflow:visible;-webkit-mask-image:none;mask-image:none}
+}
 
 /* ============ ABOUT / ARCHIVE CTA ============ */
 .about-grid{
@@ -382,7 +377,7 @@ section{padding:7rem 0}
 .about-grid p{color:var(--sub);font-size:.98rem;margin-bottom:1.1rem}
 .about-links{display:flex;gap:.8rem;margin-top:2rem;flex-wrap:wrap}
 .focus-box{
-  background:var(--card);border:1px solid var(--line);border-radius:24px;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
   padding:2rem;box-shadow:var(--shadow);
 }
 .focus-box h4{
@@ -439,6 +434,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem
   .case-media img{aspect-ratio:16/10;height:auto}
   .archive-showcase{grid-template-columns:1fr}
   .archive-copy{position:static}
+  .archive-wall-flow{grid-template-columns:repeat(2,1fr);height:520px}
+  .archive-flow-col:nth-child(3){display:none}
   .about-grid{grid-template-columns:1fr;gap:2.5rem}
   .index-row{grid-template-columns:44px 1fr;grid-template-rows:auto auto;row-gap:.8rem}
   .index-row .tags{grid-column:2;text-align:left}
@@ -447,11 +444,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem
 @media(max-width:560px){
   section{padding:4.5rem 0}
   .hero{padding-top:7.5rem}
-  .case-card{position:static}
   .case-facts{grid-template-columns:1fr 1fr}
-  .archive-wall{grid-template-columns:1fr}
-  .archive-spotlight img{aspect-ratio:16/10}
-  .archive-row{grid-template-columns:88px minmax(0,1fr)}
+  .archive-wall-flow{grid-template-columns:1fr;height:420px}
+  .archive-flow-col:nth-child(2){display:none}
   .archive-wall-more{align-items:flex-start;flex-direction:column}
   .archive-stats{grid-template-columns:1fr}
 }
@@ -583,7 +578,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 <!-- ================= SECTION 2 : FEATURED ================= -->
 <section id="featured">
   <div class="wrap">
-    <div class="sec-head reveal">
+    <div class="sec-head">
       <h2>Featured<br>Case Studies</h2>
       <p>실무에서 쌓은 정보 구성과 콘텐츠 디자인 경험을 바탕으로, 서비스 흐름과 화면 구현까지 확장해 진행한 대표 프로젝트입니다.</p>
     </div>
@@ -696,7 +691,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       <p>아카이브에 정리된 실무·학습 작업물을 선별해 보여주는 섹션입니다. 웹사이트 시안, 상세페이지, 이벤트 페이지, 패키지 작업을 빠르게 훑어보고 전체 목록으로 이동할 수 있습니다.</p>
 
       <div class="archive-stats" aria-label="Archive summary">
-        <div><b>24</b><span>작업 파일</span></div>
+        <div><b>28</b><span>작업 파일</span></div>
         <div><b>5</b><span>카테고리</span></div>
         <div><b>6</b><span>라이브 프로젝트</span></div>
       </div>
@@ -713,78 +708,109 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     </div>
 
     <div class="archive-wall">
-      <a class="archive-spotlight reveal" href="https://www.onmode.kr/works/work-22.html" target="_blank" rel="noopener">
-        <figure><img src="https://www.onmode.kr/images/works/work-22.jpg" alt="Wedding UI thumbnail" loading="lazy"></figure>
-        <div class="archive-spotlight-body">
-          <div class="archive-work-meta"><span>대표 작업</span></div>
-          <h3>웨딩업체 UI</h3>
-          <p>상담과 예약 문의로 이어지는 흐름을 중심으로 구성한 웨딩 서비스 UI 시안입니다.</p>
+      <div class="archive-wall-flow reveal" aria-label="작업물 미리보기">
+        <div class="archive-flow-col up">
+          <a class="archive-row" href="https://www.onmode.kr/works/work-22.html" target="_blank" rel="noopener">
+            <figure><img src="https://www.onmode.kr/images/works/work-22.jpg" alt="Wedding UI thumbnail" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>UI/UX Design</span></div><h3>웨딩업체 UI</h3><p>상담과 예약 문의로 이어지는 흐름을 중심으로 구성한 웨딩 서비스 UI 시안.</p></div>
+          </a>
+          <a class="archive-row" href="https://www.onmode.kr/works/work-02.html" target="_blank" rel="noopener">
+            <figure><img src="https://www.onmode.kr/images/works/work-02.jpg" alt="Nuts detail page thumbnail" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Detail Page</span></div><h3>견과류 상세페이지</h3><p>제품 장점과 섭취 상황을 구매 흐름에 맞게 정리한 상세페이지.</p></div>
+          </a>
+          <a class="archive-row" href="./works/work-25.html">
+            <figure><img src="./images/works/cosmetice_01.png" alt="Cosmetic promotion banner thumbnail" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Graphic / Print</span></div><h3>코스메틱 프로모션 배너</h3><p>수분·진정·리페어 등 제품 효능별 톤앤매너를 다르게 구성한 배너 세트.</p></div>
+          </a>
+          <a class="archive-row" href="https://hye0277-erin.github.io/woodplace/" target="_blank" rel="noopener">
+            <figure><img src="https://www.onmode.kr/images/main/project_woodplace.jpg" alt="WoodPlace thumbnail" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Web Site</span></div><h3>WoodPlace</h3><p>브랜드 분위기와 공간 이미지를 중심으로 제작한 라이브 웹 프로젝트.</p></div>
+          </a>
+
+          <a class="archive-row" aria-hidden="true" tabindex="-1" href="https://www.onmode.kr/works/work-22.html" target="_blank" rel="noopener">
+            <figure><img src="https://www.onmode.kr/images/works/work-22.jpg" alt="" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>UI/UX Design</span></div><h3>웨딩업체 UI</h3><p>상담과 예약 문의로 이어지는 흐름을 중심으로 구성한 웨딩 서비스 UI 시안.</p></div>
+          </a>
+          <a class="archive-row" aria-hidden="true" tabindex="-1" href="https://www.onmode.kr/works/work-02.html" target="_blank" rel="noopener">
+            <figure><img src="https://www.onmode.kr/images/works/work-02.jpg" alt="" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Detail Page</span></div><h3>견과류 상세페이지</h3><p>제품 장점과 섭취 상황을 구매 흐름에 맞게 정리한 상세페이지.</p></div>
+          </a>
+          <a class="archive-row" aria-hidden="true" tabindex="-1" href="./works/work-25.html">
+            <figure><img src="./images/works/cosmetice_01.png" alt="" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Graphic / Print</span></div><h3>코스메틱 프로모션 배너</h3><p>수분·진정·리페어 등 제품 효능별 톤앤매너를 다르게 구성한 배너 세트.</p></div>
+          </a>
+          <a class="archive-row" aria-hidden="true" tabindex="-1" href="https://hye0277-erin.github.io/woodplace/" target="_blank" rel="noopener">
+            <figure><img src="https://www.onmode.kr/images/main/project_woodplace.jpg" alt="" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Web Site</span></div><h3>WoodPlace</h3><p>브랜드 분위기와 공간 이미지를 중심으로 제작한 라이브 웹 프로젝트.</p></div>
+          </a>
         </div>
-      </a>
 
-      <div class="archive-list">
-        <a class="archive-row reveal" href="https://www.onmode.kr/works/work-24.html" target="_blank" rel="noopener">
-          <figure><img src="https://www.onmode.kr/images/works/work-24.jpg" alt="Place rental UI thumbnail" loading="lazy"></figure>
-          <div class="archive-row-body">
-            <div class="archive-work-meta"><span>Website</span></div>
-            <h3>장소 대여업체</h3>
-            <p>공간 정보 탐색과 예약 문의 흐름을 정리한 웹사이트 시안.</p>
-          </div>
-        </a>
+        <div class="archive-flow-col down">
+          <a class="archive-row" href="https://www.onmode.kr/works/work-24.html" target="_blank" rel="noopener">
+            <figure><img src="https://www.onmode.kr/images/works/work-24.jpg" alt="Place rental UI thumbnail" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Website</span></div><h3>장소 대여업체</h3><p>공간 정보 탐색과 예약 문의 흐름을 정리한 웹사이트 시안.</p></div>
+          </a>
+          <a class="archive-row" href="https://www.onmode.kr/works/work-11.html" target="_blank" rel="noopener">
+            <figure><img src="https://www.onmode.kr/images/works/work-11.jpg" alt="Black tiger shrimp detail page thumbnail" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Detail Page</span></div><h3>블랙타이거 새우 상세페이지</h3><p>식재료의 크기, 신선도, 조리 이미지를 강조한 상품 상세.</p></div>
+          </a>
+          <a class="archive-row" href="./works/work-26.html">
+            <figure><img src="./images/works/fashion_01.png" alt="Fashion promotion banner thumbnail" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Graphic / Print</span></div><h3>패션 프로모션 배너</h3><p>데일리 룩부터 시즌오프 특가까지 무드를 다르게 표현한 배너 세트.</p></div>
+          </a>
+          <a class="archive-row" href="./works/work-28.html">
+            <figure><img src="./images/works/aqua_img.png" alt="Summer skincare banner thumbnail" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Graphic / Print</span></div><h3>여름 아쿠아 스킨케어 배너</h3><p>메인·SNS 노출용을 함께 구성한 여름 스킨케어 이벤트 배너.</p></div>
+          </a>
 
-        <a class="archive-row reveal" href="https://www.onmode.kr/works/work-23.html" target="_blank" rel="noopener">
-          <figure><img src="https://www.onmode.kr/images/works/work-23.jpg" alt="Real estate mobile UI thumbnail" loading="lazy"></figure>
-          <div class="archive-row-body">
-            <div class="archive-work-meta"><span>UI/UX Design</span></div>
-            <h3>부동산 모바일 사이트</h3>
-            <p>매물 정보 탐색과 비교가 쉽도록 구성한 모바일 화면.</p>
-          </div>
-        </a>
+          <a class="archive-row" aria-hidden="true" tabindex="-1" href="https://www.onmode.kr/works/work-24.html" target="_blank" rel="noopener">
+            <figure><img src="https://www.onmode.kr/images/works/work-24.jpg" alt="" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Website</span></div><h3>장소 대여업체</h3><p>공간 정보 탐색과 예약 문의 흐름을 정리한 웹사이트 시안.</p></div>
+          </a>
+          <a class="archive-row" aria-hidden="true" tabindex="-1" href="https://www.onmode.kr/works/work-11.html" target="_blank" rel="noopener">
+            <figure><img src="https://www.onmode.kr/images/works/work-11.jpg" alt="" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Detail Page</span></div><h3>블랙타이거 새우 상세페이지</h3><p>식재료의 크기, 신선도, 조리 이미지를 강조한 상품 상세.</p></div>
+          </a>
+          <a class="archive-row" aria-hidden="true" tabindex="-1" href="./works/work-26.html">
+            <figure><img src="./images/works/fashion_01.png" alt="" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Graphic / Print</span></div><h3>패션 프로모션 배너</h3><p>데일리 룩부터 시즌오프 특가까지 무드를 다르게 표현한 배너 세트.</p></div>
+          </a>
+          <a class="archive-row" aria-hidden="true" tabindex="-1" href="./works/work-28.html">
+            <figure><img src="./images/works/aqua_img.png" alt="" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Graphic / Print</span></div><h3>여름 아쿠아 스킨케어 배너</h3><p>메인·SNS 노출용을 함께 구성한 여름 스킨케어 이벤트 배너.</p></div>
+          </a>
+        </div>
 
-        <a class="archive-row reveal" href="https://www.onmode.kr/works/work-02.html" target="_blank" rel="noopener">
-          <figure><img src="https://www.onmode.kr/images/works/work-02.jpg" alt="Nuts detail page thumbnail" loading="lazy"></figure>
-          <div class="archive-row-body">
-            <div class="archive-work-meta"><span>Detail Page</span></div>
-            <h3>견과류 상세페이지</h3>
-            <p>제품 장점과 섭취 상황을 구매 흐름에 맞게 정리한 상세페이지.</p>
-          </div>
-        </a>
+        <div class="archive-flow-col up">
+          <a class="archive-row" href="https://www.onmode.kr/works/work-23.html" target="_blank" rel="noopener">
+            <figure><img src="https://www.onmode.kr/images/works/work-23.jpg" alt="Real estate mobile UI thumbnail" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>UI/UX Design</span></div><h3>부동산 모바일 사이트</h3><p>매물 정보 탐색과 비교가 쉽도록 구성한 모바일 화면.</p></div>
+          </a>
+          <a class="archive-row" href="https://www.onmode.kr/works/work-18.html" target="_blank" rel="noopener">
+            <figure><img src="https://www.onmode.kr/images/works/work-18.jpg" alt="Live commerce event page thumbnail" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Event Page</span></div><h3>TVON 라이브방송 이벤트</h3><p>혜택과 방송 정보를 짧은 시간 안에 이해하도록 구성한 이벤트 페이지.</p></div>
+          </a>
+          <a class="archive-row" href="./works/work-27.html">
+            <figure><img src="./images/works/food_01.png" alt="Food promotion banner thumbnail" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Graphic / Print</span></div><h3>식품 프로모션 배너</h3><p>신선 식품·집밥·베이커리·음료 카테고리별로 구성한 배너 세트.</p></div>
+          </a>
 
-        <a class="archive-row reveal" href="https://www.onmode.kr/works/work-11.html" target="_blank" rel="noopener">
-          <figure><img src="https://www.onmode.kr/images/works/work-11.jpg" alt="Black tiger shrimp detail page thumbnail" loading="lazy"></figure>
-          <div class="archive-row-body">
-            <div class="archive-work-meta"><span>Detail Page</span></div>
-            <h3>블랙타이거 새우 상세페이지</h3>
-            <p>식재료의 크기, 신선도, 조리 이미지를 강조한 상품 상세.</p>
-          </div>
-        </a>
-
-        <a class="archive-row reveal" href="https://www.onmode.kr/works/work-18.html" target="_blank" rel="noopener">
-          <figure><img src="https://www.onmode.kr/images/works/work-18.jpg" alt="Live commerce event page thumbnail" loading="lazy"></figure>
-          <div class="archive-row-body">
-            <div class="archive-work-meta"><span>Event Page</span></div>
-            <h3>TVON 라이브방송 이벤트</h3>
-            <p>혜택과 방송 정보를 짧은 시간 안에 이해하도록 구성한 이벤트 페이지.</p>
-          </div>
-        </a>
-
-        <a class="archive-row reveal" href="https://hye0277-erin.github.io/woodplace/" target="_blank" rel="noopener">
-          <figure><img src="https://www.onmode.kr/images/main/project_woodplace.jpg" alt="WoodPlace thumbnail" loading="lazy"></figure>
-          <div class="archive-row-body">
-            <div class="archive-work-meta"><span>Web Site</span></div>
-            <h3>WoodPlace</h3>
-            <p>브랜드 분위기와 공간 이미지를 중심으로 제작한 라이브 웹 프로젝트.</p>
-          </div>
-        </a>
+          <a class="archive-row" aria-hidden="true" tabindex="-1" href="https://www.onmode.kr/works/work-23.html" target="_blank" rel="noopener">
+            <figure><img src="https://www.onmode.kr/images/works/work-23.jpg" alt="" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>UI/UX Design</span></div><h3>부동산 모바일 사이트</h3><p>매물 정보 탐색과 비교가 쉽도록 구성한 모바일 화면.</p></div>
+          </a>
+          <a class="archive-row" aria-hidden="true" tabindex="-1" href="https://www.onmode.kr/works/work-18.html" target="_blank" rel="noopener">
+            <figure><img src="https://www.onmode.kr/images/works/work-18.jpg" alt="" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Event Page</span></div><h3>TVON 라이브방송 이벤트</h3><p>혜택과 방송 정보를 짧은 시간 안에 이해하도록 구성한 이벤트 페이지.</p></div>
+          </a>
+          <a class="archive-row" aria-hidden="true" tabindex="-1" href="./works/work-27.html">
+            <figure><img src="./images/works/food_01.png" alt="" loading="lazy"></figure>
+            <div class="archive-row-body"><div class="archive-work-meta"><span>Graphic / Print</span></div><h3>식품 프로모션 배너</h3><p>신선 식품·집밥·베이커리·음료 카테고리별로 구성한 배너 세트.</p></div>
+          </a>
+        </div>
       </div>
 
-      <div class="archive-wall-more reveal">
-        <div>
-          <strong>더 많은 작업 보기</strong>
-          <span>상세페이지, 이벤트 페이지, 패키지, UI 시안은 전체 아카이브에서 이어서 확인할 수 있습니다.</span>
-        </div>
-        <a class="btn btn-ghost" href="https://www.onmode.kr/archive.html" target="_blank" rel="noopener">Archive 보기</a>
-      </div>
+      
     </div>
   </div>
 </section>
