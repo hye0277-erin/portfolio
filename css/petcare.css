@@ -2,7 +2,7 @@
    PetCare+ Case Study — Renewed Design System (CSS)
    - Scope: .petcase-page
    - Theme: Sage Green & Warm Cream
-   - Typography: Pretendard + Instrument Serif (Italic Accents)
+   - Typography: Pretendard
 ========================================================= */
 
 /* 헤더 — 다크 글래스모피즘 */
@@ -128,8 +128,8 @@ body.has-custom-cursor * {
 
 .pcp-title em,
 .pcp-section-title em {
-  font-family: "Instrument Serif", Georgia, serif;
-  font-style: italic;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-style: normal;
   font-weight: 400;
   color: var(--pcp-primary);
 }
@@ -175,12 +175,10 @@ body.has-custom-cursor * {
   object-fit: cover;
   object-position: center 30%;
   opacity: 0.3;
-  filter: saturate(0.25) blur(0px);
+  /* filter: saturate(0.25) blur(0px); */
 }
 .pcp-hero-bg-overlay {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 55% 65% at 50% 50%,
-    transparent 20%, rgba(247,246,242,0.85) 70%, var(--pcp-bg) 95%);
 }
 
 /* 플로팅 칩 — 중앙 집중 배치 */
@@ -194,10 +192,10 @@ body.has-custom-cursor * {
   position: absolute;
   display: inline-flex; align-items: center; gap: 6px;
   padding: 10px 18px;
-  background: rgba(255, 255, 255, 0.30);
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(14px) saturate(1.6);
   -webkit-backdrop-filter: blur(14px) saturate(1.6);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.75);
   border-radius: 999px;
   font-size: 13px; font-weight: 600; color: var(--pcp-ink);
   white-space: nowrap;
@@ -558,8 +556,8 @@ body.has-custom-cursor * {
 }
 
 .pcp-num {
-  font-family: "Instrument Serif", Georgia, serif;
-  font-style: italic;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-style: normal;
   color: var(--pcp-primary);
   font-size: 24px;
   line-height: 1;
@@ -682,8 +680,8 @@ body.has-custom-cursor * {
   position: relative;
   z-index: 1;
   display: block;
-  font-family: "Instrument Serif", Georgia, serif;
-  font-style: italic;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-style: normal;
   color: var(--pcp-primary);
   font-size: 22px;
   line-height: 1;
@@ -876,8 +874,8 @@ body.has-custom-cursor * {
 }
 
 .pcp-typo-sample--serif em {
-  font-family: "Instrument Serif", Georgia, serif;
-  font-style: italic;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-style: normal;
   font-weight: 400;
   color: var(--pcp-primary);
 }
@@ -1274,11 +1272,22 @@ body.has-custom-cursor * {
 /* ============================================================
    RESULT
 ============================================================ */
-.pcp-result-grid {
+.pcp-result-layout {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-bottom: 52px;
+  grid-template-columns: minmax(300px, 0.78fr) minmax(360px, 1.22fr);
+  gap: clamp(34px, 5vw, 86px);
+  align-items: start;
+}
+
+.pcp-result-copy {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+}
+
+.pcp-result-list {
+  display: grid;
+  gap: 16px;
 }
 
 .pcp-result-card {
@@ -1340,64 +1349,95 @@ body.has-custom-cursor * {
   word-break: keep-all;
 }
 
-/* Rolling carousel showcase */
-.pcp-rolling-carousel-wrap {
+/* Result screen flow — 2-column vertical auto-scroll (Work Library 효과) */
+.pcp-result-flow-track {
   position: relative;
-  padding: 60px 0 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  height: 780px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 8%, #000 92%, transparent);
 }
 
-.pcp-rolling-carousel {
-  position: relative;
-  overflow: visible;
-  cursor: grab;
-}
-.pcp-rolling-carousel.is-dragging { cursor: grabbing; }
-
-.pcp-rolling-track {
+.pcp-flow-column {
   display: flex;
-  align-items: flex-end;
-  gap: 20px;
-  will-change: transform;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  animation: pcpFlowUp 32s linear infinite;
 }
 
-.pcp-rolling-item {
-  flex: 0 0 auto;
+.pcp-flow-column-b {
+  animation-name: pcpFlowDown;
+  animation-duration: 36s;
+}
+
+.pcp-result-flow-track:hover .pcp-flow-column {
+  animation-play-state: paused;
+}
+
+.pcp-flow-item {
   position: relative;
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.35s ease;
-  transform-origin: bottom center;
+  margin: 0;
+  border-radius: var(--pcp-radius-md);
+  overflow: hidden;
+  border: 1px solid var(--pcp-line);
+  background: var(--pcp-card);
+  box-shadow: 0 18px 46px -34px rgba(79, 114, 96, 0.4);
+  transition: transform 0.35s var(--pcp-ease), box-shadow 0.35s var(--pcp-ease), border-color 0.35s var(--pcp-ease);
 }
 
-.pcp-rolling-item img {
+.pcp-flow-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 54px -28px rgba(79, 114, 96, 0.5);
+  border-color: var(--pcp-line-strong);
+}
+
+.pcp-flow-item img {
   display: block;
-  width: 150px;
+  width: 100%;
   height: auto;
-  border-radius: 22px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-  transition: box-shadow 0.6s ease;
+  transition: transform 0.55s var(--pcp-ease);
 }
 
-.pcp-rolling-item figcaption {
-  text-align: center;
+.pcp-flow-item:hover img {
+  transform: scale(1.06);
+}
+
+.pcp-flow-item figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 14px;
   font-size: 12px;
-  color: var(--pcp-text-muted, #999);
-  margin-top: 10px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(0deg, rgba(26,32,32,0.65), transparent);
 }
 
-/* hover to enlarge */
-.pcp-rolling-item:hover {
-  transform: scale(1.28) translateY(-10px);
-  z-index: 2;
+@keyframes pcpFlowUp {
+  to { transform: translateY(-50%); }
 }
 
-.pcp-rolling-item:hover img {
-  box-shadow: 0 16px 48px rgba(0,0,0,0.22);
+@keyframes pcpFlowDown {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
 }
 
-.pcp-rolling-item:hover figcaption {
-  opacity: 1;
+@media (prefers-reduced-motion: reduce) {
+  .pcp-flow-column {
+    animation: none !important;
+    transform: none !important;
+  }
+  .pcp-result-flow-track {
+    height: auto;
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }
 
 /* ============================================================
@@ -1441,8 +1481,8 @@ body.has-custom-cursor * {
 }
 
 .pcp-review h2 em {
-  font-family: "Instrument Serif", Georgia, serif;
-  font-style: italic;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-style: normal;
   font-weight: 400;
   color: #BDD5C6;
 }
@@ -1601,7 +1641,8 @@ body.has-custom-cursor * {
   .pcp-hero-grid,
   .pcp-section-head,
   .pcp-two-col,
-  .pcp-system-grid {
+  .pcp-system-grid,
+  .pcp-result-layout {
     grid-template-columns: 1fr;
   }
 
@@ -1609,9 +1650,16 @@ body.has-custom-cursor * {
     gap: 16px;
   }
 
-  .pcp-goal-grid,
-  .pcp-result-grid {
+  .pcp-result-copy {
+    position: static;
+  }
+
+  .pcp-goal-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pcp-result-list {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .pcp-insight-row {
@@ -1671,9 +1719,18 @@ body.has-custom-cursor * {
 
   .pcp-meta-panel,
   .pcp-goal-grid,
-  .pcp-result-grid,
+  .pcp-result-list,
   .pcp-palette {
     grid-template-columns: 1fr;
+  }
+
+  .pcp-result-flow-track {
+    grid-template-columns: 1fr;
+    min-height: 420px;
+  }
+
+  .pcp-flow-column-b {
+    display: none;
   }
 
   .pcp-palette {
@@ -1730,3 +1787,27 @@ body.has-custom-cursor * {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ================================================================
+   HERO LINKS (앱 보기 / 랜딩 보기 버튼)
+================================================================ */
+.pcs-hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.pcs-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 24px; border-radius: 100px;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer; text-decoration: none;
+  transition: all 0.25s;
+}
+.pcs-btn .material-symbols-rounded { font-size: 18px; }
+.petcase-page a.pcs-btn--primary { background: var(--pcp-primary); color: #fff; border: 1.5px solid var(--pcp-primary); }
+.pcs-btn--primary:hover { background: var(--pcp-primary-dark); border-color: var(--pcp-primary-dark); }
+.petcase-page a.pcs-btn--outline { background: transparent; color: var(--pcp-primary); border: 1.5px solid var(--pcp-primary); }
+.pcs-btn--outline:hover { background: var(--pcp-mint); }
+.petcase-page a.pcs-btn--ghost { background: var(--pcp-soft); color: var(--pcp-ink); border: 1.5px solid var(--pcp-line-strong); }
+.pcs-btn--ghost:hover { background: var(--pcp-card); }

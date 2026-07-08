@@ -21,96 +21,6 @@
     }
   }
 
-  /* Rolling carousel - auto scroll */
-  const carousel = page.querySelector(".pcp-rolling-carousel");
-  if (carousel) {
-    const track = carousel.querySelector(".pcp-rolling-track");
-    const SPEED = 0.6; /* px per frame */
-    let x = 0;
-    let rafId = null;
-    let paused = false;
-
-    function getTrackWidth() {
-      return track.scrollWidth;
-    }
-
-    /* clone items for seamless loop */
-    const origItems = Array.from(track.querySelectorAll(".pcp-rolling-item"));
-    origItems.forEach((item) => {
-      const clone = item.cloneNode(true);
-      clone.setAttribute("aria-hidden", "true");
-      track.appendChild(clone);
-    });
-
-    function tick() {
-      if (!paused) {
-        x -= SPEED;
-        const half = getTrackWidth() / 2;
-        if (Math.abs(x) >= half) x = 0;
-        track.style.transform = `translateX(${x}px)`;
-      }
-      rafId = requestAnimationFrame(tick);
-    }
-
-    /* pause on hover */
-    carousel.addEventListener("mouseenter", () => { paused = true; });
-    carousel.addEventListener("mouseleave", () => { paused = false; });
-
-    /* drag */
-    let isDragging = false;
-    let dragStartX = 0;
-    let dragStartOffset = 0;
-
-    carousel.addEventListener("mousedown", (e) => {
-      isDragging = true;
-      paused = true;
-      dragStartX = e.clientX;
-      dragStartOffset = x;
-      carousel.classList.add("is-dragging");
-    });
-    window.addEventListener("mousemove", (e) => {
-      if (!isDragging) return;
-      const delta = e.clientX - dragStartX;
-      x = dragStartOffset + delta;
-      const half = getTrackWidth() / 2;
-      if (x > 0) x = x - half;
-      if (x < -half) x = x + half;
-      track.style.transform = `translateX(${x}px)`;
-    });
-    window.addEventListener("mouseup", () => {
-      if (!isDragging) return;
-      isDragging = false;
-      paused = false;
-      carousel.classList.remove("is-dragging");
-    });
-    carousel.addEventListener("touchstart", (e) => {
-      paused = true;
-      dragStartX = e.touches[0].clientX;
-      dragStartOffset = x;
-    }, { passive: true });
-    carousel.addEventListener("touchmove", (e) => {
-      const delta = e.touches[0].clientX - dragStartX;
-      x = dragStartOffset + delta;
-      const half = getTrackWidth() / 2;
-      if (x > 0) x = x - half;
-      if (x < -half) x = x + half;
-      track.style.transform = `translateX(${x}px)`;
-    }, { passive: true });
-    carousel.addEventListener("touchend", () => { paused = false; });
-
-    /* start when in view */
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !rafId) rafId = requestAnimationFrame(tick);
-        else if (!entry.isIntersecting && rafId) {
-          cancelAnimationFrame(rafId);
-          rafId = null;
-        }
-      });
-    }, { threshold: 0.2 });
-    obs.observe(carousel);
-  }
-
   const sections = page.querySelectorAll("[data-section]");
   const navLinks = page.querySelectorAll(".pcp-fixed-index a");
 
@@ -240,7 +150,7 @@
       duration: 1,
       ease: "power3.out",
       scrollTrigger: {
-        trigger: ".pcp-result-grid",
+        trigger: ".pcp-result-list",
         start: "top 85%"
       }
     });
@@ -263,4 +173,5 @@
       }
     );
   }
+
 })();

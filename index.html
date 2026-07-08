@@ -225,7 +225,7 @@
           </div>
           <div class="fcs-body">
             <p class="fcs-eyebrow">Case Study</p>
-            <h3 class="fcs-title">PetCare+ <em>care, daily</em></h3>
+            <h3 class="fcs-title">PetCare+</h3>
             <p class="fcs-desc">노령견·질환견 보호자가 매일 반복하는 복약, 식사, 증상 확인과 병원 일정을 한곳에서 관리할 수 있도록 설계한 반려견 케어 웹앱. 기록을 쌓는 것보다 <strong>오늘 해야 할 케어를 놓치지 않는 경험</strong>에 초점을 맞췄습니다.</p>
             <dl class="fcs-meta">
               <div><dt>Role</dt><dd>기획 · UX/UI · 퍼블리싱</dd></div>
@@ -250,7 +250,7 @@
           </div>
           <div class="fcs-body">
             <p class="fcs-eyebrow">Case Study</p>
-            <h3 class="fcs-title">QuietSkin <em>calm & restore</em></h3>
+            <h3 class="fcs-title">QuietSkin </h3>
             <p class="fcs-desc">'피부의 휴식과 조용한 회복'이라는 브랜드 방향을 바탕으로 제작한 뷰티 커머스 사이트. 브랜드 감성이 제품 탐색과 구매 흐름 안에서도 자연스럽게 이어지도록 콘텐츠 구조와 <strong>화면 경험을 설계</strong>했습니다.</p>
             <dl class="fcs-meta">
               <div><dt>Role</dt><dd>브랜드 기획 · UI/UX</dd></div>
@@ -274,7 +274,7 @@
           </div>
           <div class="fcs-body">
             <p class="fcs-eyebrow">Case Study</p>
-            <h3 class="fcs-title">NoTalk <em>meet without words</em></h3>
+            <h3 class="fcs-title">NoTalk</h3>
             <p class="fcs-desc">캐릭터와 뱃지로 텍스트 없이 나를 표현하는 소모임 앱. 언어 대신 시각 요소로 관심사를 연결하는 새로운 만남 방식을 설계했습니다. <strong>4인 팀 프로젝트</strong>로 기획부터 구현까지 협업했습니다.</p>
             <dl class="fcs-meta">
               <div><dt>Role</dt><dd>UI/UX · 인터랙션 설계</dd></div>
@@ -298,7 +298,7 @@
           </div>
           <div class="fcs-body">
             <p class="fcs-eyebrow">Case Study</p>
-            <h3 class="fcs-title">Black Desert <em>enter the world</em></h3>
+            <h3 class="fcs-title">Black Desert </h3>
             <p class="fcs-desc">검은사막의 세계관과 몰입감을 웹 경험으로 확장한 게임 사이트 리디자인. 던전 진입, 문 개방, 제단 연출 등 단계적인 인터랙션을 활용해 <strong>사용자가 콘텐츠에 자연스럽게 진입</strong>하도록 구성했습니다.</p>
             <dl class="fcs-meta">
               <div><dt>Role</dt><dd>UI/UX · 인터랙션 설계</dd></div>
@@ -676,9 +676,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
-    margin: 0 0 18px;
+    margin: 0 0 24px;
     border-top: 1px solid var(--line, rgba(255,255,255,0.13));
-    padding-top: 16px;
+    border-bottom: 1px solid var(--line, rgba(255,255,255,0.13));
+    padding: 16px 0;
   }
   .fcs-meta > div {
     display: flex;
@@ -769,14 +770,21 @@
     color: var(--text, #f4f5f8);
   }
 
-  /* ── 980px: 세로 전환 ── */
+  /* ── 980px: 세로 전환 — sticky 스택 대신 일반 스크롤 카드 ──
+     카드가 겹치며 버튼을 가리는 문제를 막기 위해 모바일에서는
+     position:sticky를 해제하고 순서대로 아래로 흐르게 합니다. */
   @media (max-width: 980px) {
+    .fcs-stack {
+      gap: 32px;
+    }
     .fcs-card {
+      position: relative;
+      top: auto;
+      z-index: auto;
       grid-template-columns: 1fr;
       grid-template-rows: auto 1fr;
-      min-height: 58svh;
+      min-height: 0;
       max-height: none;
-      top: var(--fcs-offset);
     }
     .fcs-img {
       height: 260px;              /* 세로 전환 시 이미지 고정 높이 */
@@ -787,7 +795,6 @@
 
   /* ── 560px ── */
   @media (max-width: 560px) {
-    .fcs-card { top: var(--fcs-offset); }
     .fcs-img  { height: 200px; }
     .fcs-body { padding: 22px 20px 28px; }
     .fcs-meta { grid-template-columns: 1fr 1fr; gap: 12px; }

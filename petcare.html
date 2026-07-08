@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
 
   <link rel="stylesheet" href="./css/style.css" />
@@ -77,6 +76,15 @@
             <div><dt>기간</dt><dd>2026.03 — 2026.06</dd></div>
             <div><dt>툴</dt><dd>Figma · Photoshop · Claude · Gemini</dd></div>
           </dl>
+
+          <div class="pcs-hero-links pcp-reveal">
+            <a href="https://hye0277-erin.github.io/petcare/" target="_blank" rel="noopener" class="pcs-btn pcs-btn--primary">
+              <span class="material-symbols-rounded">open_in_new</span>앱 보기
+            </a>
+            <a href="https://hye0277-erin.github.io/petcarelanding/" target="_blank" rel="noopener" class="pcs-btn pcs-btn--outline">
+              <span class="material-symbols-rounded">open_in_new</span>랜딩 보기
+            </a>
+          </div>
         </div>
 
         <!-- 오른쪽: 폰 목업 + 슬라이드쇼 -->
@@ -356,7 +364,7 @@
               <div class="pcp-typo-item">
                 <span class="pcp-typo-label">Accent</span>
                 <span class="pcp-typo-sample pcp-typo-sample--serif"><em>Aa</em></span>
-                <span class="pcp-typo-meta">Instrument Serif</span>
+                <span class="pcp-typo-meta">Pretendard 400</span>
               </div>
               <div class="pcp-typo-item">
                 <span class="pcp-typo-label">Body</span>
@@ -543,61 +551,97 @@
           </p>
         </div>
 
-        <div class="pcp-result-grid">
-          <article class="pcp-result-card pcp-reveal">
-            <strong>RESULT 01</strong>
-            <b>서비스 흐름 정리</b>
-            <p>오늘의 케어 확인 → 기록 → 일정 관리 → 진료 전 건강 확인으로 이어지는 핵심 사용자 흐름을 구축했습니다.</p>
-          </article>
-          <article class="pcp-result-card pcp-reveal">
-            <strong>RESULT 02</strong>
-            <b>확장 가능한 UI 구조</b>
-            <p>반복되는 기록·일정 요소를 공통 컴포넌트로 정리해 새로운 케어 항목이나 기능을 추가할 수 있는 기반을 만들었습니다.</p>
-          </article>
-          <article class="pcp-result-card pcp-reveal">
-            <strong>RESULT 03</strong>
-            <b>실제 데이터 기반 프로토타입</b>
-            <p>Supabase로 일정 데이터가 저장되고 상태가 바뀌는 기능을 직접 구현해 화면 설계와 실제 동작을 연결했습니다.</p>
-          </article>
-        </div>
-
-        <div class="pcp-rolling-carousel-wrap pcp-reveal">
-        <div class="pcp-rolling-carousel" id="pcpCarousel">
-          <div class="pcp-rolling-track">
-            <figure class="pcp-rolling-item" data-caption="홈 대시보드">
-              <img src="./images/petcare/app_main.jpg" alt="PetCare+ 홈 화면" />
-              <figcaption>홈 대시보드</figcaption>
-            </figure>
-            <figure class="pcp-rolling-item" data-caption="케어 일정">
-              <img src="./images/petcare/app_schejul.jpg" alt="PetCare+ 일정 화면" />
-              <figcaption>케어 일정</figcaption>
-            </figure>
-            <figure class="pcp-rolling-item" data-caption="건강 기록">
-              <img src="./images/petcare/app_record.jpg" alt="PetCare+ 기록 화면" />
-              <figcaption>건강 기록</figcaption>
-            </figure>
-            <figure class="pcp-rolling-item" data-caption="병원 일정">
-              <img src="./images/petcare/app_hospital.jpg" alt="PetCare+ 병원 일정 화면" />
-              <figcaption>병원 일정</figcaption>
-            </figure>
-            <figure class="pcp-rolling-item" data-caption="기록 추가">
-              <img src="./images/petcare/app_record_add.jpg" alt="PetCare+ 기록 추가 화면" />
-              <figcaption>기록 추가</figcaption>
-            </figure>
-            <figure class="pcp-rolling-item" data-caption="건강 리포트">
-              <img src="./images/petcare/app_report.jpg" alt="PetCare+ 리포트 화면" />
-              <figcaption>건강 리포트</figcaption>
-            </figure>
-            <figure class="pcp-rolling-item" data-caption="설정">
-              <img src="./images/petcare/app_setting.jpg" alt="PetCare+ 설정 화면" />
-              <figcaption>설정</figcaption>
-            </figure>
-            <figure class="pcp-rolling-item" data-caption="일정 추가">
-              <img src="./images/petcare/app_schejul_add.jpg" alt="PetCare+ 일정 추가 화면" />
-              <figcaption>일정 추가</figcaption>
-            </figure>
+        <div class="pcp-result-layout">
+          <div class="pcp-result-copy pcp-reveal">
+            <div class="pcp-result-list">
+              <article class="pcp-result-card pcp-reveal">
+                <strong>RESULT 01</strong>
+                <b>서비스 흐름 정리</b>
+                <p>오늘의 케어 확인 → 기록 → 일정 관리 → 진료 전 건강 확인으로 이어지는 핵심 사용자 흐름을 구축했습니다.</p>
+              </article>
+              <article class="pcp-result-card pcp-reveal">
+                <strong>RESULT 02</strong>
+                <b>확장 가능한 UI 구조</b>
+                <p>반복되는 기록·일정 요소를 공통 컴포넌트로 정리해 새로운 케어 항목이나 기능을 추가할 수 있는 기반을 만들었습니다.</p>
+              </article>
+              <article class="pcp-result-card pcp-reveal">
+                <strong>RESULT 03</strong>
+                <b>실제 데이터 기반 프로토타입</b>
+                <p>Supabase로 일정 데이터가 저장되고 상태가 바뀌는 기능을 직접 구현해 화면 설계와 실제 동작을 연결했습니다.</p>
+              </article>
+            </div>
           </div>
-        </div>
+
+          <div class="pcp-result-flow-track pcp-reveal" aria-label="PetCare+ 화면 미리보기">
+            <div class="pcp-flow-column pcp-flow-column-a">
+              <figure class="pcp-flow-item">
+                <img src="./images/petcare/app_main.jpg" alt="PetCare+ 홈 화면" loading="lazy" />
+                <figcaption>홈 대시보드</figcaption>
+              </figure>
+              <figure class="pcp-flow-item">
+                <img src="./images/petcare/app_record.jpg" alt="PetCare+ 기록 화면" loading="lazy" />
+                <figcaption>건강 기록</figcaption>
+              </figure>
+              <figure class="pcp-flow-item">
+                <img src="./images/petcare/app_record_add.jpg" alt="PetCare+ 기록 추가 화면" loading="lazy" />
+                <figcaption>기록 추가</figcaption>
+              </figure>
+              <figure class="pcp-flow-item">
+                <img src="./images/petcare/app_setting.jpg" alt="PetCare+ 설정 화면" loading="lazy" />
+                <figcaption>설정</figcaption>
+              </figure>
+              <figure class="pcp-flow-item" aria-hidden="true">
+                <img src="./images/petcare/app_main.jpg" alt="" loading="lazy" />
+                <figcaption>홈 대시보드</figcaption>
+              </figure>
+              <figure class="pcp-flow-item" aria-hidden="true">
+                <img src="./images/petcare/app_record.jpg" alt="" loading="lazy" />
+                <figcaption>건강 기록</figcaption>
+              </figure>
+              <figure class="pcp-flow-item" aria-hidden="true">
+                <img src="./images/petcare/app_record_add.jpg" alt="" loading="lazy" />
+                <figcaption>기록 추가</figcaption>
+              </figure>
+              <figure class="pcp-flow-item" aria-hidden="true">
+                <img src="./images/petcare/app_setting.jpg" alt="" loading="lazy" />
+                <figcaption>설정</figcaption>
+              </figure>
+            </div>
+            <div class="pcp-flow-column pcp-flow-column-b">
+              <figure class="pcp-flow-item">
+                <img src="./images/petcare/app_schejul.jpg" alt="PetCare+ 일정 화면" loading="lazy" />
+                <figcaption>케어 일정</figcaption>
+              </figure>
+              <figure class="pcp-flow-item">
+                <img src="./images/petcare/app_hospital.jpg" alt="PetCare+ 병원 일정 화면" loading="lazy" />
+                <figcaption>병원 일정</figcaption>
+              </figure>
+              <figure class="pcp-flow-item">
+                <img src="./images/petcare/app_report.jpg" alt="PetCare+ 리포트 화면" loading="lazy" />
+                <figcaption>건강 리포트</figcaption>
+              </figure>
+              <figure class="pcp-flow-item">
+                <img src="./images/petcare/app_schejul_add.jpg" alt="PetCare+ 일정 추가 화면" loading="lazy" />
+                <figcaption>일정 추가</figcaption>
+              </figure>
+              <figure class="pcp-flow-item" aria-hidden="true">
+                <img src="./images/petcare/app_schejul.jpg" alt="" loading="lazy" />
+                <figcaption>케어 일정</figcaption>
+              </figure>
+              <figure class="pcp-flow-item" aria-hidden="true">
+                <img src="./images/petcare/app_hospital.jpg" alt="" loading="lazy" />
+                <figcaption>병원 일정</figcaption>
+              </figure>
+              <figure class="pcp-flow-item" aria-hidden="true">
+                <img src="./images/petcare/app_report.jpg" alt="" loading="lazy" />
+                <figcaption>건강 리포트</figcaption>
+              </figure>
+              <figure class="pcp-flow-item" aria-hidden="true">
+                <img src="./images/petcare/app_schejul_add.jpg" alt="" loading="lazy" />
+                <figcaption>일정 추가</figcaption>
+              </figure>
+            </div>
+          </div>
         </div>
       </div>
     </section>
