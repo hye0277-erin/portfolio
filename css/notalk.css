@@ -57,11 +57,6 @@
 .ntk-page img { display: block; max-width: 100%; }
 .ntk-page button { font-family: inherit; cursor: pointer; }
 
-/* 커서 끄기 */
-body:has(.ntk-page) .cursor-dot,
-body:has(.ntk-page) .cursor-ring { display: none !important; }
-body:has(.ntk-page), body:has(.ntk-page) * { cursor: auto !important; }
-
 /* 스크롤톱 버튼 */
 body:has(.ntk-page) .scroll-top-btn {
   background: var(--n-grad); border-color: transparent; color: #fff;
